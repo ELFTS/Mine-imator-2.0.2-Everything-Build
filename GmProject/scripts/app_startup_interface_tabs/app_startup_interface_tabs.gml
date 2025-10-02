@@ -103,6 +103,8 @@ function app_startup_interface_tabs()
 			
 			tbx_aa_power = new_textbox_integer()
 			tbx_aa_power.suffix = "%"
+			tbx_smaa_power = new_textbox_integer()
+			tbx_smaa_power.suffix = "%"
 			
 			tbx_dof_sample = new_textbox_integer()
 			tbx_dof_ghostingfix_threshold = new_textbox_integer()
@@ -170,6 +172,8 @@ function app_startup_interface_tabs()
 			tbx_sky_moon_scale.suffix = "%"
 			tbx_sunlight_strength = new_textbox_integer()
 			tbx_sunlight_strength.suffix = "%"
+			tbx_sunlight_specular_strength = new_textbox_integer()
+			tbx_sunlight_specular_strength.suffix = "%"
 			tbx_sunlight_angle = new_textbox_decimals()
 			tbx_sunlight_angle.suffix = "°"
 			tbx_sky_clouds_height = new_textbox_ndecimals()
@@ -567,6 +571,8 @@ function app_startup_interface_tabs()
 			tbx_modifier_shake_speed = new_textbox_decimals()
 			tbx_modifier_shake_speed.suffix = "%"
 			tbx_modifier_shake_offset = new_textbox_decimals()
+			tbx_modifier_shake_keyframe_influence = new_textbox_decimals()
+			tbx_modifier_shake_keyframe_influence.suffix = "%"
 			tbx_modifier_frameskip_value = new_textbox_decimals()
 			tbx_modifier_frameskip_value.suffix = "frame"
 		}

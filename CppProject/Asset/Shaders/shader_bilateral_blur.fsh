@@ -42,7 +42,7 @@ void main()
             vec3 sampleColor = texture2D(uIndirectTex, sampleCoord).rgb;
 			
 			// Black Color artifact fix
-			if (length(sampleColor) == 0.0)
+			if (length(sampleColor) <= 0.0)
 				continue;
 			
             float sampleDepth = unpackDepth(texture2D(uDepthBuffer, sampleCoord));
@@ -55,6 +55,7 @@ void main()
 			
 			float depthDiff = abs(centerDepth - sampleDepth);
 			
+			// Ghosting fix
 			if (depthDiff > 0.002) 
 				continue;
 

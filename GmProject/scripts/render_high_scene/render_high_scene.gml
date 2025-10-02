@@ -40,22 +40,30 @@ function render_high_scene()
 		render_pass_surf = surface_duplicate(masksurf)
 	
 	// Render lighting mask for background
-	surface_set_target(masksurf)
-	{
-		draw_clear(c_black)
-		render_world_start()
-		render_world(e_render_mode.SCENE_TEST)
-		render_world_done()
+	if (!project_render_performance_mode_skipsky || !project_render_performance_mode) {
+		surface_set_target(masksurf)
+		{
+			draw_clear(c_black)
+			render_world_start()
+			render_world(e_render_mode.SCENE_TEST)
+			render_world_done()
 		
-		// 2D mode
-		render_set_projection_ortho(0, 0, render_width, render_height, 0)
+			// 2D mode
+			render_set_projection_ortho(0, 0, render_width, render_height, 0)
 		
-		// Alpha fix
-		gpu_set_blendmode_ext(bm_src_color, bm_one) 
-		draw_box(0, 0, render_width, render_height, false, c_black, 1)
-		gpu_set_blendmode(bm_normal)
+			// Alpha fix
+			gpu_set_blendmode_ext(bm_src_color, bm_one) 
+			draw_box(0, 0, render_width, render_height, false, c_black, 1)
+			gpu_set_blendmode(bm_normal)
+		}
+		surface_reset_target()
+	} else {
+		surface_set_target(masksurf)
+		{
+			draw_clear(c_white)
+		}
+		surface_reset_target()
 	}
-	surface_reset_target()
 	
 	// Composite
 	surface_set_target(resultsurf)

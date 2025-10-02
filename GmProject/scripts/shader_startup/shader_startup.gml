@@ -85,6 +85,7 @@ function shader_startup()
 		new_shader("shader_high_indirect_blur")
 		new_shader("shader_high_indirect_blur_EX")
 		new_shader("shader_bilateral_blur")
+		new_shader("shader_SMAA_Antialiasing")
 		new_shader("shader_tonemap")
 		new_shader("shader_clip")
 		new_shader("shader_high_glint")
@@ -424,6 +425,7 @@ function shader_startup()
 		new_shader_uniform("uRadius")
 		new_shader_uniform("uPower")
 		new_shader_uniform("uColor")
+		new_shader_uniform("uPerformanceMode")
 	}
 	
 	with (shader_map[?shader_high_ssao_EX])
@@ -447,6 +449,7 @@ function shader_startup()
 		new_shader_uniform("uRatio")
 		new_shader_uniform("uRatioBalance")
 		new_shader_uniform("uSampleStep")
+		new_shader_uniform("uPerformanceMode")
 	}
 	
 	with (shader_map[?shader_color_glow])
@@ -728,6 +731,13 @@ function shader_startup()
 		new_shader_uniform("uTonemapper")
 		new_shader_uniform("uExposure")
 		new_shader_uniform("uGamma")
+	}
+	
+	with (shader_map[?shader_SMAA_Antialiasing])
+	{
+		new_shader_sampler("uScreen")
+		new_shader_uniform("uPower")
+		new_shader_uniform("uResolution")
 	}
 	
 	with (shader_map[?shader_clip])

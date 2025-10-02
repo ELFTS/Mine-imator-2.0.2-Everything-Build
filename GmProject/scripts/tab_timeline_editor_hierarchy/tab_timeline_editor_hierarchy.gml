@@ -93,6 +93,23 @@ function tab_timeline_editor_hierarchy()
 		
 		tab_set_collumns(false)
 		
+		// Modifier
+		if (tl_edit.value_type[e_value_type.MODIFIER] && setting_advanced_mode)
+		{
+			tab_control(16)
+			draw_label(text_get("timelineeditorinheritmodifier"), dx, dy + 8, fa_left, fa_middle, c_text_tertiary, a_text_tertiary, font_subheading)
+			tab_next()
+			tab_set_collumns(true, floor(content_width/150))
+			
+			// Frame Skip
+			tab_control_checkbox()
+			draw_checkbox("timelineeditorinheritmodifierframeskip", dx, dy, tl_edit.inherit_modifier_frameskip, action_tl_inherit_modifier_frameskip)
+			tab_next()
+		
+			tab_set_collumns(false)
+			dy += 4
+		}
+		
 		// Scale mode (Advanced mode only)
 		if (tl_edit.value_type[e_value_type.TRANSFORM_SCA] && tl_edit.inherit_scale && setting_advanced_mode)
 		{

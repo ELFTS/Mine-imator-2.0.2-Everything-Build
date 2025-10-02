@@ -474,9 +474,6 @@ void main()
             
             spec = uLightColor.rgb * shadow * uLightSpecular * dif * (specular * mix(vec3(1.0), baseColor.rgb, metallic));
         }
-        
-        // Add emissive component
-        light += baseColor.rgb * emissive;
     }
     
     // Output

@@ -84,7 +84,11 @@ function tab_settings_interface()
 	draw_switch("settingsreducedmotion", dx, dy, setting_reduced_motion, action_setting_reduced_motion)
 	tab_next()
 	
-	dy += label_height + 6
+	tab_control_switch()
+	draw_switch("settingsfocustotimelinecam", dx, dy, setting_focus_to_timeline_cam, action_setting_focus_to_timeline_cam, "settingsfocustotimelinecamtip")
+	tab_next()
+	
+	dy += label_height + 12
 	draw_label(text_get("settingstimeline"), dx, dy, fa_left, fa_bottom, c_text_tertiary, a_text_tertiary, font_label) 
 	dy += 8
 	

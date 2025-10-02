@@ -8,6 +8,10 @@ function project_save_render()
 		json_save_var("render_samples", project_render_samples)
 		json_save_var("render_distance", project_render_distance)
 		
+		json_save_var_bool("render_performance_mode", project_render_performance_mode)
+		json_save_var_bool("render_performance_mode_skipfog", project_render_performance_mode_skipfog)
+		json_save_var_bool("render_performance_mode_skipsky", project_render_performance_mode_skipsky)
+		
 		json_save_var_bool("render_ssao", project_render_ssao)
 		json_save_var("render_ssao_samples", project_render_ssao_samples)
 		json_save_var("render_ssao_radius", project_render_ssao_radius)
@@ -59,10 +63,13 @@ function project_save_render()
 		
 		json_save_var_bool("render_aa", project_render_aa)
 		json_save_var("render_aa_power", project_render_aa_power)
+		json_save_var_bool("render_smaa", project_render_smaa)
+		json_save_var("render_smaa_power", project_render_smaa_power)
 		
 		json_save_var("render_dof_sample", project_render_dof_sample)
 		json_save_var_bool("render_dof_ghostingfix", project_render_dof_ghostingfix)
 		json_save_var("render_dof_ghostingfix_threshold", project_render_dof_ghostingfix_threshold)
+		json_save_var_bool("render_dof_affect_glow", project_render_dof_affect_glow)
 		
 		json_save_var_bool("render_motionblur", project_render_motionblur)
 		json_save_var("render_motionblur_power", project_render_motionblur_power)

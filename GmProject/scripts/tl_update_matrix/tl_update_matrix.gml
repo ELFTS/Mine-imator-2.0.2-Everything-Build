@@ -7,12 +7,10 @@
 function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
 {
 	var start, curtl, tlamount, bend, pos, rot, sca, par, matrixnoscale, hasik, lasttex, ikblend, posebend;
-	var inhalpha, inhcolor, inhglowcolor, inhvis, inhbend, inhtex, inhsurf, inhsubsurf;
-	var shakestrength, shakepos, shakerot, shakebend, shakeoffset;
-	var isframeskip;
+	var inhalpha, inhcolor, inhglowcolor, inhvis, inhbend, inhtex, inhsurf, inhsubsurf, inhmodifierframeskip;
+	var shakepos, shakerot, shakebend;
 	tlamount = ds_list_size(app.project_timeline_list)
 	posebend = [0, 0, 0]
-	isframeskip = false
 	
 	if (object_index = obj_timeline)
 		start = ds_list_find_index(app.project_timeline_list, id)
@@ -26,6 +24,9 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
 	{
 		curtl = app.project_timeline_list[|i]
 		
+		if(!instance_exists(curtl))
+			continue
+		
 		// Update children
 		if (updateik && !updatepose && (curtl.type = e_tl_type.CHARACTER || curtl.type = e_tl_type.SPECIAL_BLOCK || curtl.type = e_tl_type.MODEL))
 			for (var t = 0; t < ds_list_size(curtl.tree_list); t++)
@@ -33,20 +34,33 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
 					array_add(app.project_inherit_pose_array, curtl.tree_list[|t])
 			
 		// Force update for shake modifier check
-		if (curtl.value[e_value.MODIFIER_SHAKE] && curtl.value[e_value.MODIFIER_SHAKE_INTENSITY] != 0) {
+		if (curtl.modifier_shake) {
 			curtl.update_matrix = true
 		}
 	
 		// Frame Skip modifier check
-		if (curtl.value[e_value.MODIFIER_FRAMESKIP] && (!curtl.selected && !curtl.parent_is_selected)) {
-			if (curtl.value[e_value.MODIFIER_FRAMESKIP_VALUE] > 0) {
-				curtl.frameskip_before = round(curtl.frameskip_before / curtl.value[e_value.MODIFIER_FRAMESKIP_VALUE])
+		if (((curtl.value[e_value.MODIFIER_FRAMESKIP]) || curtl.value_inherit[e_value.MODIFIER_FRAMESKIP]) && (!curtl.selected && !curtl.parent_is_selected)) {
+			//Inherit Frame Skip
+			if (curtl.value_inherit[e_value.MODIFIER_FRAMESKIP] && curtl.inherit_modifier_frameskip) {
+				if (curtl.value_inherit[e_value.MODIFIER_FRAMESKIP_VALUE] > 0) {
+					curtl.frameskip_before = round(curtl.frameskip_before / curtl.value_inherit[e_value.MODIFIER_FRAMESKIP_VALUE])
 				
-				if (round(app.timeline_marker / curtl.value[e_value.MODIFIER_FRAMESKIP_VALUE]) == curtl.frameskip_before)
-					isframeskip = true
-					curtl.update_matrix = false
+					if (round(app.timeline_marker / curtl.value_inherit[e_value.MODIFIER_FRAMESKIP_VALUE]) == curtl.frameskip_before)
+						curtl.update_matrix = false
 					
-				curtl.frameskip_before = app.timeline_marker
+					curtl.frameskip_before = app.timeline_marker
+				}
+			}
+			else
+			{
+				if (curtl.value[e_value.MODIFIER_FRAMESKIP_VALUE] > 0) {
+					curtl.frameskip_before = round(curtl.frameskip_before / curtl.value[e_value.MODIFIER_FRAMESKIP_VALUE])
+				
+					if (round(app.timeline_marker / curtl.value[e_value.MODIFIER_FRAMESKIP_VALUE]) == curtl.frameskip_before)
+						curtl.update_matrix = false
+					
+					curtl.frameskip_before = app.timeline_marker
+				}
 			}
 		}
 		
@@ -54,24 +68,9 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
 			continue
 		
 		// Create shake modifier value
-		shakestrength = curtl.value[e_value.MODIFIER_SHAKE_INTENSITY]
-		shakeoffset = curtl.value[e_value.MODIFIER_SHAKE_OFFSET]
-			
-		shakepos = vec3(0)
-		shakerot = vec3(0)
-		shakebend = vec3(0)
-			
-		// Shake Modifier
-		if (shakestrength != 0) {
-			if (curtl.value[e_value.MODIFIER_SHAKE_POSITION])
-				shakepos = generate_shake_value(curtl.modifier_step, shakestrength, shakeoffset)
-				
-			if (curtl.value[e_value.MODIFIER_SHAKE_ROTATION])
-				shakerot = generate_shake_value(curtl.modifier_step, shakestrength, shakeoffset + 100)
-				
-			if (curtl.value[e_value.MODIFIER_SHAKE_BEND])
-				shakebend = generate_shake_value(curtl.modifier_step, shakestrength, shakeoffset + 200)
-		}
+		shakepos = curtl.modifier_shake_pos
+		shakerot = curtl.modifier_shake_rot
+		shakebend = curtl.modifier_shake_bend
 		
 		// Delay timeline update if we inherit pose
 		if (updateik && !updatepose && (array_length(app.project_inherit_pose_array) > 0) && array_contains(app.project_inherit_pose_array, curtl))
@@ -315,6 +314,8 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
 			value_inherit[e_value.TEXTURE_OBJ] = value[e_value.TEXTURE_OBJ] // Overwritten
 			value_inherit[e_value.TEXTURE_MATERIAL_OBJ] = value[e_value.TEXTURE_MATERIAL_OBJ] // Overwritten
 			value_inherit[e_value.TEXTURE_NORMAL_OBJ] = value[e_value.TEXTURE_NORMAL_OBJ] // Overwritten
+			value_inherit[e_value.MODIFIER_FRAMESKIP] = value[e_value.MODIFIER_FRAMESKIP] // Overwritten
+			value_inherit[e_value.MODIFIER_FRAMESKIP_VALUE] = value[e_value.MODIFIER_FRAMESKIP_VALUE] // Overwritten
 			
 			inhalpha = true
 			inhcolor = true
@@ -324,6 +325,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
 			inhtex = true
 			inhsurf = true
 			inhsubsurf = true
+			inhmodifierframeskip = true
 			tl = id
 			
 			for (var j = X; j <= Z; j++)
@@ -358,6 +360,9 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
 				
 				if (!tl.inherit_subsurface)
 					inhsubsurf = false
+				
+				if (!tl.inherit_modifier_frameskip)
+					inhmodifierframeskip = false
 				
 				if (inhalpha)
 					value_inherit[e_value.ALPHA] *= par.value[e_value.ALPHA]
@@ -425,6 +430,12 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
 					value_inherit[e_value.TEXTURE_OBJ] = par.value[e_value.TEXTURE_OBJ]
 				
 				value_inherit[e_value.WIND_INFLUENCE] *= par.value[e_value.WIND_INFLUENCE]
+				
+				if (inhmodifierframeskip)
+				{
+					value_inherit[e_value.MODIFIER_FRAMESKIP] = par.value[e_value.MODIFIER_FRAMESKIP]
+					value_inherit[e_value.MODIFIER_FRAMESKIP_VALUE] = par.value[e_value.MODIFIER_FRAMESKIP_VALUE]
+				}
 				
 				tl = par
 			}

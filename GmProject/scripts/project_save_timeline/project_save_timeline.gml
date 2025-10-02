@@ -128,6 +128,7 @@ function project_save_timeline()
 				json_save_var_bool("glow_color", inherit_glow_color)
 				json_save_var_bool("select", inherit_select)
 				json_save_var_bool("pose", inherit_pose)
+				json_save_var_bool("modifier_frameskip", inherit_modifier_frameskip)
 			json_save_object_done()
 			
 			json_save_var_bool("scale_resize", scale_resize)
@@ -156,7 +157,7 @@ function project_save_timeline()
 			json_save_var_save_id("glint_tex", glint_tex)
 			json_save_var_bool("fog", fog)
 			
-			if (type = e_temp_type.SCENERY || type = e_temp_type.BLOCK || type = e_temp_type.PARTICLE_SPAWNER || type = e_temp_type.TEXT || type_is_shape(type))
+			if (type = e_temp_type.SCENERY || type = e_temp_type.BLOCK || type = e_temp_type.PARTICLE_SPAWNER || type = e_temp_type.TEXT || type = e_tl_type.PATH || type_is_shape(type))
 			{
 				json_save_var_bool("wind", wind)
 				json_save_var_bool("wind_terrain", wind_terrain)

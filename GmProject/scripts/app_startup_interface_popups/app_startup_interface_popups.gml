@@ -80,6 +80,7 @@ function app_startup_interface_popups()
 		frame_rate = app.setting_export_movie_frame_rate
 		framespersecond = app.setting_export_movie_framespersecond
 		bit_rate = app.setting_export_movie_bit_rate
+		video_quality_bitrate = 90
 		video_quality = find_videoquality(bit_rate)
 		include_audio = app.setting_export_movie_include_audio
 		remove_background = app.setting_export_movie_remove_background
@@ -87,10 +88,12 @@ function app_startup_interface_popups()
 		high_quality = app.setting_export_movie_high_quality
 		watermark = app.setting_export_movie_watermark
 		optimization = app.setting_export_optimization
+		colortype = app.setting_export_movie_colortype
 		tbx_video_size_custom_width = new_textbox_integer()
 		tbx_video_size_custom_height = new_textbox_integer()
 		tbx_framespersecond = new_textbox_integer()
-		tbx_bit_rate = new_textbox_integer()
+		tbx_video_quality_bitrate = new_textbox_decimals()
+		tbx_video_quality_bitrate.suffix = "%"
 	}
 	
 	// Export image

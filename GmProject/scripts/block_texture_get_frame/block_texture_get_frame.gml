@@ -8,7 +8,7 @@ function block_texture_get_frame(realtime = false)
 		return 0
 	else
 	{
-		return floor(
+		var result = floor(
 			snap(
 				mod_fix(
 					(realtime ? current_step : app.background_time) * (app.background_texture_animation_speed / 60),
@@ -16,5 +16,8 @@ function block_texture_get_frame(realtime = false)
 				), 0.001 * abs(app.background_texture_animation_speed) // correct precision errors
 			)
 		)
+		if (result >= round(minecraft_block_animated_sheet_size[2]))
+			result = round(result) - 0.0001
+		return result
 	}
 }

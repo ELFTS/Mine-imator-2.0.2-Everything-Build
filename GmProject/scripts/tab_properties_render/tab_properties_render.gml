@@ -17,14 +17,45 @@ function tab_properties_render()
 	if (project_render_settings != "")
 		return 0
 	
-	dy += 8
+	dy += small_spacing
 	
-	//Render Engine
+	// Render Engine
 	tab_control_togglebutton()
 	togglebutton_add("renderenginevanilla", null, false, !project_render_engine, action_project_render_engine, tab.render.tbx_render_engine)
 	togglebutton_add("renderengineex", null, true, project_render_engine, action_project_render_engine, tab.render.tbx_render_engine)
 	draw_togglebutton("renderengine", dx, dy, true, true)
 	tab_next()
+
+	// Performance Mode
+	if (setting_unstable_features) {
+		// Warn users
+		dy -= 3
+		draw_button_label("settingsunstablefeatureslabelwarning", dx, dy, dw, icons.WARNING_TRIANGLE, e_button.LABEL, action_filepath_mineimator, null, true)
+		tab_next()
+		dy -= 10
+		
+		tab_control_switch()
+		draw_button_collapse("perfmode", collapse_map[?"perfmode"], action_project_render_performance_mode, project_render_performance_mode, "renderperformancemode", "renderperformancemodetip")
+		tab_next()
+		
+		if (project_render_performance_mode && collapse_map[?"perfmode"])
+		{
+			tab_collapse_start()
+			
+			// Skip Fog Check
+			tab_control_switch()
+			draw_switch("renderperformancemodeskipfog", dx, dy, project_render_performance_mode_skipfog, action_project_render_performance_mode_skipfog)
+			tab_next()
+			
+			// Skip Sky Check
+			tab_control_switch()
+			draw_switch("renderperformancemodeskipsky", dx, dy, project_render_performance_mode_skipsky, action_project_render_performance_mode_skipsky)
+			tab_next()
+		
+			tab_collapse_end()
+		}
+		
+	}
 	
 	// Render distance
 	tab_control_dragger()
@@ -134,7 +165,7 @@ function tab_properties_render()
 			tab_control_switch()
 			draw_switch("rendersubsurfacescatterquality2", dx, dy, project_render_subsurface_quality, action_project_render_subsurface_quality, "rendersubsurfacescatterquality2tip")
 			tab_next()
-			dy += 10
+			dy += small_spacing
 		}
 		
 		tab_control_meter()
@@ -158,7 +189,7 @@ function tab_properties_render()
 			draw_dragger("rendersubsurfacescattercolorthreshold", dx, dy, dragger_width, round(project_render_subsurface_colorthreshold * 100), 0.1, 0, 100, 0, 1, tab.render.tbx_subsurface_colorthreshold, action_project_render_subsurface_colorthreshold, null, true, false, "rendersubsurfacescattercolorthresholdtip")
 			tab_next()
 		
-			dy += 10
+			dy += small_spacing
 		}
 		
 		tab_control_meter()
@@ -182,7 +213,7 @@ function tab_properties_render()
 			draw_dragger("rendersubsurfacescatterhighlightcolorthreshold", dx, dy, dragger_width, round(project_render_subsurface_highlight_colorthreshold * 100), 0.1, 0, 100, 0.1, 1, tab.render.tbx_subsurface_highlight_colorthreshold, action_project_render_subsurface_highlight_colorthreshold)
 			tab_next()
 		
-			dy += 10
+			dy += small_spacing
 			
 			tab_control_meter()
 			draw_meter("rendersubsurfacescatterabsorption", dx, dy, dw, round(project_render_subsurface_absorption * 100), 0, 100, 25, 1, tab.render.tbx_subsurface_absorption, action_project_render_subsurface_absorption, "rendersubsurfacescatterabsorptiontip")
@@ -227,7 +258,7 @@ function tab_properties_render()
 			tab_next()
 		}
 		
-		dy += 10
+		dy += small_spacing
 		
 		tab_control_switch()
 		draw_button_collapse("indirectdenoiser", collapse_map[?"indirectdenoiser"], action_project_render_indirect_denoiser, project_render_indirect_denoiser, "renderindirectdenoiser", "renderindirectdenoisertip")
@@ -329,6 +360,19 @@ function tab_properties_render()
 		tab_control_meter()
 		draw_meter("renderaapower", dx, dy, dw, round(project_render_aa_power * 100), 0, 300, 100, 1, tab.render.tbx_aa_power, action_project_render_aa_power)
 		tab_next()
+		
+		tab_control_switch()
+		draw_button_collapse("smaa", collapse_map[?"smaa"], action_project_render_smaa, project_render_smaa, "rendersmaa", "rendersmaatip")
+		tab_next()
+		
+		if (project_render_smaa && collapse_map[?"smaa"])
+		{
+			tab_collapse_start()
+			tab_control_meter()
+			draw_meter("rendersmaapower", dx, dy, dw, round(project_render_smaa_power * 100), 0, 100, 100, 1, tab.render.tbx_smaa_power, action_project_render_smaa_power)
+			tab_next()
+			tab_collapse_end()
+		}
 		
 		tab_collapse_end()
 	}
@@ -462,6 +506,10 @@ function tab_properties_render()
 		
 			tab_control_switch()
 			draw_switch("renderextrasettingsdofghostingfix", dx, dy, project_render_dof_ghostingfix, action_project_render_dof_ghostingfix, "renderextrasettingsdofghostingfixtip")
+			tab_next()
+		
+			tab_control_switch()
+			draw_switch("renderextrasettingsdofaffectglow", dx, dy, project_render_dof_affect_glow, action_project_render_dof_affect_glow, "renderextrasettingsdofaffectglowtip")
 			tab_next()
 				
 			if (project_render_dof_ghostingfix) {

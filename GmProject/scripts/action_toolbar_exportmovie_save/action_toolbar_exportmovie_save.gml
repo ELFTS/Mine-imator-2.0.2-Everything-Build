@@ -46,8 +46,9 @@ function action_toolbar_exportmovie_save()
 		log("Audio", yesno(popup_exportmovie.include_audio))
 		log("High Quality", yesno(exportmovie_high_quality))
 		log("Size", project_video_width, project_video_height)
+		log("Color type", (popup_exportmovie.colortype) ? "Full Color" : "Limited")
 		
-		movie_set(project_video_width, project_video_height, popup_exportmovie.bit_rate, exportmovie_framespersecond, popup_exportmovie.include_audio)
+		movie_set(project_video_width, project_video_height, popup_exportmovie.bit_rate, exportmovie_framespersecond, popup_exportmovie.include_audio, popup_exportmovie.colortype)
 		var err = movie_start(fn, fmt);
 		if (err < 0)
 		{
@@ -85,6 +86,9 @@ function action_toolbar_exportmovie_save()
 			
 			with (obj_timeline)
 			{
+				// Reset step for advanced user for it's VFX editing & making it consistent
+				modifier_step = 0
+				
 				if (type != e_tl_type.AUDIO || (hide && !render_hidden))
 					continue
 				

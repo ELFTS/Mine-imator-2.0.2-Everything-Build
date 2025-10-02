@@ -56,8 +56,18 @@ function tab_frame_editor_modifier()
 				draw_dragger("frameeditormodifiershakespeed", dx, dy, dragger_width, round(tl_edit.value[e_value.MODIFIER_SHAKE_SPEED] * 1000) / 10, 0.1, 0, no_limit, 1, 0.1, tab.constraints.tbx_modifier_shake_speed, action_tl_frame_modifier_shake_speed)
 				tab_next()
 				
+				dy += small_spacing
 				tab_control_dragger()
 				draw_dragger("frameeditormodifiershakeoffset", dx, dy, dragger_width, round(tl_edit.value[e_value.MODIFIER_SHAKE_OFFSET] * 100) / 100, 0.1, -no_limit, no_limit, 0, 0.01, tab.constraints.tbx_modifier_shake_offset, action_tl_frame_modifier_shake_offset)
+				tab_next()
+				
+				tab_control_switch()
+				draw_switch("frameeditormodifiershakeoffsetautomatic", dx, dy, tl_edit.value[e_value.MODIFIER_SHAKE_OFFSET_AUTOMATIC], action_tl_frame_modifier_shake_offset_automatic)
+				tab_next()
+				dy += small_spacing
+				
+				tab_control_dragger()
+				draw_dragger("frameeditormodifiershakekeyframeinfluence", dx, dy, dragger_width, tl_edit.value[e_value.MODIFIER_SHAKE_KEYFRAME_INFLUENCE] * 100, 1, 0, 100, 0, 0.1, tab.constraints.tbx_modifier_shake_keyframe_influence, action_tl_frame_modifier_keyframe_influence, null, true, false, "frameeditormodifiershakekeyframeinfluencetip")
 				tab_next()
 		
 			tab_collapse_end()

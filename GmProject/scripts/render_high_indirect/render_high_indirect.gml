@@ -10,7 +10,7 @@ function render_high_indirect()
 		gpu_set_texrepeat(false)
 		draw_clear_alpha(c_black, 1)
 		
-		if(project_render_engine){
+		if (project_render_engine) {
 			render_shader_obj = shader_map[?shader_high_raytrace_EX]
 		} else {
 			render_shader_obj = shader_map[?shader_high_raytrace]
@@ -36,7 +36,7 @@ function render_high_indirect()
 	{
 		draw_clear_alpha(c_black, 0)
 			
-		if(project_render_engine){
+		if (project_render_engine) {
 			render_shader_obj = shader_map[?shader_high_raytrace_resolve_EX]
 		} else {
 			render_shader_obj = shader_map[?shader_high_raytrace_resolve]
@@ -62,7 +62,7 @@ function render_high_indirect()
 		{
 			draw_clear_alpha(c_black, 0)
 			
-			if(project_render_engine){
+			if (project_render_engine) {
 				render_shader_obj = shader_map[?shader_high_indirect_blur_EX]
 			} else {
 				render_shader_obj = shader_map[?shader_high_indirect_blur]
@@ -99,7 +99,7 @@ function render_high_indirect()
 			with (render_shader_obj)
 			{
 				shader_set(shader)
-				shader_bilateral_blur_set()
+				shader_bilateral_blur_set(render_surface_hdr[0])
 			}
 
 			draw_surface(render_surface_hdr[0], 0, 0) // Source: render_surface_hdr[0]

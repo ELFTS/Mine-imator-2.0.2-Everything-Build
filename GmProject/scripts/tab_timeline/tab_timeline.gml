@@ -465,14 +465,18 @@ function tab_timeline()
 		}
 		
 		// Draw keyframes
-		var framecolor, framealpha;
-		framecolor = c_text_secondary
-		framealpha = a_text_secondary + 0.1
+		var framecolor, framecolor2, c_accent_grade, framealpha;
 		
 		if (tl.color_tag != null)
 		{
 			framecolor = setting_theme.accent_list[tl.color_tag]
-			framealpha = .75	
+			framecolor2 = color_multiply(framecolor, hex_to_color("a6a6a6"))
+			framealpha = .75
+		} else {
+			framecolor = c_text_secondary
+			framecolor2 = color_multiply(framecolor, hex_to_color("a6a6a6"))
+			c_accent_grade = color_multiply(c_accent, hex_to_color("7a8ca3"))
+			framealpha = a_text_secondary + 0.1
 		}
 		
 		for (var k = 0; k < ds_list_size(tl.keyframe_list); k++)
@@ -530,7 +534,7 @@ function tab_timeline()
 					maxy = clamp(dy + itemhalf - maxv * wavehei, dy, dy + itemh)
 					
 					draw_vertex_color(boxx + xx + 1, maxy, kf.selected ? c_accent : framecolor, kf.selected ? 1 : framealpha)
-					draw_vertex_color(boxx + xx + 1, miny, kf.selected ? color_multiply(c_accent, hex_to_color("7a8ca3")) : color_multiply(framecolor, hex_to_color("a6a6a6")), kf.selected ? 1 : framealpha)
+					draw_vertex_color(boxx + xx + 1, miny, kf.selected ? c_accent_grade : framecolor2, kf.selected ? 1 : framealpha)
 				}
 				draw_primitive_end()
 				

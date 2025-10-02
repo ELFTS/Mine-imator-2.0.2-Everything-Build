@@ -57,10 +57,15 @@ function tl_event_create()
 	keyframe_animate = false
 	keyframe_current_values = null
 	keyframe_next_values = null
+	keyframe_progress_ease = 0
 	
 	frameskip_before = -1
 	
 	modifier_step = 0
+	modifier_shake_pos = vec3(0)
+	modifier_shake_rot = vec3(0)
+	modifier_shake_bend = vec3(0)
+	modifier_shake = false
 	
 	world_pos = point3D(0, 0, 0)
 	world_pos_rotate = point3D(0, 0, 0)
@@ -96,6 +101,7 @@ function tl_event_create()
 	inherit_glow_color = true
 	inherit_select = false
 	inherit_pose = false
+	inherit_modifier_frameskip = false
 	scale_resize = true
 	rot_point_custom = false
 	rot_point = point3D(0, 0, 0)

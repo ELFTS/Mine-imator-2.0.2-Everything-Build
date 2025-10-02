@@ -11,8 +11,8 @@ function app_update_mouse()
 	mouse_current_y = mouse_y
 	mouse_dx = mouse_x - mouse_previous_x
 	mouse_dy = mouse_y - mouse_previous_y
-	mouse_left_pressed = (!mouse_left && mouse_check_button(mb_left))
-	mouse_left_released = (mouse_left && !mouse_check_button(mb_left))
+	mouse_left_pressed = (!mouse_left && mouse_check_button(mb_left) && !mouse_middle_alternate)
+	mouse_left_released = (mouse_left && !mouse_check_button(mb_left) && !mouse_middle_alternate)
 	mouse_left = mouse_check_button(mb_left)
 	mouse_right_pressed = (!mouse_right && mouse_check_button(mb_right))
 	mouse_right_released = (mouse_right && !mouse_check_button(mb_right))
@@ -21,6 +21,9 @@ function app_update_mouse()
 	mouse_middle_alternate = (keyboard_check(vk_control) && keyboard_check(vk_alt) && mouse_left)
 	mouse_middle = (mouse_check_button(mb_middle) || mouse_middle_alternate)
 	mouse_wheel = mouse_wheel_down() - mouse_wheel_up()
+	
+	if (mouse_middle_alternate)
+		mouse_left = false
 	
 	if (mouse_left_pressed)
 	{

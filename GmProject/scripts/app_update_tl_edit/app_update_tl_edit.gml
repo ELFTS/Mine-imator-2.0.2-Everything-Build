@@ -2,6 +2,7 @@
 
 function app_update_tl_edit()
 {
+	render_low_drawing = 0
 	app_update_tl_edit_tabs()
 	app_update_tl_edit_select()
 	tl_update_matrix()

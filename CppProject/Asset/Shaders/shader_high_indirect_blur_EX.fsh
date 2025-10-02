@@ -1,4 +1,4 @@
-#define DEPTH_SENSITIVITY 100.0 
+#define DEPTH_SENSITIVITY 120.0 
 #define SAMPLES 27
 #define PI 3.14159265
 
@@ -71,11 +71,10 @@ void main()
 	float RayStep = 0.0;
 	
 	//Prevent users from going above 128 so it doesn't crash their devices
-	if (uRayStep > 128.0) {
-		RayStep = 128.0;
-	} else { 
-		RayStep = clamp(uRayStep * (1.0 - centerDepth), 1.0, uRayStep); 
-	}
+	if (uRayStep > 128.0)
+		RayStep = clamp(128.0 * (1.0 - centerDepth), 1.0, 128.0);
+	else
+		RayStep = clamp(uRayStep * (1.0 - centerDepth), 1.0, uRayStep);
 
     for (int i = 0; i < SAMPLES; i++) {
         // Normalize and rotate direction
@@ -94,11 +93,10 @@ void main()
 
             vec3 sampleNormal = unpackNormal(texture2D(uNormalBuffer, samplePos));
             float sampleDepth = unpackDepth(texture2D(uDepthBuffer, samplePos));
-            vec3 sampleColor = texture2D(gm_BaseTexture, samplePos).rgb;
 
             float sampleWeight = (max(0.0, dot(centerNormal, sampleNormal))) * (exp(-abs(centerDepth - sampleDepth) * DEPTH_SENSITIVITY));
 
-            color += sampleColor * sampleWeight;
+            color +=  texture2D(gm_BaseTexture, samplePos).rgb * sampleWeight;
             weight += sampleWeight;
         }
     }

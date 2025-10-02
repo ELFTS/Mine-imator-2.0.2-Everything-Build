@@ -7,7 +7,12 @@ function shader_high_ssao_EX_set(mask)
 	texture_set_stage(sampler_map[?"uNoiseBuffer"], surface_get_texture(render_sample_noise_texture))
 	texture_set_stage(sampler_map[?"uNormalBuffer"], surface_get_texture(render_surface_normal))
 	texture_set_stage(sampler_map[?"uEmissiveBuffer"], surface_get_texture(render_surface_emissive))
-	texture_set_stage(sampler_map[?"uMaskBuffer"], surface_get_texture(mask))
+	
+	if (!app.project_render_performance_mode)
+		texture_set_stage(sampler_map[?"uMaskBuffer"], surface_get_texture(mask))
+	
+	render_set_uniform("uPerformanceMode", app.project_render_performance_mode)
+	
 	gpu_set_texrepeat_ext(sampler_map[?"uDepthBuffer"], false)
 	gpu_set_texrepeat_ext(sampler_map[?"uNormalBuffer"], false)
 	gpu_set_texrepeat_ext(sampler_map[?"uEmissiveBuffer"], false)

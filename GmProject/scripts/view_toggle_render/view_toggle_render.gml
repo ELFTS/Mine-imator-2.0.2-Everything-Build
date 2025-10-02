@@ -31,5 +31,5 @@ function view_toggle_render()
 			view_main.before = view_main.quality
 			view_main.quality = e_view_mode.RENDER
 	}
-	render_low_drawing = 0
+	render_low_drawing = -1
 }

@@ -4,5 +4,5 @@
 
 function action_toolbar_exportmovie_bit_rate(val, add)
 {
-	popup.bit_rate = add * popup.bit_rate + val
+	popup.video_quality_bitrate = add * popup.video_quality_bitrate + val
 }

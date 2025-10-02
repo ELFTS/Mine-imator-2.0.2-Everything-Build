@@ -13,7 +13,7 @@ function check_to_render(view){
 			    else if (window_busy != "" && window_busy != "contextmenu" 
 						&& window_busy != "tabmove" && window_busy != "menu" 
 						&& window_busy != "settingsmenu" && window_busy != "timelineselect"
-						&& window_busy != "timelineselectkeyframes"){
+						&& window_busy != "timelineselectkeyframes" && window_busy != "timelinedrag"){
 					render_low_drawing = 0
 				}
 			    else if (timeline_playing || history_resource_update || recent_add_wait > 0){
@@ -46,9 +46,9 @@ function check_to_render(view){
 					render_low_drawing = 0
 				}
 				else if (mouse_left && window_busy != "timelineselect"
-						&& window_busy != "timelineselectkeyframes")
+						&& window_busy != "timelineselectkeyframes" && window_busy != "timelinedrag")
 			    {
-					render_low_drawing = -1
+					render_low_drawing = 0
 				}
 			        // Direct matrix comparison
 			        //for (var i = 0; i < 3; i++)

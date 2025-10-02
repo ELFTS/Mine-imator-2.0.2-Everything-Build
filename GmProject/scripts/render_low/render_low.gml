@@ -10,7 +10,7 @@ function render_low()
 	render_alpha_hash = false;
 	render_alpha_hash_force = true;
 	
-	if (render_low_drawing < 3) {
+	if (render_low_drawing < 3 + (string(render_view_current) != string(view_main))) {
         surface_set_target(surf);
         {
             draw_clear_alpha(c_black, 0);

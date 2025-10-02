@@ -25,6 +25,8 @@ function render_start()
 	render_indirect = render_shadows && project_render_indirect && (render_pass = e_render_pass.COMBINED || render_pass = e_render_pass.INDIRECT || render_pass = e_render_pass.INDIRECT_SHADOWS || render_pass = e_render_pass.REFLECTIONS)
 	render_reflections = project_render_reflections && (render_pass = e_render_pass.COMBINED || render_pass = e_render_pass.REFLECTIONS)
 	
+	render_smaa = project_render_smaa
+	
 	render_glow = project_render_glow && (render_quality = e_view_mode.RENDER)
 	render_glow_falloff = project_render_glow && project_render_glow_falloff && (render_quality = e_view_mode.RENDER)
 	

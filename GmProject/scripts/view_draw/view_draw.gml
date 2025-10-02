@@ -669,6 +669,10 @@ function view_draw(view)
 		
 		// Draw toolbar
 		view_toolbar_draw(view, boxx + 8, boxy + captionh + 8 + 86 + 12)
+		
+		// Draw Statistic Text
+		if (window_busy = "viewmovecamera")
+			draw_label(string(setting_move_speed_scroll), boxw - 5, boxh + 24, fa_right, fa_bottom, c_text_main, 0.6, font_subheading)
 	}
 	
 	// Moving / Resizing

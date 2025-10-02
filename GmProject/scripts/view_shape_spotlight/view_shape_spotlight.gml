@@ -39,16 +39,17 @@ function view_shape_spotlight(tl)
 		
 			// Fade size
 			draw_set_alpha(.5)
-			draw_set_color(make_color_hsv(color_get_hue(light_c) + 25, color_get_saturation(light_c), color_get_value(light_c) + 25))
+			draw_set_color(make_color_hsv(color_get_hue(light_c) + 25, clamp(color_get_saturation(light_c) - 25, 0, 255), clamp(color_get_value(light_c) + 25, 0, 255)))
 			view_shape_spotlight_guidecircle(tl, max(0, tl.value[e_value.LIGHT_RANGE]) * clamp((1 - tl.value[e_value.LIGHT_FADE_SIZE]), 0, 1), tl.value[e_value.LIGHT_SPOT_RADIUS])
-		
+			
 			// Range
 			draw_set_color(light_c)
 			var length, lensin, lencos;
 			length = max(0, tl.value[e_value.LIGHT_RANGE]);
 			lensin = sin(degtorad(tl.value[e_value.LIGHT_SPOT_RADIUS] * 0.5));
 			lencos = cos(degtorad(tl.value[e_value.LIGHT_SPOT_RADIUS] * 0.5));
-		
+			
+			point3D_project_error_ignore = true
 			view_shape_line(point3D_mul_matrix(point3D(0, 0, 0), tl.matrix), point3D_mul_matrix(point3D(0, length, 0), tl.matrix))
 	
 			// Spot radius
@@ -57,6 +58,7 @@ function view_shape_spotlight(tl)
 			view_shape_line(point3D_mul_matrix(point3D(0, 0, 0), tl.matrix), point3D_mul_matrix(point3D(length * lensin, abs(length * lencos), 0), tl.matrix))
 			view_shape_line(point3D_mul_matrix(point3D(0, 0, 0), tl.matrix), point3D_mul_matrix(point3D(length * -lensin, abs(length * lencos), 0), tl.matrix))
 	
+			point3D_project_error_ignore = false
 			view_shape_spotlight_guidecircle(tl, tl.value[e_value.LIGHT_RANGE], tl.value[e_value.LIGHT_SPOT_RADIUS])
 		}
 		

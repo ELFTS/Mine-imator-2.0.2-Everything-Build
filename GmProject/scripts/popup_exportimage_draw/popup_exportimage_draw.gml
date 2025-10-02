@@ -15,6 +15,12 @@ function popup_exportimage_draw()
 	// Custom
 	if (project_video_template = 0)
 	{
+		dy -= 4
+		tab_control_menu()
+		draw_button_icon("exportmovievideosizecustomflipaspect", dx + dw - 24, dy, 24, 24, false, icons.REPEAT, action_project_video_flipaspect)
+		tab_next()
+		dy -= 4
+	
 		textfield_group_add("exportimageimagesizecustomwidth", project_video_width, 1280, action_project_video_width, X, popup.tbx_image_size_custom_width, null, 1, 1, surface_get_max_size())
 		textfield_group_add("exportimageimagesizecustomheight", project_video_height, 720, action_project_video_height, X, popup.tbx_image_size_custom_height, null, 1, 1, surface_get_max_size())
 		

@@ -20,8 +20,8 @@ function render_high()
 		render_high_passes();
 
 		if (render_shadows) {
-			if (render_sample_current > 0)
-				render_shadow_blur_kernel = vec2(random_range(44.0, 1.0), random_range(0.6, 1.4))
+			if (render_sample_current > 1)
+				render_shadow_blur_kernel = vec2(random_range(45.0, 1.0), random_range(0.6, 1.4))
 			else
 				render_shadow_blur_kernel = vec2(0.0, 1.0)
 				
@@ -58,41 +58,41 @@ function render_high()
 		}
 		surface_reset_target();
 
+		// Final post-processing (Bloom, LUT, etc.)
+		if (!render_pass)
+		{
+			var main_surf = surface_require(render_surface[0], render_width, render_height);
+
+			// Copy target to working surface
+			gpu_set_blendmode_ext(bm_one, bm_zero);
+			surface_set_target(main_surf);
+			{
+				draw_clear_alpha(c_black, 0);
+				draw_surface_exists(render_target, 0, 0);
+			}
+			surface_reset_target();
+
+			// Apply final post-processing effects
+			gpu_set_blendmode(bm_normal);
+			render_refresh_effects(false, true);
+			main_surf = render_post(main_surf, false, true);
+
+			// Copy final result back to render target
+			gpu_set_blendmode_ext(bm_one, bm_zero);
+			surface_set_target(render_target);
+			{
+				draw_clear_alpha(c_black, 0);
+				draw_surface_exists(main_surf, 0, 0);
+			}
+			surface_reset_target();
+			gpu_set_blendmode(bm_normal);
+		}
+
 		render_high_samples_add();
 	}
 
 	// Combine multi-sample render result
 	render_high_samples_unpack();
-
-	// Final post-processing (Bloom, LUT, etc.)
-	if (!render_pass)
-	{
-		var main_surf = surface_require(render_surface[0], render_width, render_height);
-
-		// Copy target to working surface
-		gpu_set_blendmode_ext(bm_one, bm_zero);
-		surface_set_target(main_surf);
-		{
-			draw_clear_alpha(c_black, 0);
-			draw_surface_exists(render_target, 0, 0);
-		}
-		surface_reset_target();
-
-		// Apply final post-processing effects
-		gpu_set_blendmode(bm_normal);
-		render_refresh_effects(false, true);
-		main_surf = render_post(main_surf, false, true);
-
-		// Copy final result back to render target
-		gpu_set_blendmode_ext(bm_one, bm_zero);
-		surface_set_target(render_target);
-		{
-			draw_clear_alpha(c_black, 0);
-			draw_surface_exists(main_surf, 0, 0);
-		}
-		surface_reset_target();
-		gpu_set_blendmode(bm_normal);
-	}
 
 	// Cleanup and state reset
 	taa_matrix = MAT_IDENTITY;

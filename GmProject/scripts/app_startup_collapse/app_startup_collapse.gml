@@ -20,6 +20,8 @@ function app_startup_collapse()
 	
 	collapse_register("texfilter")
 	
+	collapse_register("perfmode")
+	
 	collapse_register("ssao")
 	collapse_register("shadows")
 	collapse_register("subsurface")
@@ -29,6 +31,7 @@ function app_startup_collapse()
 	collapse_register("glow")
 	collapse_register("glow_falloff")
 	collapse_register("aa")
+	collapse_register("smaa")
 	collapse_register("light_management")
 	collapse_register("models_scenery")
 	collapse_register("glint")

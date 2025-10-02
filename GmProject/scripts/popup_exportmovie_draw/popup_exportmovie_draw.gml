@@ -19,6 +19,12 @@ function popup_exportmovie_draw()
 	// Custom
 	if (project_video_template = 0)
 	{
+		dy -= 4
+		tab_control_menu()
+		draw_button_icon("exportmovievideosizecustomflipaspect", dx + dw - 24, dy, 24, 24, false, icons.REPEAT, action_project_video_flipaspect)
+		tab_next()
+		dy -= 4
+		
 		textfield_group_add("exportmovievideosizecustomwidth", project_video_width, 1280, action_project_video_width, X, popup.tbx_video_size_custom_width, null, 1, (popup.format = "mp4" || popup.format = "mov") ? 2 : 1, surface_get_max_size())
 		textfield_group_add("exportmovievideosizecustomheight", project_video_height, 720, action_project_video_height, X, popup.tbx_video_size_custom_height, null, 1, (popup.format = "mp4" || popup.format = "mov") ? 2 : 1, surface_get_max_size())
 		
@@ -51,13 +57,16 @@ function popup_exportmovie_draw()
 		
 		tab_control_menu()
 		draw_button_menu("exportmovievideoquality", e_menu.LIST, dx, dy, dw, 24, popup.video_quality, text, action_toolbar_exportmovie_video_quality)
+		draw_label(string(round(popup.bit_rate / 1000) / 100) + " - Mbps", dx + 306, dy + 20, fa_right, fa_bottom, c_text_secondary, 0.5)
 		tab_next()
 		
 		// Custom quality
 		if (popup.video_quality = 0)
 		{
 			tab_control_dragger()
-			draw_dragger("exportmoviebitrate", dx, dy, dragger_width, popup.bit_rate, 500, 1, no_limit, 2500000, 1, popup.tbx_bit_rate, action_toolbar_exportmovie_bit_rate)
+			draw_dragger("exportmoviebitrate", dx, dy, dragger_width, popup.video_quality_bitrate, 0.1, 0.1, 120, 90, 0.1, popup.tbx_video_quality_bitrate, action_toolbar_exportmovie_bit_rate)
+			popup.bit_rate = project_video_width * project_video_height * ((popup.frame_rate != 0) ? popup.frame_rate : popup.framespersecond) / 10 * (popup.video_quality_bitrate / 100)
+			popup.bit_rate = round(popup.bit_rate * 100) / 100
 			tab_next()
 		}
 	}
@@ -91,6 +100,11 @@ function popup_exportmovie_draw()
 	}
 	else
 	{
+		// Color type
+		tab_control_checkbox()
+		draw_checkbox("exportmoviefullcolor", dx, dy, popup.colortype, action_toolbar_exportmovie_fullcolor)
+		tab_next()
+		
 		// Include audio
 		tab_control_checkbox()
 		draw_checkbox("exportmovieincludeaudio", dx, dy, popup.include_audio, action_toolbar_exportmovie_include_audio)

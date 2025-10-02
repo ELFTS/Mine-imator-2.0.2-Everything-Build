@@ -6,6 +6,10 @@ function project_reset_render()
 	project_render_samples = 24
 	project_render_distance = 30000
 	
+	project_render_performance_mode = false
+	project_render_performance_mode_skipfog = false
+	project_render_performance_mode_skipsky = false
+	
 	project_render_ssao = true
 	project_render_ssao_samples = 24
 	project_render_ssao_radius = 12
@@ -58,10 +62,13 @@ function project_reset_render()
 	
 	project_render_aa = true
 	project_render_aa_power = 1
+	project_render_smaa = false
+	project_render_smaa_power = 0.25
 	
 	project_render_dof_sample = 3
 	project_render_dof_ghostingfix = false
 	project_render_dof_ghostingfix_threshold = 0.3
+	project_render_dof_affect_glow = false
 	
 	project_render_motionblur = false
 	project_render_motionblur_power = 0.35

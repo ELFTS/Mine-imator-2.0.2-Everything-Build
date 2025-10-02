@@ -6,7 +6,7 @@ function render_startup()
 			  render_prev_color, render_prev_alpha, render_click_box, render_list, render_lights, render_particles, render_hidden,
 			  render_background, render_watermark, proj_from, proj_matrix, view_matrix, view_proj_matrix, light_proj_matrix, light_view_matrix,
 			  light_view_proj_matrix, spot_proj_matrix, spot_view_matrix, spot_view_proj_matrix, proj_depth_near, proj_depth_far, render_proj_from,
-			  render_active, render_repeat, render_world_count, point3D_project_error;
+			  render_active, render_repeat, render_world_count, point3D_project_error, point3D_project_error_ignore;
 	
 	globalvar render_light_from, render_light_to, render_light_near, render_light_far, render_light_fov,
 			  render_light_color, render_light_strength, render_light_fade_size, render_light_spot_sharpness, render_shadow_matrix,
@@ -17,7 +17,7 @@ function render_startup()
 			  render_glow, render_glow_falloff, render_camera_ca, render_camera_distort, render_camera_color_correction, render_camera_grain,
 			  render_camera_vignette, render_overlay, render_camera_lens_dirt, render_camera_lens_dirt_bloom, render_camera_lens_dirt_glow,
 			  render_ssao, render_shadows, render_indirect, render_reflections, render_quality, render_pass,
-			  render_tonemapper, render_exposure, render_gamma, render_depth_normals;
+			  render_tonemapper, render_exposure, render_gamma, render_depth_normals, render_smaa;
 	
 	globalvar render_matrix, render_samples, render_sample_current, render_samples_done, render_target_size;
 	
@@ -34,7 +34,7 @@ function render_startup()
 	globalvar render_pass_surf;
 	
 	// Extraku
-	globalvar render_low_drawing, render_low_Before, render_shadow_blur_kernel;
+	globalvar render_low_drawing, render_low_Before, render_shadow_blur_kernel, render_post_kernel, render_low_check_main;
 	
 	log("Render init")
 	
@@ -78,6 +78,7 @@ function render_startup()
 	render_camera_grain = false
 	render_camera_vignette = false
 	render_overlay = false
+	render_smaa = false
 	render_camera_lens_dirt = true
 	render_camera_lens_dirt_bloom = true
 	render_camera_lens_dirt_glow = true
@@ -102,7 +103,8 @@ function render_startup()
 	// Surfaces for rendering
 	globalvar render_target, render_surface, render_surface_hdr, render_surface_depth, render_surface_normal, render_surface_emissive, 
 			  render_surface_diffuse, render_surface_material, render_surface_shadows, render_surface_specular, render_surface_lens, 
-			  render_surface_sample_expo, render_surface_sample_dec, render_surface_sample_alpha, depth_near, depth_far, render_post_index;
+			  render_surface_sample_expo, render_surface_sample_dec, render_surface_sample_alpha, depth_near, depth_far, render_post_index,
+			  render_surface_glow_cache;
 			
 	render_target = null
 	render_surface[0] = null
@@ -127,6 +129,8 @@ function render_startup()
 	render_surface_sample_expo = null
 	render_surface_sample_dec = null
 	render_surface_sample_alpha = null 
+	
+	render_surface_glow_cache = null 
 	
 	depth_near = clip_near
 	depth_far = 5000

@@ -330,7 +330,6 @@ function res_load(reload = false)
 				with (blockmodel)
 					instance_destroy()
 			}
-			break
 		}
 	}
 	

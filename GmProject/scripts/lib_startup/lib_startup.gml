@@ -26,7 +26,7 @@ function lib_startup()
 	
 	globalvar lib_open_url, lib_execute, lib_unzip, lib_gzunzip, lib_file_rename, lib_file_copy, lib_file_delete, lib_file_exists, lib_json_file_convert_unicode;
 	globalvar lib_directory_create, lib_directory_exists, lib_directory_delete;
-	globalvar lib_movie_init, lib_movie_set, lib_movie_start, lib_movie_audio_file_decode, lib_movie_audio_file_add, lib_movie_audio_sound_add, lib_movie_frame, lib_movie_done;
+	globalvar lib_movie_init, lib_movie_set, lib_movie_set_gm, lib_movie_start, lib_movie_audio_file_decode, lib_movie_audio_file_add, lib_movie_audio_sound_add, lib_movie_frame, lib_movie_done;
 	globalvar lib_window_maximize, lib_window_set_focus;
 	
 	// Window library
@@ -53,7 +53,7 @@ function lib_startup()
 	// Movie library
 	log("External library", pathmovie)
 	lib_movie_init = external_define(pathmovie, "movie_init", dll_cdecl, ty_real, 0)
-	lib_movie_set = external_define(pathmovie, "movie_set", dll_cdecl, ty_real, 5, ty_real, ty_real, ty_real, ty_real, ty_real)
+	lib_movie_set = external_define(pathmovie, "movie_set", dll_cdecl, ty_real, 6, ty_real, ty_real, ty_real, ty_real, ty_real, ty_real)
 	lib_movie_start = external_define(pathmovie, "movie_start", dll_cdecl, ty_real, 2, ty_string, ty_string)
 	lib_movie_audio_file_decode = external_define(pathmovie, "movie_audio_file_decode", dll_cdecl, ty_real, 2, ty_string, ty_string)
 	lib_movie_audio_file_add = external_define(pathmovie, "movie_audio_file_add", dll_cdecl, ty_real, 1, ty_string)

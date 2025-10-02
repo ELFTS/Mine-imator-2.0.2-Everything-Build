@@ -24,6 +24,8 @@ function view_shape_camera(tl)
 	view_shape_circle(point3D(0, 3, 6.5), 2.5, tl.matrix)
 	view_shape_circle(point3D(0, -3, 6.5), 2.5, tl.matrix)
 	
+	point3D_project_error_ignore = true
+	
 	// Frustum (only visible on selected cameras)
 	if (tl.selected && setting_overlay_show_guides && tl.value[e_value.CAM_FOV] % 180 != 0 && render_low_drawing < 4)
 	{
@@ -33,11 +35,12 @@ function view_shape_camera(tl)
 		
 		view_shape_camera_frustum(tl)
 	}
+	point3D_project_error_ignore = false
 }
 
 function view_shape_camera_frustum(tl)
 {
-	var ratio, sizemath;
+	var ratio, sizemath, far;
 	
 	if (tl.value[e_value.CAM_SIZE_USE_PROJECT])
 		ratio = app.project_video_width / app.project_video_height
@@ -45,19 +48,20 @@ function view_shape_camera_frustum(tl)
 		ratio = tl.value[e_value.CAM_WIDTH] / tl.value[e_value.CAM_HEIGHT]
 		
 	sizemath = tan(degtorad(tl.value[e_value.CAM_FOV] * 0.5)) // Multiply this by distance
+	far = sizemath * (cam_far / 2)
 	
 	var viewfrustumpoints = array(
 		point3D(-((sizemath * cam_near) * ratio), cam_near, -sizemath * cam_near), //nbr
 		point3D(-((sizemath * cam_near) * ratio), cam_near, sizemath * cam_near), //ntr
 		point3D(((sizemath * cam_near) * ratio), cam_near, -sizemath * cam_near), //nbl
 		point3D(((sizemath * cam_near) * ratio), cam_near, sizemath * cam_near), //ntl
-		point3D(-((sizemath * cam_far) * ratio), cam_far, -sizemath * cam_far), //fbr
-		point3D(-((sizemath * cam_far) * ratio), cam_far, sizemath * cam_far), //ftr
-		point3D(((sizemath * cam_far) * ratio), cam_far, -sizemath * cam_far), //fbl
-		point3D(((sizemath * cam_far) * ratio), cam_far, sizemath * cam_far) //ftl
+		point3D(-((far) * ratio), (cam_far / 2), -far), //fbr
+		point3D(-((far) * ratio), (cam_far / 2), far), //ftr
+		point3D(((far) * ratio), (cam_far / 2), -far), //fbl
+		point3D(((far) * ratio), (cam_far / 2), far) //ftl
 	)
 	
-	/*
+	
 	var viewfrustum = array(
 		view_shape_project(point3D_mul_matrix(viewfrustumpoints[0], tl.matrix)),
 		view_shape_project(point3D_mul_matrix(viewfrustumpoints[1], tl.matrix)),
@@ -69,11 +73,12 @@ function view_shape_camera_frustum(tl)
 		view_shape_project(point3D_mul_matrix(viewfrustumpoints[7], tl.matrix))
 	)
 	
+	/*
 	// Frustum edge triangles
 	render_set_culling(false)
 	draw_primitive_begin(pr_trianglelist)
 	
-	draw_set_alpha(.15)
+	draw_set_alpha(.05)
 	draw_set_color(c_control_blue)
 	view_shape_triangle_draw(viewfrustum[0], viewfrustum[1], viewfrustum[4])
 	view_shape_triangle_draw(viewfrustum[5], viewfrustum[4], viewfrustum[1])

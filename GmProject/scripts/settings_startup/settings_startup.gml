@@ -104,6 +104,7 @@ function settings_startup()
 	setting_modelbench_popup_hidden = false
 	
 	setting_move_speed = 1
+	setting_move_speed_scroll = 1
 	setting_look_sensitivity = 1
 	setting_fast_modifier = 3
 	setting_slow_modifier = 0.25
@@ -118,6 +119,7 @@ function settings_startup()
 	setting_export_movie_remove_background = false
 	setting_export_movie_include_hidden = false
 	setting_export_movie_high_quality = true
+	setting_export_movie_colortype = 0
 	setting_export_movie_watermark = trial_version
 	
 	setting_export_image_remove_background = false
@@ -146,6 +148,10 @@ function settings_startup()
 	setting_overlay_show_path = true
 	setting_overlay_show_guides = true
 	
+	window_selected_tl = null
+	focus_back_to_timeline = false
+	setting_focus_to_timeline_cam = true
+	
 	setting_tool_select = false
 	setting_tool_move = true
 	setting_tool_rotate = true
@@ -163,7 +169,4 @@ function settings_startup()
 	settings_load()
 	languages_load()
 	interface_update_instant()
-	
-	//Delta Fix
-	room_speed += 10
 }

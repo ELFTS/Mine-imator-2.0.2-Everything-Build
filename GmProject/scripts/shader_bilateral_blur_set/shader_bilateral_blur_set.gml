@@ -1,7 +1,7 @@
 /// shader_high_indirect_blur_set
 
-function shader_bilateral_blur_set() {
-	texture_set_stage(sampler_map[?"uIndirectTex"], surface_get_texture(render_surface_hdr[0]));
+function shader_bilateral_blur_set(surface) {
+	texture_set_stage(sampler_map[?"uIndirectTex"], surface_get_texture(surface));
 	texture_set_stage(sampler_map[?"uDepthBuffer"], surface_get_texture(render_surface_depth));
 	texture_set_stage(sampler_map[?"uNormalBuffer"], surface_get_texture(render_surface_normal));
 	

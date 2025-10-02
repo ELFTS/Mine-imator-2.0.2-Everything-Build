@@ -31,7 +31,7 @@ function asset_load()
 	
 	if (fn = "" || !file_exists_lib(fn))
 		return false
-	
+		
 	var ext = string_lower(filename_ext(fn));
 	if (ext = ".zip")
 	{
@@ -86,6 +86,7 @@ function asset_load()
 		
 		case ".mimodel":
 		case ".json":
+		case ".obj":
 			log("Opening model", fn)
 			action_res_model_load(fn)
 			return true

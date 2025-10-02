@@ -42,8 +42,8 @@ function export_update()
 				app_update_animate(false)
 		}
 		
-		if (project_render_motionblur) {
-
+		if (project_render_motionblur)
+		{
 			if (timeline_marker > exportmovie_marker_end)
 				{
 					export_done_movie()

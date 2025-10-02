@@ -248,7 +248,7 @@ namespace CppProject
 		DEBUG("Resources loaded");
 
 		// Start application loop
-		stepTimer.start(10, this);
+		stepTimer.start(0, this);
 	}
 
 	AppWindow* AppHandler::AddWindow(QRect rect, IntType id, AppWindow* from)
@@ -392,37 +392,78 @@ namespace CppProject
 			}
 			addedWindows.clear();
 		}
+		
+		// FPS tracking (once per second)
+		static int frameCount = 0;
+		static int CleanHeap = 0;
+		frameCount++;
+		
+		// Elapsed milliseconds since last FPS reset
+		qint64 elapsedMs = fpsLastUpdate.msecsTo(QDateTime::currentDateTime());
 
+		// Avoid divide-by-zero
+		if (elapsedMs > 0) {
+			gmlGlobal::fps_real = (frameCount * 1000.0) / elapsedMs;
+		}
+		
 		// Update fps every second
 		if (fpsLastUpdate.msecsTo(QDateTime::currentDateTime()) > 1000)
 		{
-			// Calculate delta_time as duration of previous step in microseconds
-			gmlGlobal::delta_time = fpsTimer.ElapsedMs() * 1000.0;
-
 			// Calculate fps using duration of previous step minus step timer delay
-			double elapsedMs = fpsTimer.ElapsedMs() - 1000.0 / gmlGlobal::room_speed;
-			if (elapsedMs > 0.0)
-				gmlGlobal::fps_real = 1.0 / (elapsedMs / 1000.0);
+			gmlGlobal::fps_real = frameCount;
 
 			gmlGlobal::fps = std::clamp(gmlGlobal::fps_real, IntType(0), gmlGlobal::room_speed);
 			fpsLastUpdate = QDateTime::currentDateTime();
+			
+			frameCount = 0;
 
 			// Clean unused data
-			VecType::CleanHeapData();
-			Font::CleanUnused();
-			Mesh<>::CleanBuffers();
-			StringType::GetCurrentQThreadData()->mainTable.Clean();
+			CleanHeap++; // Do it parrarelly since the CPU runs way too fast
+			switch (CleanHeap) {
+				case 1:
+					VecType::CleanHeapData();
+					break;
+				case 2:
+					Font::CleanUnused();
+					break;
+				case 3:
+					Mesh<>::CleanBuffers();
+					break;
+				case 4:
+					StringType::GetCurrentQThreadData()->mainTable.Clean();
+					CleanHeap = 0;
+					break;
+				default:
+					CleanHeap = 0;
+					break;
+			}
 
 			// Reload shader when debugging
 			Shader::CheckReload();
 		}
+		
+		// Calculate delta_time as duration of previous step in microseconds
+		gmlGlobal::delta_time = fpsTimer.ElapsedMs() * 1000.0;
 
 		// Delete finished sounds
 		SoundInstance::CleanSounds();
 
-		// Schedule next step
+		// Schedule next step based on how fast the FPS is
 		fpsTimer.Reset();
-		stepTimer.start(1000.0 / gmlGlobal::room_speed, this);
+		if ((global::render_quality != e_view_mode_RENDER || global::render_samples_done) && global::_app->window_state != "export_movie")
+		{
+			if (gmlGlobal::fps_real >= gmlGlobal::room_speed)
+				stepTimer.start(500.0 / gmlGlobal::room_speed, this);
+			else
+				if (gmlGlobal::fps_real >= gmlGlobal::room_speed / 2.0)
+					stepTimer.start(100.0 / gmlGlobal::room_speed, this);
+				else
+					stepTimer.start(0.0 / gmlGlobal::room_speed, this);
+		}
+		else
+		{
+			stepTimer.start(0, this);
+		}
 	}
 
 	IntType AppHandler::GetMsec() const

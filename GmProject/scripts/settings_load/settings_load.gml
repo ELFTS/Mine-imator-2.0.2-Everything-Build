@@ -153,8 +153,6 @@ function settings_load()
 			setting_panel_left_top_size = value_get_real(interfacemap[?"panel_left_top_size"], setting_panel_left_top_size)
 			setting_panel_right_top_size = value_get_real(interfacemap[?"panel_right_top_size"], setting_panel_right_top_size)
 			
-			setting_view_scaling_value = value_get_real(interfacemap[?"view_scaling"], setting_view_scaling_value)
-			
 			setting_properties_location = value_get_string(interfacemap[?"properties_location"], setting_properties_location)
 			setting_ground_editor_location = value_get_string(interfacemap[?"ground_editor_location"], setting_ground_editor_location)
 			setting_template_editor_location = value_get_string(interfacemap[?"template_editor_location"], setting_template_editor_location)
@@ -200,6 +198,17 @@ function settings_load()
 			setting_modelbench_popup_hidden = value_get_real(interfacemap[?"modelbench_popup_hidden"], setting_modelbench_popup_hidden)
 		}
 		
+		// Viewport
+		var viewportmap = map[?"viewport"];
+		if (ds_map_valid(viewportmap))
+		{
+			setting_overlay_show_light = value_get_real(viewportmap[?"overlay_show_light"], setting_overlay_show_light)
+			setting_overlay_show_particle = value_get_real(viewportmap[?"overlay_show_particle"], setting_overlay_show_particle)
+			setting_overlay_show_path = value_get_real(viewportmap[?"overlay_show_path"], setting_overlay_show_path)
+			setting_overlay_show_guides = value_get_real(viewportmap[?"overlay_show_guides"], setting_overlay_show_guides)
+			setting_focus_to_timeline_cam = value_get_real(viewportmap[?"focus_to_timeline_cam"], setting_focus_to_timeline_cam)
+		}
+		
 		// Controls
 		var controlsmap = map[?"controls"];
 		if (ds_map_valid(controlsmap))
@@ -228,6 +237,7 @@ function settings_load()
 			setting_export_movie_frame_rate = value_get_real(map[?"exportmovie_frame_rate"], setting_export_movie_frame_rate)
 			setting_export_movie_framespersecond = value_get_real(map[?"exportmovie_framespersecond"], setting_export_movie_framespersecond)
 			setting_export_movie_bit_rate = value_get_real(map[?"exportmovie_bit_rate"], setting_export_movie_bit_rate)
+			setting_export_movie_colortype = value_get_real(map[?"exportmovie_colortype"], setting_export_movie_colortype)
 			setting_export_movie_include_audio = value_get_real(map[?"exportmovie_include_audio"], setting_export_movie_include_audio)
 			setting_export_movie_remove_background = value_get_real(map[?"exportmovie_remove_background"], setting_export_movie_remove_background)
 			setting_export_movie_include_hidden = value_get_real(map[?"exportmovie_remove_background"], setting_export_movie_include_hidden)

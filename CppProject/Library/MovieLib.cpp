@@ -15,7 +15,7 @@ extern "C"
 }
 
 #define INPUT_PIXEL_FORMAT					AV_PIX_FMT_RGBA
-#define STREAM_VIDEO_PIXEL_FORMAT			AV_PIX_FMT_YUV420P
+//#define STREAM_VIDEO_PIXEL_FORMAT			AV_PIX_FMT_YUV444P
 
 #define STREAM_AUDIO_BIT_RATE				320000
 #define STREAM_AUDIO_SAMPLE_RATE			44100
@@ -27,11 +27,12 @@ extern "C"
 
 namespace CppProject
 {
+
 	// Media file output
 	AVFormatContext* outContext;
 
 	// Video
-	IntType videoWidth, videoHeight, videoBitRate, videoFrameRate;
+	IntType videoWidth, videoHeight, videoBitRate, videoFrameRate, videoColorType;
 	AVStream* videoStream;
 	AVCodecContext* videoCodecContext;
 	IntType videoFrameNum;
@@ -45,6 +46,16 @@ namespace CppProject
 	AVCodecContext* audioCodecContext;
 	AVRational audioTimeBase;
 	IntType audioFrameNum;
+	
+	AVPixelFormat GetStreamPixelFormat()
+	{
+		switch (videoColorType)
+		{
+			case 0: return AV_PIX_FMT_YUV420P; // YUV 4:2:0
+			case 1: return AV_PIX_FMT_YUV444P; // YUV 4:4:4
+			default: return AV_PIX_FMT_YUV420P;
+		}
+	}
 
 	// Movie sound
 	struct MovieSound
@@ -229,12 +240,13 @@ namespace CppProject
 			alDeleteBuffers(1, &alBuffer);
 	}
 
-	RealType lib_movie_set(RealType width, RealType height, RealType bitRate, RealType frameRate, RealType audio)
+	RealType lib_movie_set(RealType width, RealType height, RealType bitRate, RealType frameRate, RealType audio, RealType colortype)
 	{
 		videoWidth = width;
 		videoHeight = height;
 		videoBitRate = bitRate;
 		videoFrameRate = frameRate;
+		videoColorType = colortype;
 		audioEnabled = audio > 0.0;
 		return 0;
 	}
@@ -282,24 +294,40 @@ namespace CppProject
 			videoCodecContext->height = videoHeight;
 			videoCodecContext->time_base = { 1, (int)videoFrameRate };
 			videoCodecContext->framerate = { (int)videoFrameRate, 1 };
-			videoCodecContext->pix_fmt = STREAM_VIDEO_PIXEL_FORMAT;
+			videoCodecContext->pix_fmt = GetStreamPixelFormat();
 			videoCodecContext->gop_size = 12;
+			videoCodecContext->color_range = AVCOL_RANGE_JPEG;
+			videoCodecContext->thread_type = FF_THREAD_FRAME;
+			videoCodecContext->thread_count = 0;  // 0 = auto-detect and use all CPU threads
 			if (outContext->oformat->flags & AVFMT_GLOBALHEADER)
 				videoCodecContext->flags |= AV_CODEC_FLAG_GLOBAL_HEADER;
 
 			// Open the codec
 			AVDictionary* opt = NULL;
 			av_dict_set(&opt, "tune", "zerolatency", 0);
+			av_dict_set(&opt, "preset", "veryslow", 0);
 			if (avcodec_open2(videoCodecContext, videoCodec, &opt) < 0)
 				throw "avcodec_open2 failed";
-
 			videoFrameNum = 0;
+
 			avcodec_parameters_from_context(videoStream->codecpar, videoCodecContext);
 
-			// Scaling context
-			videoSwsContext = sws_getContext(videoWidth, videoHeight, INPUT_PIXEL_FORMAT,
-											 videoWidth, videoHeight, STREAM_VIDEO_PIXEL_FORMAT,
-											 SWS_BILINEAR, nullptr, nullptr, nullptr);
+			AVPixelFormat targetPixFmt = GetStreamPixelFormat();
+
+			videoSwsContext = sws_getContext(
+				videoWidth, videoHeight, INPUT_PIXEL_FORMAT,
+				videoWidth, videoHeight, targetPixFmt,
+				SWS_LANCZOS, nullptr, nullptr, nullptr);
+
+			sws_setColorspaceDetails(
+				videoSwsContext,
+				sws_getCoefficients(SWS_CS_DEFAULT),
+				AVCOL_RANGE_JPEG,
+				sws_getCoefficients(SWS_CS_DEFAULT),
+				(targetPixFmt == AV_PIX_FMT_YUV444P ? AVCOL_RANGE_JPEG : AVCOL_RANGE_MPEG),
+				0, 1, 1);
+
+	
 			if (!videoSwsContext)
 				throw "sws_getContext failed";
 

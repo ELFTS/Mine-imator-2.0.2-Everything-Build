@@ -124,6 +124,10 @@ function tab_settings_program()
 	draw_switch("settingsspawncameras", dx, dy, setting_spawn_cameras, action_setting_spawn_cameras)
 	tab_next()
 	
+	dy += label_height + 12
+	draw_label(text_get("settingsadvanced"), dx, dy, fa_left, fa_bottom, c_text_tertiary, a_text_tertiary, font_label) 
+	dy += 8
+	
 	// Unlimited values (Advanced mode only)
 	if (setting_advanced_mode)
 	{

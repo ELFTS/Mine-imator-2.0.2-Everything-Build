@@ -91,12 +91,15 @@ function tab_timeline_editor_appearance()
 		draw_checkbox("timelineeditorshadows", dx, dy, tl_edit.shadows, action_tl_shadows)
 		tab_next()
 		
-		tab_control_checkbox()
-		draw_checkbox("timelineeditorssao", dx, dy, tl_edit.ssao, action_tl_ssao)
-		tab_next()
+		// Ssao
+		if (!project_render_performance_mode) {
+			tab_control_checkbox()
+			draw_checkbox("timelineeditorssao", dx, dy, tl_edit.ssao, action_tl_ssao)
+			tab_next()
+		}
 		
 		// Wind
-		if (type_has_wind(tl_edit.type))
+		if (type_has_wind(tl_edit.type) || setting_unstable_features)
 		{
 			tab_control_checkbox()
 			draw_checkbox("timelineeditorwind", dx, dy, tl_edit.wind, action_tl_wind)
@@ -127,9 +130,11 @@ function tab_timeline_editor_appearance()
 		}
 		
 		// Fog
-		tab_control_checkbox()
-		draw_checkbox("timelineeditorfog", dx, dy, tl_edit.fog, action_tl_fog)
-		tab_next()
+		if (!project_render_performance_mode || !project_render_performance_mode_skipfog) {
+			tab_control_checkbox()
+			draw_checkbox("timelineeditorfog", dx, dy, tl_edit.fog, action_tl_fog)
+			tab_next()
+		}
 		
 		// Backfaces
 		tab_control_checkbox()

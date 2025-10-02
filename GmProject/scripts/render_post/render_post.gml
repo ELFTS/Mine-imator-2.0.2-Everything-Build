@@ -8,20 +8,40 @@ function render_post(finalsurf, sceneeffects = true, posteffects = true)
 	// Start post processing
 	finalsurf = render_high_post_start(finalsurf)
 	
+	render_post_kernel = (render_samples < 2) ? 1 : random_range(0.9, 1.1)
+	
+	// Glow (Affected by DOF)
+	if (project_render_dof_affect_glow) {
+		
+		// Glow
+		if (render_glow && sceneeffects)
+			finalsurf = render_high_glow(finalsurf)
+		render_update_effects()
+	
+		// Glow (Falloff)
+		if (render_glow_falloff && sceneeffects)
+			finalsurf = render_high_glow(finalsurf, true)
+		render_update_effects()
+	}
+	
 	// DOF
 	if (render_camera_dof && sceneeffects)
 		finalsurf = render_high_dof(finalsurf)
 	render_update_effects()
 	
-	// Glow
-	if (render_glow && sceneeffects)
-		finalsurf = render_high_glow(finalsurf)
-	render_update_effects()
+	// Glow (Not affected by DOF)
+	if (!project_render_dof_affect_glow) {
+		
+		// Glow
+		if (render_glow && sceneeffects)
+			finalsurf = render_high_glow(finalsurf)
+		render_update_effects()
 	
-	// Glow (Falloff)
-	if (render_glow_falloff && sceneeffects)
-		finalsurf = render_high_glow(finalsurf, true)
-	render_update_effects()
+		// Glow (Falloff)
+		if (render_glow_falloff && sceneeffects)
+			finalsurf = render_high_glow(finalsurf, true)
+		render_update_effects()
+	}
 	
 	// Bloom
 	if (render_camera_bloom && posteffects)
@@ -62,6 +82,11 @@ function render_post(finalsurf, sceneeffects = true, posteffects = true)
 	if (render_overlay && posteffects)
 		finalsurf = render_high_overlay(finalsurf)
 	render_update_effects()
+	
+	// SMAA
+	if (app.project_render_aa && render_smaa && posteffects && render_quality = 2) {
+		finalsurf = render_high_smaa(finalsurf)
+	}
 	
 	return finalsurf
 }

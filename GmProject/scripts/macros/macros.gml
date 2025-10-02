@@ -3,9 +3,8 @@
 
 function macros()
 {
-	
 	// Debug
-	#macro dev_mode						true
+	#macro dev_mode						false
 	#macro dev_mode_skip_blocks			dev_mode && true
 	#macro dev_mode_debug_schematics	dev_mode && true
 	#macro dev_mode_debug_names			dev_mode && true
@@ -21,12 +20,11 @@ function macros()
 	
 	// Versions
 	#macro mineimator_version			"2.0.2"							// Base Mine-imator version
-	#macro mineimator_version_sub		"Simply Upscaled Build 1.0.10"	// Mod name and version (e.g. "Community Build 1.0.0")
-	#macro mineimator_version_extra		"Build 2"						// Additional suffix (e.g. "Alpha 1" or "Pre-Release 2")
+	#macro mineimator_version_sub		"Simply Upscaled Build 1.0.11"	// Mod name and version (e.g. "Community Build 1.0.0")
+	#macro mineimator_version_extra		"Build 0"						// Additional suffix (e.g. "Alpha 1" or "Pre-Release 2")
 	#macro mineimator_version_full		(mineimator_version + ((mineimator_version_sub != "") ? " " + mineimator_version_sub : "") + ((mineimator_version_extra != "") ? " (" + mineimator_version_extra + ")" : ""))
-	#macro mineimator_version_date		"2025.07.03"
-	//#macro minecraft_version			"1.21.6"
-	#macro minecraft_version			"1.21.5"
+	#macro mineimator_version_date		"2025.10.1"
+	#macro minecraft_version			"1.21.9"
 	#macro gm_runtime					GM_runtime_version
 	
 	// File formats
@@ -60,7 +58,7 @@ function macros()
 	#macro unzip_directory				file_directory + "unzip/"
 	#macro render_default				"performance"
 	#macro render_default_file			render_directory + render_default + ".mirender"
-	#macro asset_exts					"*.miobject;*.miframes;*.zip;*.schematic;*.miproject;*.miparticles;*.mimodel;*.png;*.jpg;*.json;*.ttf;*.mp3;*.wav;*.ogg;*.flac;*.wma;*.m4a;*.object;*.keyframes;*.particles;*.mproj;*.mani;*.blocks;*.nbt;*.dat;"
+	#macro asset_exts					"*.miobject;*.miframes;*.zip;*.schematic;*.miproject;*.miparticles;*.mimodel;*.png;*.jpg;*.json;*.ttf;*.mp3;*.wav;*.ogg;*.flac;*.wma;*.m4a;*.object;*.keyframes;*.particles;*.mproj;*.mani;*.blocks;*.nbt;*.dat;*.obj;"
 	
 	// Minecraft structure
 	#macro mc_file_directory			file_directory + "Minecraft_unzip/"
@@ -145,6 +143,7 @@ function macros()
 	#macro snap_min						0.000001
 	#macro dragger_width				74
 	#macro label_height					9
+	#macro small_spacing				10
 	
 	// Values
 	#macro null							noone

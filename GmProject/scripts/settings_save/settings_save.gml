@@ -55,7 +55,7 @@ function settings_save()
 		if (setting_advanced_mode)
 			json_save_var("advanced_mode", setting_advanced_mode)
 		
-		json_save_var("fps", room_speed - 10)
+		json_save_var("fps", room_speed)
 		json_save_var("project_folder", json_string_encode(setting_project_folder))
 		json_save_var("cam_work_pov", setting_cam_work_pov)
 		json_save_var("gizmos_size", setting_gizmos_size)
@@ -75,6 +75,16 @@ function settings_save()
 		json_save_var("watermark_padding", setting_watermark_padding)
 		json_save_var("watermark_scale", setting_watermark_scale)
 		json_save_var("watermark_opacity", setting_watermark_opacity)
+		
+	json_save_object_done()
+	
+	json_save_object_start("viewport")
+	
+		json_save_var_bool("overlay_show_light", setting_overlay_show_light)
+		json_save_var_bool("overlay_show_particle", setting_overlay_show_particle)
+		json_save_var_bool("overlay_show_path", setting_overlay_show_path)
+		json_save_var_bool("overlay_show_guides", setting_overlay_show_guides)
+		json_save_var_bool("focus_to_timeline_cam", setting_focus_to_timeline_cam)
 		
 	json_save_object_done()
 	
@@ -189,6 +199,7 @@ function settings_save()
 		json_save_var("exportmovie_frame_rate", popup_exportmovie.frame_rate)
 		json_save_var("exportmovie_framespersecond", popup_exportmovie.framespersecond)
 		json_save_var("exportmovie_bit_rate", popup_exportmovie.bit_rate)
+		json_save_var("exportmovie_colortype", popup_exportmovie.colortype)
 		json_save_var_bool("exportmovie_include_audio", popup_exportmovie.include_audio)
 		json_save_var_bool("exportmovie_remove_background", popup_exportmovie.remove_background)
 		json_save_var_bool("exportmovie_include_hidden", popup_exportmovie.include_hidden)

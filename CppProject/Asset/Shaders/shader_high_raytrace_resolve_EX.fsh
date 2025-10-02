@@ -54,7 +54,7 @@ void main()
         vec3 originNormal = unpackNormal(texture2D(uNormalBuffer, vTexCoord));
         float originDepth = unpackDepth(texture2D(uDepthBuffer, vTexCoord));
 
-        vec2 texelSize = 0.1 * uScreenSize;
+        vec2 texelSize = 0.1 / uScreenSize;
 
         vec2 directions[8];
 	    directions[0] = vec2(1, 0);
@@ -74,7 +74,7 @@ void main()
 
         // Only update color if the sample has significant weight
         if (sampleColor.a > MIN_WEIGHT_THRESHOLD)
-            color.rgb = (sampleColor.rgb * 2.0) / sampleColor.a;
+            color.rgb = (sampleColor.rgb) / sampleColor.a;
     }
 
     gl_FragColor = color;

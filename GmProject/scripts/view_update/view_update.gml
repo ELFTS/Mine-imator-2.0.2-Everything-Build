@@ -26,12 +26,21 @@ function view_update(view, cam)
 		
 		if ((!cam || editcamobj) && mouse_right_pressed)
 		{
+			if (!setting_focus_to_timeline_cam) {
+				window_selected_tl = tl_edit
+				focus_back_to_timeline = true
+			}
+			
 			view_click_x = display_mouse_get_x()
 			view_click_y = display_mouse_get_y()
 			window_busy = "viewmovecamera"
 			window_focus = string(view)
+			
 			if (cam)
 				action_tl_select_single(cam)
+		} else if (!setting_focus_to_timeline_cam && window_selected_tl != null && focus_back_to_timeline) {
+			action_tl_select_single(window_selected_tl)
+			focus_back_to_timeline = false
 		}
 	}
 	
@@ -130,6 +139,16 @@ function view_update(view, cam)
 			{
 				shortcut_bar_state = "tlcameramove"
 				render_samples = -1
+			}
+			
+			// Scroll to slow down movement
+			if (mouse_wheel <> 0) {
+				if (mouse_wheel < 0)
+					setting_move_speed_scroll += (setting_move_speed_scroll / 5)
+				else
+					setting_move_speed_scroll -= (setting_move_speed_scroll / 5)
+					
+				setting_move_speed_scroll = clamp(setting_move_speed_scroll, 0.01, 5)
 			}
 			
 			if (setting_camera_lock_mouse)

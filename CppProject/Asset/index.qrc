@@ -3,6 +3,8 @@
 	<qresource prefix="/">
 		<file>Shaders/Compiled/primitive.fsh.d3d</file>
 		<file>Shaders/Compiled/primitive.vsh.d3d</file>
+		<file>Shaders/Compiled/shader_SMAA_Antialiasing.fsh.d3d</file>
+		<file>Shaders/Compiled/shader_SMAA_Antialiasing.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_add.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_add.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_alpha_fix.fsh.d3d</file>
@@ -127,6 +129,8 @@
 		<file>Shaders/Compiled/world_preview.vsh.d3d</file>
 		<file>Shaders/primitive.fsh</file>
 		<file>Shaders/primitive.vsh</file>
+		<file>Shaders/shader_SMAA_Antialiasing.fsh</file>
+		<file>Shaders/shader_SMAA_Antialiasing.vsh</file>
 		<file>Shaders/shader_add.fsh</file>
 		<file>Shaders/shader_add.vsh</file>
 		<file>Shaders/shader_alpha_fix.fsh</file>
@@ -298,6 +302,7 @@
 		<file>Sprites/spr_arrow_up_down_ani_frame_7.png</file>
 		<file>Sprites/spr_arrow_up_down_ani_frame_8.png</file>
 		<file>Sprites/spr_arrow_up_down_ani_frame_9.png</file>
+		<file>Sprites/spr_ave_x_frame_0.png</file>
 		<file>Sprites/spr_bench_example_frame_0.png</file>
 		<file>Sprites/spr_bench_example_frame_1.png</file>
 		<file>Sprites/spr_bench_example_frame_2.png</file>

@@ -25,7 +25,7 @@ function camera_control_move(cam, lockx, locky)
 		}
 		
 		// Move
-		move = 4 * setting_move_speed * delta
+		move = 4 * setting_move_speed * delta * setting_move_speed_scroll
 		spd = (keybinds[e_keybind.CAM_FORWARD].active - keybinds[e_keybind.CAM_BACK].active) * move
 		spdm = 1
 		if (keybinds[e_keybind.CAM_FAST].active)
@@ -76,7 +76,7 @@ function camera_control_move(cam, lockx, locky)
 		var move, roll, spd, spdm, xd, yd, zd;
 		
 		// Move
-		move = 4 * setting_move_speed * delta
+		move = 4 * setting_move_speed * delta * setting_move_speed_scroll
 		spd = (keybinds[e_keybind.CAM_FORWARD].active - keybinds[e_keybind.CAM_BACK].active) * move
 		spdm = 1
 		if (keybinds[e_keybind.CAM_FAST].active)
@@ -105,7 +105,7 @@ function camera_control_move(cam, lockx, locky)
 		zd += (-dsin(cam.value[e_value.ROT_X])) * (keybinds[e_keybind.CAM_FORWARD].active - keybinds[e_keybind.CAM_BACK].active) * move
 		
 		// Roll
-		roll = (keybinds[e_keybind.CAM_ROLL_FORWARD].active - keybinds[e_keybind.CAM_ROLL_BACK].active) * 4 * spdm * delta
+		roll = (keybinds[e_keybind.CAM_ROLL_FORWARD].active - keybinds[e_keybind.CAM_ROLL_BACK].active) * 2 * spdm * delta
 		
 		// Set
 		tl_value_set_start(camera_control_move, true)

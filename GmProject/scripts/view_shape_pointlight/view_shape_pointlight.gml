@@ -29,7 +29,7 @@ function view_shape_pointlight_guide(tl)
 		view_shape_circle(point3D_add(tl.world_pos, vec3(0, 0, 0)), max(0, tl.value[e_value.LIGHT_RANGE]))
 	
 		// Fade size
-		draw_set_color(make_color_hsv(color_get_hue(light_c) + 25, color_get_saturation(light_c), color_get_value(light_c) + 25))
+		draw_set_color(make_color_hsv(color_get_hue(light_c) + 25, clamp(color_get_saturation(light_c) - 25, 0, 255), clamp(color_get_value(light_c) + 25, 0, 255)))
 		view_shape_circle(point3D_add(tl.world_pos, vec3(0, 0, 0)), max(0, tl.value[e_value.LIGHT_RANGE]) * clamp((1 - tl.value[e_value.LIGHT_FADE_SIZE]), 0, 1))
 	}
 	

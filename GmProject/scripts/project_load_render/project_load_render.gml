@@ -9,6 +9,10 @@ function project_load_render(map)
 	project_render_samples = value_get_real(map[?"render_samples"], project_render_samples)
 	project_render_distance = value_get_real(map[?"render_distance"], project_render_distance)
 	
+	project_render_performance_mode = value_get_real(map[?"render_performance_mode"], project_render_performance_mode)
+	project_render_performance_mode_skipfog = value_get_real(map[?"render_performance_mode_skipfog"], project_render_performance_mode_skipfog)
+	project_render_performance_mode_skipsky = value_get_real(map[?"render_performance_mode_skipsky"], project_render_performance_mode_skipsky)
+	
 	project_render_ssao = value_get_real(map[?"render_ssao"], project_render_ssao)
 	project_render_ssao_samples = value_get_real(map[?"render_ssao_samples"], project_render_ssao_samples)
 	project_render_ssao_radius = value_get_real(map[?"render_ssao_radius"], project_render_ssao_radius)
@@ -61,10 +65,13 @@ function project_load_render(map)
 	
 	project_render_aa = value_get_real(map[?"render_aa"], project_render_aa)
 	project_render_aa_power = value_get_real(map[?"render_aa_power"], project_render_aa_power)
+	project_render_smaa = value_get_real(map[?"render_smaa"], project_render_smaa)
+	project_render_smaa_power = value_get_real(map[?"render_smaa_power"], project_render_smaa_power)
 	
 	project_render_dof_sample = value_get_real(map[?"render_dof_sample"], project_render_dof_sample)
 	project_render_dof_ghostingfix = value_get_real(map[?"render_dof_ghostingfix"], project_render_dof_ghostingfix)
 	project_render_dof_ghostingfix_threshold = value_get_real(map[?"render_dof_ghostingfix_threshold"], project_render_dof_ghostingfix_threshold)
+	project_render_dof_affect_glow = value_get_real(map[?"render_dof_affect_glow"], project_render_dof_affect_glow)
 	
 	project_render_motionblur = value_get_real(map[?"render_motionblur"], project_render_motionblur)
 	project_render_motionblur_power = value_get_real(map[?"render_motionblur_power"], project_render_motionblur_power)

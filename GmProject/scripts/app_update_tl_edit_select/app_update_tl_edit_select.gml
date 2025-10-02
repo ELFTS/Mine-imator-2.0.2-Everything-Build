@@ -24,6 +24,7 @@ function app_update_tl_edit_select()
 	{
 		appearance.enabled = false
 		audio.enabled = false
+		light.enabled = false
 		path.enabled = false
 	}
 	
@@ -109,8 +110,10 @@ function app_update_tl_edit_select()
 		if (value_type[e_value_type.PARTICLES])
 			app.frame_editor.particles.enabled = true
 		
-		if (value_type[e_value_type.LIGHT])
+		if (value_type[e_value_type.LIGHT]) {
 			app.frame_editor.light.enabled = true
+			app.timeline_editor.light.enabled = true
+		}
 		
 		if (value_type[e_value_type.SPOTLIGHT])
 			app.frame_editor.light.has_spotlight = true

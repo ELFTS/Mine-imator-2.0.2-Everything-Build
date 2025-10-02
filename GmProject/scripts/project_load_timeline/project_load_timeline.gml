@@ -185,6 +185,7 @@ function project_load_timeline(map)
 			inherit_glow_color = value_get_real(inheritmap[?"glow_color"], inherit_glow_color)
 			inherit_select = value_get_real(inheritmap[?"select"], inherit_select)
 			inherit_pose = value_get_real(inheritmap[?"pose"], inherit_pose)
+			inherit_modifier_frameskip = value_get_real(inheritmap[?"modifier_frameskip"], inherit_modifier_frameskip)
 		}
 		
 		scale_resize = value_get_real(map[?"scale_resize"], scale_resize)
@@ -210,7 +211,7 @@ function project_load_timeline(map)
 		
 		fog = value_get_real(map[?"fog"], fog)
 		
-		if (type = e_temp_type.SCENERY || type = e_temp_type.BLOCK || type = e_temp_type.PARTICLE_SPAWNER || type = e_temp_type.TEXT || type_is_shape(type))
+		if (type = e_temp_type.SCENERY || type = e_temp_type.BLOCK || type = e_temp_type.PARTICLE_SPAWNER || type = e_temp_type.TEXT || type = e_tl_type.PATH || type_is_shape(type))
 		{
 			wind = value_get_real(map[?"wind"], wind)
 			wind_terrain = value_get_real(map[?"wind_terrain"], wind_terrain)

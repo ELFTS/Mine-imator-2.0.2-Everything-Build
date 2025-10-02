@@ -4,14 +4,14 @@
 function render_high_bloom(prevsurf)
 {
 	var thresholdsurf, bloomsurf, bloomsurftemp, resultsurf, baseradius, bloomstrength;
-	render_surface[0] = surface_require(render_surface[0], render_width, render_height)
-	render_surface[1] = surface_require(render_surface[1], render_width, render_height)
-	render_surface[2] = surface_require(render_surface[2], render_width, render_height)
+	render_surface[0] = surface_require(render_surface[0], render_width, render_height, false, true)
+	render_surface[1] = surface_require(render_surface[1], render_width, render_height, false, true)
+	render_surface[2] = surface_require(render_surface[2], render_width, render_height, false, true)
 	thresholdsurf = render_surface[0]
 	bloomsurf = render_surface[1]
 	bloomsurftemp = render_surface[2]
 	resultsurf = render_high_get_apply_surf()
-	baseradius = ((render_camera.value[e_value.CAM_BLOOM_RADIUS] * 10) * render_height / 500)
+	baseradius = ((render_camera.value[e_value.CAM_BLOOM_RADIUS] * 10) * render_height / 500 * render_post_kernel)
 	bloomstrength = 1
 	
 	// Filter colors to blur
@@ -149,7 +149,7 @@ function render_high_bloom(prevsurf)
 				with (render_shader_obj)
 				{
 					shader_set(shader)
-					shader_blur_set(render_blur_kernel, baseradius / (1 + 1.333 * i), 1, 0)
+					shader_blur_set(render_blur_kernel, baseradius / (1 + (1.333 * i)), 1, 0)
 				}
 				draw_surface_exists(bloomsurftemp, 0, 0)
 				with (render_shader_obj)
@@ -163,7 +163,7 @@ function render_high_bloom(prevsurf)
 				with (render_shader_obj)
 				{
 					shader_set(shader)
-					shader_blur_set(render_blur_kernel, baseradius / (1 + 1.333 * i), 0, 1)
+					shader_blur_set(render_blur_kernel, baseradius / (1 + (1.333 * i)), 0, 1)
 				}
 				draw_surface_exists(bloomsurf, 0, 0)
 				with (render_shader_obj)

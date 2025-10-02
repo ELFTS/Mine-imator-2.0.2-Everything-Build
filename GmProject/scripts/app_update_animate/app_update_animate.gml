@@ -113,6 +113,27 @@ function app_update_animate(force)
 			app.background_light_data[app.background_light_amount * 8 + 7] = 1
 			app.background_light_amount++
 		}
+			
+		// Shake Modifier
+		modifier_shake_pos = vec3(0)
+		modifier_shake_rot = vec3(0)
+		modifier_shake_bend = vec3(0)
+		modifier_shake = (value[e_value.MODIFIER_SHAKE] && value[e_value.MODIFIER_SHAKE_INTENSITY] != 0)
+		if (modifier_shake)
+		{
+			var shakeoffset, shakestrength;
+			shakeoffset =  value[e_value.MODIFIER_SHAKE_OFFSET] + (value[e_value.MODIFIER_SHAKE_OFFSET_AUTOMATIC]) ? (floor(id) - 106000) : 0
+			shakestrength = value[e_value.MODIFIER_SHAKE_INTENSITY] * blend_value(1, dsin(keyframe_progress_ease * 180), value[e_value.MODIFIER_SHAKE_KEYFRAME_INFLUENCE])
+			
+			if (value[e_value.MODIFIER_SHAKE_POSITION])
+				modifier_shake_pos = generate_shake_value(modifier_step, shakestrength / 10, shakeoffset, false)
+				
+			if (value[e_value.MODIFIER_SHAKE_ROTATION])
+				modifier_shake_rot = generate_shake_value(modifier_step, shakestrength, shakeoffset + 100, false)
+				
+			if (value[e_value.MODIFIER_SHAKE_BEND])
+				modifier_shake_bend = generate_shake_value(modifier_step, shakestrength, shakeoffset + 200, false)
+		}
 	}
 	
 	if (updatevalues)
@@ -176,6 +197,7 @@ function app_update_animate(force)
 		background_sky_time						= bgobject.value[e_value.BG_SKY_TIME]
 		background_sky_rotation					= bgobject.value[e_value.BG_SKY_ROTATION]
 		background_sunlight_strength			= bgobject.value[e_value.BG_SUNLIGHT_STRENGTH]
+		background_sunlight_specular_strength	= bgobject.value[e_value.BG_SUNLIGHT_SPECULAR_STRENGTH]
 		background_sunlight_angle				= bgobject.value[e_value.BG_SUNLIGHT_ANGLE]
 		background_twilight						= bgobject.value[e_value.BG_TWILIGHT]
 		background_sky_clouds_show				= bgobject.value[e_value.BG_SKY_CLOUDS_SHOW]

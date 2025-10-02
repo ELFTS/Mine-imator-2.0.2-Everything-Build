@@ -27,6 +27,8 @@ uniform float uRatio;
 uniform float uRatioBalance;
 uniform vec4 uColor;
 
+uniform bool uPerformanceMode;
+
 float unpackValue(vec4 c)
 {
     return c.r + c.g * (1.0/255.0) + c.b * (1.0/65025.0);
@@ -56,7 +58,11 @@ vec3 unpackNormalBlueNoise(vec4 c)
 float getSSAOstrength(vec2 uv)
 {
     float emissive = unpackValue(texture2D(uEmissiveBuffer, uv)) * 255.0;
-    float mask = texture2D(uMaskBuffer, uv).r;
+    float mask = 1.0;
+	
+	if (!uPerformanceMode)
+		mask = texture2D(uMaskBuffer, uv).r;
+		
     return (1.0 - clamp(emissive, 0.0, 1.0)) * mask;
 }
 
