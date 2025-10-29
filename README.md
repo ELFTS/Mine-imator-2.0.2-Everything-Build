@@ -4,11 +4,9 @@
   <img src="https://u.cubeupload.com/YogaindoCR/Simply.png" width=800/>
   <br/>
   <br/>
-  <img src="https://www.mineimatorforums.com/uploads/monthly_2023_03/336815532_programview.png.9212aa1f6d1bed63411408aa5e905ce0.png" width=800/>
+  <img src="https://raw.githubusercontent.com/YogaindoCR/Mine-imator-2.0.2-Simply-Upscaled-Build/refs/heads/master/Iklan.webp" width=800/>
   <br/>
   <img src="https://u.cubeupload.com/YogaindoCR/Misu.png" width=312/>
-  <br/>
-  <img src="https://raw.githubusercontent.com/YogaindoCR/Mine-imator-2.0.2-Simply-Upscaled-Build/refs/heads/master/Iklan.webp" width=800/>
 </p>
 Since Simply Upscaled Build is opensourced you can pull any request for an feature of yours to be merged to MISU
  
