@@ -8,7 +8,7 @@
   <br/>
   <img src="https://u.cubeupload.com/YogaindoCR/Misu.png" width=312/>
   <br/>
-  <img src="[https://u.cubeupload.com/YogaindoCR/Misu.png](https://raw.githubusercontent.com/YogaindoCR/Mine-imator-2.0.2-Simply-Upscaled-Build/refs/heads/master/Iklan.webp)" width=800/>
+  <img src="https://raw.githubusercontent.com/YogaindoCR/Mine-imator-2.0.2-Simply-Upscaled-Build/refs/heads/master/Iklan.webp" width=800/>
 </p>
 Since Simply Upscaled Build is opensourced you can pull any request for an feature of yours to be merged to MISU
  
