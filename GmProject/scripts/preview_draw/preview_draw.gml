@@ -425,6 +425,7 @@ function preview_draw(preview, xx, yy, width, height)
 							case e_temp_type.CONE: 
 							case e_temp_type.CYLINDER: 
 							case e_temp_type.SPHERE: 
+							case e_temp_type.ICOSPHERE: 
 							case e_temp_type.SURFACE: // Shapes
 							{
 								var tex;

@@ -89,6 +89,7 @@ function shader_startup()
 		new_shader("shader_tonemap")
 		new_shader("shader_clip")
 		new_shader("shader_high_glint")
+		new_shader("shader_high_outline")
 		
 		shader_texture_surface = false
 		shader_texture_filter_linear = false
@@ -754,6 +755,29 @@ function shader_startup()
 		new_shader_uniform("uGlintSize")
 		new_shader_uniform("uGlintEnabled")
 		new_shader_uniform("uGlintStrength")
+	}
+	
+	with (shader_map[?shader_high_outline])
+	{
+		new_shader_sampler("uDepthBuffer")
+		new_shader_sampler("uNormalBuffer")
+		new_shader_sampler("uEmissiveBuffer")
+		new_shader_sampler("uMaskBuffer")
+		new_shader_uniform("uNormalBufferScale")
+		new_shader_uniform("uScreenSize")
+		new_shader_uniform("uNear")
+		new_shader_uniform("uFar")
+		new_shader_uniform("uProjMatrixInv")
+		new_shader_uniform("uScreenSize")
+		new_shader_uniform("uRadius")
+		new_shader_uniform("uPower")
+		new_shader_uniform("uColor")
+		new_shader_uniform("uDistanceFade")
+		new_shader_uniform("uThresholdDepth")
+		new_shader_uniform("uThresholdDepthFade")
+		new_shader_uniform("uThresholdNormal")
+		new_shader_uniform("uThresholdNormalFade")
+		new_shader_uniform("uOutlineNormal")
 	}
 	
 	return true

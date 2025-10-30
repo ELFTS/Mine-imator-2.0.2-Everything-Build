@@ -79,6 +79,8 @@ function tl_value_interpolate(vid, p, val1, val2)
 		case e_value.CAM_DISTORT_REPEAT:
 		case e_value.CAM_SIZE_USE_PROJECT:
 		case e_value.CAM_SIZE_KEEP_ASPECT_RATIO:
+		case e_value.CAM_OUTLINE:
+		case e_value.CAM_OUTLINE_NORMAL:
 		case e_value.BG_IMAGE_SHOW:
 		case e_value.BG_SKY_MOON_PHASE:
 		case e_value.BG_TWILIGHT:
@@ -87,6 +89,7 @@ function tl_value_interpolate(vid, p, val1, val2)
 		case e_value.BG_GROUND_SLOT:
 		case e_value.BG_BIOME:
 		case e_value.BG_FOG_SHOW:
+		case e_value.BG_FOG_HEIGHT_SHOW:
 		case e_value.BG_WIND:
 		case e_value.VISIBLE:
 		case e_value.TEXTURE_OBJ:

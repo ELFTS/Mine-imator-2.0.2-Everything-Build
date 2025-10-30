@@ -19,6 +19,7 @@ uniform vec3 uShadowPosition; // static
 uniform float uLightSpecular;
 uniform float uLightSize;
 uniform float uBlurSample;
+uniform float uNormalStrength;
 uniform vec2 uKernel2D;
 uniform float uShadowBlurSample;
 
@@ -102,9 +103,11 @@ vec3 getMappedNormal(vec2 uv)
     if (n.a < 0.01) return normalize(vNormal); // Fallback to vertex normal
     
     n.xy = n.xy * 2.0 - 1.0;
-    n.z = sqrt(max(0.0, 1.0 - dot(n.xy, n.xy)));
-    n.y *= -1.0;
-    return normalize(vTBN * n.xyz);
+	n.z = sqrt(max(0.0, 1.0 - dot(n.xy, n.xy)));
+	//n.y *= -1.0;
+
+	vec3 smoothNormal = normalize(mix(vec3(0.0, 0.0, 1.0), n.xyz, uNormalStrength));
+	return normalize(vTBN * smoothNormal);
 }
 
 // Faster depth unpacking using bit manipulation emulation
@@ -381,24 +384,39 @@ void main()
 		}
         
         // Specular calculation
-        if (uLightSpecular > 0.0 && dif * shadow > 0.0) {
-		    vec3 V = normalize(uCameraPosition - vPosition);
+		if (uLightSpecular > 0.0 && dif * shadow > 0.0)
+		{
 		    vec3 L = normalize(uLightPosition - vPosition);
+		    vec3 V = normalize(uCameraPosition - vPosition);
 		    vec3 H = normalize(V + L);
-    
-		    float NDF = distributionGGX(normal, H, roughness);
-		    float G = geometrySmith(normal, V, L, roughness);
-		    float F = fresnelSchlickRoughness(max(dot(H, V), 0.0), F0, roughness);
-    
+
+		    // Light size & cone softness
+		    float lightDist = length(uLightPosition - vPosition);
+
+		    // Larger cone = softer specular, and nearby large lights look bigger
+		    float sizeFactor = uLightSize / (lightDist + 0.001);
+
+		    // Blend light size into roughness for area-light-like spread
+		    float adjustedRoughness = clamp(roughness + sizeFactor * 0.5, 0.0, 1.0);
+
+		    // GGX specular with adjusted roughness
+		    float NDF = distributionGGX(normal, H, adjustedRoughness);
+		    float G   = geometrySmith(normal, V, L, adjustedRoughness);
+		    float F   = fresnelSchlickRoughness(max(dot(H, V), 0.0), F0, adjustedRoughness);
+
 		    vec3 kS = vec3(F);
 		    vec3 kD = vec3(1.0) - kS;
 		    kD *= 1.0 - metallic;
-    
-		    float numerator = NDF * G * F;
+
+		    float numerator   = NDF * G * F;
 		    float denominator = 4.0 * max(dot(normal, V), 0.0) * max(dot(normal, L), 0.0) + 0.0001;
-		    vec3 specular = vec3(numerator / denominator);
-    
-		    spec = uLightColor.rgb * shadow * uLightSpecular * dif * specular * mix(vec3(1.0), baseColor.rgb, metallic);
+		    vec3 specular     = vec3(numerator / denominator);
+
+		    // Energy balancing for large lights
+		    float sizeAtten = 1.0 / (1.0 + sizeFactor * 4.0);
+
+		    spec = uLightColor.rgb * shadow * uLightSpecular * dif *
+		           specular * sizeAtten * mix(vec3(1.0), baseColor.rgb, metallic);
 		}
     }
     

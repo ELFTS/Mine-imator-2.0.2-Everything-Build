@@ -50,5 +50,9 @@ function temp_update_shape()
 		case e_shape_type.SPHERE:
 			shape_vbuffer = vbuffer_create_sphere(rad, tex1, tex2, shape_detail, shape_smooth, shape_invert)
 			break
+		
+		case e_shape_type.ICOSPHERE:
+			shape_vbuffer = vbuffer_create_icosphere(rad, tex1, tex2, shape_subdivision, shape_smooth, shape_invert, shape_morph)
+			break
 	}
 }

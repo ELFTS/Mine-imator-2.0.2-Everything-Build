@@ -153,6 +153,8 @@ function settings_load()
 			setting_panel_left_top_size = value_get_real(interfacemap[?"panel_left_top_size"], setting_panel_left_top_size)
 			setting_panel_right_top_size = value_get_real(interfacemap[?"panel_right_top_size"], setting_panel_right_top_size)
 			
+			setting_view_scaling_value = value_get_real(interfacemap[?"view_scaling"], setting_view_scaling_value)
+			
 			setting_properties_location = value_get_string(interfacemap[?"properties_location"], setting_properties_location)
 			setting_ground_editor_location = value_get_string(interfacemap[?"ground_editor_location"], setting_ground_editor_location)
 			setting_template_editor_location = value_get_string(interfacemap[?"template_editor_location"], setting_template_editor_location)

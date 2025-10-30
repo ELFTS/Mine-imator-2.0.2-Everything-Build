@@ -12,10 +12,13 @@ uniform vec4 uHSBMul;
 uniform vec4 uMixColor;
 
 uniform int uFogShow;
+uniform int uFogHeightShow;
 uniform vec4 uFogColor; // static
 uniform float uFogDistance; // static
 uniform float uFogSize; // static
 uniform float uFogHeight; // static
+uniform float uFogHeightSize; // static
+uniform float uFogHeightOffset; // static
 
 uniform vec3 uCameraPosition; // static
 
@@ -44,13 +47,19 @@ vec4 hsbtorgb(vec4 c)
 
 float getFog()
 {
-	float fog;
+	float fog, fog2;
 	if (uFogShow > 0)
 	{
 		float fogDepth = distance(vPosition, uCameraPosition);
 		
 		fog = clamp(1.0 - (uFogDistance - fogDepth) / uFogSize, 0.0, 1.0);
 		fog *= clamp(1.0 - (vPosition.z - uFogHeight) / uFogSize, 0.0, 1.0);
+		
+		if (uFogHeightShow > 0) {
+			fog2 = clamp(1.0 - (0.0 - fogDepth) / uFogHeightSize, 0.0, 1.0);
+			fog2 *= clamp(1.0 - (vPosition.z - uFogHeightOffset) / uFogHeightSize, 0.0, 1.0);
+			fog += fog2;
+		}
 	}
 	else
 		fog = 0.0;

@@ -507,10 +507,6 @@ function tab_properties_render()
 			tab_control_switch()
 			draw_switch("renderextrasettingsdofghostingfix", dx, dy, project_render_dof_ghostingfix, action_project_render_dof_ghostingfix, "renderextrasettingsdofghostingfixtip")
 			tab_next()
-		
-			tab_control_switch()
-			draw_switch("renderextrasettingsdofaffectglow", dx, dy, project_render_dof_affect_glow, action_project_render_dof_affect_glow, "renderextrasettingsdofaffectglowtip")
-			tab_next()
 				
 			if (project_render_dof_ghostingfix) {
 				tab_collapse_start()
@@ -521,6 +517,10 @@ function tab_properties_render()
 				
 				tab_collapse_end()
 			}
+			
+			tab_control_switch()
+			draw_switch("renderextrasettingsdofaffectglow", dx, dy, project_render_dof_affect_glow, action_project_render_dof_affect_glow, "renderextrasettingsdofaffectglowtip")
+			tab_next()
 
 			if (setting_unstable_features) {
 				tab_control_dragger()

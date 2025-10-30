@@ -29,10 +29,13 @@ function new_shader(name)
 		
 		// Fog
 		new_shader_uniform("uFogShow")
+		new_shader_uniform("uFogHeightShow")
 		new_shader_uniform("uFogColor")
 		new_shader_uniform("uFogDistance")
 		new_shader_uniform("uFogSize")
 		new_shader_uniform("uFogHeight")
+		new_shader_uniform("uFogHeightSize")
+		new_shader_uniform("uFogHeightOffset")
 		
 		new_shader_uniform("uCameraPosition")
 		

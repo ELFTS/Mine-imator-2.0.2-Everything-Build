@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CMakePredefinedTargets", "CMakePredefinedTargets", "{D7CC12CF-9140-3709-96D6-50C68DE35299}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mine-imator", "Mine-imator.vcxproj", "{19D00721-D922-31F7-A1F5-055AC50E50EE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{420890CA-7772-3875-A712-0344C5F314FE} = {420890CA-7772-3875-A712-0344C5F314FE}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ALL_BUILD", "ALL_BUILD.vcxproj", "{50862FB8-D233-3C4C-A03C-85D6510EF47E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{19D00721-D922-31F7-A1F5-055AC50E50EE} = {19D00721-D922-31F7-A1F5-055AC50E50EE}
+		{420890CA-7772-3875-A712-0344C5F314FE} = {420890CA-7772-3875-A712-0344C5F314FE}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Assets", "Assets.vcxproj", "{F764F995-B47B-3040-8420-08ADDBCF17BF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{420890CA-7772-3875-A712-0344C5F314FE} = {420890CA-7772-3875-A712-0344C5F314FE}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZERO_CHECK", "ZERO_CHECK.vcxproj", "{420890CA-7772-3875-A712-0344C5F314FE}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		RelWithDebInfo|x64 = RelWithDebInfo|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19D00721-D922-31F7-A1F5-055AC50E50EE}.Debug|x64.ActiveCfg = Debug|x64
+		{19D00721-D922-31F7-A1F5-055AC50E50EE}.Debug|x64.Build.0 = Debug|x64
+		{19D00721-D922-31F7-A1F5-055AC50E50EE}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
+		{19D00721-D922-31F7-A1F5-055AC50E50EE}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
+		{19D00721-D922-31F7-A1F5-055AC50E50EE}.Release|x64.ActiveCfg = Release|x64
+		{19D00721-D922-31F7-A1F5-055AC50E50EE}.Release|x64.Build.0 = Release|x64
+		{50862FB8-D233-3C4C-A03C-85D6510EF47E}.Debug|x64.ActiveCfg = Debug|x64
+		{50862FB8-D233-3C4C-A03C-85D6510EF47E}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
+		{50862FB8-D233-3C4C-A03C-85D6510EF47E}.Release|x64.ActiveCfg = Release|x64
+		{F764F995-B47B-3040-8420-08ADDBCF17BF}.Debug|x64.ActiveCfg = Debug|x64
+		{F764F995-B47B-3040-8420-08ADDBCF17BF}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
+		{F764F995-B47B-3040-8420-08ADDBCF17BF}.Release|x64.ActiveCfg = Release|x64
+		{420890CA-7772-3875-A712-0344C5F314FE}.Debug|x64.ActiveCfg = Debug|x64
+		{420890CA-7772-3875-A712-0344C5F314FE}.Debug|x64.Build.0 = Debug|x64
+		{420890CA-7772-3875-A712-0344C5F314FE}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
+		{420890CA-7772-3875-A712-0344C5F314FE}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
+		{420890CA-7772-3875-A712-0344C5F314FE}.Release|x64.ActiveCfg = Release|x64
+		{420890CA-7772-3875-A712-0344C5F314FE}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{50862FB8-D233-3C4C-A03C-85D6510EF47E} = {D7CC12CF-9140-3709-96D6-50C68DE35299}
+		{420890CA-7772-3875-A712-0344C5F314FE} = {D7CC12CF-9140-3709-96D6-50C68DE35299}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2349D846-E5B2-3091-887E-6DF43301CD62}
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

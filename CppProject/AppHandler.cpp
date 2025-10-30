@@ -64,6 +64,8 @@ namespace CppProject
 			QDir().mkpath(projects_directory_get());
 			file_delete_lib(log_file);
 
+			DisableProcessWindowsGhosting();
+
 		#if RELEASE_MODE
 			gmlGlobal::working_directory = QCoreApplication::applicationDirPath() + "/";
 		#else
@@ -458,7 +460,7 @@ namespace CppProject
 				if (gmlGlobal::fps_real >= gmlGlobal::room_speed / 2.0)
 					stepTimer.start(100.0 / gmlGlobal::room_speed, this);
 				else
-					stepTimer.start(0.0 / gmlGlobal::room_speed, this);
+					stepTimer.start(0.0, this);
 		}
 		else
 		{

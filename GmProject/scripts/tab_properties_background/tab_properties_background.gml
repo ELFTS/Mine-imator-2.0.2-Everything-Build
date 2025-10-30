@@ -474,6 +474,27 @@ function tab_properties_background()
 		draw_dragger("backgroundfogheight", dx, dy, dragger_width, background_fog_height, background_fog_height / 100, 10, 2000, 1000, 10, tab.background.tbx_fog_height, action_background_fog_height)
 		tab_next()
 		
+		// Height Fog
+		tab_control_switch()
+		draw_switch("backgroundfogheightlabel", dx, dy, background_fog_height_show, action_background_fog_height_show)
+		tab_next()
+		
+		if (background_fog_height_show) {
+			tab_collapse_start()
+			
+			// Height Fog size
+			tab_control_dragger()
+			draw_dragger("backgroundfogheightsize", dx, dy, dragger_width, background_fog_height_size, background_fog_height_size / 1000, 1, project_render_distance, 1, 0.1, tab.background.tbx_fog_height_size, action_background_fog_height_size)
+			tab_next()
+		
+			// Height Fog offset
+			tab_control_dragger()
+			draw_dragger("backgroundfogheightoffset", dx, dy, dragger_width, background_fog_height_offset, 0.1, -no_limit, no_limit, 0, 0.1, tab.background.tbx_fog_height_offset, action_background_fog_height_offset)
+			tab_next()
+		
+			tab_collapse_end()
+		}
+		
 		tab_collapse_end()
 	}
 	

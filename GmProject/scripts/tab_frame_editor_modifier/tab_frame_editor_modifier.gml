@@ -67,7 +67,7 @@ function tab_frame_editor_modifier()
 				dy += small_spacing
 				
 				tab_control_dragger()
-				draw_dragger("frameeditormodifiershakekeyframeinfluence", dx, dy, dragger_width, tl_edit.value[e_value.MODIFIER_SHAKE_KEYFRAME_INFLUENCE] * 100, 1, 0, 100, 0, 0.1, tab.constraints.tbx_modifier_shake_keyframe_influence, action_tl_frame_modifier_keyframe_influence, null, true, false, "frameeditormodifiershakekeyframeinfluencetip")
+				draw_dragger("frameeditormodifiershakekeyframeinfluence", dx, dy, dragger_width, tl_edit.value[e_value.MODIFIER_SHAKE_KEYFRAME_INFLUENCE] * 100, 1, -100, 100, 0, 0.1, tab.constraints.tbx_modifier_shake_keyframe_influence, action_tl_frame_modifier_keyframe_influence, null, true, false, "frameeditormodifiershakekeyframeinfluencetip")
 				tab_next()
 		
 			tab_collapse_end()

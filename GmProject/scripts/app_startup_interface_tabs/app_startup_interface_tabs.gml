@@ -147,6 +147,8 @@ function app_startup_interface_tabs()
 			tbx_repeat_y = new_textbox_integer()
 			tbx_repeat_z = new_textbox_integer()
 			tbx_shape_detail = new_textbox_integer()
+			tbx_shape_subdivision = new_textbox_integer()
+			tbx_shape_morph = new_textbox_decimals()
 			tbx_shape_tex_hoffset = new_textbox_ndecimals()
 			tbx_shape_tex_voffset = new_textbox_ndecimals()
 			tbx_shape_tex_hrepeat = new_textbox_decimals()
@@ -186,7 +188,9 @@ function app_startup_interface_tabs()
 			tbx_ground_direction.suffix = "°"
 			tbx_fog_distance = new_textbox_integer()
 			tbx_fog_size = new_textbox_integer()
-			tbx_fog_height = new_textbox_integer()
+			tbx_fog_height = new_textbox_decimals()
+			tbx_fog_height_size = new_textbox_decimals()
+			tbx_fog_height_offset = new_textbox_decimals()
 			tbx_wind_speed = new_textbox_decimals()
 			tbx_wind_speed.suffix = "%"
 			tbx_wind_strength = new_textbox_decimals()
@@ -589,6 +593,8 @@ function app_startup_interface_tabs()
 			tbx_emissive.suffix = "%"
 			tbx_metallic = new_textbox_integer()
 			tbx_metallic.suffix = "%"
+			tbx_normal_strength = new_textbox_integer()
+			tbx_normal_strength.suffix = "%"
 			tbx_roughness = new_textbox_integer()
 			tbx_roughness.suffix = "%"
 			tbx_subsurface = new_textbox_decimals()
@@ -747,6 +753,16 @@ function app_startup_interface_tabs()
 			tbx_distort_zoom_amount.suffix = "%"
 			tbx_distort_amount = new_textbox_ninteger()
 			tbx_distort_amount.suffix = "%"
+			
+			tbx_outline_radius = new_textbox_decimals()
+			tbx_outline_strength = new_textbox_integer()
+			tbx_outline_strength.suffix = "%"
+			tbx_outline_depth_threshold = new_textbox_decimals()
+			tbx_outline_depth_threshold_fade = new_textbox_integer()
+			tbx_outline_depth_threshold_fade.suffix = "%"
+			tbx_outline_normal_threshold = new_textbox_decimals()
+			tbx_outline_normal_threshold_fade = new_textbox_integer()
+			tbx_outline_normal_threshold_fade.suffix = "%"
 		}
 		
 		// Sound

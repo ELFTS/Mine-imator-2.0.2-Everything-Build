@@ -18,6 +18,7 @@ uniform float uLightFadeSize; // static
 uniform vec3 uShadowPosition; // static
 uniform float uLightSpecular;
 uniform float uLightSize;
+uniform float uNormalStrength;
 uniform vec2 uKernel2D;
 
 uniform sampler2D uDepthBuffer; // static
@@ -112,9 +113,11 @@ vec3 getMappedNormal(vec2 uv)
     vec4 n = texture2D(uTextureNormal, uv).rgba;
     n.rgba = (n.a < 0.01 ? vec4(.5, .5, 0.0, 1.0) : n.rgba);
     n.xy = n.xy * 2.0 - 1.0;
-    n.z = sqrt(max(0.0, 1.0 - dot(n.xy, n.xy)));
-    n.y *= -1.0;
-    return normalize(vTBN * n.xyz);
+	n.z = sqrt(max(0.0, 1.0 - dot(n.xy, n.xy)));
+	//n.y *= -1.0; // DirectX fix if needed
+
+	vec3 smoothNormal = normalize(mix(vec3(0.0, 0.0, 1.0), n.xyz, uNormalStrength));
+	return normalize(vTBN * smoothNormal);
 }
 
 // Depth buffer handling
@@ -458,21 +461,32 @@ void main()
         }
         
         // Specular highlights
-        if (uLightSpecular * dif * shadow > 0.0) {
+        if (uLightSpecular * dif * shadow > 0.0)
+		{
             vec3 N = normal;
             vec3 V = normalize(uCameraPosition - vPosition);
             vec3 L = normalize(uLightPosition - vPosition);
             vec3 H = normalize(V + L);
-            
-            float NDF = distributionGGX(N, H, roughness);
-            float G = geometrySmith(N, V, L, roughness);
-            float F = fresnelSchlickRoughness(max(dot(H, V), 0.0), F0, roughness);
-            
-            float numerator = NDF * G * F;
-            float denominator = 4.0 * max(dot(N, V), 0.0) * max(dot(N, L), 0.0) + 0.0001;
-            float specular = numerator / denominator;
-            
-            spec = uLightColor.rgb * shadow * uLightSpecular * dif * (specular * mix(vec3(1.0), baseColor.rgb, metallic));
+			
+			// Increase roughness based on light size
+			float lightDist = length(uLightPosition - vPosition);
+			float sizeFactor = uLightSize / (lightDist + 0.001) * 1000.0;
+			float adjustedRoughness = clamp(roughness + sizeFactor * 0.5, 0.0, 1.0);
+
+			// Recompute the GGX terms with adjusted roughness
+			float NDF = distributionGGX(N, H, adjustedRoughness);
+			float G = geometrySmith(N, V, L, adjustedRoughness);
+			float F = fresnelSchlickRoughness(max(dot(H, V), 0.0), F0, adjustedRoughness);
+
+			float numerator = NDF * G * F;
+			float denominator = 4.0 * max(dot(N, V), 0.0) * max(dot(N, L), 0.0) + 0.0001;
+			float specular = numerator / denominator;
+
+			// Scale brightness slightly (large lights spread energy wider)
+			float sizeAtten = 1.0 / (1.0 + uLightSize * 4.0);
+
+			spec = uLightColor.rgb * shadow * uLightSpecular * dif *
+			       (specular * sizeAtten * mix(vec3(1.0), baseColor.rgb, metallic));
         }
     }
     

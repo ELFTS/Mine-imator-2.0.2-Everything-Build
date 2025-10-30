@@ -66,6 +66,7 @@ function tl_event_create()
 	modifier_shake_rot = vec3(0)
 	modifier_shake_bend = vec3(0)
 	modifier_shake = false
+	modifier_shake_auto_offset = random_range(-1000.0, 1000.0)
 	
 	world_pos = point3D(0, 0, 0)
 	world_pos_rotate = point3D(0, 0, 0)

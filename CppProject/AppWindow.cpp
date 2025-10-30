@@ -38,6 +38,8 @@ namespace CppProject
 		QMainWindow::setCentralWidget(d3dWidget);
 		new KeyChecker(d3dWidget);
 
+		DisableProcessWindowsGhosting();
+
 		// Create swapchain
 		DXGI_SWAP_CHAIN_DESC swapchainDesc = {};
 		swapchainDesc.BufferDesc.Width = 0;

@@ -526,6 +526,7 @@
 		"text": "Text",
 		"cube": "Cube",
 		"sphere": "Sphere",
+		"icosphere": "Ico Sphere",
 		"cone": "Cone",
 		"cylinder": "Cylinder",
 		"surface": "Surface",
@@ -661,7 +662,8 @@
 				"custom": "Custom"
 			},
 			"framespersecond": "Frames per second",
-			"fullcolor": "Full chroma subsampling",
+			"fullcolor": "Full Chroma (Experimental)",
+			"fullcolortip": "Compress the video in full Luminance color to get higher quality of compression with more CPU usage and not all Editing software support this format (HIGH END DEVICES ONLY)",
 			"includeaudio": "Include audio",
 			"removebackground": "Remove background",
 			"blendmodewarning": "Custom blend modes on objects may not render correctly.",
@@ -2905,6 +2907,8 @@
 			"invert": "Invert",
 			"smooth": "Smooth",
 			"detail": "Detail",
+			"subdivision": "Subdivision",
+			"morph": "Morph",
 			"facecamera": "Face camera"
 		},
 		"model": "Model",
@@ -3259,7 +3263,10 @@
 			"objectcolor": "Object fog color",
 			"distance": "Distance",
 			"size": "Fade size",
-			"height": "Height"
+			"height": "Height",
+			"heightlabel": "Height Fog",
+			"heightsize": "Size",
+			"heightoffset": "Offset"
 		},
 		"wind": "Wind",
 		"wind/": {
@@ -3650,6 +3657,7 @@
 			"frameskipvalue": "Skip on every"
 		},
 		"material": "MATERIAL",
+		"normalstrength": "Normal Strength",
 		"opacity": "Opacity",
 		"blendcolor": "Blend color",
 		"rgbadd": "Add (RGB)",
@@ -3847,6 +3855,18 @@
 				"repeat": "Repeat image",
 				"zoom": "Zoom amount",
 				"amount": "Distort amount"
+			},
+			"outline": "Outline",
+			"outline/": {
+				"color": "Color",
+				"strength": "Strength",
+				"radius": "Radius",
+				"depththreshold": "Depth Threshold",
+				"depththresholdfade": "Depth Fade",
+				"normal": "Normal Pass",
+				"normaltip": "Make Outline detects Normals from objects and make outline out of it",
+				"normalthreshold": "Normal Threshold",
+				"normalthresholdfade": "Normal Fade"
 			}
 		},
 		"sound": "SOUND",

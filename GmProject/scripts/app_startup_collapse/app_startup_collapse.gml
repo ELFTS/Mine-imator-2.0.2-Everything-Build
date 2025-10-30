@@ -67,6 +67,7 @@ function app_startup_collapse()
 	collapse_register("vignette")
 	collapse_register("ca")
 	collapse_register("distort")
+	collapse_register("outline")
 	
 	collapse_register("itemslot")
 	

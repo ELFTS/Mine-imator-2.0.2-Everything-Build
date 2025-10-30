@@ -62,6 +62,7 @@ function render_start()
 		render_camera_vignette = (render_effects && render_camera.value[e_value.CAM_VIGNETTE]) && !render_pass
 		render_camera_ca = (render_effects && render_camera.value[e_value.CAM_CA]) && !render_pass
 		render_camera_distort = (render_effects && render_camera.value[e_value.CAM_DISTORT]) && !render_pass
+		render_camera_outline = (render_effects && render_camera.value[e_value.CAM_OUTLINE]) && !render_pass
 		
 		render_camera_lens_dirt = render_camera_lens_dirt && ((render_camera_bloom && render_camera.value[e_value.CAM_LENS_DIRT_BLOOM]) || (render_glow && render_camera.value[e_value.CAM_LENS_DIRT_GLOW])) && !render_pass
 		render_camera_lens_dirt_bloom = render_camera_lens_dirt && render_camera.value[e_value.CAM_LENS_DIRT_BLOOM] && !render_pass
@@ -86,6 +87,7 @@ function render_start()
 		render_camera_vignette = false
 		render_camera_ca = false
 		render_camera_distort = false
+		render_camera_outline = false
 		
 		render_camera_lens_dirt = false
 		render_camera_lens_dirt_bloom = false

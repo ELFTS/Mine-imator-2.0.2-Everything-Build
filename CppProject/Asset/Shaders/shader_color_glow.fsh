@@ -16,9 +16,13 @@ uniform int uGlowTexture;
 uniform vec4 uGlowColor;
 
 uniform int uFogShow;
+uniform int uFogHeightShow;
+uniform vec4 uFogColor; // static
 uniform float uFogDistance; // static
 uniform float uFogSize; // static
 uniform float uFogHeight; // static
+uniform float uFogHeightSize; // static
+uniform float uFogHeightOffset; // static
 
 uniform vec3 uCameraPosition; // static
 
@@ -52,7 +56,13 @@ float getFog()
     
     float fogDepth = distance(vPosition, uCameraPosition);
     float fog = clamp(1.0 - (uFogDistance - fogDepth) / uFogSize, 0.0, 1.0);
-    fog *= clamp(1.0 - (vPosition.z - uFogHeight) / uFogSize, 0.0, 1.0);
+    float fog2;
+	fog *= clamp(1.0 - (vPosition.z - uFogHeight) / uFogSize, 0.0, 1.0);
+	if (uFogHeightShow > 0) {
+		fog2 = clamp(1.0 - (0.0 - fogDepth) / uFogHeightSize, 0.0, 1.0);
+		fog2 *= clamp(1.0 - (vPosition.z - uFogHeightOffset) / uFogHeightSize, 0.0, 1.0);
+		fog += fog2;
+	}
     return fog;
 }
 

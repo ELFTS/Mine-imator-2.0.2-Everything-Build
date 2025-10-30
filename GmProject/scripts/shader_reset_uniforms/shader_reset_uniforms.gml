@@ -14,6 +14,7 @@ function shader_reset_uniforms()
 	shader_uniform_emissive = null
 	shader_uniform_metallic = null
 	shader_uniform_roughness = null
+	shader_uniform_normal_strength = null
 	shader_uniform_wind = null
 	shader_uniform_wind_terrain = null
 	shader_uniform_fog = null

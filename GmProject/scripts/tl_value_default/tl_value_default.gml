@@ -9,6 +9,7 @@ function tl_value_default(valueid)
 		case e_value.SCA_Y:
 		case e_value.SCA_Z:
 		case e_value.ALPHA:
+		case e_value.NORMAL_STRENGTH:
 		case e_value.ROUGHNESS: return 1
 		case e_value.SUBSURFACE: return 0
 		case e_value.SUBSURFACE_RADIUS_RED:
@@ -97,6 +98,15 @@ function tl_value_default(valueid)
 		case e_value.CAM_HEIGHT: return 720
 		case e_value.CAM_SIZE_USE_PROJECT:
 		case e_value.CAM_SIZE_KEEP_ASPECT_RATIO: return true
+		case e_value.CAM_OUTLINE: return false
+		case e_value.CAM_OUTLINE_COLOR: return c_white
+		case e_value.CAM_OUTLINE_RADIUS: return 4
+		case e_value.CAM_OUTLINE_STRENGTH: return 1.0
+		case e_value.CAM_OUTLINE_DEPTH_THRESHOLD: return 0.002
+		case e_value.CAM_OUTLINE_DEPTH_THRESHOLD_FADE: return 0.005
+		case e_value.CAM_OUTLINE_NORMAL: return true
+		case e_value.CAM_OUTLINE_NORMAL_THRESHOLD: return 0.1
+		case e_value.CAM_OUTLINE_NORMAL_THRESHOLD_FADE: return 3
 		case e_value.BG_IMAGE_SHOW: return app.background_image_show
 		case e_value.BG_IMAGE_ROTATION: return app.background_image_rotation
 		case e_value.BG_SKY_SUN_ANGLE: return app.background_sky_sun_angle
@@ -135,6 +145,7 @@ function tl_value_default(valueid)
 		case e_value.BG_LEAVES_DARK_OAK_COLOR: return app.background_leaves_dark_oak_color
 		case e_value.BG_LEAVES_MANGROVE_COLOR: return app.background_leaves_mangrove_color
 		case e_value.BG_FOG_SHOW: return app.background_fog_show
+		case e_value.BG_FOG_HEIGHT_SHOW: return app.background_fog_height_show
 		case e_value.BG_FOG_SKY: return app.background_fog_sky
 		case e_value.BG_FOG_CUSTOM_COLOR: return app.background_fog_color_custom
 		case e_value.BG_FOG_COLOR: return app.background_fog_color
@@ -143,6 +154,8 @@ function tl_value_default(valueid)
 		case e_value.BG_FOG_DISTANCE: return app.background_fog_distance
 		case e_value.BG_FOG_SIZE: return app.background_fog_size
 		case e_value.BG_FOG_HEIGHT: return app.background_fog_height
+		case e_value.BG_FOG_HEIGHT_SIZE: return app.background_fog_height_size
+		case e_value.BG_FOG_HEIGHT_OFFSET: return app.background_fog_height_offset
 		case e_value.BG_WIND: return app.background_wind
 		case e_value.BG_WIND_SPEED: return app.background_wind_speed
 		case e_value.BG_WIND_STRENGTH: return app.background_wind_strength

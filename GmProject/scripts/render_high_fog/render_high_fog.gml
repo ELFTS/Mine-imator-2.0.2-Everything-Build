@@ -4,14 +4,12 @@
 function render_high_fog(basesurf)
 {
 	var fogsurf, prevsurf;
-	render_surface[2] = surface_require(render_surface[2], render_width, render_height)
 	render_surface[1] = surface_require(render_surface[1], render_width, render_height)
-	prevsurf = render_surface[2]
+	render_surface[2] = surface_require(render_surface[2], render_width, render_height)
 	fogsurf = render_surface[1]
+	prevsurf = render_surface[2]
 	
 	// Get fog strength
-	//if (!project_render_performance_mode || !project_render_performance_mode_skipfog)
-	//{
 	surface_set_target(fogsurf)
 	{
 		draw_clear(c_black)
@@ -20,9 +18,6 @@ function render_high_fog(basesurf)
 		render_world_done()
 	}
 	surface_reset_target()
-	//} else {
-	//	fogsurf = render_surface_depth
-	//}
 	
 	// Copy into separate surface
 	surface_set_target(prevsurf)

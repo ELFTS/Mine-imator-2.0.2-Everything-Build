@@ -75,6 +75,8 @@ function temp_copy(to)
 	to.shape_invert = shape_invert
 	to.shape_smooth = shape_smooth
 	to.shape_detail = shape_detail
+	to.shape_subdivision = shape_subdivision
+	to.shape_morph = shape_morph
 	to.shape_face_camera = shape_face_camera
 	
 	to.text_font = text_font

@@ -17,7 +17,7 @@ function render_startup()
 			  render_glow, render_glow_falloff, render_camera_ca, render_camera_distort, render_camera_color_correction, render_camera_grain,
 			  render_camera_vignette, render_overlay, render_camera_lens_dirt, render_camera_lens_dirt_bloom, render_camera_lens_dirt_glow,
 			  render_ssao, render_shadows, render_indirect, render_reflections, render_quality, render_pass,
-			  render_tonemapper, render_exposure, render_gamma, render_depth_normals, render_smaa;
+			  render_tonemapper, render_exposure, render_gamma, render_depth_normals, render_smaa, render_camera_outline;
 	
 	globalvar render_matrix, render_samples, render_sample_current, render_samples_done, render_target_size;
 	
@@ -29,7 +29,7 @@ function render_startup()
 			  shader_uniform_emissive, shader_uniform_metallic, shader_uniform_roughness, shader_uniform_wind,
 			  shader_uniform_wind_terrain, shader_uniform_fog, shader_uniform_sss, shader_uniform_sss_red,
 			  shader_uniform_sss_green, shader_uniform_sss_blue, shader_uniform_sss_color, shader_uniform_glow, shader_uniform_glow_texture,
-			  shader_uniform_glow_color, shader_uniform_wind_strength;
+			  shader_uniform_glow_color, shader_uniform_wind_strength, shader_uniform_normal_strength;
 	
 	globalvar render_pass_surf;
 	
@@ -82,6 +82,7 @@ function render_startup()
 	render_camera_lens_dirt = true
 	render_camera_lens_dirt_bloom = true
 	render_camera_lens_dirt_glow = true
+	render_camera_outline = false
 	render_ssao = false
 	render_shadows = false
 	render_indirect = false
@@ -245,6 +246,9 @@ function render_startup()
 	render_mode_shader_map[?e_render_mode.MATERIAL] = shader_high_material
 	render_mode_shader_map[?e_render_mode.SUBSURFACE] = shader_high_subsurface
 	render_mode_shader_map[?e_render_mode.GLINT] = shader_high_glint
+	
+	// Point 3D
+	point3D_project_error_ignore = false
 	
 	// Init settings
 	project_reset_render()

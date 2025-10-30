@@ -291,6 +291,8 @@ function project_load_template(map)
 				shape_invert = value_get_real(shapemap[?"invert"], shape_invert)
 				shape_smooth = value_get_real(shapemap[?"smooth"], shape_smooth)
 				shape_detail = value_get_real(shapemap[?"detail"], shape_detail)
+				shape_subdivision = value_get_real(shapemap[?"subdivision"], shape_subdivision)
+				shape_morph = value_get_real(shapemap[?"morph"], shape_morph)
 				shape_face_camera = value_get_real(shapemap[?"face_camera"], shape_face_camera)
 				
 				// Bugfix for types that don't support tex mapping

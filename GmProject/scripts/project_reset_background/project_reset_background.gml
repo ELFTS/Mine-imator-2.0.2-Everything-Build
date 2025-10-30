@@ -85,6 +85,7 @@ function project_reset_background()
 	background_night_color = c_night
 	
 	background_fog_show = true
+	background_fog_height_show = false
 	background_fog_sky = true
 	background_fog_color_custom = false
 	background_fog_color = c_sky
@@ -93,6 +94,8 @@ function project_reset_background()
 	background_fog_distance = 10000
 	background_fog_size = 2000
 	background_fog_height = 1250
+	background_fog_height_size = 40
+	background_fog_height_offset = -24
 	
 	background_wind = true
 	background_wind_speed = 0.1

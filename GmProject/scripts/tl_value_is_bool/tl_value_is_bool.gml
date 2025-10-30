@@ -11,6 +11,7 @@ function tl_value_is_bool(vid)
 			vid = e_value.BG_SKY_CLOUDS_SHOW ||
 			vid = e_value.BG_GROUND_SHOW ||
 			vid = e_value.BG_FOG_SHOW ||
+			vid = e_value.BG_FOG_HEIGHT_SHOW ||
 			vid = e_value.BG_WIND ||
 			vid = e_value.CAM_LIGHT_MANAGEMENT ||
 			vid = e_value.CAM_ROTATE ||
@@ -30,6 +31,8 @@ function tl_value_is_bool(vid)
 			vid = e_value.CAM_DISTORT_REPEAT ||
 			vid = e_value.CAM_SIZE_USE_PROJECT ||
 			vid = e_value.CAM_SIZE_KEEP_ASPECT_RATIO ||
+			vid = e_value.CAM_OUTLINE ||
+			vid = e_value.CAM_OUTLINE_NORMAL ||
 			vid = e_value.MODIFIER_SHAKE ||
 			vid = e_value.MODIFIER_SHAKE_POSITION ||
 			vid = e_value.MODIFIER_SHAKE_ROTATION ||

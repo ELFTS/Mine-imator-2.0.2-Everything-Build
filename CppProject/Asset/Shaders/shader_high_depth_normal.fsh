@@ -2,6 +2,7 @@ uniform sampler2D uTexture; // static
 uniform sampler2D uTextureNormal; // static
 
 uniform float uNormalBufferScale;
+uniform float uNormalStrength;
 
 uniform float uSampleIndex;
 uniform int uAlphaHash;
@@ -32,8 +33,10 @@ vec3 getMappedNormal(vec2 uv)
 	n.rgba = (n.a < 0.01 ? vec4(.5, .5, 0.0, 1.0) : n.rgba); // No normal?
 	n.xy = n.xy * 2.0 - 1.0; // Decode
 	n.z = sqrt(max(0.0, 1.0 - dot(n.xy, n.xy))); // Get Z
-	n.y *= -1.0; // Convert Y- to Y+
-	return normalize(vTBN * n.xyz);
+	//n.y *= -1.0; // Convert Y- to Y+
+
+	vec3 smoothNormal = normalize(mix(vec3(0.0, 0.0, 1.0), n.xyz, uNormalStrength));
+	return normalize(vTBN * smoothNormal);
 }
 
 float hash(vec2 c)

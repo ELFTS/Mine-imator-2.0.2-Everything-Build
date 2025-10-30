@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{420890CA-7772-3875-A712-0344C5F314FE}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>ZERO_CHECK</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\5789fb6be3b3d1f903792d940d7c3595\generate.stamp.rule">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</BuildInParallel>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/CppProject -BG:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/Build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file G:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/Build/Mine-imator.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\WindowsPaths.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5Config.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5ConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5ModuleLocation.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5AccessibilitySupport\Qt5AccessibilitySupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5AccessibilitySupport\Qt5AccessibilitySupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5EventDispatcherSupport\Qt5EventDispatcherSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5EventDispatcherSupport\Qt5EventDispatcherSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5FontDatabaseSupport\Qt5FontDatabaseSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5FontDatabaseSupport\Qt5FontDatabaseSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QSvgIconPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QSvgPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QXdgDesktopPortalThemePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5NetworkConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5NetworkConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5Network_QGenericEnginePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Svg\Qt5SvgConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Svg\Qt5SvgConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5ThemeSupport\Qt5ThemeSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5ThemeSupport\Qt5ThemeSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5Widgets_QWindowsVistaStylePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5WindowsUIAutomationSupport\Qt5WindowsUIAutomationSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5WindowsUIAutomationSupport\Qt5WindowsUIAutomationSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Zlib\Qt5ZlibConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Zlib\Qt5ZlibConfigVersion.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeCCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeCXXCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeRCCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeSystem.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\index.qrc;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</BuildInParallel>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/CppProject -BG:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/Build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file G:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/Build/Mine-imator.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\WindowsPaths.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5Config.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5ConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5ModuleLocation.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5AccessibilitySupport\Qt5AccessibilitySupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5AccessibilitySupport\Qt5AccessibilitySupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5EventDispatcherSupport\Qt5EventDispatcherSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5EventDispatcherSupport\Qt5EventDispatcherSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5FontDatabaseSupport\Qt5FontDatabaseSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5FontDatabaseSupport\Qt5FontDatabaseSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QSvgIconPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QSvgPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QXdgDesktopPortalThemePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5NetworkConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5NetworkConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5Network_QGenericEnginePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Svg\Qt5SvgConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Svg\Qt5SvgConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5ThemeSupport\Qt5ThemeSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5ThemeSupport\Qt5ThemeSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5Widgets_QWindowsVistaStylePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5WindowsUIAutomationSupport\Qt5WindowsUIAutomationSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5WindowsUIAutomationSupport\Qt5WindowsUIAutomationSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Zlib\Qt5ZlibConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Zlib\Qt5ZlibConfigVersion.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeCCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeCXXCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeRCCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeSystem.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\index.qrc;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <BuildInParallel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</BuildInParallel>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Checking Build System</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/CppProject -BG:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/Build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file G:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/Build/Mine-imator.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\WindowsPaths.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5Config.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5ConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5ModuleLocation.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5AccessibilitySupport\Qt5AccessibilitySupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5AccessibilitySupport\Qt5AccessibilitySupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5EventDispatcherSupport\Qt5EventDispatcherSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5EventDispatcherSupport\Qt5EventDispatcherSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5FontDatabaseSupport\Qt5FontDatabaseSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5FontDatabaseSupport\Qt5FontDatabaseSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QSvgIconPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QSvgPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QXdgDesktopPortalThemePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5NetworkConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5NetworkConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5Network_QGenericEnginePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Svg\Qt5SvgConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Svg\Qt5SvgConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5ThemeSupport\Qt5ThemeSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5ThemeSupport\Qt5ThemeSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5Widgets_QWindowsVistaStylePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5WindowsUIAutomationSupport\Qt5WindowsUIAutomationSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5WindowsUIAutomationSupport\Qt5WindowsUIAutomationSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Zlib\Qt5ZlibConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Zlib\Qt5ZlibConfigVersion.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeCCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeCXXCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeRCCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeSystem.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\index.qrc;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

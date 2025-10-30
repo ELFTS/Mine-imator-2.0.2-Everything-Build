@@ -298,6 +298,52 @@ function tab_frame_editor_camera()
 		
 		tab_collapse_end()
 	}
+		
+	// Outlines
+	tab_control_switch()
+	draw_button_collapse("outline", collapse_map[?"outline"], action_tl_frame_cam_outline, tl_edit.value[e_value.CAM_OUTLINE], "frameeditorcameraoutline")
+	tab_next()
+		
+	if (tl_edit.value[e_value.CAM_OUTLINE] && collapse_map[?"outline"])
+	{
+		tab_collapse_start()
+			
+		tab_control_color()
+		draw_button_color("frameeditorcameraoutlinecolor", dx, dy, dw, tl_edit.value[e_value.CAM_OUTLINE_COLOR], c_black, false, action_tl_frame_cam_outline_color)
+		tab_next()
+			
+		tab_control_dragger()
+		draw_dragger("frameeditorcameraoutlinestrength", dx, dy, dragger_width, tl_edit.value[e_value.CAM_OUTLINE_STRENGTH] * 100, 1, snap_min, no_limit, 100, .01, tab.camera.tbx_outline_strength, action_tl_frame_cam_outline_strength)
+		tab_next()
+			
+		tab_control_dragger()
+		draw_dragger("frameeditorcameraoutlineradius", dx, dy, dragger_width, tl_edit.value[e_value.CAM_OUTLINE_RADIUS], 0.1, snap_min, 16, 4, 1, tab.camera.tbx_outline_radius, action_tl_frame_cam_outline_radius)
+		tab_next()
+			
+		dy += small_spacing
+			
+		tab_control_dragger()
+		draw_dragger("frameeditorcameraoutlinedepththreshold", dx, dy, dragger_width, tl_edit.value[e_value.CAM_OUTLINE_DEPTH_THRESHOLD] * 100, 0.01, snap_min, no_limit, 1, .01, tab.camera.tbx_outline_depth_threshold, action_tl_frame_cam_outline_depth_threshold)
+		tab_next()
+			
+		tab_control_dragger()
+		draw_dragger("frameeditorcameraoutlinedepththresholdfade", dx, dy, dragger_width, tl_edit.value[e_value.CAM_OUTLINE_DEPTH_THRESHOLD_FADE] * 10000, 1, snap_min, no_limit, 100, 1, tab.camera.tbx_outline_depth_threshold_fade, action_tl_frame_cam_outline_depth_threshold_fade)
+		tab_next()
+			
+		tab_control_switch()
+		draw_switch("frameeditorcameraoutlinenormal", dx, dy, tl_edit.value[e_value.CAM_OUTLINE_NORMAL], action_tl_frame_cam_outline_normal, "frameeditorcameraoutlinenormaltip")
+		tab_next()
+			
+		tab_control_dragger()
+		draw_dragger("frameeditorcameraoutlinenormalthreshold", dx, dy, dragger_width, tl_edit.value[e_value.CAM_OUTLINE_NORMAL_THRESHOLD] * 100, 0.1, snap_min, no_limit, 1, .1, tab.camera.tbx_outline_normal_threshold, action_tl_frame_cam_outline_normal_threshold, null, true, !tl_edit.value[e_value.CAM_OUTLINE_NORMAL])
+		tab_next()
+			
+		tab_control_dragger()
+		draw_dragger("frameeditorcameraoutlinenormalthresholdfade", dx, dy, dragger_width, tl_edit.value[e_value.CAM_OUTLINE_NORMAL_THRESHOLD_FADE] * 100, 1, snap_min, no_limit, 100, 1, tab.camera.tbx_outline_normal_threshold_fade, action_tl_frame_cam_outline_normal_threshold_fade, null, true, !tl_edit.value[e_value.CAM_OUTLINE_NORMAL])
+		tab_next()
+			
+		tab_collapse_end(false)
+	}
 	
 	// Bloom
 	tab_control_switch()

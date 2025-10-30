@@ -45,6 +45,7 @@ uniform vec3 uCameraPosition; // static
 uniform float uRoughness;
 uniform float uMetallic;
 uniform float uEmissive;
+uniform float uNormalStrength;
 
 uniform sampler2D uTextureMaterial; // static
 uniform sampler2D uTextureNormal; // static
@@ -105,15 +106,17 @@ vec4 cascadeDepthBuffer(int index, vec2 coord)
 
 vec3 getMappedNormal(vec2 uv)
 {
-    if (uUseNormalMap < 1) 
-        return normalize(vTBN[2]);
+    if (uUseNormalMap < 1)
+        return vec3(vTBN[2][0], vTBN[2][1], vTBN[2][2]);
     
-    vec4 n = texture2D(uTextureNormal, uv);
-    n = (n.a < 0.01) ? vec4(0.5, 0.5, 0.0, 1.0) : n;
-    vec3 normal = vec3(n.xy * 2.0 - 1.0, 0.0);
-    normal.z = sqrt(max(0.0, 1.0 - dot(normal.xy, normal.xy)));
-    normal.y *= -1.0;
-    return normalize(vTBN * normal);
+    vec4 n = texture2D(uTextureNormal, uv).rgba;
+    n.rgba = (n.a < 0.01 ? vec4(.5, .5, 0.0, 1.0) : n.rgba);
+    n.xy = n.xy * 2.0 - 1.0;
+	n.z = sqrt(max(0.0, 1.0 - dot(n.xy, n.xy)));
+	//n.y *= -1.0; // DirectX fix if needed
+
+	vec3 smoothNormal = normalize(mix(vec3(0.0, 0.0, 1.0), n.xyz, uNormalStrength));
+	return normalize(vTBN * smoothNormal);
 }
 
 float hash(vec2 c)
@@ -213,7 +216,7 @@ void main()
 
 	            if (uLightSize > 0.005) {
 	                float blurAmount = uLightSize * (0.01 + (float(cascadeIndex) * -0.004)) * uKernel2D[1];
-	                bias += float(cascadeIndex) * (float(cascadeIndex) / 1.8);
+	                bias += float(cascadeIndex) * (float(cascadeIndex) / 1.2);
 					shadow = 0.0;
                 
 	                for (int i = 0; i < 128; i++) {

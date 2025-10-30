@@ -134,6 +134,12 @@ function render_world_tl()
 		render_set_uniform("uRoughness", shader_uniform_roughness)
 	}
 	
+	if (value_inherit[e_value.NORMAL_STRENGTH] != shader_uniform_normal_strength)
+	{
+		shader_uniform_normal_strength = value_inherit[e_value.NORMAL_STRENGTH]
+		render_set_uniform("uNormalStrength", shader_uniform_normal_strength)
+	}
+	
 	if (wind != shader_uniform_wind)
 	{
 		shader_uniform_wind = wind

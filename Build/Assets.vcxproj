@@ -1,0 +1,2016 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F764F995-B47B-3040-8420-08ADDBCF17BF}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>Assets</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/CppProject/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/CppProject -BG:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/Build --check-stamp-file G:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/Build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\WindowsPaths.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5Config.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5ConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5ModuleLocation.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5AccessibilitySupport\Qt5AccessibilitySupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5AccessibilitySupport\Qt5AccessibilitySupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5EventDispatcherSupport\Qt5EventDispatcherSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5EventDispatcherSupport\Qt5EventDispatcherSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5FontDatabaseSupport\Qt5FontDatabaseSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5FontDatabaseSupport\Qt5FontDatabaseSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QSvgIconPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QSvgPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QXdgDesktopPortalThemePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5NetworkConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5NetworkConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5Network_QGenericEnginePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Svg\Qt5SvgConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Svg\Qt5SvgConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5ThemeSupport\Qt5ThemeSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5ThemeSupport\Qt5ThemeSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5Widgets_QWindowsVistaStylePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5WindowsUIAutomationSupport\Qt5WindowsUIAutomationSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5WindowsUIAutomationSupport\Qt5WindowsUIAutomationSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Zlib\Qt5ZlibConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Zlib\Qt5ZlibConfigVersion.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeCCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeCXXCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeRCCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeSystem.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\index.qrc;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule G:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/CppProject/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/CppProject -BG:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/Build --check-stamp-file G:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/Build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\WindowsPaths.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5Config.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5ConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5ModuleLocation.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5AccessibilitySupport\Qt5AccessibilitySupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5AccessibilitySupport\Qt5AccessibilitySupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5EventDispatcherSupport\Qt5EventDispatcherSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5EventDispatcherSupport\Qt5EventDispatcherSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5FontDatabaseSupport\Qt5FontDatabaseSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5FontDatabaseSupport\Qt5FontDatabaseSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QSvgIconPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QSvgPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QXdgDesktopPortalThemePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5NetworkConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5NetworkConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5Network_QGenericEnginePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Svg\Qt5SvgConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Svg\Qt5SvgConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5ThemeSupport\Qt5ThemeSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5ThemeSupport\Qt5ThemeSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5Widgets_QWindowsVistaStylePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5WindowsUIAutomationSupport\Qt5WindowsUIAutomationSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5WindowsUIAutomationSupport\Qt5WindowsUIAutomationSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Zlib\Qt5ZlibConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Zlib\Qt5ZlibConfigVersion.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeCCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeCXXCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeRCCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeSystem.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\index.qrc;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/CppProject/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/CppProject -BG:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/Build --check-stamp-file G:/Mine-imator-2.0.2-Continuation-Build-master/Mine-imator-2.0.2-Continuation-Build-master/Build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeParseArguments.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.1\Modules\Platform\WindowsPaths.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5Config.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5ConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5\Qt5ModuleLocation.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5AccessibilitySupport\Qt5AccessibilitySupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5AccessibilitySupport\Qt5AccessibilitySupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigExtrasMkspecDir.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Core\Qt5CoreMacros.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5EventDispatcherSupport\Qt5EventDispatcherSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5EventDispatcherSupport\Qt5EventDispatcherSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5FontDatabaseSupport\Qt5FontDatabaseSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5FontDatabaseSupport\Qt5FontDatabaseSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5GuiConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QMinimalIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QOffscreenIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QSvgIconPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QSvgPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTuioTouchPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QXdgDesktopPortalThemePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5NetworkConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5NetworkConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5Network_QGenericEnginePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Svg\Qt5SvgConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Svg\Qt5SvgConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5ThemeSupport\Qt5ThemeSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5ThemeSupport\Qt5ThemeSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfigExtras.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5WidgetsMacros.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5Widgets_QWindowsVistaStylePlugin.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5WindowsUIAutomationSupport\Qt5WindowsUIAutomationSupportConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5WindowsUIAutomationSupport\Qt5WindowsUIAutomationSupportConfigVersion.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Zlib\Qt5ZlibConfig.cmake;G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Zlib\Qt5ZlibConfigVersion.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeCCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeCXXCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeRCCompiler.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\4.1.1\CMakeSystem.cmake;G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\index.qrc;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\primitive.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\primitive.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_SMAA_Antialiasing.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_SMAA_Antialiasing.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_add.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_add.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_alpha_fix.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_alpha_fix.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_alpha_test.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_alpha_test.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_bilateral_blur.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_bilateral_blur.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_blend.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_blend.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_blur.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_blur.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_border.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_border.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_ca.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_ca.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_clip.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_clip.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_color_camera.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_color_camera.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_color_correction.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_color_correction.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_color_fog.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_color_fog.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_color_fog_lights.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_color_fog_lights.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_color_glow.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_color_glow.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_depth.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_depth.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_depth_ortho.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_depth_ortho.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_depth_point.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_depth_point.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_distort.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_distort.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_draw_texture.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_draw_texture.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_bloom_threshold.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_bloom_threshold.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_depth_normal.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_depth_normal.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_dof.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_dof.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_dof_EX.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_dof_EX.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_dof_coc.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_dof_coc.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_dof_coc_blur.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_dof_coc_blur.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_fog.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_fog.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_fog_apply.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_fog_apply.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_glint.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_glint.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_indirect_blur.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_indirect_blur.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_indirect_blur_EX.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_indirect_blur_EX.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_light_point.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_light_point.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_light_point_EX.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_light_point_EX.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_light_point_shadowless.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_light_point_shadowless.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_light_spot.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_light_spot.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_light_spot_EX.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_light_spot_EX.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_light_sun.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_light_sun.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_light_sun_EX.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_light_sun_EX.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_lighting_apply.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_lighting_apply.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_material.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_material.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_outline.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_outline.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_raytrace.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_raytrace.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_raytrace_EX.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_raytrace_EX.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_raytrace_resolve.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_raytrace_resolve.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_raytrace_resolve_EX.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_raytrace_resolve_EX.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_samples_add.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_samples_add.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_samples_unpack.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_samples_unpack.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_ssao.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_ssao.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_ssao_EX.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_ssao_EX.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_subsurface.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_subsurface.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_subsurface_scatter.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_high_subsurface_scatter.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_noise.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_noise.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_outline.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_outline.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_palette.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_palette.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_replace.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_replace.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_replace_alpha.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_replace_alpha.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_tonemap.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_tonemap.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_vignette.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\shader_vignette.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\world_box.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\world_box.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\world_box_resize.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\world_box_resize.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\world_checker.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\world_checker.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\world_player.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\world_player.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\world_preview.fsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\Compiled\world_preview.vsh.d3d">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\primitive.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\primitive.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_SMAA_Antialiasing.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_SMAA_Antialiasing.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_add.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_add.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_alpha_fix.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_alpha_fix.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_alpha_test.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_alpha_test.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_bilateral_blur.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_bilateral_blur.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_blend.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_blend.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_blur.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_blur.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_border.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_border.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_ca.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_ca.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_clip.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_clip.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_color_camera.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_color_camera.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_color_correction.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_color_correction.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_color_fog.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_color_fog.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_color_fog_lights.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_color_fog_lights.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_color_glow.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_color_glow.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_depth.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_depth.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_depth_ortho.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_depth_ortho.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_depth_point.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_depth_point.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_distort.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_distort.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_draw_texture.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_draw_texture.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_bloom_threshold.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_bloom_threshold.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_depth_normal.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_depth_normal.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_dof.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_dof.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_dof_EX.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_dof_EX.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_dof_coc.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_dof_coc.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_dof_coc_blur.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_dof_coc_blur.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_fog.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_fog.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_fog_apply.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_fog_apply.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_glint.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_glint.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_indirect_blur.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_indirect_blur.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_indirect_blur_EX.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_indirect_blur_EX.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_light_point.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_light_point.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_light_point_EX.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_light_point_EX.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_light_point_shadowless.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_light_point_shadowless.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_light_spot.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_light_spot.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_light_spot_EX.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_light_spot_EX.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_light_sun.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_light_sun.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_light_sun_EX.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_light_sun_EX.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_lighting_apply.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_lighting_apply.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_material.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_material.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_outline.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_outline.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_raytrace.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_raytrace.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_raytrace_EX.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_raytrace_EX.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_raytrace_resolve.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_raytrace_resolve.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_raytrace_resolve_EX.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_raytrace_resolve_EX.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_samples_add.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_samples_add.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_samples_unpack.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_samples_unpack.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_ssao.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_ssao.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_ssao_EX.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_ssao_EX.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_subsurface.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_subsurface.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_subsurface_scatter.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_high_subsurface_scatter.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_noise.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_noise.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_outline.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_outline.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_palette.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_palette.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_replace.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_replace.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_replace_alpha.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_replace_alpha.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_tonemap.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_tonemap.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_vignette.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\shader_vignette.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\world_box.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\world_box.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\world_box_resize.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\world_box_resize.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\world_checker.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\world_checker.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\world_player.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\world_player.vsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\world_preview.fsh">
+    </None>
+    <None Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shaders\world_preview.vsh">
+    </None>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_16_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_ani_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_ani_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_ani_frame_10.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_ani_frame_11.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_ani_frame_12.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_ani_frame_13.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_ani_frame_14.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_ani_frame_2.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_ani_frame_3.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_ani_frame_4.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_ani_frame_5.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_ani_frame_6.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_ani_frame_7.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_ani_frame_8.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_ani_frame_9.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_small_ani_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_small_ani_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_small_ani_frame_10.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_small_ani_frame_11.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_small_ani_frame_12.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_small_ani_frame_13.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_small_ani_frame_14.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_small_ani_frame_15.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_small_ani_frame_2.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_small_ani_frame_3.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_small_ani_frame_4.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_small_ani_frame_5.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_small_ani_frame_6.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_small_ani_frame_7.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_small_ani_frame_8.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_small_ani_frame_9.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_10.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_11.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_12.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_13.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_14.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_15.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_16.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_2.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_3.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_4.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_5.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_6.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_7.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_8.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_arrow_up_down_ani_frame_9.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_ave_x_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_bench_example_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_bench_example_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_bench_example_frame_2.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_bench_example_frame_3.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_bench_example_frame_4.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_bench_example_frame_5.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_bench_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_blue_noise_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_checkbox_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_checkbox_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_checkbox_frame_2.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_checkbox_tick_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_chevron_ani_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_chevron_ani_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_chevron_ani_frame_10.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_chevron_ani_frame_11.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_chevron_ani_frame_12.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_chevron_ani_frame_13.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_chevron_ani_frame_14.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_chevron_ani_frame_2.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_chevron_ani_frame_3.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_chevron_ani_frame_4.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_chevron_ani_frame_5.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_chevron_ani_frame_6.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_chevron_ani_frame_7.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_chevron_ani_frame_8.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_chevron_ani_frame_9.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_circle_24_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_circle_96_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_colorpicker_cursor_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_colorpicker_cursor_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_colorpicker_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_colorpicker_hue_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_connect_compact_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_connect_compact_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_connect_compact_frame_2.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_connect_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_connect_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_connect_frame_2.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_connect_frame_3.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_control_dial_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_default_material_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_default_normal_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_dial_dash_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_dropshadow_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_dropshadow_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_fog_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_10.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_100.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_101.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_102.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_103.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_104.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_105.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_106.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_107.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_108.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_109.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_11.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_110.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_111.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_112.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_113.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_114.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_115.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_116.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_117.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_118.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_119.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_12.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_120.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_121.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_122.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_123.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_124.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_125.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_126.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_127.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_128.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_129.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_13.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_130.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_131.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_132.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_133.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_134.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_135.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_136.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_137.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_138.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_139.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_14.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_140.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_141.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_142.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_143.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_144.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_145.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_146.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_147.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_148.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_149.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_15.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_150.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_151.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_152.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_153.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_154.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_155.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_156.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_157.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_158.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_159.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_16.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_160.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_17.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_18.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_19.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_2.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_20.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_21.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_22.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_23.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_24.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_25.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_26.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_27.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_28.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_29.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_3.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_30.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_31.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_32.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_33.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_34.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_35.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_36.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_37.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_38.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_39.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_4.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_40.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_41.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_42.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_43.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_44.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_45.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_46.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_47.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_48.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_49.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_5.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_50.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_51.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_52.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_53.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_54.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_55.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_56.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_57.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_58.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_59.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_6.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_60.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_61.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_62.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_63.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_64.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_65.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_66.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_67.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_68.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_69.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_7.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_70.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_71.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_72.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_73.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_74.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_75.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_76.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_77.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_78.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_79.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_8.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_80.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_81.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_82.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_83.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_84.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_85.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_86.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_87.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_88.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_89.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_9.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_90.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_91.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_92.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_93.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_94.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_95.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_96.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_97.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_98.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_font_frame_99.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_handle_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_10.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_100.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_101.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_102.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_103.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_104.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_105.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_106.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_107.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_108.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_109.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_11.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_110.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_111.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_112.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_113.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_114.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_115.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_116.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_117.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_118.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_119.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_12.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_120.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_121.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_122.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_123.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_124.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_125.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_126.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_127.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_128.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_129.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_13.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_130.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_131.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_132.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_133.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_134.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_135.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_136.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_137.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_138.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_139.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_14.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_140.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_141.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_142.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_143.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_144.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_145.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_146.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_147.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_148.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_149.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_15.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_150.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_151.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_152.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_153.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_154.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_155.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_156.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_157.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_158.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_159.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_16.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_160.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_161.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_162.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_163.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_164.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_165.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_166.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_167.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_168.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_169.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_17.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_170.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_171.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_172.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_173.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_174.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_175.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_176.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_177.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_178.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_179.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_18.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_180.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_181.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_182.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_183.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_184.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_185.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_186.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_187.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_188.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_189.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_19.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_190.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_191.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_192.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_193.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_194.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_195.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_196.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_197.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_198.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_199.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_2.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_20.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_200.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_201.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_202.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_203.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_204.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_205.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_206.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_207.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_208.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_209.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_21.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_210.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_211.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_212.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_213.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_214.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_215.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_216.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_217.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_218.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_219.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_22.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_220.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_221.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_222.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_223.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_224.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_225.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_226.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_227.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_228.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_229.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_23.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_230.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_231.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_232.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_233.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_234.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_235.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_236.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_237.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_238.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_239.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_24.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_240.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_241.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_242.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_243.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_244.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_245.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_246.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_247.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_248.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_249.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_25.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_250.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_251.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_252.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_253.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_254.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_255.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_256.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_257.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_258.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_259.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_26.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_260.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_261.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_262.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_263.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_264.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_265.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_266.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_267.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_268.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_269.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_27.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_270.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_271.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_272.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_273.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_274.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_275.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_276.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_277.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_278.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_279.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_28.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_280.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_281.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_282.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_283.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_284.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_285.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_286.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_287.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_288.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_289.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_29.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_290.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_291.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_292.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_293.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_294.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_295.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_296.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_297.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_298.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_299.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_3.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_30.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_300.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_301.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_302.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_303.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_304.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_305.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_306.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_307.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_308.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_309.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_31.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_310.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_311.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_312.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_313.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_314.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_315.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_316.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_317.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_318.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_319.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_32.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_320.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_321.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_322.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_323.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_324.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_325.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_326.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_327.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_328.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_329.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_33.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_330.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_331.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_332.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_333.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_334.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_335.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_336.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_337.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_338.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_339.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_34.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_340.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_341.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_342.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_343.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_344.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_345.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_346.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_347.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_348.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_349.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_35.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_350.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_351.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_352.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_353.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_354.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_355.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_356.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_357.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_358.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_359.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_36.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_360.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_361.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_362.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_363.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_364.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_365.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_366.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_367.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_368.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_369.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_37.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_370.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_371.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_372.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_373.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_374.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_375.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_376.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_377.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_378.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_379.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_38.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_380.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_381.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_382.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_383.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_384.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_39.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_4.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_40.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_41.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_42.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_43.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_44.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_45.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_46.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_47.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_48.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_49.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_5.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_50.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_51.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_52.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_53.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_54.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_55.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_56.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_57.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_58.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_59.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_6.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_60.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_61.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_62.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_63.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_64.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_65.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_66.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_67.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_68.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_69.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_7.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_70.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_71.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_72.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_73.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_74.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_75.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_76.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_77.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_78.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_79.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_8.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_80.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_81.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_82.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_83.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_84.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_85.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_86.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_87.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_88.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_89.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_9.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_90.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_91.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_92.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_93.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_94.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_95.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_96.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_97.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_98.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_icons_frame_99.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_jonathan_splash_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_load_assets_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_logo_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_map_cone_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_map_cube_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_map_cylinder_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_marker_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_marker_playback_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_marker_region_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_marker_region_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_marker_stripe_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_missing_thumbnail_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_modelbench_ad_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_pattern_left_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_pattern_left_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_pattern_right_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_pattern_right_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_radiobutton_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_radiobutton_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_radiobutton_frame_2.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_radiobutton_hover_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_rounded_2_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_selection_outline_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_shape_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_stars_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_tooltip_arrow_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_tooltip_arrow_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_tooltip_arrow_frame_2.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_tooltip_arrow_frame_3.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_unknown_pack_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_upgrade_img_frame_0.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_upgrade_img_frame_1.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_upgrade_img_frame_2.png">
+    </Image>
+    <Image Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprites\spr_watermark_frame_0.png">
+    </Image>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\ZERO_CHECK.vcxproj">
+      <Project>{420890CA-7772-3875-A712-0344C5F314FE}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

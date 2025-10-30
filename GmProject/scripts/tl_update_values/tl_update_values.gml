@@ -284,6 +284,16 @@ function tl_update_values()
 		tl_update_values_ease(e_value.CAM_HEIGHT)
 		tl_update_values_ease(e_value.CAM_SIZE_USE_PROJECT)
 		tl_update_values_ease(e_value.CAM_SIZE_KEEP_ASPECT_RATIO)
+		
+		tl_update_values_ease(e_value.CAM_OUTLINE)
+		tl_update_values_ease(e_value.CAM_OUTLINE_COLOR)
+		tl_update_values_ease(e_value.CAM_OUTLINE_RADIUS)
+		tl_update_values_ease(e_value.CAM_OUTLINE_STRENGTH)
+		tl_update_values_ease(e_value.CAM_OUTLINE_DEPTH_THRESHOLD)
+		tl_update_values_ease(e_value.CAM_OUTLINE_DEPTH_THRESHOLD_FADE)
+		tl_update_values_ease(e_value.CAM_OUTLINE_NORMAL)
+		tl_update_values_ease(e_value.CAM_OUTLINE_NORMAL_THRESHOLD)
+		tl_update_values_ease(e_value.CAM_OUTLINE_NORMAL_THRESHOLD_FADE)
 	}
 	
 	// Background
@@ -350,6 +360,7 @@ function tl_update_values()
 		tl_update_values_ease(e_value.TEXTURE_OBJ)
 		tl_update_values_ease(e_value.TEXTURE_MATERIAL_OBJ)
 		tl_update_values_ease(e_value.TEXTURE_NORMAL_OBJ)
+		tl_update_values_ease(e_value.NORMAL_STRENGTH)
 	}
 	
 	// Sound

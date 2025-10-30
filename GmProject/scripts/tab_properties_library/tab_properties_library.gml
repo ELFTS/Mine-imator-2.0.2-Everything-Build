@@ -427,6 +427,7 @@ function tab_properties_library()
 		case e_temp_type.CONE: 
 		case e_temp_type.CYLINDER: 
 		case e_temp_type.SPHERE: 
+		case e_temp_type.ICOSPHERE: 
 		case e_temp_type.SURFACE: // Shapes
 		{
 			// Texture
@@ -546,17 +547,30 @@ function tab_properties_library()
 			draw_checkbox("libraryshapeinvert", dx, dy, temp_edit.shape_invert, action_lib_shape_invert)
 			tab_next()
 			
-			if (temp_edit.type = e_temp_type.SPHERE || temp_edit.type = e_temp_type.CONE || temp_edit.type = e_temp_type.CYLINDER)
+			if (temp_edit.type = e_temp_type.SPHERE || temp_edit.type = e_temp_type.ICOSPHERE || temp_edit.type = e_temp_type.CONE || temp_edit.type = e_temp_type.CYLINDER)
 			{
 				// Smooth
 				tab_control_checkbox()
 				draw_checkbox("libraryshapesmooth", dx, dy, temp_edit.shape_smooth, action_lib_shape_smooth)
 				tab_next()
 				
-				// Detail
-				tab_control_dragger()
-				draw_dragger("libraryshapedetail", dx, dy, dragger_width, temp_edit.shape_detail, 0.25, temp_edit.type = e_temp_type.SPHERE ? 4 : 3, 256, 32, 1, tab.library.tbx_shape_detail, action_lib_shape_detail)
-				tab_next()
+				if (temp_edit.type = e_temp_type.ICOSPHERE)
+				{
+					// Detail Subdivision
+					tab_control_dragger()
+					draw_dragger("libraryshapesubdivision", dx, dy, dragger_width, temp_edit.shape_subdivision, 0.03, 0, 5, 0, 1, tab.library.tbx_shape_subdivision, action_lib_shape_subdivision)
+					tab_next()
+					
+					// Shape Morph
+					tab_control_dragger()
+					draw_dragger("libraryshapemorph", dx, dy, dragger_width, temp_edit.shape_morph, 0.01, -2, 5, 0, 0.01, tab.library.tbx_shape_morph, action_lib_shape_morph)
+					tab_next()
+				} else {
+					// Detail
+					tab_control_dragger()
+					draw_dragger("libraryshapedetail", dx, dy, dragger_width, temp_edit.shape_detail, 0.25, temp_edit.type = e_temp_type.SPHERE ? 4 : 3, 256, 32, 1, tab.library.tbx_shape_detail, action_lib_shape_detail)
+					tab_next()
+				}
 			}
 			else if (temp_edit.type = e_temp_type.SURFACE)
 			{

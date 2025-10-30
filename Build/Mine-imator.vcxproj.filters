@@ -1,0 +1,684 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\Mine-imator.dir\cmake_pch.cxx">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\Mine-imator_autogen\mocs_compilation_Debug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\AppHandler.cpp">
+      <Filter>Mine-imator</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\AppWindow.cpp">
+      <Filter>Mine-imator</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Asset.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Buffer.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Font.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\HashMap.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\List.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Map.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Object.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Script.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shader.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\ShaderLoadD3D11.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\ShaderLoadOpenGL.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\SoundInstance.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprite.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\SpriteFont.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Surface.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\TextFile.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\VertexBuffer.cpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Common.cpp">
+      <Filter>Mine-imator</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\ErrorDialog.cpp">
+      <Filter>Mine-imator</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Globals.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Mappings.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts1.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts10.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts11.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts12.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts13.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts14.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts15.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts16.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts17.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts18.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts19.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts2.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts20.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts21.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts22.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts23.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts24.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts25.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts26.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts27.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts28.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts29.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts3.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts30.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts31.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts32.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts33.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts34.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts35.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts36.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts37.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts38.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts39.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts4.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts40.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts41.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts42.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts43.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts44.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts45.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts46.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts47.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts48.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts49.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts5.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts50.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts51.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts52.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts53.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts54.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts55.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts56.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts57.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts58.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts59.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts6.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts60.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts61.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts62.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts63.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts64.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts65.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts66.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts67.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts68.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts69.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts7.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts70.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts71.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts72.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts73.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts74.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts75.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts76.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts77.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts8.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts9.cpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Gml\AssetFunc.cpp">
+      <Filter>Mine-imator\Gml</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Gml\AudioFunc.cpp">
+      <Filter>Mine-imator\Gml</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Gml\BufferFunc.cpp">
+      <Filter>Mine-imator\Gml</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Gml\CameraFunc.cpp">
+      <Filter>Mine-imator\Gml</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Gml\DataStructureFunc.cpp">
+      <Filter>Mine-imator\Gml</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Gml\DateFunc.cpp">
+      <Filter>Mine-imator\Gml</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Gml\DrawFunc.cpp">
+      <Filter>Mine-imator\Gml</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Gml\FileFunc.cpp">
+      <Filter>Mine-imator\Gml</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Gml\InputFunc.cpp">
+      <Filter>Mine-imator\Gml</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Gml\MathFunc.cpp">
+      <Filter>Mine-imator\Gml</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Gml\RenderFunc.cpp">
+      <Filter>Mine-imator\Gml</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Gml\StringFunc.cpp">
+      <Filter>Mine-imator\Gml</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Gml\UtilFunc.cpp">
+      <Filter>Mine-imator\Gml</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Gml\WindowFunc.cpp">
+      <Filter>Mine-imator\Gml</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Library\FileLib.cpp">
+      <Filter>Mine-imator\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Library\MathLib.cpp">
+      <Filter>Mine-imator\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Library\MovieLib.cpp">
+      <Filter>Mine-imator\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Library\WindowLib.cpp">
+      <Filter>Mine-imator\Library</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\Bounds.cpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\FrameBuffer.cpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\GLWidget.cpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\GraphicsApiHandler.cpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\Matrix.cpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\Mesh.cpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\PrimitiveRenderer.cpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\Texture.cpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\TexturePage.cpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\Vertex.cpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\VertexBufferRenderer.cpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Type\ArrType.cpp">
+      <Filter>Mine-imator\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Type\MatrixType.cpp">
+      <Filter>Mine-imator\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Type\StringType.cpp">
+      <Filter>Mine-imator\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Type\VarType.cpp">
+      <Filter>Mine-imator\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Type\VarTypeIntOp.cpp">
+      <Filter>Mine-imator\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Type\VarTypeRealOp.cpp">
+      <Filter>Mine-imator\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Type\VarTypeStringOp.cpp">
+      <Filter>Mine-imator\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Type\VarTypeVarOp.cpp">
+      <Filter>Mine-imator\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Type\VecType.cpp">
+      <Filter>Mine-imator\Type</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\World\BlockStyle.cpp">
+      <Filter>Mine-imator\World</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\World\Builder.cpp">
+      <Filter>Mine-imator\World</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\World\Chunk.cpp">
+      <Filter>Mine-imator\World</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\World\GZIP.cpp">
+      <Filter>Mine-imator\World</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\World\Import.cpp">
+      <Filter>Mine-imator\World</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\World\NBT.cpp">
+      <Filter>Mine-imator\World</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\World\Preview.cpp">
+      <Filter>Mine-imator\World</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\World\Region.cpp">
+      <Filter>Mine-imator\World</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\World\RegionLoader.cpp">
+      <Filter>Mine-imator\World</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\World\Section.cpp">
+      <Filter>Mine-imator\World</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\World\World.cpp">
+      <Filter>Mine-imator\World</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\World\WorldBox.cpp">
+      <Filter>Mine-imator\World</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\World\WorldVertex.cpp">
+      <Filter>Mine-imator\World</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\qrc_index.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QGifPlugin_Import.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QICNSPlugin_Import.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QICOPlugin_Import.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QJpegPlugin_Import.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QSvgIconPlugin_Import.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QSvgPlugin_Import.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTgaPlugin_Import.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QTiffPlugin_Import.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWbmpPlugin_Import.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWebpPlugin_Import.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Gui\Qt5Gui_QWindowsIntegrationPlugin_Import.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Widgets\Qt5Widgets_QWindowsVistaStylePlugin_Import.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Dev\Qt\5.15.9\build\lib\cmake\Qt5Network\Qt5Network_QGenericEnginePlugin_Import.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\Mine-imator_autogen\mocs_compilation_RelWithDebInfo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\Mine-imator_autogen\mocs_compilation_Release.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\AppHandler.hpp">
+      <Filter>Mine-imator</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\AppWindow.hpp">
+      <Filter>Mine-imator</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Asset.hpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Buffer.hpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\DataStructure.hpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Font.hpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Object.hpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Scope.hpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Script.hpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Shader.hpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sound.hpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Sprite.hpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Surface.hpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\TextFile.hpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\VertexBuffer.hpp">
+      <Filter>Mine-imator\Asset</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Common.hpp">
+      <Filter>Mine-imator</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\ErrorDialog.hpp">
+      <Filter>Mine-imator</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\FastVector.hpp">
+      <Filter>Mine-imator</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\GmlFunc.hpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Generated\Scripts.hpp">
+      <Filter>Mine-imator\Generated</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Heap.hpp">
+      <Filter>Mine-imator</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\Bounds.hpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\FrameBuffer.hpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\GLWidget.hpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\GraphicsApiHandler.hpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\Matrix.hpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\Mesh.hpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\PrimitiveRenderer.hpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\Texture.hpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\TexturePage.hpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\Vertex.hpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Render\VertexBufferRenderer.hpp">
+      <Filter>Mine-imator\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Type\ArrType.hpp">
+      <Filter>Mine-imator\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Type\MatrixType.hpp">
+      <Filter>Mine-imator\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Type\StringType.hpp">
+      <Filter>Mine-imator\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Type\VarType.hpp">
+      <Filter>Mine-imator\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Type\VecType.hpp">
+      <Filter>Mine-imator\Type</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\World\GZIP.hpp">
+      <Filter>Mine-imator\World</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\World\NBT.hpp">
+      <Filter>Mine-imator\World</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\World\World.hpp">
+      <Filter>Mine-imator\World</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\Mine-imator.dir\Debug\cmake_pch.hxx">
+      <Filter>Precompile Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\Mine-imator.dir\RelWithDebInfo\cmake_pch.hxx">
+      <Filter>Precompile Header File</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\Build\CMakeFiles\Mine-imator.dir\Release\cmake_pch.hxx">
+      <Filter>Precompile Header File</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\index.qrc" />
+    <CustomBuild Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="G:\Mine-imator-2.0.2-Continuation-Build-master\Mine-imator-2.0.2-Continuation-Build-master\CppProject\Asset\Icons\appicon.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Mine-imator">
+      <UniqueIdentifier>{C6612B8E-DD4D-3E45-965D-DBEC2C26FD09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mine-imator\Asset">
+      <UniqueIdentifier>{CDF886FF-C685-3112-A676-880255F55968}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mine-imator\Generated">
+      <UniqueIdentifier>{370D0F59-2FB0-3F1E-91EE-725F62895252}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mine-imator\Gml">
+      <UniqueIdentifier>{57B7352A-66F4-3958-9616-FBA86B33FF02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mine-imator\Library">
+      <UniqueIdentifier>{502386B5-6EF8-37F9-B33A-4686B8D1B10D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mine-imator\Render">
+      <UniqueIdentifier>{3BA11E88-F5DC-3006-824F-0182EE9EC150}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mine-imator\Type">
+      <UniqueIdentifier>{440159F8-7888-3F2C-B099-028FB27C3C1E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mine-imator\World">
+      <UniqueIdentifier>{8C665BCF-9470-33ED-94FB-FA17A6059837}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Precompile Header File">
+      <UniqueIdentifier>{8AEED590-8677-3C89-BE54-D58DB51C88F4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A9A6C4F4-7EF6-3555-913D-8595259C6E5E}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

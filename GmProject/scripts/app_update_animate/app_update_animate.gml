@@ -122,8 +122,14 @@ function app_update_animate(force)
 		if (modifier_shake)
 		{
 			var shakeoffset, shakestrength;
-			shakeoffset =  value[e_value.MODIFIER_SHAKE_OFFSET] + (value[e_value.MODIFIER_SHAKE_OFFSET_AUTOMATIC]) ? (floor(id) - 106000) : 0
-			shakestrength = value[e_value.MODIFIER_SHAKE_INTENSITY] * blend_value(1, dsin(keyframe_progress_ease * 180), value[e_value.MODIFIER_SHAKE_KEYFRAME_INFLUENCE])
+			shakeoffset =  value[e_value.MODIFIER_SHAKE_OFFSET] + (value[e_value.MODIFIER_SHAKE_OFFSET_AUTOMATIC]) ? modifier_shake_auto_offset : 0
+			
+			if (value[e_value.MODIFIER_SHAKE_KEYFRAME_INFLUENCE] > 0.0) 
+			{
+				shakestrength = value[e_value.MODIFIER_SHAKE_INTENSITY] * blend_value(1, dsin(keyframe_progress_ease * 180), value[e_value.MODIFIER_SHAKE_KEYFRAME_INFLUENCE])
+			} else {
+				shakestrength = value[e_value.MODIFIER_SHAKE_INTENSITY] * blend_value(1, 1 - dsin(keyframe_progress_ease * 180), abs(value[e_value.MODIFIER_SHAKE_KEYFRAME_INFLUENCE]))
+			}
 			
 			if (value[e_value.MODIFIER_SHAKE_POSITION])
 				modifier_shake_pos = generate_shake_value(modifier_step, shakestrength / 10, shakeoffset, false)
@@ -225,6 +231,7 @@ function app_update_animate(force)
 		background_leaves_dark_oak_color		= bgobject.value[e_value.BG_LEAVES_DARK_OAK_COLOR]
 		background_leaves_mangrove_color		= bgobject.value[e_value.BG_LEAVES_MANGROVE_COLOR]
 		background_fog_show						= bgobject.value[e_value.BG_FOG_SHOW]
+		background_fog_height_show				= bgobject.value[e_value.BG_FOG_HEIGHT_SHOW]
 		background_fog_sky						= bgobject.value[e_value.BG_FOG_SKY]
 		background_fog_color_custom				= bgobject.value[e_value.BG_FOG_CUSTOM_COLOR]
 		background_fog_color					= bgobject.value[e_value.BG_FOG_COLOR]
@@ -233,6 +240,8 @@ function app_update_animate(force)
 		background_fog_distance					= bgobject.value[e_value.BG_FOG_DISTANCE]
 		background_fog_size						= bgobject.value[e_value.BG_FOG_SIZE]
 		background_fog_height					= bgobject.value[e_value.BG_FOG_HEIGHT]
+		background_fog_height_size				= bgobject.value[e_value.BG_FOG_HEIGHT_SIZE]
+		background_fog_height_offset			= bgobject.value[e_value.BG_FOG_HEIGHT_OFFSET]
 		background_wind							= bgobject.value[e_value.BG_WIND]
 		background_wind_speed					= bgobject.value[e_value.BG_WIND_SPEED]
 		background_wind_strength				= bgobject.value[e_value.BG_WIND_STRENGTH]

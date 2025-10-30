@@ -33,6 +33,5 @@ function temp_get_model_tex_normal_obj(texobj)
 		if (texobj != null && texobj.model_tex_normal_map = null) // Model has no texture
 			texobj = null
 	}
-	
 	return texobj
 }

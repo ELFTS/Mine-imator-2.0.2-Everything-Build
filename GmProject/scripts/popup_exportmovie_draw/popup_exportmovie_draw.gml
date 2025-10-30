@@ -102,7 +102,7 @@ function popup_exportmovie_draw()
 	{
 		// Color type
 		tab_control_checkbox()
-		draw_checkbox("exportmoviefullcolor", dx, dy, popup.colortype, action_toolbar_exportmovie_fullcolor)
+		draw_checkbox("exportmoviefullcolor", dx, dy, popup.colortype, action_toolbar_exportmovie_fullcolor, "exportmoviefullcolortip")
 		tab_next()
 		
 		// Include audio

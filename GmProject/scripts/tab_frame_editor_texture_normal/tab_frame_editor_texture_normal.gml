@@ -27,7 +27,6 @@ function tab_frame_editor_texture_normal()
 					texobj = temp_get_model_tex_normal_obj(tl_edit.value[e_value.TEXTURE_NORMAL_OBJ])
 					tex = temp_get_model_tex_normal_preview(texobj, modelfile)
 				}
-				
 				break
 			}
 			
@@ -108,4 +107,13 @@ function tab_frame_editor_texture_normal()
 	tab_control_menu(ui_large_height)
 	draw_button_menu(name, e_menu.LIST, dx, dy, dw, ui_large_height, tl_edit.value[e_value.TEXTURE_NORMAL_OBJ], text, action_tl_frame_texture_normal_obj, false, tex)
 	tab_next()
+	
+	// Sliders
+	if (project_render_engine && texobj != null)
+	{
+		// Strength
+		tab_control_meter()
+		draw_meter("frameeditornormalstrength", dx, dy, dw, round(tl_edit.value[e_value.NORMAL_STRENGTH] * 100), -300, 300, 0, 1, tab.material.tbx_normal_strength, action_tl_frame_normal_strength)
+		tab_next()
+	}
 }

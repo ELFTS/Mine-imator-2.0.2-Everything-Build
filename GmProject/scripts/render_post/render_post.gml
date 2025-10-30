@@ -10,6 +10,11 @@ function render_post(finalsurf, sceneeffects = true, posteffects = true)
 	
 	render_post_kernel = (render_samples < 2) ? 1 : random_range(0.9, 1.1)
 	
+	// Outline
+	if (render_camera_outline && sceneeffects && render_quality = 2)
+		finalsurf = render_high_outline(finalsurf)
+	render_update_effects()
+
 	// Glow (Affected by DOF)
 	if (project_render_dof_affect_glow) {
 		

@@ -16,6 +16,7 @@ function shader_material_uniforms()
 	new_shader_uniform("uRoughness")
 	new_shader_uniform("uMetallic")
 	new_shader_uniform("uEmissive")
+	new_shader_uniform("uNormalStrength")
 	
 	// Subsurface
 	new_shader_uniform("uSSS")
