@@ -52,6 +52,15 @@ function tab_frame_editor_camera()
 	draw_dragger("frameeditorcamerafov", dx, dy, dragger_width, tl_edit.value[e_value.CAM_FOV], 1, 1, 170, 45, 0.1, tab.camera.tbx_fov, action_tl_frame_cam_fov,)
 	tab_next()
 	
+	if (setting_advanced_mode)
+	{
+		if (tl_edit.value[e_value.CAM_SIZE_USE_PROJECT])
+			draw_label(string(convert_fov_to_focal_length(tl_edit.value[e_value.CAM_FOV], app.project_video_width, app.project_video_height)) + " mm", dx + dw, dy, fa_right, fa_middle, c_text_secondary, 0.7, font_value)
+		else
+			draw_label(string(convert_fov_to_focal_length(tl_edit.value[e_value.CAM_FOV], tl_edit.value[e_value.CAM_WIDTH], tl_edit.value[e_value.CAM_HEIGHT])) + " mm", dx + dw, dy, fa_right, fa_middle, c_text_secondary, 0.87, font_value)
+	}
+	tab_next(-2)
+	
 	// Advanced mode only
 	if (setting_advanced_mode)
 	{
@@ -317,7 +326,7 @@ function tab_frame_editor_camera()
 		tab_next()
 			
 		tab_control_dragger()
-		draw_dragger("frameeditorcameraoutlineradius", dx, dy, dragger_width, tl_edit.value[e_value.CAM_OUTLINE_RADIUS], 0.1, snap_min, 16, 4, 1, tab.camera.tbx_outline_radius, action_tl_frame_cam_outline_radius)
+		draw_dragger("frameeditorcameraoutlineradius", dx, dy, dragger_width, tl_edit.value[e_value.CAM_OUTLINE_RADIUS], 0.1, snap_min, 16, 4, 0.1, tab.camera.tbx_outline_radius, action_tl_frame_cam_outline_radius)
 		tab_next()
 			
 		dy += small_spacing
@@ -584,6 +593,82 @@ function tab_frame_editor_camera()
 			
 			tab_collapse_end(false)
 		}
+	}
+	
+	// Heat distortion
+	tab_control_switch()
+	draw_button_collapse("heat_distortion", collapse_map[?"heat_distortion"], action_tl_frame_cam_heat_distortion, tl_edit.value[e_value.CAM_HEAT_DISTORTION], "frameeditorcameraheatdistortion")
+	tab_next()
+	
+	if (tl_edit.value[e_value.CAM_HEAT_DISTORTION] && collapse_map[?"heat_distortion"])
+	{
+		tab_collapse_start()
+		
+		// Strength
+		tab_control_dragger()
+		draw_dragger("frameeditorcameraheatdistortionstrength", dx, dy, dragger_width, round(tl_edit.value[e_value.CAM_HEAT_DISTORTION_STRENGTH] * 100), .1, 0, no_limit, 10, 1, tab.camera.tbx_heat_distortion_strength, action_tl_frame_cam_heat_distortion_strength)
+		tab_next()
+		
+		// Speed
+		tab_control_dragger()
+		draw_dragger("frameeditorcameraheatdistortionspeed", dx, dy, dragger_width, round(tl_edit.value[e_value.CAM_HEAT_DISTORTION_SPEED] * 100), .1, 0, no_limit, 100, 1, tab.camera.tbx_heat_distortion_speed, action_tl_frame_cam_heat_distortion_speed)
+		tab_next()
+		
+		// Scale
+		tab_control_dragger()
+		draw_dragger("frameeditorcameraheatdistortionscale", dx, dy, dragger_width, round(tl_edit.value[e_value.CAM_HEAT_DISTORTION_SCALE] * 100), .1, 1, no_limit, 100, 1, tab.camera.tbx_heat_distortion_scale, action_tl_frame_cam_heat_distortion_scale)
+		tab_next()
+		
+		tab_collapse_end()
+	}
+	
+	// Vertex Snap (PS1 style)
+	tab_control_switch()
+	draw_button_collapse("vertex_snap", collapse_map[?"vertex_snap"], action_tl_frame_cam_vertex_snap, tl_edit.value[e_value.CAM_VERTEX_SNAP], "frameeditorcameravertexsnap")
+	tab_next()
+	
+	if (tl_edit.value[e_value.CAM_VERTEX_SNAP] && collapse_map[?"vertex_snap"])
+	{
+		tab_collapse_start()
+		
+		// Snap Amount (Meter/Slider)
+		tab_control_meter()
+		draw_meter("frameeditorcameravertexsnapamount", dx, dy, dw, tl_edit.value[e_value.CAM_VERTEX_SNAP_AMOUNT], 1, 64, 16, 1, tab.camera.tbx_vertex_snap_amount, action_tl_frame_cam_vertex_snap_amount)
+		tab_next()
+		
+		tab_collapse_end()
+	}
+	
+	// Black Lines
+	tab_control_switch()
+	draw_button_collapse("black_lines", collapse_map[?"black_lines"], action_tl_frame_cam_black_lines, tl_edit.value[e_value.CAM_BLACK_LINES], "frameeditorcamerablacklines")
+	tab_next()
+	
+	if (tl_edit.value[e_value.CAM_BLACK_LINES] && collapse_map[?"black_lines"])
+	{
+		tab_collapse_start()
+		
+		// Size
+		tab_control_meter()
+		draw_meter("frameeditorcamerablacklinessize", dx, dy, dw, round(tl_edit.value[e_value.CAM_BLACK_LINES_SIZE] * 100), 0, 100, 10, 1, tab.camera.tbx_black_lines_size, action_tl_frame_cam_black_lines_size)
+		tab_next()
+		
+		// Rotation
+		tab_control_dragger()
+		draw_dragger("frameeditorcamerablacklinesrotation", dx, dy, dragger_width, tl_edit.value[e_value.CAM_BLACK_LINES_ROTATION], 0.1, -no_limit, no_limit, 0, 1, tab.camera.tbx_black_lines_rotation, action_tl_frame_cam_black_lines_rotation)
+		tab_next()
+		
+		// Y Position offset
+		tab_control_dragger()
+		draw_dragger("frameeditorcamerablacklinesoffset", dx, dy, dragger_width, tl_edit.value[e_value.CAM_BLACK_LINES_OFFSET_Y], 0.1, -70, 70, 0, 1, tab.camera.tbx_black_lines_offset_y, action_tl_frame_cam_black_lines_offset)
+		tab_next()
+		
+		// Color
+		tab_control_color()
+		draw_button_color("frameeditorcamerablacklinescolor", dx, dy, dw, tl_edit.value[e_value.CAM_BLACK_LINES_COLOR], c_black, false, action_tl_frame_cam_black_lines_color)
+		tab_next()
+		
+		tab_collapse_end()
 	}
 	
 	context_menu_group_temp = null

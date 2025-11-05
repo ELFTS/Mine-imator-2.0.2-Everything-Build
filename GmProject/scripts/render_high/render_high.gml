@@ -1,24 +1,40 @@
 /// render_high()
-/// @desc Renders the scene in high quality with all applicable effects.
+/// @desc Renders the scene in high quality.
 
 function render_high()
 {
-	var start_time = current_time;
-	render_surface_time = 0;
-
-	// Prepare sampling
-	render_update_samples();
-	render_alpha_hash = project_render_alpha_mode;
+	var starttime, samplestart, sampleend;
 	
-	// Main rendering loop
-	if (!render_samples_done)
+	starttime = current_time
+	render_surface_time = 0
+	render_update_samples()
+	
+	render_alpha_hash = project_render_alpha_mode
+	
+	if (render_samples_done)
 	{
-		render_sample_current = render_samples;
-		random_set_seed(render_sample_current); // consistent sample noise
-
-		render_high_update_taa();
-		render_high_passes();
-
+		samplestart = 0
+		sampleend = 0
+	}
+	else
+	{
+		samplestart = render_samples - 1
+		sampleend = render_samples
+	}
+	
+	// Render
+	for (var s = samplestart; s < sampleend; s++)
+	{
+		render_sample_current = s
+		random_set_seed(render_sample_current)
+		
+		// Update TAA jitter
+		render_high_update_taa()
+		
+		// Create render passes
+		render_high_passes()
+		
+		// Shadows
 		if (render_shadows) {
 			if (render_sample_current > 1)
 				render_shadow_blur_kernel = vec2(random_range(45.0, 1.0), random_range(0.6, 1.4))
@@ -27,77 +43,95 @@ function render_high()
 				
 			render_high_shadows();
 		}
-
+		
+		// Indirect lighting
 		if (render_indirect)
-			render_high_indirect();
-
+			render_high_indirect()
+		
+		// SSAO
 		if (render_ssao)
-			render_high_ssao();
-
-		// Scene composition
-		var final_surf = render_high_scene();
-
+			render_high_ssao()
+		
+		// Composite current effects, avoid render surf 0 going forward
+		var finalsurf;
+		finalsurf = render_high_scene()
+		
+		// Reflections
 		if (render_reflections)
-			render_high_reflections(final_surf);
-
-		final_surf = render_high_tonemap(final_surf);
-
+			render_high_reflections(finalsurf)
+		
+		finalsurf = render_high_tonemap(finalsurf)
+		
+		// Minecraft fog
 		if (background_fog_show)
-			render_high_fog(final_surf);
-
-		// Post-scene effects (Glow, DoF, etc.)
-		render_refresh_effects(true, false);
-		final_surf = render_post(final_surf, true, false);
-
-		// Final render output
-		render_target = surface_require(render_target, render_width, render_height);
-		surface_set_target(render_target);
+			render_high_fog(finalsurf)
+		
+		// Apply post scene effects (Glow, DoF, etc.)
+		render_refresh_effects(true, false)
+		finalsurf = render_post(finalsurf, true, false)
+		
+		// Set target
+		render_target = surface_require(render_target, render_width, render_height)
+		surface_set_target(render_target)
 		{
-			draw_clear_alpha(c_black, render_pass ? 1 : 0);
-			draw_surface_exists(render_pass ? render_pass_surf : final_surf, 0, 0);
+			if (render_pass)
+			{
+				draw_clear_alpha(c_black, 1)
+				draw_surface_exists(render_pass_surf, 0, 0)
+			}
+			else
+			{
+				draw_clear_alpha(c_black, 0)
+				draw_surface_exists(finalsurf, 0, 0)
+			}
 		}
-		surface_reset_target();
-
-		// Final post-processing (Bloom, LUT, etc.)
+		surface_reset_target()
+	
+		// Apply post effects (Bloom, color correction, etc.)
 		if (!render_pass)
 		{
-			var main_surf = surface_require(render_surface[0], render_width, render_height);
-
-			// Copy target to working surface
-			gpu_set_blendmode_ext(bm_one, bm_zero);
-			surface_set_target(main_surf);
+			var prevsurf;
+			render_surface[0] = surface_require(render_surface[0], render_width, render_height)
+			prevsurf = render_surface[0]
+			
+			gpu_get_blendmode()
+		
+			gpu_set_blendmode_ext(bm_one, bm_zero)
+		
+			surface_set_target(prevsurf)
 			{
-				draw_clear_alpha(c_black, 0);
-				draw_surface_exists(render_target, 0, 0);
+				draw_clear_alpha(c_black, 0)
+				draw_surface_exists(render_target, 0, 0)
 			}
-			surface_reset_target();
-
-			// Apply final post-processing effects
-			gpu_set_blendmode(bm_normal);
-			render_refresh_effects(false, true);
-			main_surf = render_post(main_surf, false, true);
-
-			// Copy final result back to render target
-			gpu_set_blendmode_ext(bm_one, bm_zero);
-			surface_set_target(render_target);
+			surface_reset_target()
+		
+			gpu_set_blendmode(bm_normal)
+		
+			render_refresh_effects(false, true)
+			prevsurf = render_post(prevsurf, false, true)
+		
+			gpu_set_blendmode_ext(bm_one, bm_zero)
+		
+			surface_set_target(render_target)
 			{
-				draw_clear_alpha(c_black, 0);
-				draw_surface_exists(main_surf, 0, 0);
+				draw_clear_alpha(c_black, 0)
+				draw_surface_exists(prevsurf, 0, 0)
 			}
-			surface_reset_target();
-			gpu_set_blendmode(bm_normal);
+			surface_reset_target()
+		
+			gpu_set_blendmode(bm_normal)
 		}
-
-		render_high_samples_add();
+		
+		render_high_samples_add()
 	}
-
-	// Combine multi-sample render result
-	render_high_samples_unpack();
-
-	// Cleanup and state reset
-	taa_matrix = MAT_IDENTITY;
-	render_samples_clear = false;
-	render_alpha_hash = false;
-
-	render_time = current_time - start_time - render_surface_time;
+	
+	render_high_samples_unpack()
+	
+	// Reset TAA matrix
+	taa_matrix = MAT_IDENTITY
+	
+	render_samples_clear = false
+	render_alpha_hash = false
+	
+	render_time = current_time - starttime - render_surface_time
 }

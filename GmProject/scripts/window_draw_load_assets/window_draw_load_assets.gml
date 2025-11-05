@@ -60,6 +60,11 @@ function window_draw_load_assets()
 	draw_gradient(xoff + 190, yoff, shadow_size * 2, screenhei, c_black, shadow_alpha * 2, 0, 0, shadow_alpha * 2)
 	draw_gradient(xoff + 190, yoff, screenwid - 190, shadow_size * 2, c_black, shadow_alpha * 2, shadow_alpha * 2, 0, 0)
 	
+	for(var i = 0; i < sprite_get_number(spr_head); i++)
+	{
+		draw_sprite_ext(spr_head, i, xoff + (i * 20) + 10, yoff + 404, 2, 2, 0, c_white, 0.7)
+	}
+
 	// Splash
 	if (load_assets_splash != null)
 	{

@@ -4,14 +4,16 @@
 
 function render_high_glow(prevsurf, glowfalloff = false)
 {
-	var glowcolorsurf, glowsurf, resultsurf;
-	
-	render_surface[1] = surface_require(render_surface[1], render_width, render_height, false, true)
+	var glowcolorsurf, glowsurf, resultsurf, randomrotation;
+	render_surface[0] = surface_require(render_surface[0], render_width, render_height)
+	render_surface[1] = surface_require(render_surface[1], render_width, render_height)
+	glowcolorsurf = render_surface[0]
 	glowsurf = render_surface[1]
+	randomrotation = (render_post_kernel - 0.85) * 1200
 	
-	if (!glowfalloff) {
-		render_surface[0] = surface_require(render_surface[0], render_width, render_height, false, true)
-		glowcolorsurf = render_surface[0]
+	if (!glowfalloff)
+	{
+		// Draw Glow Colors and Cache it
 		
 		surface_set_target(glowcolorsurf)
 		{
@@ -28,13 +30,14 @@ function render_high_glow(prevsurf, glowfalloff = false)
 			gpu_set_blendmode(bm_normal)
 		}
 		surface_reset_target()
-		render_surface_glow_cache = glowcolorsurf
+		
+		surface_copy(render_surface_glow_cache, 0, 0, glowcolorsurf)
 	} else {
-		glowcolorsurf = render_surface_glow_cache
+		surface_copy(glowcolorsurf, 0, 0, render_surface_glow_cache)
 	}
 	
 	var glowsurftemp;
-	render_surface[2] = surface_require(render_surface[2], render_width, render_height, false, true)
+	render_surface[2] = surface_require(render_surface[2], render_width, render_height)
 	glowsurftemp = render_surface[2]
 	
 	render_shader_obj = shader_map[?shader_blur]
@@ -45,9 +48,9 @@ function render_high_glow(prevsurf, glowfalloff = false)
 	var baseradius;
 	
 	if (glowfalloff)
-		baseradius = ((project_render_glow_radius * project_render_glow_falloff_radius * 10) * render_height / 500) * render_post_kernel
+		baseradius = ((project_render_glow_radius * project_render_glow_falloff_radius * 10) * render_height / 500 * render_post_kernel)
 	else
-		baseradius = ((project_render_glow_radius * 10) * render_height / 500) * render_post_kernel
+		baseradius = ((project_render_glow_radius * 10) * render_height / 500 * render_post_kernel)
 	
 	gpu_set_tex_repeat(false)
 	gpu_set_texfilter(true)
@@ -60,7 +63,7 @@ function render_high_glow(prevsurf, glowfalloff = false)
 		surface_set_target(glowsurftemp)
 		{
 			with (render_shader_obj)
-				shader_blur_set(render_blur_kernel, radius, 1, 0)
+				shader_blur_set(render_blur_kernel, radius, dsin(90 + randomrotation), dcos(90 + randomrotation))
 			
 			if (i = 0)
 				draw_surface_exists(glowcolorsurf, 0, 0)
@@ -73,7 +76,7 @@ function render_high_glow(prevsurf, glowfalloff = false)
 		surface_set_target(glowsurf)
 		{
 			with (render_shader_obj)
-				shader_blur_set(render_blur_kernel, radius, 0, 1)
+				shader_blur_set(render_blur_kernel, radius, dsin(0 + randomrotation), dcos(0 + randomrotation))
 			draw_surface_exists(glowsurftemp, 0, 0)
 		}
 		surface_reset_target()

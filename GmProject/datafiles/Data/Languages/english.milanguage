@@ -2681,9 +2681,13 @@
 			"ex": "AVE-X"
 		},
 		"performancemode": "Performance Mode",
-		"performancemodetip": "Disable some rendering features for faster render times. Check Appearance on objects Properties",
-		"performancemodeskipfog": "Skip fog check",
-		"performancemodeskipsky": "Skip sky check",
+		"performancemode/": {
+		"tip": "Disable some rendering features for faster render times. Check Appearance on objects Properties",
+		"skipfog": "Skip fog check",
+		"skipsky": "Skip sky check",
+		"lightocclusiondistance": "Light Occlusion Distance",
+		"lightocclusiondistancetip": "Explicitly ignore objects that outside the Pointlight or Spotlight radius to save render time"
+		},
 		"samples": "Samples",
 		"distance": "Render distance",
 		"distancetip": "The distance where rendered objects are cut off. Also determines the maximum fog distance.",
@@ -3856,6 +3860,24 @@
 				"zoom": "Zoom amount",
 				"amount": "Distort amount"
 			},
+			"blacklines": "Black Bar",
+			"blacklines/": {
+				"size": "Size",
+				"rotation": "Rotation",
+				"offset": "Offset",
+				"color": "Color"
+			},
+			"vertexsnap": "Pixelation",
+			"vertexsnap/": {
+				"amount": "Pixelation amount",
+				"amountdragger": "Pixelation amount (precise)"
+			},
+			"heatdistortion": "Heat distortion waves",
+			"heatdistortion/": {
+				"strength": "Strength",
+				"speed": "Speed",
+				"scale": "Scale"
+			},
 			"outline": "Outline",
 			"outline/": {
 				"color": "Color",
@@ -3928,7 +3950,10 @@
 			"circ": "Circular",
 			"elastic": "Elastic",
 			"back": "Back",
-			"bounce": "Bounce"
+			"bounce": "Bounce",
+			"inquick": "Ease in",
+			"outquick": "Ease out",
+			"inoutquick": "Ease in & out"
 		}
 	},
 	"settings/": {

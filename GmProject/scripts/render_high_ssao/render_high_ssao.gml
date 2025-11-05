@@ -27,6 +27,7 @@ function render_high_ssao()
 	render_surface[0] = surface_require(render_surface[0], render_width, render_height)
 	surface_set_target(render_surface[0])
 	{
+		gpu_set_blendmode(bm_normal)
 		gpu_set_texrepeat(false)
 		draw_clear(c_white)
 		

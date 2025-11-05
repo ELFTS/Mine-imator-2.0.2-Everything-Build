@@ -71,6 +71,7 @@ function shader_startup()
 		new_shader("shader_noise")
 		new_shader("shader_ca")
 		new_shader("shader_distort")
+		new_shader("shader_high_heat_distortion")
 		new_shader("shader_high_lighting_apply")
 		new_shader("shader_high_samples_add")
 		new_shader("shader_high_samples_unpack")
@@ -530,6 +531,14 @@ function shader_startup()
 		new_shader_uniform("uDistortAmount")
 		new_shader_uniform("uRepeatImage")
 		new_shader_uniform("uZoomAmount")
+	}
+	
+	with (shader_map[?shader_high_heat_distortion])
+	{
+		new_shader_uniform("uTime")
+		new_shader_uniform("uStrength")
+		new_shader_uniform("uScale")
+		new_shader_uniform("uResolution")
 	}
 	
 	with (shader_map[?shader_high_lighting_apply])

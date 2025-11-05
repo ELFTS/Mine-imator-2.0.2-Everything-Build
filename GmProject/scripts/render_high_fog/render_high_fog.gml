@@ -10,14 +10,19 @@ function render_high_fog(basesurf)
 	prevsurf = render_surface[2]
 	
 	// Get fog strength
-	surface_set_target(fogsurf)
+	if (!project_render_performance_mode || !project_render_performance_mode_skipfog)
 	{
-		draw_clear(c_black)
-		render_world_start()
-		render_world(e_render_mode.HIGH_FOG)
-		render_world_done()
+		surface_set_target(fogsurf)
+		{
+			draw_clear(c_black)
+			render_world_start()
+			render_world(e_render_mode.HIGH_FOG)
+			render_world_done()
+		}
+		surface_reset_target()
+	} else {
+		fogsurf = render_surface_depth
 	}
-	surface_reset_target()
 	
 	// Copy into separate surface
 	surface_set_target(prevsurf)

@@ -9,6 +9,7 @@ function project_reset_render()
 	project_render_performance_mode = false
 	project_render_performance_mode_skipfog = false
 	project_render_performance_mode_skipsky = false
+	project_render_performance_mode_light_occlusion_distance = 32
 	
 	project_render_ssao = true
 	project_render_ssao_samples = 24
@@ -44,7 +45,7 @@ function project_reset_render()
 	project_render_indirect_blur_radius = 1
 	project_render_indirect_blur_radius_gi = .5
 	project_render_indirect_strength = 1
-	project_render_indirect_raystep = 16
+	project_render_indirect_raystep = 8
 	project_render_indirect_denoiser = true
 	project_render_indirect_denoiser_strength = 100
 	
@@ -63,7 +64,7 @@ function project_reset_render()
 	project_render_aa = true
 	project_render_aa_power = 1
 	project_render_smaa = false
-	project_render_smaa_power = 0.25
+	project_render_smaa_power = 0.60
 	
 	project_render_dof_sample = 3
 	project_render_dof_ghostingfix = false

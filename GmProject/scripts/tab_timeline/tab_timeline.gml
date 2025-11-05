@@ -135,7 +135,7 @@ function tab_timeline()
 	timex += 8
 	
 	var buttonsxstart, buttonsx, buttonsy;
-	buttonsxstart = (timeline_settings_w = null ? 0 : floor((headerx + headerw/2) - timeline_settings_w/2))
+	buttonsxstart = (timeline_settings_w = null ? 0 : floor((headerx + headerw/2) - timeline_settings_w/2)) + 54
 	buttonsx = max(timex, buttonsxstart)
 	buttonsy = headery + 4
 	
@@ -184,7 +184,96 @@ function tab_timeline()
 	
 	// Next keyframe
 	draw_button_icon("timelinenextkeyframe", buttonsx, buttonsy, 24, 24, false, icons.KEYFRAME_NEXT, action_tl_keyframe_next, timeline_playing, "tooltiptlnextkeyframe")
-	buttonsx += 16 + 6
+	buttonsx += 24 + 6
+	
+	draw_divide_vertical(buttonsx, buttonsy + 2, 20)
+	buttonsx += 4 + 6
+	
+	// Transition quick buttons (only show when keyframes are selected)
+	if (setting_advanced_mode && timeline_settings_keyframes)
+	{
+		var transition_disabled = !timeline_settings_keyframes;
+		var current_transition = (tl_edit != null ? tl_edit.value[e_value.TRANSITION] : "linear");
+		var button_mouseon;
+		
+		// Instant
+		if (draw_button_icon("timelinetransitioninstant", buttonsx, buttonsy, 24, 24, current_transition = "instant", icons.EASE_INSTANT, null, transition_disabled, "transitioninstant"))
+			action_tl_frame_transition("instant")
+		buttonsx += 24 + 4
+		
+		// Linear
+		if (draw_button_icon("timelinetransitionlinear", buttonsx, buttonsy, 24, 24, current_transition = "linear", icons.EASE_LINEAR, null, transition_disabled, "transitionlinear"))
+			action_tl_frame_transition("linear")
+		buttonsx += 24 + 4
+		
+		// Ease In - Left click applies, right click opens menu
+		button_mouseon = app_mouse_box(buttonsx, buttonsy, 24, 24) && !transition_disabled
+		if (draw_button_icon("timelinetransitioneasein", buttonsx, buttonsy, 24, 24, string_contains(current_transition, "easein") && !string_contains(current_transition, "easeinout"), icons.EASE_IN, null, transition_disabled, "transitioneaseinquick"))
+		{
+			// Left click - apply current transition
+			action_tl_frame_transition(timeline.transition_easein)
+		}
+		if (button_mouseon && mouse_right_released)
+		{
+			// Right click - open menu to change transition
+			menu_settings_set(buttonsx, buttonsy + 24, "timelinetransitioneasein", 0)
+			settings_menu_script = menu_settings_transition_easein
+			settings_menu_w = 244
+			settings_menu_h = 150
+			settings_menu_quick = true
+			
+			if (settings_menu_y + settings_menu_h + 32 > window_height)
+				settings_menu_y = (window_height - (settings_menu_h + 32))
+		}
+		buttonsx += 24 + 4
+		
+		// Ease Out - Left click applies, right click opens menu
+		button_mouseon = app_mouse_box(buttonsx, buttonsy, 24, 24) && !transition_disabled
+		if (draw_button_icon("timelinetransitioneaseout", buttonsx, buttonsy, 24, 24, string_contains(current_transition, "easeout") && !string_contains(current_transition, "easeinout"), icons.EASE_OUT, null, transition_disabled, "transitioneaseoutquick"))
+		{
+			// Left click - apply current transition
+			action_tl_frame_transition(timeline.transition_easeout)
+		}
+		if (button_mouseon && mouse_right_released)
+		{
+			// Right click - open menu to change transition
+			menu_settings_set(buttonsx, buttonsy + 24, "timelinetransitioneaseout", 0)
+			settings_menu_script = menu_settings_transition_easeout
+			settings_menu_w = 244
+			settings_menu_h = 150
+			settings_menu_quick = true
+			
+			if (settings_menu_y + settings_menu_h + 32 > window_height)
+				settings_menu_y = (window_height - (settings_menu_h + 32))
+		}
+		buttonsx += 24 + 4
+		
+		// Ease In/Out - Left click applies, right click opens menu
+		button_mouseon = app_mouse_box(buttonsx, buttonsy, 24, 24) && !transition_disabled
+		if (draw_button_icon("timelinetransitioneaseinout", buttonsx, buttonsy, 24, 24, string_contains(current_transition, "easeinout") || string_contains(current_transition, "bezier"), icons.EASE_IN_OUT, null, transition_disabled, "transitioneaseinoutquick"))
+		{
+			// Left click - apply current transition
+			action_tl_frame_transition(timeline.transition_easeinout)
+		}
+		if (button_mouseon && mouse_right_released)
+		{
+			// Right click - open menu to change transition
+			menu_settings_set(buttonsx, buttonsy + 24, "timelinetransitioneaseinout", 0)
+			settings_menu_script = menu_settings_transition_easeinout
+			settings_menu_w = 244
+			settings_menu_h = 150
+			settings_menu_quick = true
+			
+			if (settings_menu_y + settings_menu_h + 32 > window_height)
+				settings_menu_y = (window_height - (settings_menu_h + 32))
+		}
+		buttonsx += 24 + 6
+		
+		draw_divide_vertical(buttonsx, buttonsy + 2, 20)
+		buttonsx += 4
+	}
+	
+	buttonsx += 6
 	
 	timeline_settings_w = (buttonsx - buttonsxstart)
 	

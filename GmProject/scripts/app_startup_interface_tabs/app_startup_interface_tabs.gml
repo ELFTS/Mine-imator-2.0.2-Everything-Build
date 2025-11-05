@@ -41,6 +41,8 @@ function app_startup_interface_tabs()
 			tbx_render_distance = new_textbox_integer()
 			tbx_samples = new_textbox_integer()
 			
+			tbx_render_performance_mode_light_occlusion_distance = new_textbox_integer()
+			
 			tbx_ssao_samples = new_textbox_integer()
 			tbx_ssao_radius = new_textbox_decimals()
 			tbx_ssao_power = new_textbox_integer()
@@ -460,6 +462,12 @@ function app_startup_interface_tabs()
 		hor_scroll.zoomable = true
 		hor_scroll_tl = new_obj(obj_scrollbar)
 		ver_scroll = new_obj(obj_scrollbar)
+		
+		// Store current transition for each quick button
+		transition_easein = "easeinquad"
+		transition_easeout = "easeoutquad"
+		transition_easeinout = "easeinoutquad"
+		transition_easeinstant = "easeinstant"
 	}
 	
 	// Timeline editor
@@ -754,7 +762,24 @@ function app_startup_interface_tabs()
 			tbx_distort_amount = new_textbox_ninteger()
 			tbx_distort_amount.suffix = "%"
 			
+			tbx_black_lines_size = new_textbox_integer()
+			tbx_black_lines_size.suffix = "%"
+			tbx_black_lines_rotation = new_textbox_ndecimals()
+			tbx_black_lines_rotation.suffix = "°"
+			tbx_black_lines_offset_y = new_textbox_ninteger()
+			
+			tbx_vertex_snap_amount = new_textbox_integer()
+			tbx_vertex_snap_amount.suffix = "px"
+			
+			tbx_heat_distortion_strength = new_textbox_integer()
+			tbx_heat_distortion_strength.suffix = "%"
+			tbx_heat_distortion_speed = new_textbox_integer()
+			tbx_heat_distortion_speed.suffix = "%"
+			tbx_heat_distortion_scale = new_textbox_integer()
+			tbx_heat_distortion_scale.suffix = "%"
+			
 			tbx_outline_radius = new_textbox_decimals()
+			tbx_outline_radius.suffix = "px"
 			tbx_outline_strength = new_textbox_integer()
 			tbx_outline_strength.suffix = "%"
 			tbx_outline_depth_threshold = new_textbox_decimals()

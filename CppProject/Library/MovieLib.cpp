@@ -304,7 +304,7 @@ namespace CppProject
 
 			// Open the codec
 			AVDictionary* opt = NULL;
-			av_dict_set(&opt, "tune", "zerolatency", 0);
+			av_dict_set(&opt, "tune", "animation", 0);
 			av_dict_set(&opt, "preset", "veryslow", 0);
 			if (avcodec_open2(videoCodecContext, videoCodec, &opt) < 0)
 				throw "avcodec_open2 failed";

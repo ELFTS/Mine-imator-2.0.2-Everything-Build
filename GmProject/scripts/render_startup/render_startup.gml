@@ -17,7 +17,8 @@ function render_startup()
 			  render_glow, render_glow_falloff, render_camera_ca, render_camera_distort, render_camera_color_correction, render_camera_grain,
 			  render_camera_vignette, render_overlay, render_camera_lens_dirt, render_camera_lens_dirt_bloom, render_camera_lens_dirt_glow,
 			  render_ssao, render_shadows, render_indirect, render_reflections, render_quality, render_pass,
-			  render_tonemapper, render_exposure, render_gamma, render_depth_normals, render_smaa, render_camera_outline;
+			  render_tonemapper, render_exposure, render_gamma, render_depth_normals, render_smaa, render_camera_outline, render_camera_vertex_snap,
+			  render_camera_black_lines, render_camera_heat_distortion;
 	
 	globalvar render_matrix, render_samples, render_sample_current, render_samples_done, render_target_size;
 	
@@ -74,9 +75,12 @@ function render_startup()
 	render_glow_falloff = false
 	render_camera_ca = false
 	render_camera_distort = false
+	render_camera_heat_distortion = false
+	render_camera_vertex_snap = false
 	render_camera_color_correction = false
 	render_camera_grain = false
 	render_camera_vignette = false
+	render_camera_black_lines = false
 	render_overlay = false
 	render_smaa = false
 	render_camera_lens_dirt = true
@@ -126,12 +130,11 @@ function render_startup()
 	render_surface_specular = null
 	
 	render_surface_lens = null
+	render_surface_glow_cache = null
 	
 	render_surface_sample_expo = null
 	render_surface_sample_dec = null
 	render_surface_sample_alpha = null 
-	
-	render_surface_glow_cache = null 
 	
 	depth_near = clip_near
 	depth_far = 5000

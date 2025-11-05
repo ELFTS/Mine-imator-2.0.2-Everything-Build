@@ -92,8 +92,13 @@ function tl_value_default(valueid)
 		case e_value.CAM_CA_RED_OFFSET: return .12
 		case e_value.CAM_CA_GREEN_OFFSET: return .08
 		case e_value.CAM_CA_BLUE_OFFSET: return .04
+		case e_value.CAM_HEAT_DISTORTION_SCALE:
+		case e_value.CAM_HEAT_DISTORTION_SPEED:
+		case e_value.CAM_HEAT_DISTORTION_STRENGTH:
 		case e_value.CAM_DISTORT_ZOOM_AMOUNT: return 1
 		case e_value.CAM_DISTORT_AMOUNT: return .05
+		case e_value.CAM_VERTEX_SNAP_AMOUNT: return 4
+		case e_value.CAM_BLACK_LINES_SIZE: return 0.7
 		case e_value.CAM_WIDTH: return 1280
 		case e_value.CAM_HEIGHT: return 720
 		case e_value.CAM_SIZE_USE_PROJECT:

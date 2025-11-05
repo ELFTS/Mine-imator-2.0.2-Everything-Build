@@ -7,8 +7,8 @@ function render_post(finalsurf, sceneeffects = true, posteffects = true)
 {
 	// Start post processing
 	finalsurf = render_high_post_start(finalsurf)
-	
-	render_post_kernel = (render_samples < 2) ? 1 : random_range(0.9, 1.1)
+	render_post_kernel = (render_samples < 2 || render_quality != 2) ? 1 : random_range(0.85, 1.15)
+	render_surface_glow_cache = surface_require(render_surface_glow_cache, render_width, render_height)
 	
 	// Outline
 	if (render_camera_outline && sceneeffects && render_quality = 2)
@@ -16,8 +16,8 @@ function render_post(finalsurf, sceneeffects = true, posteffects = true)
 	render_update_effects()
 
 	// Glow (Affected by DOF)
-	if (project_render_dof_affect_glow) {
-		
+	if (project_render_dof_affect_glow)
+	{
 		// Glow
 		if (render_glow && sceneeffects)
 			finalsurf = render_high_glow(finalsurf)
@@ -35,8 +35,8 @@ function render_post(finalsurf, sceneeffects = true, posteffects = true)
 	render_update_effects()
 	
 	// Glow (Not affected by DOF)
-	if (!project_render_dof_affect_glow) {
-		
+	if (!project_render_dof_affect_glow)
+	{
 		// Glow
 		if (render_glow && sceneeffects)
 			finalsurf = render_high_glow(finalsurf)
@@ -68,6 +68,11 @@ function render_post(finalsurf, sceneeffects = true, posteffects = true)
 		finalsurf = render_high_distort(finalsurf)
 	render_update_effects()
 	
+	// Heat distortion
+	if (render_camera_heat_distortion && posteffects)
+		finalsurf = render_high_heat_distortion(finalsurf)
+	render_update_effects()
+	
 	// Color correction
 	if (render_camera_color_correction && posteffects)
 		finalsurf = render_high_cc(finalsurf)
@@ -78,20 +83,30 @@ function render_post(finalsurf, sceneeffects = true, posteffects = true)
 		finalsurf = render_high_grain(finalsurf)
 	render_update_effects()
 	
+	// Vertex snap (PS1 style)
+	if (render_camera_vertex_snap && posteffects)
+		finalsurf = render_high_vertex_snap(finalsurf)
+	render_update_effects()
+	
 	// Vignette
 	if (render_camera_vignette && posteffects)
 		finalsurf = render_high_vignette(finalsurf)
 	render_update_effects()
 	
-	// 2D overlay (camera colors/watermark)
-	if (render_overlay && posteffects)
-		finalsurf = render_high_overlay(finalsurf)
+	// Black lines
+	if (render_camera_black_lines && posteffects)
+		finalsurf = render_high_black_lines(finalsurf)
 	render_update_effects()
 	
 	// SMAA
 	if (app.project_render_aa && render_smaa && posteffects && render_quality = 2) {
 		finalsurf = render_high_smaa(finalsurf)
 	}
+	
+	// 2D overlay (camera colors/watermark)
+	if (render_overlay && posteffects)
+		finalsurf = render_high_overlay(finalsurf)
+	render_update_effects()
 	
 	return finalsurf
 }

@@ -52,28 +52,36 @@ vec4 hsbtorgb(vec4 c)
 
 float getFog()
 {
-    if (uFogShow == 0) return 0.0;
-    
-    float fogDepth = distance(vPosition, uCameraPosition);
-    float fog = clamp(1.0 - (uFogDistance - fogDepth) / uFogSize, 0.0, 1.0);
-    float fog2;
-	fog *= clamp(1.0 - (vPosition.z - uFogHeight) / uFogSize, 0.0, 1.0);
-	if (uFogHeightShow > 0) {
-		fog2 = clamp(1.0 - (0.0 - fogDepth) / uFogHeightSize, 0.0, 1.0);
-		fog2 *= clamp(1.0 - (vPosition.z - uFogHeightOffset) / uFogHeightSize, 0.0, 1.0);
-		fog += fog2;
+	float fog, fog2;
+	if (uFogShow > 0)
+	{
+		float fogDepth = distance(vPosition, uCameraPosition);
+		
+		fog = clamp(1.0 - (uFogDistance - fogDepth) / uFogSize, 0.0, 1.0);
+		fog *= clamp(1.0 - (vPosition.z - uFogHeight) / uFogSize, 0.0, 1.0);
+		
+		if (uFogHeightShow > 0) {
+			fog2 = clamp(1.0 - (0.0 - fogDepth) / uFogHeightSize, 0.0, 1.0);
+			fog2 *= clamp(1.0 - (vPosition.z - uFogHeightOffset) / uFogHeightSize, 0.0, 1.0);
+			fog += fog2;
+		}
 	}
-    return fog;
+	else
+		fog = 0.0;
+	
+	return fog;
 }
 
 float hash(vec2 c)
 {
-    return fract(10000.0 * sin(17.0 * c.x + 0.1 * c.y) * (0.1 + abs(sin(13.0 * c.y + c.x))));
+	return fract(10000.0 * sin(17.0 * c.x + 0.1 * c.y) *
+	(0.1 + abs(sin(13.0 * c.y + c.x))));
 }
 
 void main()
 {
-	vec4 baseColor = vColor * texture2D(uTexture, vTexCoord); // Get base
+	vec2 tex = vTexCoord;
+	vec4 baseColor = vColor * texture2D(uTexture, tex); // Get base
 	
 	// Glow using base texture and color settings
 	if (uGlowTexture > 0)

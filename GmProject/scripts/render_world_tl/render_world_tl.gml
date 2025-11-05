@@ -32,7 +32,10 @@ function render_world_tl()
 		 render_mode = e_render_mode.HIGH_LIGHT_SPOT_DEPTH ||
 		 render_mode = e_render_mode.HIGH_LIGHT_POINT_DEPTH))
 		return 0
-	
+		
+	if (app.project_render_performance_mode && (render_mode = e_render_mode.HIGH_LIGHT_POINT_DEPTH || render_mode = e_render_mode.HIGH_LIGHT_SPOT_DEPTH) && point3D_distance(render_light_from, world_pos) > render_light_far + (16 * max(value[e_value.SCA_X], value[e_value.SCA_Y], value[e_value.SCA_Z])) + app.project_render_performance_mode_light_occlusion_distance && type != e_tl_type.SCENERY)
+		return 0
+		
 	// Click mode
 	if (render_mode = e_render_mode.CLICK)
 	{

@@ -11,6 +11,7 @@ function project_save_render()
 		json_save_var_bool("render_performance_mode", project_render_performance_mode)
 		json_save_var_bool("render_performance_mode_skipfog", project_render_performance_mode_skipfog)
 		json_save_var_bool("render_performance_mode_skipsky", project_render_performance_mode_skipsky)
+		json_save_var("render_performance_mode_light_occlusion_distance", project_render_performance_mode_light_occlusion_distance)
 		
 		json_save_var_bool("render_ssao", project_render_ssao)
 		json_save_var("render_ssao_samples", project_render_ssao_samples)

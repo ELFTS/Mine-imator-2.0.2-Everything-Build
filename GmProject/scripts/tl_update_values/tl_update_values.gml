@@ -280,6 +280,20 @@ function tl_update_values()
 		tl_update_values_ease(e_value.CAM_DISTORT_ZOOM_AMOUNT)
 		tl_update_values_ease(e_value.CAM_DISTORT_AMOUNT)
 		
+		tl_update_values_ease(e_value.CAM_BLACK_LINES)
+		tl_update_values_ease(e_value.CAM_BLACK_LINES_SIZE)
+		tl_update_values_ease(e_value.CAM_BLACK_LINES_ROTATION)
+		tl_update_values_ease(e_value.CAM_BLACK_LINES_OFFSET_Y)
+		tl_update_values_ease(e_value.CAM_BLACK_LINES_COLOR)
+		
+		tl_update_values_ease(e_value.CAM_VERTEX_SNAP)
+		tl_update_values_ease(e_value.CAM_VERTEX_SNAP_AMOUNT)
+		
+		tl_update_values_ease(e_value.CAM_HEAT_DISTORTION)
+		tl_update_values_ease(e_value.CAM_HEAT_DISTORTION_STRENGTH)
+		tl_update_values_ease(e_value.CAM_HEAT_DISTORTION_SPEED)
+		tl_update_values_ease(e_value.CAM_HEAT_DISTORTION_SCALE)
+		
 		tl_update_values_ease(e_value.CAM_WIDTH)
 		tl_update_values_ease(e_value.CAM_HEIGHT)
 		tl_update_values_ease(e_value.CAM_SIZE_USE_PROJECT)

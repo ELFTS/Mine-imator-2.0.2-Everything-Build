@@ -27,7 +27,8 @@ function tab_properties_render()
 	tab_next()
 
 	// Performance Mode
-	if (setting_unstable_features) {
+	if (setting_unstable_features)
+	{
 		// Warn users
 		dy -= 3
 		draw_button_label("settingsunstablefeatureslabelwarning", dx, dy, dw, icons.WARNING_TRIANGLE, e_button.LABEL, action_filepath_mineimator, null, true)
@@ -51,10 +52,14 @@ function tab_properties_render()
 			tab_control_switch()
 			draw_switch("renderperformancemodeskipsky", dx, dy, project_render_performance_mode_skipsky, action_project_render_performance_mode_skipsky)
 			tab_next()
+			
+			// Light Occlusion distance
+			tab_control_dragger()
+			draw_dragger("renderperformancemodelightocclusiondistance", dx, dy, dragger_width, project_render_performance_mode_light_occlusion_distance, 1, -no_limit, no_limit, 64, 1, tab.render.tbx_render_performance_mode_light_occlusion_distance, action_project_render_performance_mode_light_occlusion_distance, null, true, false, "renderperformancemodelightocclusiondistancetip")
+			tab_next()
 		
 			tab_collapse_end()
 		}
-		
 	}
 	
 	// Render distance

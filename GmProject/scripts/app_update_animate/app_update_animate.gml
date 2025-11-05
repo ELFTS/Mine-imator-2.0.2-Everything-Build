@@ -31,7 +31,7 @@ function app_update_animate(force)
 	with (obj_timeline)
 	{
 		//check if hided
-		if (app.setting_viewport_optimization && hide && parent != app && (app.window_state != "export_movie" || app.popup_exportmovie.optimization) && !selected)
+		if (app.setting_viewport_optimization && hide && parent != app && (app.window_state != "export_movie" || app.popup_exportmovie.optimization) && !selected && type != e_tl_type.CAMERA)
 			continue;
 		
 		// Update values
@@ -39,7 +39,7 @@ function app_update_animate(force)
 			tl_update_values()
 			
 		//check if not updated or visible
-		if (app.setting_viewport_optimization && (app.window_state != "export_movie" || app.popup_exportmovie.optimization) && (!value_inherit[e_value.VISIBLE] || hide))
+		if (app.setting_viewport_optimization && (app.window_state != "export_movie" || app.popup_exportmovie.optimization) && (!value_inherit[e_value.VISIBLE] || hide) && type != e_tl_type.CAMERA)
 			continue;
 		
 		tex_obj = value_inherit[e_value.TEXTURE_OBJ]

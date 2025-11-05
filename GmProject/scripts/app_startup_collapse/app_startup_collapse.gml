@@ -68,6 +68,9 @@ function app_startup_collapse()
 	collapse_register("ca")
 	collapse_register("distort")
 	collapse_register("outline")
+	collapse_register("black_lines")
+	collapse_register("vertex_snap")
+	collapse_register("heat_distortion")
 	
 	collapse_register("itemslot")
 	
