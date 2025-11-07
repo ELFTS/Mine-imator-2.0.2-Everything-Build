@@ -1,4 +1,4 @@
-#define SAMPLES 256
+#define SAMPLES 512
 
 varying vec2 vTexCoord;
 
@@ -88,10 +88,10 @@ void main()
 		// Pass 1
 	    for (int i = 0; i < SAMPLES; i++)
 		{
-			if (i >= uSampleStep)
+			if (i * 2 >= uSampleStep)
 				break;
 			
-	        vec3 sampleVec = tbn * uKernel[i];
+	        vec3 sampleVec = tbn * uKernel[i * 2];
 	        vec3 samplePos = origin + sampleVec * (uRadius * uRatio);
 
 	        vec4 projected = uProjMatrix * vec4(samplePos, 1.0);
@@ -119,7 +119,8 @@ void main()
 	        occlusion += (1.0 - uRatioBalance) * depthHit * rangeFalloff * normalFalloff * sampleStrength;
 	    
 			//Pass 2
-		
+			
+			sampleVec = tbn * uKernel[(i * 2) + 1];
 			samplePos = origin + sampleVec * (uRadius);
 
 	        projected = uProjMatrix * vec4(samplePos, 1.0);

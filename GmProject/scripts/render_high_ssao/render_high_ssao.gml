@@ -32,7 +32,7 @@ function render_high_ssao()
 		draw_clear(c_white)
 		
 		if (project_render_engine) {
-			render_ssao_kernel = render_generate_sample_kernel(project_render_ssao_samples)
+			render_ssao_kernel = render_generate_sample_kernel(project_render_ssao_samples * 2)
 			render_shader_obj = shader_map[?shader_high_ssao_EX]
 		} else {
 			render_ssao_kernel = render_generate_sample_kernel(12)

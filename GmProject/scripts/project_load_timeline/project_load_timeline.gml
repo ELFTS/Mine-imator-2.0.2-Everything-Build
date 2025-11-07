@@ -226,6 +226,8 @@ function project_load_timeline(map)
 			alpha_mode = e_alpha_mode.BLEND
 		else
 			alpha_mode = value_get_real(map[?"alpha_mode"], alpha_mode)
+			
+		object_tag = value_get_string(map[?"object_tag"], object_tag)
 		
 		var pathmap = map[?"path"];
 		if (ds_map_valid(pathmap))

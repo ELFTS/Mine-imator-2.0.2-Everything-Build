@@ -10,13 +10,18 @@ function render_high_scene()
 	resultsurf = render_surface_hdr[1] // Render directly to target?
 	
 	// Glint effect
+	
 	surface_set_target(masksurf)
 	{
 		draw_clear(c_black)
-		render_world_start()
-		render_world(e_render_mode.GLINT)
-		render_world_done()
-		
+		if (project_render_legacy_rendering)
+		{
+			render_world_start()
+			render_world(e_render_mode.GLINT)
+			render_world_done()
+		} else {
+			draw_surface(render_surface_glint, 0, 0)
+		}
 		// 2D mode
 		render_set_projection_ortho(0, 0, render_width, render_height, 0)
 		

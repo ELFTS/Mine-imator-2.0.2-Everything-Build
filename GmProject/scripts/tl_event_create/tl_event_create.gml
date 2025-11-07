@@ -122,6 +122,7 @@ function tl_event_create()
 	lq_hiding = false
 	blend_mode = "normal"
 	alpha_mode = e_alpha_mode.DEFAULT
+	object_tag = "Main"
 	
 	glint_mode = e_glint.NONE
 	glint_scale = 1

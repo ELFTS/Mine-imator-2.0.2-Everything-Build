@@ -9,6 +9,8 @@ function project_load_render(map)
 	project_render_samples = value_get_real(map[?"render_samples"], project_render_samples)
 	project_render_distance = value_get_real(map[?"render_distance"], project_render_distance)
 	
+	project_render_legacy_rendering = value_get_real(map[?"render_legacy_rendering"], project_render_legacy_rendering)
+	
 	project_render_performance_mode = value_get_real(map[?"render_performance_mode"], project_render_performance_mode)
 	project_render_performance_mode_skipfog = value_get_real(map[?"render_performance_mode_skipfog"], project_render_performance_mode_skipfog)
 	project_render_performance_mode_skipsky = value_get_real(map[?"render_performance_mode_skipsky"], project_render_performance_mode_skipsky)

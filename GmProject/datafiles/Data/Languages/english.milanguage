@@ -2680,6 +2680,7 @@
 			"vanilla": "Vanilla+",
 			"ex": "AVE-X"
 		},
+		"legacyrendering": "Legacy Rendering",
 		"performancemode": "Performance Mode",
 		"performancemode/": {
 		"tip": "Disable some rendering features for faster render times. Check Appearance on objects Properties",
@@ -3597,7 +3598,9 @@
 			"point" : "Point light",
 			"spot" : "Spot light",
 			"type" : "Light type"
-		}
+		},
+		"objecttagmain": "Light linking tag",
+		"objecttagarray": "Light linking tag"
 	},
 	"frameeditor/": {
 		"transform": "TRANSFORM",

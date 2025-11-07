@@ -1201,10 +1201,10 @@ function list_init(name)
 			menu_add_item(2048, text_get("rendershadowsbuffersize2048") + " (2048x2048)")
 			menu_add_item(3072, text_get("rendershadowsbuffersize3072") + " (3072x3072)")
 			menu_add_item(4096, text_get("rendershadowsbuffersize4096") + " (4096x4096)")
-			menu_add_item(6144, text_get("rendershadowsbuffersize6144") + " (6144x6144)")
 			
 			// 8192 is too big, creates a 24576*16384 atlas for shadow depth (also buggy anyways?)
 			if (name != "rendershadowspointbuffersize") {
+				menu_add_item(6144, text_get("rendershadowsbuffersize6144") + " (6144x6144)")
 				menu_add_item(8192, text_get("rendershadowsbuffersize8192") + " (8192x8192)")
 				menu_add_item(12288, text_get("rendershadowsbuffersize12288") + " (12288x12288)")
 			}

@@ -107,6 +107,12 @@
 		<file>Shaders/Compiled/shader_high_subsurface.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_subsurface_scatter.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_high_subsurface_scatter.vsh.d3d</file>
+		<file>Shaders/Compiled/shader_high_wolviza.fsh.d3d</file>
+		<file>Shaders/Compiled/shader_high_wolviza.vsh.d3d</file>
+		<file>Shaders/Compiled/shader_high_wolviza_gm.fsh.d3d</file>
+		<file>Shaders/Compiled/shader_high_wolviza_gm.vsh.d3d</file>
+		<file>Shaders/Compiled/shader_high_wolviza_gm_2.fsh.d3d</file>
+		<file>Shaders/Compiled/shader_high_wolviza_gm_2.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_noise.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_noise.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_outline.fsh.d3d</file>
@@ -237,6 +243,12 @@
 		<file>Shaders/shader_high_subsurface.vsh</file>
 		<file>Shaders/shader_high_subsurface_scatter.fsh</file>
 		<file>Shaders/shader_high_subsurface_scatter.vsh</file>
+		<file>Shaders/shader_high_wolviza.fsh</file>
+		<file>Shaders/shader_high_wolviza.vsh</file>
+		<file>Shaders/shader_high_wolviza_gm.fsh</file>
+		<file>Shaders/shader_high_wolviza_gm.vsh</file>
+		<file>Shaders/shader_high_wolviza_gm_2.fsh</file>
+		<file>Shaders/shader_high_wolviza_gm_2.vsh</file>
 		<file>Shaders/shader_noise.fsh</file>
 		<file>Shaders/shader_noise.vsh</file>
 		<file>Shaders/shader_outline.fsh</file>

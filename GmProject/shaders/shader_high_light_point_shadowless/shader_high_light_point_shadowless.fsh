@@ -17,6 +17,7 @@ uniform float uSSS;
 uniform float uDefaultSubsurface;
 uniform float uDefaultEmissive;
 uniform float uLightSpecular;
+uniform bool uIgnore;
 
 varying vec3 vPosition;
 varying vec3 vNormal;
@@ -116,10 +117,16 @@ void main()
 	vec3 lightResult = vec3(0.0);
 	vec3 specResult = vec3(0.0);
 	
-	if (uIsSky > 0)
+	if (uIsSky > 0 || uIgnore)
 	{
-		lightResult = vec3(1.0);
-		specResult = vec3(uLightSpecular);
+		if (uIgnore) {
+			lightResult = vec3(0.0);
+			specResult = vec3(0.0);
+		}
+		else {
+			lightResult = vec3(1.0);
+			specResult = vec3(uLightSpecular);
+		}
 	}
 	else
 	{

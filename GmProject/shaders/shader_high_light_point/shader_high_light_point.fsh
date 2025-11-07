@@ -10,6 +10,7 @@ uniform int uIsWater;
 
 uniform float uSampleIndex;
 uniform int uAlphaHash;
+uniform bool uIgnore;
 
 uniform vec3 uLightPosition; // static
 uniform vec4 uLightColor; // static
@@ -185,10 +186,11 @@ void main()
 			baseColor.a = 1.0;
 	}
 	
-	if (uIsSky > 0)
+	if (uIsSky > 0 || uIgnore)
 	{
-		light = vec3(0.0);
-		spec = vec3(uLightSpecular);
+		if (!uIgnore) {
+			spec = vec3(uLightSpecular);
+		}
 	}
 	else
 	{

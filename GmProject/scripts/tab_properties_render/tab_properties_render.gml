@@ -36,6 +36,10 @@ function tab_properties_render()
 		dy -= 10
 		
 		tab_control_switch()
+		draw_switch("renderlegacyrendering", dx, dy, project_render_legacy_rendering, action_project_render_legacy_rendering)
+		tab_next()
+		
+		tab_control_switch()
 		draw_button_collapse("perfmode", collapse_map[?"perfmode"], action_project_render_performance_mode, project_render_performance_mode, "renderperformancemode", "renderperformancemodetip")
 		tab_next()
 		

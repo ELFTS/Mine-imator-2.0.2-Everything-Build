@@ -673,6 +673,17 @@ function view_draw(view)
 		// Draw Statistic Text
 		if (window_busy = "viewmovecamera")
 			draw_label(string(setting_move_speed_scroll), boxw - 5, boxh + 24, fa_right, fa_bottom, c_text_main, 0.6, font_subheading)
+		
+		// Object tags
+		if (tl_edit != null) {
+			// Draw Outline
+			for (var i = 0; i < 2; i++) {
+				for (var i2 = 0; i2 < 2; i2++) {
+					draw_label(string(tl_edit.object_tag), boxw - 6 + (i * 2) - 1, boxy + 34 + (i2 * 2) - 1, fa_right, fa_top, c_black, 0.5, font_button)
+				}
+			}
+			draw_label(string(tl_edit.object_tag), boxw - 6, boxy + 34, fa_right, fa_top, c_text_main, 0.9, font_button)
+		}
 	}
 	
 	// Moving / Resizing

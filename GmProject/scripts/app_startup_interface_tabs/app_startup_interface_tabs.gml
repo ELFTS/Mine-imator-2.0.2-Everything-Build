@@ -499,6 +499,7 @@ function app_startup_interface_tabs()
 			tbx_glint_strength = new_textbox_integer()
 			tbx_glint_strength.suffix = "%"
 			tbx_depth = new_textbox_ninteger()
+			tbx_object_tag = new_textbox(true, 0, "")
 		}
 		
 		// Audio

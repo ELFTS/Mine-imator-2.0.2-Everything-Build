@@ -167,6 +167,7 @@ function project_save_timeline()
 			json_save_var_bool("lq_hiding", lq_hiding)
 			json_save_var("blend_mode", blend_mode)
 			json_save_var("alpha_mode", alpha_mode)
+			json_save_var("object_tag", object_tag)
 		}
 		
 		if (value_type[e_value_type.PATH])

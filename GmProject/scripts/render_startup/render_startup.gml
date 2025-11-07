@@ -11,7 +11,7 @@ function render_startup()
 	globalvar render_light_from, render_light_to, render_light_near, render_light_far, render_light_fov,
 			  render_light_color, render_light_strength, render_light_fade_size, render_light_spot_sharpness, render_shadow_matrix,
 			  render_sun_matrix, render_sun_direction, render_sun_near, render_sun_far, render_light_offset, render_shadow_from,
-			  render_spot_matrix, render_light_specular_strength, render_light_size;
+			  render_spot_matrix, render_light_specular_strength, render_light_size, render_light_tl;
 	
 	globalvar render_effects, render_effects_done, render_effects_list, render_effects_progress, render_camera_bloom, render_camera_dof,
 			  render_glow, render_glow_falloff, render_camera_ca, render_camera_distort, render_camera_color_correction, render_camera_grain,
@@ -109,7 +109,7 @@ function render_startup()
 	globalvar render_target, render_surface, render_surface_hdr, render_surface_depth, render_surface_normal, render_surface_emissive, 
 			  render_surface_diffuse, render_surface_material, render_surface_shadows, render_surface_specular, render_surface_lens, 
 			  render_surface_sample_expo, render_surface_sample_dec, render_surface_sample_alpha, depth_near, depth_far, render_post_index,
-			  render_surface_glow_cache;
+			  render_surface_glow_cache, render_surface_glint;
 			
 	render_target = null
 	render_surface[0] = null
@@ -125,6 +125,7 @@ function render_startup()
 	render_surface_material = null
 	render_surface_emissive = null
 	render_surface_diffuse = null
+	render_surface_glint = null
 	
 	render_surface_shadows = null
 	render_surface_specular = null
@@ -249,6 +250,9 @@ function render_startup()
 	render_mode_shader_map[?e_render_mode.MATERIAL] = shader_high_material
 	render_mode_shader_map[?e_render_mode.SUBSURFACE] = shader_high_subsurface
 	render_mode_shader_map[?e_render_mode.GLINT] = shader_high_glint
+	render_mode_shader_map[?e_render_mode.WOLVIZA] = shader_high_wolviza
+	render_mode_shader_map[?e_render_mode.WOLVIZA_GM] = shader_high_wolviza_gm
+	render_mode_shader_map[?e_render_mode.WOLVIZA_GM_2] = shader_high_wolviza_gm_2
 	
 	// Point 3D
 	point3D_project_error_ignore = false

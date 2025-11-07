@@ -7,6 +7,7 @@ function render_high_passes()
 	render_surface_emissive = surface_require(render_surface_emissive, render_width, render_height)
 	render_surface_material = surface_require(render_surface_material, render_width, render_height)
 	render_surface_specular = surface_require(render_surface_specular, render_width, render_height, false, true)
+	render_surface_glint = surface_require(render_surface_glint, render_width, render_height)
 	
 	if (render_depth_normals)
 	{
@@ -21,64 +22,185 @@ function render_high_passes()
 	}
 	surface_reset_target()
 	
-	// Diffuse data
-	surface_set_target(render_surface_diffuse)
+	// Use new or old method of rendering
+	if (app.project_render_legacy_rendering)
 	{
-		// Background
-		draw_clear_alpha(c_black, 0)
-		render_world_background()
-		
-		// World
-		render_world_start()
-		render_world_sky()
-		render_world(e_render_mode.COLOR)
-		render_world_done()
-		
-		// 2D mode
-		render_set_projection_ortho(0, 0, render_width, render_height, 0)
-		
-		// Alpha fix
-		gpu_set_blendmode_ext(bm_src_color, bm_one) 
-		if (render_background)
-			draw_box(0, 0, render_width, render_height, false, c_black, 1)
-		else
+		// Diffuse data
+		surface_set_target(render_surface_diffuse)
 		{
-			render_world_start()
-			render_world(e_render_mode.ALPHA_FIX)
-			render_world_done()
-		}
-		gpu_set_blendmode(bm_normal)
-	}
-	surface_reset_target()
-	
-	// Depth, normals
-	if (render_depth_normals)
-	{
-		surface_set_target_ext(0, render_surface_depth)
-		surface_set_target_ext(1, render_surface_normal)
-		{
-			gpu_set_blendmode_ext(bm_one, bm_zero)
-		
+			// Background
 			draw_clear_alpha(c_black, 0)
-			render_world_start(depth_far)
-			render_world(e_render_mode.HIGH_DEPTH_NORMAL)
+			render_world_background()
+		
+			// World
+			render_world_start()
+			render_world_sky()
+			render_world(e_render_mode.COLOR)
 			render_world_done()
 		
+			// 2D mode
+			render_set_projection_ortho(0, 0, render_width, render_height, 0)
+		
+			// Alpha fix
+			gpu_set_blendmode_ext(bm_src_color, bm_one) 
+			if (render_background)
+				draw_box(0, 0, render_width, render_height, false, c_black, 1)
+			else
+			{
+				render_world_start()
+				render_world(e_render_mode.ALPHA_FIX)
+				render_world_done()
+			}
 			gpu_set_blendmode(bm_normal)
 		}
 		surface_reset_target()
-	}
 	
-	// Material passes
-	surface_set_target_ext(0, render_surface_material)
-	surface_set_target_ext(1, render_surface_emissive)
-	{
-		draw_clear(c_black)
-		render_world_start()
-		render_world(e_render_mode.MATERIAL)
-		render_world_done()
+		// Depth, normals
+		if (render_depth_normals)
+		{
+			surface_set_target_ext(0, render_surface_depth)
+			surface_set_target_ext(1, render_surface_normal)
+			{
+				gpu_set_blendmode_ext(bm_one, bm_zero)
+		
+				draw_clear_alpha(c_black, 0)
+				render_world_start(depth_far)
+				render_world(e_render_mode.HIGH_DEPTH_NORMAL)
+				render_world_done()
+		
+				gpu_set_blendmode(bm_normal)
+			}
+			surface_reset_target()
+		}
+	
+		// Material passes
+		surface_set_target_ext(0, render_surface_material)
+		surface_set_target_ext(1, render_surface_emissive)
+		{
+			draw_clear(c_black)
+			render_world_start()
+			render_world(e_render_mode.MATERIAL)
+			render_world_done()
+		}
+		surface_reset_target()
+	} else {
+		
+		// NEW RENDERING METHOD WITH MRT (CPP ONLY)
+		// ========================================
+		
+		if (!is_cpp())
+		{
+			// Diffuse data
+			surface_set_target(render_surface_diffuse)
+			{
+				// Background
+				draw_clear_alpha(c_black, 0)
+				render_world_background()
+		
+				// World
+				render_world_start()
+				render_world_sky()
+				render_world(e_render_mode.COLOR)
+				render_world_done()
+		
+				// 2D mode
+				render_set_projection_ortho(0, 0, render_width, render_height, 0)
+		
+				// Alpha fix
+				gpu_set_blendmode_ext(bm_src_color, bm_one) 
+				if (render_background)
+					draw_box(0, 0, render_width, render_height, false, c_black, 1)
+				else
+				{
+					render_world_start()
+					render_world(e_render_mode.ALPHA_FIX)
+					render_world_done()
+				}
+				gpu_set_blendmode(bm_normal)
+			}
+			surface_reset_target()
+			
+			surface_set_target_ext(0, render_surface_material)
+			surface_set_target_ext(1, render_surface_emissive)
+			surface_set_target_ext(2, render_surface_depth)
+			surface_set_target_ext(3, render_surface_normal)
+			{
+				gpu_set_blendmode_ext(bm_one, bm_zero)
+				
+				draw_clear_alpha(c_black, 0)
+				
+				// World
+				render_world_start(depth_far)
+				render_world(e_render_mode.WOLVIZA_GM)
+				render_world_done()
+		
+				gpu_set_blendmode(bm_normal)
+			}
+			surface_reset_target()
+			
+	
+			// Glint rendered manually
+			surface_set_target(render_surface_glint)
+			{
+				draw_clear(c_black)
+				
+				render_world_start()
+				render_world(e_render_mode.GLINT)
+				render_world_done()
+			}
+			surface_reset_target()
+			
+		} else {
+			// CPP ONLY
+			// ========================================
+			// Render Diffuse with background first
+			
+			// Diffuse data
+			surface_set_target(render_surface_diffuse)
+			{
+				// Background
+				draw_clear_alpha(c_black, 0)
+				render_world_background()
+		
+				// World
+				render_world_start()
+				render_world_sky()
+				render_world_done()
+			}
+			surface_reset_target()
+			
+			// Diffuse, Material, Emissive, Depth, normals, glint
+			
+			surface_set_target_ext(0, render_surface_diffuse)
+			surface_set_target_ext(1, render_surface_material)
+			surface_set_target_ext(2, render_surface_emissive)
+			surface_set_target_ext(3, render_surface_depth)
+			surface_set_target_ext(4, render_surface_normal)
+			surface_set_target_ext(5, render_surface_glint)
+			{
+				// World
+				render_world_start()
+				render_world(e_render_mode.WOLVIZA)
+				render_world_done()
+				
+				// 2D mode
+				render_set_projection_ortho(0, 0, render_width, render_height, 0)
+		
+				// Alpha fix
+				gpu_set_blendmode_ext(bm_src_color, bm_one) 
+				if (render_background)
+					draw_box(0, 0, render_width, render_height, false, c_black, 1)
+				else
+				{
+					render_world_start()
+					render_world(e_render_mode.ALPHA_FIX)
+					render_world_done()
+				}
+				gpu_set_blendmode(bm_normal)
+			}
+			surface_reset_target()
+		}
 	}
-	surface_reset_target()
 	
 	// Noise
 	render_sample_noise_texture = render_get_noise_texture(render_sample_current)

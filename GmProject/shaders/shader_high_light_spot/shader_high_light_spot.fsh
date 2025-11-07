@@ -16,6 +16,7 @@ uniform float uLightFadeSize; // static
 uniform float uLightSpotSharpness; // static
 uniform vec3 uShadowPosition; // static
 uniform float uLightSpecular;
+uniform bool uIgnore;
 
 uniform sampler2D uDepthBuffer; // static
 
@@ -161,10 +162,16 @@ void main()
 			baseColor.a = 1.0;
 	}
 	
-	if (uIsSky > 0)
+	if (uIsSky > 0 || uIgnore)
 	{
-		light = vec3(0.0);
-		spec = vec3(uLightSpecular);
+		if (uIgnore) {
+			light = vec3(0.0);
+			spec = vec3(0.0);
+		}
+		else {
+			light = vec3(0.0);
+			spec = vec3(uLightSpecular);
+		}
 	}
 	else
 	{

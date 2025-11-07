@@ -8,6 +8,8 @@ function project_save_render()
 		json_save_var("render_samples", project_render_samples)
 		json_save_var("render_distance", project_render_distance)
 		
+		json_save_var_bool("render_legacy_rendering", project_render_legacy_rendering)
+		
 		json_save_var_bool("render_performance_mode", project_render_performance_mode)
 		json_save_var_bool("render_performance_mode_skipfog", project_render_performance_mode_skipfog)
 		json_save_var_bool("render_performance_mode_skipsky", project_render_performance_mode_skipsky)

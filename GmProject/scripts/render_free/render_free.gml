@@ -17,6 +17,7 @@ function render_free()
 	surface_free(render_surface_material)
 	surface_free(render_surface_emissive)
 	surface_free(render_surface_diffuse)
+	surface_free(render_surface_glint)
 	
 	// Rendering
 	surface_free(render_surface_shadows)

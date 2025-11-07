@@ -20,6 +20,7 @@ uniform float uLightSpecular;
 uniform float uLightSize;
 uniform float uNormalStrength;
 uniform vec2 uKernel2D;
+uniform bool uIgnore;
 
 uniform sampler2D uDepthBuffer; // static
 uniform float uDepthBufferSize; // static
@@ -201,80 +202,82 @@ float calculateShadow(vec2 fragCoord, vec2 bufferMin, float fragDepth, float bia
     subsurf = vec3(0.0);
     subsurfHighlight = vec3(0.0);
     
-    if (uLightSize > 0.0001) {
-        float texelsize = uLightSize / uKernel2D[1] / 3.0;
+	if (!uIgnore) {
+	    if (uLightSize > 0.0001) {
+	        float texelsize = uLightSize / uKernel2D[1] / 3.0;
 		
-        for (int i = 0; i < 128; i++) {
-			if (i > int(uShadowBlurSample))
-				break;
+	        for (int i = 0; i < 128; i++) {
+				if (i > int(uShadowBlurSample))
+					break;
 				
-            float angle = float(i) * (360.0 / uShadowBlurSample) + uKernel2D[0];
-            vec2 sampleOffset = vec2(cos(angle), sin(angle)) * texelsize;
-            vec2 sampleCoord = fragCoord + sampleOffset;
+	            float angle = float(i) * (360.0 / uShadowBlurSample) + uKernel2D[0];
+	            vec2 sampleOffset = vec2(cos(angle), sin(angle)) * texelsize;
+	            vec2 sampleCoord = fragCoord + sampleOffset;
 
-            vec2 clampedCoord = clamp(
-                sampleCoord,
-                bufferMin + vec2(0.001),
-                bufferMin + vec2(1.0 / 3.0 - 0.001, 0.5 - 0.001)
-            );
+	            vec2 clampedCoord = clamp(
+	                sampleCoord,
+	                bufferMin + vec2(0.001),
+	                bufferMin + vec2(1.0 / 3.0 - 0.001, 0.5 - 0.001)
+	            );
 
-            float sampleDepth = uLightNear + (uLightFar - uLightNear) *
-                              unpackDepth(getFilteredDepth(clampedCoord, bufferMin));
+	            float sampleDepth = uLightNear + (uLightFar - uLightNear) *
+	                              unpackDepth(getFilteredDepth(clampedCoord, bufferMin));
 
-            float shadowTest = smoothstep(bias * 0.5, bias * 1.5, fragDepth - sampleDepth);
-            float weight = 1.0 - smoothstep(0.0, uLightSize, length(sampleOffset));
+	            float shadowTest = smoothstep(bias * 0.5, bias * 1.5, fragDepth - sampleDepth);
+	            float weight = 1.0 - smoothstep(0.0, uLightSize, length(sampleOffset));
             
-            shadow += (1.0 - shadowTest) * weight;
-            weightSum += weight;
+	            shadow += (1.0 - shadowTest) * weight;
+	            weightSum += weight;
 
-            // Subsurface scattering
-            if (uSSSHighQuality && sss > 0.001) {
-                vec3 rad, dis, falloff;
+	            // Subsurface scattering
+	            if (uSSSHighQuality && sss > 0.001) {
+	                vec3 rad, dis, falloff;
                 
-                // Main SSS
-                if (uSSSStrength > 0.01) {
-                    rad = uSSSRadius * sss;
-                    dis = vec3((fragDepth + bias) - sampleDepth) / 
-                         (mix(uLightColor.rgb, vec3(1.0), uSSSColorThreshold) * uLightStrength * rad);
+	                // Main SSS
+	                if (uSSSStrength > 0.01) {
+	                    rad = uSSSRadius * sss;
+	                    dis = vec3((fragDepth + bias) - sampleDepth) / 
+	                         (mix(uLightColor.rgb, vec3(1.0), uSSSColorThreshold) * uLightStrength * rad);
                     
-                    if (fragDepth - (bias * 0.1) <= sampleDepth)
-                        dis = vec3(0.0);
+	                    if (fragDepth - (bias * 0.1) <= sampleDepth)
+	                        dis = vec3(0.0);
                     
-                    falloff = pow(max(1.0 - pow(dis / rad, vec3(uSSSSharpness)), 0.0), 
-                             vec3(uSSSSharpness * 0.5));
-                    subsurf += (falloff / (pow(dis, vec3(2.0)) + 1.0) * att * weight) * uSSSStrength;
-                }
+	                    falloff = pow(max(1.0 - pow(dis / rad, vec3(uSSSSharpness)), 0.0), 
+	                             vec3(uSSSSharpness * 0.5));
+	                    subsurf += (falloff / (pow(dis, vec3(2.0)) + 1.0) * att * weight) * uSSSStrength;
+	                }
                 
-                // Highlight SSS
-                if (uSSSHighlightStrength > 0.01) {
-                    rad = uSSSRadius * sss * (1.0 - uSSSHighlight);
-                    dis = vec3((fragDepth + bias) - sampleDepth) / 
-                         (mix(uLightColor.rgb, vec3(1.0), uSSSHighlightColorThreshold) * uLightStrength * rad);
+	                // Highlight SSS
+	                if (uSSSHighlightStrength > 0.01) {
+	                    rad = uSSSRadius * sss * (1.0 - uSSSHighlight);
+	                    dis = vec3((fragDepth + bias) - sampleDepth) / 
+	                         (mix(uLightColor.rgb, vec3(1.0), uSSSHighlightColorThreshold) * uLightStrength * rad);
                     
-                    if (fragDepth - (bias * 0.1) <= sampleDepth)
-                        dis = vec3(0.0);
+	                    if (fragDepth - (bias * 0.1) <= sampleDepth)
+	                        dis = vec3(0.0);
                     
-                    falloff = pow(max(1.0 - pow(dis / rad, vec3(uSSSHighlightSharpness)), 0.0), 
-                             vec3(uSSSHighlightSharpness * 0.5));
-                    subsurfHighlight += (falloff / (pow(dis, vec3(2.0)) + 1.0) * att * weight) * uSSSHighlightStrength;
-                }
-            }
-        }
+	                    falloff = pow(max(1.0 - pow(dis / rad, vec3(uSSSHighlightSharpness)), 0.0), 
+	                             vec3(uSSSHighlightSharpness * 0.5));
+	                    subsurfHighlight += (falloff / (pow(dis, vec3(2.0)) + 1.0) * att * weight) * uSSSHighlightStrength;
+	                }
+	            }
+	        }
         
-        if (weightSum > 0.0) {
-            shadow /= weightSum;
-            if (uSSSHighQuality && sss > 0.001) {
-                subsurf /= weightSum;
-                subsurfHighlight /= weightSum;
-            }
-        } else {
-            shadow = 1.0;
-        }
-    } else {
-        float sampleDepth = uLightNear + (uLightFar - uLightNear) * 
-                          unpackDepth(getFilteredDepth(fragCoord, bufferMin));
-        shadow = ((fragDepth - bias) > sampleDepth) ? 0.0 : 1.0;
-    }
+	        if (weightSum > 0.0) {
+	            shadow /= weightSum;
+	            if (uSSSHighQuality && sss > 0.001) {
+	                subsurf /= weightSum;
+	                subsurfHighlight /= weightSum;
+	            }
+	        } else {
+	            shadow = 1.0;
+	        }
+	    } else {
+	        float sampleDepth = uLightNear + (uLightFar - uLightNear) * 
+	                          unpackDepth(getFilteredDepth(fragCoord, bufferMin));
+	        shadow = ((fragDepth - bias) > sampleDepth) ? 0.0 : 1.0;
+	    }
+	}
 
     return shadow;
 }

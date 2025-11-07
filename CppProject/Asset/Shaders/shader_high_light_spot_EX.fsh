@@ -22,6 +22,7 @@ uniform float uBlurSample;
 uniform float uNormalStrength;
 uniform vec2 uKernel2D;
 uniform float uShadowBlurSample;
+uniform bool uIgnore;
 
 uniform sampler2D uDepthBuffer; // static
 
@@ -172,8 +173,9 @@ void main()
         baseColor.a = 1.0;
     }
     
-    if (uIsSky > 0) {
-        spec = vec3(uLightSpecular);
+    if (uIsSky > 0 || uIgnore) {
+		if (!uIgnore)
+			spec = vec3(uLightSpecular);
     } else {
         // Get material data
         float roughness, metallic, emissive, F0, sss;

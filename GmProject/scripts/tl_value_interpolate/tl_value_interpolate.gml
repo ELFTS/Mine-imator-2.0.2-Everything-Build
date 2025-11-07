@@ -83,6 +83,9 @@ function tl_value_interpolate(vid, p, val1, val2)
 		case e_value.CAM_SIZE_KEEP_ASPECT_RATIO:
 		case e_value.CAM_OUTLINE:
 		case e_value.CAM_OUTLINE_NORMAL:
+		case e_value.CAM_HEAT_DISTORTION:
+		case e_value.CAM_VERTEX_SNAP:
+		case e_value.CAM_BLACK_LINES:
 		case e_value.BG_IMAGE_SHOW:
 		case e_value.BG_SKY_MOON_PHASE:
 		case e_value.BG_TWILIGHT:

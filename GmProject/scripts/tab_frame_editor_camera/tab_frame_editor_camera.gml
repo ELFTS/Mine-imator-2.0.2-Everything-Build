@@ -57,7 +57,7 @@ function tab_frame_editor_camera()
 		if (tl_edit.value[e_value.CAM_SIZE_USE_PROJECT])
 			draw_label(string(convert_fov_to_focal_length(tl_edit.value[e_value.CAM_FOV], app.project_video_width, app.project_video_height)) + " mm", dx + dw, dy, fa_right, fa_middle, c_text_secondary, 0.7, font_value)
 		else
-			draw_label(string(convert_fov_to_focal_length(tl_edit.value[e_value.CAM_FOV], tl_edit.value[e_value.CAM_WIDTH], tl_edit.value[e_value.CAM_HEIGHT])) + " mm", dx + dw, dy, fa_right, fa_middle, c_text_secondary, 0.87, font_value)
+			draw_label(string(convert_fov_to_focal_length(tl_edit.value[e_value.CAM_FOV], tl_edit.value[e_value.CAM_WIDTH], tl_edit.value[e_value.CAM_HEIGHT])) + " mm", dx + dw, dy, fa_right, fa_middle, c_text_secondary, 0.7, font_value)
 	}
 	tab_next(-2)
 	

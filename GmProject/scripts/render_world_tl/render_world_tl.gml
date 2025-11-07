@@ -27,8 +27,7 @@ function render_world_tl()
 		return 0
 	
 	// Not registered on shadow depth testing?
-	if (!shadows &&
-		(render_mode = e_render_mode.HIGH_LIGHT_SUN_DEPTH ||
+	if (!shadows && (render_mode = e_render_mode.HIGH_LIGHT_SUN_DEPTH ||
 		 render_mode = e_render_mode.HIGH_LIGHT_SPOT_DEPTH ||
 		 render_mode = e_render_mode.HIGH_LIGHT_POINT_DEPTH))
 		return 0
@@ -78,6 +77,18 @@ function render_world_tl()
 	render_set_culling(!backfaces)
 	shader_texture_filter_linear = texture_blur
 	shader_texture_filter_mipmap = (app.project_render_texture_filtering && texture_filtering)
+	
+	// Light and Object Tags linking
+	if ((render_mode = e_render_mode.HIGH_LIGHT_SPOT ||
+	     render_mode = e_render_mode.HIGH_LIGHT_POINT||
+		 render_mode = e_render_mode.HIGH_LIGHT_SPOT_EX ||
+	     render_mode = e_render_mode.HIGH_LIGHT_POINT_EX||
+	     render_mode = e_render_mode.HIGH_LIGHT_POINT_SHADOWLESS) && 
+		 string(render_light_tl.object_tag) != "Main" && 
+		 string(object_tag) != string(render_light_tl.object_tag))
+		render_set_uniform("uIgnore", true)
+	else
+		render_set_uniform("uIgnore", false)
 	
 	shader_blend_color = value_inherit[e_value.RGB_MUL]
 	shader_blend_alpha = value_inherit[e_value.ALPHA]
@@ -188,7 +199,7 @@ function render_world_tl()
 	var prevblend = null;
 	
 	// Object blend mode
-	if (blend_mode != "normal" && (render_mode = e_render_mode.COLOR || render_mode = e_render_mode.COLOR_FOG || render_mode = e_render_mode.COLOR_FOG_LIGHTS || render_mode = e_render_mode.ALPHA_FIX))
+	if (blend_mode != "normal" && (render_mode = e_render_mode.COLOR || render_mode = e_render_mode.COLOR_FOG || render_mode = e_render_mode.COLOR_FOG_LIGHTS || render_mode = e_render_mode.ALPHA_FIX || render_mode = e_render_mode.WOLVIZA))
 	{
 		if (render_mode = e_render_mode.ALPHA_FIX)
 			return 0

@@ -65,6 +65,7 @@ function tl_copy(to)
 	to.lq_hiding = lq_hiding
 	to.blend_mode = blend_mode
 	to.alpha_mode = alpha_mode
+	to.object_tag = object_tag
 	
 	to.path_update = true
 	to.path_closed = path_closed

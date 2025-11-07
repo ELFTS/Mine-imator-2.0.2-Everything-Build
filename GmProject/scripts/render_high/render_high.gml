@@ -54,7 +54,7 @@ function render_high()
 		
 		// Composite current effects, avoid render surf 0 going forward
 		var finalsurf;
-		finalsurf = render_high_scene()
+			finalsurf = render_high_scene()
 		
 		// Reflections
 		if (render_reflections)

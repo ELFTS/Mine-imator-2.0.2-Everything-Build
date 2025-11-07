@@ -888,7 +888,10 @@ function enums()
 		AO_MASK,
 		MATERIAL,
 		SUBSURFACE,
-		GLINT
+		GLINT,
+		WOLVIZA,
+		WOLVIZA_GM,
+		WOLVIZA_GM_2
 	}
 	
 	// Viewport render mode

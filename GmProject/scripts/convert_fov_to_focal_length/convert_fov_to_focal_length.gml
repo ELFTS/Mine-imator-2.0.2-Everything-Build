@@ -11,9 +11,9 @@ function convert_fov_to_focal_length(fov_deg, res_width, res_height)
     
     // Assume FOV is horizontal if aspect > 1 (landscape)
     if (aspect > 1)
-        result = round((res_width / (2 * tan(fov_rad / 2))) / 10) / 10;  // horizontal FOV
+        result = (res_width / (2 * tan(fov_rad / 2)));  // horizontal FOV
     else
-        result = round((res_height / (2 * tan(fov_rad / 2))) / 10) / 10; // vertical FOV
+        result = (res_height / (2 * tan(fov_rad / 2))); // vertical FOV
 
-	return result / (((aspect > 1) ? res_height : res_width) / 1920);
+	return round(result / (((aspect > 1) ? res_height : res_width) / 1920)) / 100;
 }

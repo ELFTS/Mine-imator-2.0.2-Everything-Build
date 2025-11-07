@@ -6,6 +6,8 @@ function project_reset_render()
 	project_render_samples = 24
 	project_render_distance = 30000
 	
+	project_render_legacy_rendering = false
+	
 	project_render_performance_mode = false
 	project_render_performance_mode_skipfog = false
 	project_render_performance_mode_skipsky = false

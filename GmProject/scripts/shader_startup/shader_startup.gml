@@ -91,6 +91,12 @@ function shader_startup()
 		new_shader("shader_clip")
 		new_shader("shader_high_glint")
 		new_shader("shader_high_outline")
+		if (is_cpp())
+			new_shader("shader_high_wolviza")
+		else {
+			new_shader("shader_high_wolviza_gm")
+			new_shader("shader_high_wolviza_gm_2")
+		}
 		
 		shader_texture_surface = false
 		shader_texture_filter_linear = false
@@ -789,5 +795,77 @@ function shader_startup()
 		new_shader_uniform("uOutlineNormal")
 	}
 	
+	with (shader_map[?shader_high_wolviza])
+	{
+		shader_material_uniforms()
+		
+		new_shader_sampler("uTexture")
+		
+		new_shader_uniform("uNormalBufferScale")
+		new_shader_uniform("uNear")
+		new_shader_uniform("uFar")
+		
+		new_shader_uniform("uGamma")
+		new_shader_sampler("uGlintTexture")
+		new_shader_uniform("uGlintOffset")
+		new_shader_uniform("uGlintSize")
+		new_shader_uniform("uGlintEnabled")
+		new_shader_uniform("uGlintStrength")
+		
+		new_shader_uniform("uNormalStrength")
+		new_shader_uniform("uSampleIndex")
+		new_shader_uniform("uAlphaHash")
+		new_shader_uniform("uColorsExt")
+		new_shader_uniform("uBrightness")
+		new_shader_uniform("uRGBAdd")
+		new_shader_uniform("uRGBSub")
+		new_shader_uniform("uHSBAdd")
+		new_shader_uniform("uHSBSub")
+		new_shader_uniform("uHSBMul")
+		new_shader_uniform("uMixColor")
+		new_shader_uniform("uIsSky")
+	}
+	
+	with (shader_map[?shader_high_wolviza_gm])
+	{
+		shader_material_uniforms()
+		
+		new_shader_sampler("uTexture")
+		
+		new_shader_uniform("uNormalBufferScale")
+		new_shader_uniform("uNear")
+		new_shader_uniform("uFar")
+		
+		new_shader_uniform("uNormalStrength")
+		new_shader_uniform("uSampleIndex")
+		new_shader_uniform("uAlphaHash")
+		new_shader_uniform("uColorsExt")
+		new_shader_uniform("uBrightness")
+		new_shader_uniform("uRGBAdd")
+		new_shader_uniform("uRGBSub")
+		new_shader_uniform("uHSBAdd")
+		new_shader_uniform("uHSBSub")
+		new_shader_uniform("uHSBMul")
+		new_shader_uniform("uMixColor")
+		new_shader_uniform("uIsSky")
+	}
+	
+	with (shader_map[?shader_high_wolviza_gm_2])
+	{
+		shader_material_uniforms()
+		
+		new_shader_sampler("uTexture")
+		
+		new_shader_uniform("uNormalBufferScale")
+		new_shader_uniform("uNear")
+		new_shader_uniform("uFar")
+		
+		new_shader_uniform("uGamma")
+		new_shader_sampler("uGlintTexture")
+		new_shader_uniform("uGlintOffset")
+		new_shader_uniform("uGlintSize")
+		new_shader_uniform("uGlintEnabled")
+		new_shader_uniform("uGlintStrength")
+	}
 	return true
 }
