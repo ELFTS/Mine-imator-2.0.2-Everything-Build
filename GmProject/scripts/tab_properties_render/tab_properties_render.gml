@@ -34,36 +34,44 @@ function tab_properties_render()
 		draw_button_label("settingsunstablefeatureslabelwarning", dx, dy, dw, icons.WARNING_TRIANGLE, e_button.LABEL, action_filepath_mineimator, null, true)
 		tab_next()
 		dy -= 10
-		
-		tab_control_switch()
-		draw_switch("renderlegacyrendering", dx, dy, project_render_legacy_rendering, action_project_render_legacy_rendering)
+	} else if (project_render_performance_mode) {
+		// Warn users
+		dy -= 3
+		draw_button_label("settingsperformancemodewarning", dx, dy, dw, icons.WARNING_TRIANGLE, e_button.LABEL, action_filepath_mineimator, null, true)
 		tab_next()
+		dy -= 10
+	}
 		
+	tab_control_switch()
+	draw_switch("renderlegacyrendering", dx, dy, project_render_legacy_rendering, action_project_render_legacy_rendering)
+	tab_next()
+		
+	tab_control_switch()
+	draw_button_collapse("perfmode", collapse_map[?"perfmode"], action_project_render_performance_mode, project_render_performance_mode, "renderperformancemode", "renderperformancemodetip")
+	tab_next()
+		
+	if (project_render_performance_mode && collapse_map[?"perfmode"])
+	{
+		tab_collapse_start()
+			
+		// Skip Fog Check
 		tab_control_switch()
-		draw_button_collapse("perfmode", collapse_map[?"perfmode"], action_project_render_performance_mode, project_render_performance_mode, "renderperformancemode", "renderperformancemodetip")
+		draw_switch("renderperformancemodeskipfog", dx, dy, project_render_performance_mode_skipfog, action_project_render_performance_mode_skipfog)
 		tab_next()
-		
-		if (project_render_performance_mode && collapse_map[?"perfmode"])
-		{
-			tab_collapse_start()
 			
-			// Skip Fog Check
-			tab_control_switch()
-			draw_switch("renderperformancemodeskipfog", dx, dy, project_render_performance_mode_skipfog, action_project_render_performance_mode_skipfog)
-			tab_next()
-			
-			// Skip Sky Check
+		// Skip Sky Check
+		if (project_render_legacy_rendering) {
 			tab_control_switch()
 			draw_switch("renderperformancemodeskipsky", dx, dy, project_render_performance_mode_skipsky, action_project_render_performance_mode_skipsky)
 			tab_next()
-			
-			// Light Occlusion distance
-			tab_control_dragger()
-			draw_dragger("renderperformancemodelightocclusiondistance", dx, dy, dragger_width, project_render_performance_mode_light_occlusion_distance, 1, -no_limit, no_limit, 64, 1, tab.render.tbx_render_performance_mode_light_occlusion_distance, action_project_render_performance_mode_light_occlusion_distance, null, true, false, "renderperformancemodelightocclusiondistancetip")
-			tab_next()
-		
-			tab_collapse_end()
 		}
+			
+		// Light Occlusion distance
+		tab_control_dragger()
+		draw_dragger("renderperformancemodelightocclusiondistance", dx, dy, dragger_width, project_render_performance_mode_light_occlusion_distance, 1, -no_limit, no_limit, 64, 1, tab.render.tbx_render_performance_mode_light_occlusion_distance, action_project_render_performance_mode_light_occlusion_distance, null, true, false, "renderperformancemodelightocclusiondistancetip")
+		tab_next()
+		
+		tab_collapse_end()
 	}
 	
 	// Render distance

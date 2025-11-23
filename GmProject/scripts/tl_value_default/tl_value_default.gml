@@ -80,6 +80,8 @@ function tl_value_default(valueid)
 		case e_value.CAM_BRIGHTNESS: return 0
 		case e_value.CAM_SATURATION: return 1
 		case e_value.CAM_VIBRANCE: return 0
+		case e_value.CAM_COLOR_INVERT: return false
+		case e_value.CAM_COLOR_INVERT_INTENSITY: return 1
 		case e_value.CAM_COLOR_BURN: return c_white
 		case e_value.CAM_GRAIN_STRENGTH:
 		case e_value.CAM_GRAIN_SATURATION: return .10
@@ -112,6 +114,7 @@ function tl_value_default(valueid)
 		case e_value.CAM_OUTLINE_NORMAL: return true
 		case e_value.CAM_OUTLINE_NORMAL_THRESHOLD: return 0.1
 		case e_value.CAM_OUTLINE_NORMAL_THRESHOLD_FADE: return 3
+		case e_value.CAM_OUTLINE_BLEND_MODE: return "normal"
 		case e_value.BG_IMAGE_SHOW: return app.background_image_show
 		case e_value.BG_IMAGE_ROTATION: return app.background_image_rotation
 		case e_value.BG_SKY_SUN_ANGLE: return app.background_sky_sun_angle
@@ -154,6 +157,8 @@ function tl_value_default(valueid)
 		case e_value.BG_FOG_SKY: return app.background_fog_sky
 		case e_value.BG_FOG_CUSTOM_COLOR: return app.background_fog_color_custom
 		case e_value.BG_FOG_COLOR: return app.background_fog_color
+		case e_value.BG_FOG_HEIGHT_CUSTOM_COLOR: return app.background_fog_height_color_custom
+		case e_value.BG_FOG_HEIGHT_COLOR: return app.background_fog_height_color
 		case e_value.BG_FOG_CUSTOM_OBJECT_COLOR: return app.background_fog_custom_object_color
 		case e_value.BG_FOG_OBJECT_COLOR: return app.background_fog_object_color
 		case e_value.BG_FOG_DISTANCE: return app.background_fog_distance
@@ -196,7 +201,10 @@ function tl_value_default(valueid)
 		case e_value.MODIFIER_SHAKE_ROTATION:
 		case e_value.MODIFIER_FRAMESKIP:
 		case e_value.MODIFIER_SHAKE_BEND: return false
+		case e_value.MODIFIER_SHAKE_POSITION_POWER: return 0.1
 		case e_value.MODIFIER_SHAKE_SPEED:
+		case e_value.MODIFIER_SHAKE_ROTATION_POWER:
+		case e_value.MODIFIER_SHAKE_BEND_POWER:
 		case e_value.MODIFIER_SHAKE_INTENSITY:
 		case e_value.MODIFIER_SHAKE_OFFSET_AUTOMATIC:
 		case e_value.MODIFIER_FRAMESKIP_VALUE: return 1

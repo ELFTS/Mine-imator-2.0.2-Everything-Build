@@ -145,6 +145,8 @@ function project_load_background(map)
 	background_fog_height = value_get_real(map[?"fog_height"], background_fog_height)
 	background_fog_height_size = value_get_real(map[?"fog_height_size"], background_fog_height_size)
 	background_fog_height_offset = value_get_real(map[?"fog_height_offset"], background_fog_height_offset)
+	background_fog_height_color_custom = value_get_real(map[?"fog_height_color_custom"], background_fog_height_color_custom)
+	background_fog_height_color = value_get_color(map[?"fog_height_color"], background_fog_height_color)
 	
 	background_wind = value_get_real(map[?"wind"], background_wind)
 	background_wind_speed = value_get_real(map[?"wind_speed"], background_wind_speed)

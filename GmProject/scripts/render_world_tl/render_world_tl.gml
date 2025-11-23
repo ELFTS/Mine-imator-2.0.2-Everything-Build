@@ -26,6 +26,10 @@ function render_world_tl()
 	if ((glow && only_render_glow) && render_mode != e_render_mode.COLOR_GLOW)
 		return 0
 	
+	var shadowdepthpass = (render_mode = e_render_mode.HIGH_LIGHT_SUN_DEPTH ||
+		 render_mode = e_render_mode.HIGH_LIGHT_SPOT_DEPTH ||
+		 render_mode = e_render_mode.HIGH_LIGHT_POINT_DEPTH)
+	
 	// Not registered on shadow depth testing?
 	if (!shadows && (render_mode = e_render_mode.HIGH_LIGHT_SUN_DEPTH ||
 		 render_mode = e_render_mode.HIGH_LIGHT_SPOT_DEPTH ||
@@ -44,7 +48,7 @@ function render_world_tl()
 		render_set_uniform_color("uReplaceColor", id, 1)
 	}
 	
-	if (render_mode = e_render_mode.SCENE_TEST)
+	if (render_mode = e_render_mode.SCENE_TEST || (render_mode = e_render_mode.WOLVIZA && !app.project_render_legacy_rendering))
 		render_set_uniform_color("uReplaceColor", c_white, 1)
 	
 	// Outlined?
@@ -73,17 +77,31 @@ function render_world_tl()
 	if ((value_inherit[e_value.ALPHA] * 1000) = 0)
 		return 0
 	
+	if (depth_ignore && render_mode != e_render_mode.COLOR &&
+		 render_mode != e_render_mode.COLOR_FOG &&
+		 render_mode != e_render_mode.COLOR_FOG_LIGHTS)
+		return 0
+	
+	var shadowpass = (render_mode = e_render_mode.HIGH_LIGHT_SPOT ||
+	     render_mode = e_render_mode.HIGH_LIGHT_POINT||
+		 render_mode = e_render_mode.HIGH_LIGHT_SPOT_EX ||
+	     render_mode = e_render_mode.HIGH_LIGHT_POINT_EX||
+	     render_mode = e_render_mode.HIGH_LIGHT_POINT_SHADOWLESS)
+	
+	/*
+	// Ignore any depth test for volume mode
+	if (volume_mode && !shadowpass && !shadowdepthpass)
+		return 0
+	*/
+	
 	// Set render options
 	render_set_culling(!backfaces)
 	shader_texture_filter_linear = texture_blur
 	shader_texture_filter_mipmap = (app.project_render_texture_filtering && texture_filtering)
 	
+
 	// Light and Object Tags linking
-	if ((render_mode = e_render_mode.HIGH_LIGHT_SPOT ||
-	     render_mode = e_render_mode.HIGH_LIGHT_POINT||
-		 render_mode = e_render_mode.HIGH_LIGHT_SPOT_EX ||
-	     render_mode = e_render_mode.HIGH_LIGHT_POINT_EX||
-	     render_mode = e_render_mode.HIGH_LIGHT_POINT_SHADOWLESS) && 
+	if ( shadowpass && 
 		 string(render_light_tl.object_tag) != "Main" && 
 		 string(object_tag) != string(render_light_tl.object_tag))
 		render_set_uniform("uIgnore", true)
@@ -199,7 +217,7 @@ function render_world_tl()
 	var prevblend = null;
 	
 	// Object blend mode
-	if (blend_mode != "normal" && (render_mode = e_render_mode.COLOR || render_mode = e_render_mode.COLOR_FOG || render_mode = e_render_mode.COLOR_FOG_LIGHTS || render_mode = e_render_mode.ALPHA_FIX || render_mode = e_render_mode.WOLVIZA))
+	if (blend_mode != "normal" && (render_mode = e_render_mode.COLOR || render_mode = e_render_mode.COLOR_FOG || render_mode = e_render_mode.COLOR_FOG_LIGHTS || render_mode = e_render_mode.ALPHA_FIX))
 	{
 		if (render_mode = e_render_mode.ALPHA_FIX)
 			return 0
@@ -230,15 +248,22 @@ function render_world_tl()
 			
 			if (only_render_glow)
 			{
-				prevblend = gpu_get_blendmode()
-				gpu_set_blendmode(bm_add)
-			}
+				//if (render_mode != e_render_mode.WOLVIZA) {
+					prevblend = gpu_get_blendmode()
+					gpu_set_blendmode(bm_add)
+				//} else {
+				//	render_set_uniform_int("uGlowOnly", 1)
+				//}
+			} //else {
+				//render_set_uniform_int("uGlowOnly", 0)
+			//}
 		}
 		else
 		{
 			render_set_uniform_int("uGlow", 0)
 			render_set_uniform_int("uGlowTexture", 0)
 			render_set_uniform_color("uGlowColor", c_black, 0)
+			//render_set_uniform_int("uGlowOnly", 0)
 		}
 	}
 	
@@ -257,6 +282,9 @@ function render_world_tl()
 	render_set_uniform_vec2("uGlintOffset", spd * (0.000625), spd * (0.00125))
 	render_set_uniform("uGlintStrength", app.project_render_glint_strength * glint_strength)
 	render_set_uniform_vec2("uGlintSize", sprite_get_width(tex) * 2 * glint_scale, sprite_get_height(tex) * 2 * glint_scale)
+	
+	// Volume Rendering
+	// render_set_uniform_int("uVolumeEnabled", volume_mode ? 1 : 0)
 	
 	// Render
 	if (type != e_tl_type.PARTICLE_SPAWNER)

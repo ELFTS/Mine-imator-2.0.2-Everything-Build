@@ -228,6 +228,8 @@ function project_load_timeline(map)
 			alpha_mode = value_get_real(map[?"alpha_mode"], alpha_mode)
 			
 		object_tag = value_get_string(map[?"object_tag"], object_tag)
+		depth_ignore = value_get_real(map[?"depth_ignore"], depth_ignore)
+		volume_mode = value_get_real(map[?"volume_mode"], volume_mode)
 		
 		var pathmap = map[?"path"];
 		if (ds_map_valid(pathmap))

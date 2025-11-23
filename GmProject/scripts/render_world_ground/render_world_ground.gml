@@ -6,7 +6,7 @@ function render_world_ground()
 	if (!background_ground_show)
 		return 0
 	
-	if (render_mode = e_render_mode.SCENE_TEST || render_mode = e_render_mode.AO_MASK)
+	if (render_mode = e_render_mode.SCENE_TEST || render_mode = e_render_mode.AO_MASK || render_mode = e_render_mode.WOLVIZA)
 		render_set_uniform_color("uReplaceColor", c_white, 1)
 	
 	// Blend
@@ -37,6 +37,18 @@ function render_world_ground()
 	
 	// Texture
 	shader_texture_filter_mipmap = app.project_render_texture_filtering
+	
+	// Light and Object Tags linking
+	if ((render_mode = e_render_mode.HIGH_LIGHT_SPOT ||
+	     render_mode = e_render_mode.HIGH_LIGHT_POINT||
+		 render_mode = e_render_mode.HIGH_LIGHT_SPOT_EX ||
+	     render_mode = e_render_mode.HIGH_LIGHT_POINT_EX||
+	     render_mode = e_render_mode.HIGH_LIGHT_POINT_SHADOWLESS) && 
+		 string(render_light_tl.object_tag) != "Main" && 
+		 "Main" != string(render_light_tl.object_tag))
+		render_set_uniform("uIgnore", true)
+	else
+		render_set_uniform("uIgnore", false)
 	
 	if (background_ground_ani)
 		render_set_texture(background_ground_ani_texture[block_texture_get_frame()])

@@ -1,116 +1,64 @@
 {
     "splashes": [
         {
-            "file": "you_cant_hide.png",
-            "credits": "__Mine__"
+            "file": "AVE-X1.png",
+            "credits": "Wolviza",
+            "description": "I wonder why this ship only have 2 crews in it"
         },
         {
-            "file": "peaceful_creeper.png",
-            "credits": "__Mine__"
+            "file": "AVE-X2.png",
+            "credits": "Wolviza",
+            "description": "Planet Avelania"
         },
         {
-            "file": "deep_discovery.png",
-            "credits": "__Mine__"
+            "file": "AVE-X3.png",
+            "credits": "Wolviza",
+            "description": "Terrarium for two man"
         },
         {
-            "file": "the_peaceful_dream.png",
-            "credits": "Cade [CaZaKoJa]"
+            "file": "AVE-X4.png",
+            "credits": "Wolviza",
+            "description": "This could be my last ride"
         },
         {
-            "file": "apple.png",
-            "credits": "David"
+            "file": "AVE-X5.png",
+            "credits": "Wolviza",
+            "description": "Be patient"
         },
         {
-            "file": "enderman.png",
-            "credits": "David"
+            "file": "AVE-X6.png",
+            "credits": "Wolviza",
+            "description": "Sometimes we just wanna play and forget responsibility"
         },
         {
-            "file": "hween.png",
-            "credits": "David & mbanders"
+            "file": "AVE-X7.png",
+            "credits": "Wolviza",
+            "description": "Hi! :3"
         },
         {
-            "file": "disco.png",
-            "credits": "David & mbanders"
+            "file": "AVE-X8.png",
+            "credits": "Wolviza",
+            "description": "Get back to work you two"
         },
         {
-            "file": "untitled_splash.png",
-            "credits": "Hozq"
+            "file": "AVE-X9.png",
+            "credits": "Nirwandra",
+			"description": "1 Captain 1 Doctor, Driving to a never touched galaxy, Great."
         },
         {
-            "file": "untitled_splash_2.png",
-            "credits": "Jnick"
+            "file": "AVE-X10.png",
+            "credits": "Nirwandra",
+			"description": "I love Biology, But that's not the reason I'm thick"
         },
         {
-            "file": "dangerous_temple.png",
-            "credits": "Jossamations"
+            "file": "AVE-X11.png",
+            "credits": "Wolviza",
+			"description": "My pose when I'm live to trillions floffies on 127 differents Planets and Ships"
         },
         {
-            "file": "dolphins_grace.png",
-            "credits": "Jossamations"
-        },
-        {
-            "file": "duality_of_noob.png",
-            "credits": "Jossamations"
-        },
-        {
-            "file": "pillage_and_destroy.png",
-            "credits": "Jossamations"
-        },
-        {
-            "file": "stealthy_ocelot.png",
-            "credits": "Jossamations"
-        },
-        {
-            "file": "forest.png",
-            "credits": "KeepOnChucking"
-        },
-        {
-            "file": "rain.png",
-            "credits": "KeepOnChucking"
-        },
-        {
-            "file": "sunset.png",
-            "credits": "mbanders"
-        },
-        {
-            "file": "meet_the_pyro.png",
-            "credits": "mbanders"
-        },
-        {
-            "file": "the_garden_awakens.png",
-            "credits": "mbanders"
-        },
-        {
-            "file": "cave.png",
-            "credits": "Nimi"
-        },
-        {
-            "file": "desert.png",
-            "credits": "Nimi"
-        },
-        {
-            "file": "mushrooms.png",
-            "credits": "Nimi"
-        },
-        {
-            "file": "portal.png",
-            "credits": "Nimi"
-        },
-        {
-            "file": "trails_and_tales.png",
-            "credits": "Nimi"
-        },
-        {
-            "file": "tricky_trials.png",
-            "credits": "Nimi"
-        },
-        {
-            "file": "lush_cave.png",
-            "credits": "Nimi & 9redwoods"
-        },
-        {
-            "file": "oasis.png",
-            "credits": "Swooplezz"
+            "file": "AVE-X12.png",
+            "credits": "Nirwandra",
+			"description": "X-SPI 211? It's more like a courrier than a exploration"
         }
     ]
 }

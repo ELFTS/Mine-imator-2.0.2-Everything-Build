@@ -186,160 +186,164 @@ void main()
 			baseColor.a = 1.0;
 	}
 	
-	if (uIsSky > 0 || uIgnore)
+	if (!uIgnore)
 	{
-		if (!uIgnore) {
+		if (uIsSky > 0)
+		{
 			spec = vec3(uLightSpecular);
 		}
-	}
-	else
-	{
-		// Get material data
-		float roughness, metallic, emissive, F0, sss;
-		getMaterial(roughness, metallic, emissive, F0, sss);
-		vec3 normal = getMappedNormal(vTexCoord);
-		
-		float shadow = 1.0;
-		float att = 0.0;
-		vec3 subsurf = vec3(0.0);
-		
-		// Diffuse factor
-		float dif = max(0.0, dot(normal, normalize(uLightPosition - vPosition))); 
-		
-		// Attenuation factor
-		att = 1.0 - clamp((distance(vPosition, uLightPosition) - uLightFar * (1.0 - uLightFadeSize)) / (uLightFar * uLightFadeSize), 0.0, 1.0); 
-		dif *= att;
-		
-		if (dif > 0.0 || sss > 0.0)
+		else
 		{
-			vec2 fragCoord, bufferMin, bufferMax;
-			vec3 toLight = vPosition - uShadowPosition;
-			vec4 lookDir = vec4( // Get the direction from the pixel to the light
-				toLight.x / distance(vPosition.xy, uShadowPosition.xy),
-				toLight.y / distance(vPosition.xy, uShadowPosition.xy),
-				toLight.z / distance(vPosition.xz, uShadowPosition.xz),
-				toLight.z / distance(vPosition.yz, uShadowPosition.yz)
-			);
+			// Get material data
+			float roughness, metallic, emissive, F0, sss;
+			getMaterial(roughness, metallic, emissive, F0, sss);
+			vec3 normal = getMappedNormal(vTexCoord);
 		
-			// Get shadow map and texture coordinate
+			float shadow = 1.0;
+			float att = 0.0;
+			vec3 subsurf = vec3(0.0);
 		
-			// Z+
-			// ooo
-			// oxo
-			if (lookDir.z > SQRT05 && lookDir.w > SQRT05)
-			{ 
-				fragCoord = getShadowMapCoord(vec3(0.0, -0.0001, 1.0));
-				fragCoord.x += 1.0/3.0;
-				fragCoord.y += 0.5;
-				
-				bufferMin = vec2(1.0/3.0, 0.5);
-			}
-			
-			// Z-
-			// ooo
-			// oox
-			else if (lookDir.z < -SQRT05 && lookDir.w < -SQRT05)
+			// Diffuse factor
+			float dif = max(0.0, dot(normal, normalize(uLightPosition - vPosition))); 
+		
+			// Attenuation factor
+			att = 1.0 - clamp((distance(vPosition, uLightPosition) - uLightFar * (1.0 - uLightFadeSize)) / (uLightFar * uLightFadeSize), 0.0, 1.0); 
+			dif *= att;
+		
+			if (dif > 0.0 || sss > 0.0)
 			{
-				fragCoord = getShadowMapCoord(vec3(0.0, -0.0001, -1.0));
-				fragCoord.x += 2.0/3.0;
-				fragCoord.y += 0.5;
+				vec2 fragCoord, bufferMin, bufferMax;
+				vec3 toLight = vPosition - uShadowPosition;
+				vec4 lookDir = vec4( // Get the direction from the pixel to the light
+					toLight.x / distance(vPosition.xy, uShadowPosition.xy),
+					toLight.y / distance(vPosition.xy, uShadowPosition.xy),
+					toLight.z / distance(vPosition.xz, uShadowPosition.xz),
+					toLight.z / distance(vPosition.yz, uShadowPosition.yz)
+				);
+		
+				// Get shadow map and texture coordinate
+		
+				// Z+
+				// ooo
+				// oxo
+				if (lookDir.z > SQRT05 && lookDir.w > SQRT05)
+				{ 
+					fragCoord = getShadowMapCoord(vec3(0.0, -0.0001, 1.0));
+					fragCoord.x += 1.0/3.0;
+					fragCoord.y += 0.5;
 				
-				bufferMin = vec2(2.0/3.0, 0.5);
+					bufferMin = vec2(1.0/3.0, 0.5);
+				}
+			
+				// Z-
+				// ooo
+				// oox
+				else if (lookDir.z < -SQRT05 && lookDir.w < -SQRT05)
+				{
+					fragCoord = getShadowMapCoord(vec3(0.0, -0.0001, -1.0));
+					fragCoord.x += 2.0/3.0;
+					fragCoord.y += 0.5;
+				
+					bufferMin = vec2(2.0/3.0, 0.5);
+				}
+		
+				// X+
+				// xoo
+				// ooo
+				else if (lookDir.x > SQRT05)
+				{ 
+					fragCoord = getShadowMapCoord(vec3(1.0, 0.0, 0.0));
+				
+					bufferMin = vec2(0.0);
+				}
+		
+				// X-
+				// oxo
+				// ooo
+				else if (lookDir.x < -SQRT05)
+				{
+					fragCoord = getShadowMapCoord(vec3(-1.0, 0.0, 0.0));
+					fragCoord.x += 1.0/3.0;
+				
+					bufferMin = vec2(1.0/3.0, 0.0);
+				}
+		
+				// Y+
+				// oox
+				// ooo
+				else if (lookDir.y > SQRT05)
+				{ 
+					fragCoord = getShadowMapCoord(vec3(0.0, 1.0, 0.0));
+					fragCoord.x += 2.0/3.0;
+				
+					bufferMin = vec2(2.0/3.0, 0.0);
+				}
+		
+				// Y-
+				// ooo
+				// xoo
+				else
+				{ 
+					fragCoord = getShadowMapCoord(vec3(0.0, -1.0, 0.0));
+					fragCoord.y += 0.5;
+				
+					bufferMin = vec2(0.0, 0.5);
+				}
+			
+				float bias = 0.8;
+			
+				// Shadow
+				float fragDepth = distance(vPosition, uShadowPosition);
+				float sampleDepth = uLightNear + (uLightFar - uLightNear) * unpackDepth(getFilteredDepth(fragCoord, bufferMin));//texture2D(uDepthBuffer, fragCoord));
+				shadow = ((fragDepth - bias) > sampleDepth) ? 0.0 : 1.0;
+			
+				// Get subsurface translucency
+				if (sss > 0.0 && dif == 0.0)
+				{
+					vec3 rad = uSSSRadius * sss;
+					vec3 dis = vec3((fragDepth + bias) - sampleDepth) / (uLightColor.rgb * uLightStrength * rad);
+				
+					if ((fragDepth - (bias * 0.01)) <= sampleDepth)
+						dis = vec3(0.0);
+				
+					subsurf = pow(max(1.0 - pow(dis / rad, vec3(4.0)), 0.0), vec3(2.0)) / (pow(dis, vec3(2.0)) + 1.0) * att;
+				}
 			}
 		
-			// X+
-			// xoo
-			// ooo
-			else if (lookDir.x > SQRT05)
-			{ 
-				fragCoord = getShadowMapCoord(vec3(1.0, 0.0, 0.0));
-				
-				bufferMin = vec2(0.0);
-			}
+			// Diffuse light
+			light = uLightColor.rgb * uLightStrength * dif * shadow;
 		
-			// X-
-			// oxo
-			// ooo
-			else if (lookDir.x < -SQRT05)
+			// Subsurface translucency
+			if (sss > 0.0)
 			{
-				fragCoord = getShadowMapCoord(vec3(-1.0, 0.0, 0.0));
-				fragCoord.x += 1.0/3.0;
-				
-				bufferMin = vec2(1.0/3.0, 0.0);
+				float transDif = max(0.0, dot(normalize(-normal), normalize(uLightPosition - vPosition)));
+				subsurf += (subsurf * uSSSHighlightStrength * CSPhase(dot(normalize(vPosition - uCameraPosition), normalize(uLightPosition - vPosition)), uSSSHighlight));
+				light += uLightColor.rgb * uLightStrength * uSSSColor.rgb * transDif * subsurf;
+				light *= mix(vec3(1.0), uSSSColor.rgb, clamp(sss, 0.0, 1.0));
 			}
 		
-			// Y+
-			// oox
-			// ooo
-			else if (lookDir.y > SQRT05)
-			{ 
-				fragCoord = getShadowMapCoord(vec3(0.0, 1.0, 0.0));
-				fragCoord.x += 2.0/3.0;
-				
-				bufferMin = vec2(2.0/3.0, 0.0);
-			}
-		
-			// Y-
-			// ooo
-			// xoo
-			else
-			{ 
-				fragCoord = getShadowMapCoord(vec3(0.0, -1.0, 0.0));
-				fragCoord.y += 0.5;
-				
-				bufferMin = vec2(0.0, 0.5);
-			}
-			
-			float bias = 0.8;
-			
-			// Shadow
-			float fragDepth = distance(vPosition, uShadowPosition);
-			float sampleDepth = uLightNear + (uLightFar - uLightNear) * unpackDepth(getFilteredDepth(fragCoord, bufferMin));//texture2D(uDepthBuffer, fragCoord));
-			shadow = ((fragDepth - bias) > sampleDepth) ? 0.0 : 1.0;
-			
-			// Get subsurface translucency
-			if (sss > 0.0 && dif == 0.0)
+			// Calculate specular
+			if (uLightSpecular * dif * shadow > 0.0)
 			{
-				vec3 rad = uSSSRadius * sss;
-				vec3 dis = vec3((fragDepth + bias) - sampleDepth) / (uLightColor.rgb * uLightStrength * rad);
-				
-				if ((fragDepth - (bias * 0.01)) <= sampleDepth)
-					dis = vec3(0.0);
-				
-				subsurf = pow(max(1.0 - pow(dis / rad, vec3(4.0)), 0.0), vec3(2.0)) / (pow(dis, vec3(2.0)) + 1.0) * att;
+				vec3 N = normal;
+				vec3 V = normalize(uCameraPosition - vPosition);
+				vec3 L = normalize(uLightPosition - vPosition);
+				vec3 H = normalize(V + L);
+				float NDF = distributionGGX(N, H, roughness);
+				float G = geometrySmith(N, V, L, roughness);
+		
+				float F = fresnelSchlickRoughness(max(dot(H, V), 0.0), F0, roughness);
+		
+				float numerator = NDF * G * F;
+				float denominator = 4.0 * max(dot(N, V), 0.0) * max(dot(N, L), 0.0) + 0.0001;
+				float specular = numerator / denominator;
+		
+				spec = uLightColor.rgb * shadow * uLightSpecular * dif * (specular * mix(vec3(1.0), baseColor.rgb, metallic));
 			}
 		}
-		
-		// Diffuse light
-		light = uLightColor.rgb * uLightStrength * dif * shadow;
-		
-		// Subsurface translucency
-		if (sss > 0.0)
-		{
-			float transDif = max(0.0, dot(normalize(-normal), normalize(uLightPosition - vPosition)));
-			subsurf += (subsurf * uSSSHighlightStrength * CSPhase(dot(normalize(vPosition - uCameraPosition), normalize(uLightPosition - vPosition)), uSSSHighlight));
-			light += uLightColor.rgb * uLightStrength * uSSSColor.rgb * transDif * subsurf;
-			light *= mix(vec3(1.0), uSSSColor.rgb, clamp(sss, 0.0, 1.0));
-		}
-		
-		// Calculate specular
-		if (uLightSpecular * dif * shadow > 0.0)
-		{
-			vec3 N = normal;
-			vec3 V = normalize(uCameraPosition - vPosition);
-			vec3 L = normalize(uLightPosition - vPosition);
-			vec3 H = normalize(V + L);
-			float NDF = distributionGGX(N, H, roughness);
-			float G = geometrySmith(N, V, L, roughness);
-		
-			float F = fresnelSchlickRoughness(max(dot(H, V), 0.0), F0, roughness);
-		
-			float numerator = NDF * G * F;
-			float denominator = 4.0 * max(dot(N, V), 0.0) * max(dot(N, L), 0.0) + 0.0001;
-			float specular = numerator / denominator;
-		
-			spec = uLightColor.rgb * shadow * uLightSpecular * dif * (specular * mix(vec3(1.0), baseColor.rgb, metallic));
-		}
+	} else {
+		light = vec3(0.0);
+		spec = vec3(0.0);
 	}
 	
 	gl_FragData[0] = vec4(light, baseColor.a);

@@ -326,7 +326,7 @@ void main()
 		}
 		
 		// Get color
-		rayColor = mix(pow(uSkyColor.rgb, vec3(uGamma)), rayColor, vis);
+		rayColor = mix(pow(uSkyColor.rgb, vec3(uGamma)), rayColor, (vis * 1.5));
 		
 		// Specular tint from mettalic
 		if (materialData.g > 0.0)

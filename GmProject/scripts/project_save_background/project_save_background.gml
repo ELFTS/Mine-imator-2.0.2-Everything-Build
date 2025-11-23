@@ -75,6 +75,8 @@ function project_save_background()
 		json_save_var("fog_height", background_fog_height)
 		json_save_var("fog_height_size", background_fog_height_size)
 		json_save_var("fog_height_offset", background_fog_height_offset)
+		json_save_var_bool("fog_height_color_custom", background_fog_height_color_custom)
+		json_save_var_color("fog_height_color", background_fog_height_color)
 		
 		json_save_var_bool("wind", background_wind)
 		json_save_var("wind_speed", background_wind_speed)

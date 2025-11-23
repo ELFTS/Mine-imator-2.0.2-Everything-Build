@@ -96,6 +96,8 @@ function project_reset_background()
 	background_fog_height = 1250
 	background_fog_height_size = 40
 	background_fog_height_offset = -24
+	background_fog_height_color_custom = false
+	background_fog_height_color = c_sky
 	
 	background_wind = true
 	background_wind_speed = 0.1
@@ -109,6 +111,7 @@ function project_reset_background()
 	background_sunlight_color_final = c_black
 	background_ambient_color_final = c_black
 	background_fog_color_final = c_black
+	background_fog_height_color_final = c_black
 	background_fog_object_color_final = c_black
 	background_night_alpha = 0
 	background_sunset_alpha = 0

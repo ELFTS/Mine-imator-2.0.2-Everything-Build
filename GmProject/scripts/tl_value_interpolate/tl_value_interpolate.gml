@@ -41,6 +41,7 @@ function tl_value_interpolate(vid, p, val1, val2)
 		case e_value.BG_LEAVES_MANGROVE_COLOR:
 		case e_value.BG_FOG_COLOR:
 		case e_value.BG_FOG_OBJECT_COLOR:
+		case e_value.BG_FOG_HEIGHT_COLOR:
 		case e_value.TEXT_OUTLINE_COLOR: return merge_color(val1, val2, clamp(p, 0, 1)) // Color mix
 		case e_value.CAM_BLADE_AMOUNT:
 		case e_value.CAM_WIDTH:
@@ -73,6 +74,7 @@ function tl_value_interpolate(vid, p, val1, val2)
 		case e_value.CAM_LENS_DIRT_BLOOM:
 		case e_value.CAM_LENS_DIRT_GLOW:
 		case e_value.CAM_COLOR_CORRECTION:
+		case e_value.CAM_COLOR_INVERT:
 		case e_value.CAM_GRAIN:
 		case e_value.CAM_VIGNETTE:
 		case e_value.CAM_CA:
@@ -83,6 +85,7 @@ function tl_value_interpolate(vid, p, val1, val2)
 		case e_value.CAM_SIZE_KEEP_ASPECT_RATIO:
 		case e_value.CAM_OUTLINE:
 		case e_value.CAM_OUTLINE_NORMAL:
+		case e_value.CAM_OUTLINE_BLEND_MODE:
 		case e_value.CAM_HEAT_DISTORTION:
 		case e_value.CAM_VERTEX_SNAP:
 		case e_value.CAM_BLACK_LINES:
@@ -95,6 +98,9 @@ function tl_value_interpolate(vid, p, val1, val2)
 		case e_value.BG_BIOME:
 		case e_value.BG_FOG_SHOW:
 		case e_value.BG_FOG_HEIGHT_SHOW:
+		case e_value.BG_FOG_CUSTOM_COLOR:
+		case e_value.BG_FOG_CUSTOM_OBJECT_COLOR:
+		case e_value.BG_FOG_HEIGHT_CUSTOM_COLOR:
 		case e_value.BG_WIND:
 		case e_value.VISIBLE:
 		case e_value.TEXTURE_OBJ:

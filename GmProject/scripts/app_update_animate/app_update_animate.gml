@@ -132,13 +132,13 @@ function app_update_animate(force)
 			}
 			
 			if (value[e_value.MODIFIER_SHAKE_POSITION])
-				modifier_shake_pos = generate_shake_value(modifier_step, shakestrength / 10, shakeoffset, false)
+				modifier_shake_pos = generate_shake_value(modifier_step, shakestrength * value[e_value.MODIFIER_SHAKE_POSITION_POWER], shakeoffset, false)
 				
 			if (value[e_value.MODIFIER_SHAKE_ROTATION])
-				modifier_shake_rot = generate_shake_value(modifier_step, shakestrength, shakeoffset + 100, false)
+				modifier_shake_rot = generate_shake_value(modifier_step, shakestrength * value[e_value.MODIFIER_SHAKE_ROTATION_POWER], shakeoffset + 100, false)
 				
 			if (value[e_value.MODIFIER_SHAKE_BEND])
-				modifier_shake_bend = generate_shake_value(modifier_step, shakestrength, shakeoffset + 200, false)
+				modifier_shake_bend = generate_shake_value(modifier_step, shakestrength * value[e_value.MODIFIER_SHAKE_BEND_POWER], shakeoffset + 200, false)
 		}
 	}
 	
@@ -242,6 +242,8 @@ function app_update_animate(force)
 		background_fog_height					= bgobject.value[e_value.BG_FOG_HEIGHT]
 		background_fog_height_size				= bgobject.value[e_value.BG_FOG_HEIGHT_SIZE]
 		background_fog_height_offset			= bgobject.value[e_value.BG_FOG_HEIGHT_OFFSET]
+		background_fog_height_color_custom		= bgobject.value[e_value.BG_FOG_HEIGHT_CUSTOM_COLOR]
+		background_fog_height_color				= bgobject.value[e_value.BG_FOG_HEIGHT_COLOR]
 		background_wind							= bgobject.value[e_value.BG_WIND]
 		background_wind_speed					= bgobject.value[e_value.BG_WIND_SPEED]
 		background_wind_strength				= bgobject.value[e_value.BG_WIND_STRENGTH]

@@ -36,6 +36,7 @@ function new_shader(name)
 		new_shader_uniform("uFogHeight")
 		new_shader_uniform("uFogHeightSize")
 		new_shader_uniform("uFogHeightOffset")
+		new_shader_uniform("uFogHeightColor")
 		
 		new_shader_uniform("uCameraPosition")
 		

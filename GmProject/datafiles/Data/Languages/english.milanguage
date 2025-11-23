@@ -262,6 +262,7 @@
 		"browse": "Browse...",
 		"recentprojects": "Recent projects",
 		"loadingassets": "Preparing %1 assets... %2%",
+		"splashdescription": "%1",
 		"splashauthor": "Art by %1",
 		"sortby": "Sort by"
 	},
@@ -3271,7 +3272,9 @@
 			"height": "Height",
 			"heightlabel": "Height Fog",
 			"heightsize": "Size",
-			"heightoffset": "Offset"
+			"heightoffset": "Offset",
+			"heightcolor": "Fog height color",
+			"heightcolorcustom": "Custom height fog color"
 		},
 		"wind": "Wind",
 		"wind/": {
@@ -3533,6 +3536,8 @@
 		"backfaces": "Show backfaces",
 		"hqhiding": "HQ hiding",
 		"lqhiding": "LQ hiding",
+		"depthignore": "Ignore depth",
+		"volumemode": "Volume mode",
 		"foliagetint": "Foliage tint",
 		"blendmode": "Blend mode",
 		"blendmode/": {
@@ -3654,6 +3659,9 @@
 			"shakeposition": "Position",
 			"shakerotation": "Rotation",
 			"shakebend": "Bend",
+			"shakepositionpower": "Position Power",
+			"shakerotationpower": "Rotation Power",
+			"shakebendpower": "Bend Power",
 			"shakeintensity": "Intensity",
 			"shakespeed": "Speed",
 			"shakeoffset": "Offset",
@@ -3833,6 +3841,8 @@
 				"brightness": "Brightness",
 				"saturation": "Saturation",
 				"vibrance": "Vibrance",
+				"invert": "Invert",
+				"invertstrength": "Invert Strength",
 				"colorburn": "Color burn"
 			},
 			"grain": "Film grain",
@@ -3891,7 +3901,13 @@
 				"normal": "Normal Pass",
 				"normaltip": "Make Outline detects Normals from objects and make outline out of it",
 				"normalthreshold": "Normal Threshold",
-				"normalthresholdfade": "Normal Fade"
+				"normalthresholdfade": "Normal Fade",
+				"blendmode": "Blending",
+				"blendmodenormal": "Normal",
+				"blendmodeadd": "Add",
+				"blendmodescreen": "Screen",
+				"blendmodemultiply": "Multiply",
+				"blendmodeoverlay": "Overlay"
 			}
 		},
 		"sound": "SOUND",
@@ -3993,6 +4009,7 @@
 		"viewportoptimization": "Viewport optimization",
 		"unstablefeatures": "Unstable features",
 		"unstablefeatureslabelwarning": "Unstable Features is Enabled",
+		"performancemodewarning": "Performance mode is Enabled",
 		"interface": "INTERFACE",
 		"appearance": "Appearance",
 		"theme": "Theme",

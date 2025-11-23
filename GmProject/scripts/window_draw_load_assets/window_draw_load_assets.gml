@@ -77,8 +77,12 @@ function window_draw_load_assets()
 	}
 	
 	// Splash credits
+	if (load_assets_description != "")
+		draw_label(text_get("startupsplashdescription", load_assets_description), xoff + 95, yoff + 289 + 41, fa_middle, fa_top, c_text_tertiary, a_text_secondary, font_subheading, 12, 180)
+	
+	// Splash credits
 	if (load_assets_credits != "")
-		draw_label(text_get("startupsplashauthor", load_assets_credits), xoff + 95, yoff + 289 + 31, fa_middle, fa_top, c_text_tertiary, a_text_tertiary, font_caption)
+		draw_label(text_get("startupsplashauthor", load_assets_credits), xoff + 95, yoff + 289 + 89, fa_middle, fa_top, c_text_tertiary, a_text_tertiary, font_caption)
 	
 	// Loading bar
 	draw_box(xoff, yoff + screenhei - 8, screenwid, 8, false, c_level_top, .8)

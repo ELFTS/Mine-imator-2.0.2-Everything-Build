@@ -22,7 +22,6 @@ varying mat3 vTBN;
 varying mat3 vTBN2;
 varying vec4 vColor;
 varying vec4 vCustom;
-varying mat3 vWorldViewInv;
 
 // Texture
 uniform vec2 uTextureOffset;
@@ -136,7 +135,7 @@ void main()
 	vDepth = ((depthPos.z - uNear) / (uFar - uNear));
 	
 	// Create vectors for TBN matrix
-	vWorldViewInv = inverse2(gm_Matrices[MATRIX_WORLD_VIEW]);
+	mat3 vWorldViewInv = inverse2(gm_Matrices[MATRIX_WORLD_VIEW]);
 	
 	vNormal = (gm_Matrices[MATRIX_WORLD] * vec4(in_Normal, 0.0)).xyz;
 	vTangent = (gm_Matrices[MATRIX_WORLD] * vec4(in_Tangent, 0.0)).xyz;

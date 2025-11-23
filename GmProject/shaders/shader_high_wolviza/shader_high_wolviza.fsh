@@ -26,6 +26,8 @@ uniform vec4 uHSBSub;
 uniform vec4 uHSBMul;
 uniform vec4 uMixColor;
 
+uniform vec4 uReplaceColor;
+
 uniform int uFogShow;
 uniform int uFogHeightShow;
 uniform vec4 uFogColor; // static
@@ -49,10 +51,6 @@ uniform float uDefaultSubsurface;
 
 varying vec3 vPosition;
 varying float vDepth;
-varying vec3 vNormal;
-varying vec3 vNormal2;
-varying vec3 vTangent;
-varying vec3 vTangent2;
 varying vec4 vColor;
 varying vec2 vTexCoord;
 varying vec4 vCustom;
@@ -137,7 +135,7 @@ float getFog()
 		if (uFogHeightShow > 0) {
 			fog2 = clamp(1.0 - (0.0 - fogDepth) / uFogHeightSize, 0.0, 1.0);
 			fog2 *= clamp(1.0 - (vPosition.z - uFogHeightOffset) / uFogHeightSize, 0.0, 1.0);
-			fog += fog2;
+			fog = 1.0 - (1.0 - fog) * (1.0 - fog2);
 		}
 	}
 	else
@@ -200,82 +198,129 @@ void main()
 {
 	vec2 tex = vTexCoord;
 	vec4 baseColor = vColor * texture2D(uTexture, tex); // Get base
-	vec4 DiffuseResult, MaterialsResult, EmmisivesResult, DepthResult, NormalsResult;
-	vec4 Glintresult;
+	vec4 Scenetestresult, MaterialsResult, EmmisivesResult, DepthResult, NormalsResult, Glintresult;
 	
-	DiffuseResult = vec4(0.0);
+	Scenetestresult = vec4(0.0);
 	MaterialsResult = vec4(0.0);
 	EmmisivesResult = vec4(0.0);
 	DepthResult = vec4(0.0);
 	NormalsResult = vec4(0.0);
 	Glintresult = vec4(0.0);
 	
+	// Hashing
+	
 	if (baseColor.a == 0.0)
 		discard;
 	
 	if (uAlphaHash > 0 && (baseColor.a < hash(vec2(hash(vPosition.xy + (uSampleIndex / 255.0)), vPosition.z + (uSampleIndex / 255.0)))))
 		discard;
-	
-	// ====== DIFFUSE ======
-	
-	if (uColorsExt > 0)
-	{
-		DiffuseResult = clamp(baseColor + uRGBAdd - uRGBSub, 0.0, 1.0); // Transform RGB
-		DiffuseResult = hsbtorgb(clamp(rgbtohsb(DiffuseResult) + uHSBAdd - uHSBSub, 0.0, 1.0) * uHSBMul); // Transform HSB
-		DiffuseResult = mix(DiffuseResult, uMixColor, uMixColor.a); // Mix
-		DiffuseResult = mix(DiffuseResult, uFogColor, getFog()); // Mix fog
-		DiffuseResult.a = baseColor.a; // Correct alpha
-	}
-	else 
-	{
-		DiffuseResult = mix(baseColor, uFogColor, getFog()); // Mix fog
-		DiffuseResult.a = baseColor.a; // Correct alpha
-	}
-	
-	
-	// =====================
-	// ====== MATERIAL & EMMISIVE ======
-	
-	
-	// Get material data
-	float roughness, metallic, emissive, F0, sss;
-	getMaterial(roughness, metallic, emissive, F0, sss);
-	
-	// Fresnel
-	vec3 N = getMappedNormal(vTexCoord);
-	vec3 V  = normalize(uCameraPosition - vPosition);
-	vec3 H  = normalize(V + -reflect(V, N));
-	float F = fresnelSchlickRoughness(max(dot(H, V), 0.0), F0, roughness);
-	
-	if (uIsSky > 0)
-		F = 0.0;
-	
-	MaterialsResult = vec4(roughness, metallic, F, 1.0);
-	
-	// Emissive
-	EmmisivesResult = vec4(packEmissive((emissive / 255.0) * baseColor.a), baseColor.a);
-	
-	// =====================
 		
-	// ====== DEPTH & NORMAL ======
+	// Check if only glow are applied
+	//if (uGlowOnly < 1)
+	//{
+		/*
+		// ====== DIFFUSE ======
+	
+		if (uColorsExt > 0)
+		{
+			DiffuseResult = clamp(baseColor + uRGBAdd - uRGBSub, 0.0, 1.0); // Transform RGB
+			DiffuseResult = hsbtorgb(clamp(rgbtohsb(DiffuseResult) + uHSBAdd - uHSBSub, 0.0, 1.0) * uHSBMul); // Transform HSB
+			DiffuseResult = mix(DiffuseResult, uMixColor, uMixColor.a); // Mix
+			DiffuseResult = mix(DiffuseResult, uFogColor, getFog()); // Mix fog
+			DiffuseResult.a = baseColor.a; // Correct alpha
+		}
+		else 
+		{
+			DiffuseResult = mix(baseColor, uFogColor, getFog()); // Mix fog
+			DiffuseResult.a = baseColor.a; // Correct alpha
+		}
+		*/
+			
+		// =====================
+		// ====== SCENE TEST ======
+	
+		vec4 basecolor2 = texture2D(uTexture, tex) * vColor;
+		Scenetestresult = vec4(uReplaceColor.rgb, basecolor2.a);
+	
+		// =====================
+		// ====== MATERIAL & EMMISIVE ======
 	
 	
-	// Depth
-	DepthResult = packDepth(vDepth);
+		// Get material data
+		float roughness, metallic, emissive, F0, sss;
+		getMaterial(roughness, metallic, emissive, F0, sss);
 	
-	// Normal
-	NormalsResult = packNormal(getMappedNormal2(tex));
+		// Fresnel
+		vec3 N = getMappedNormal(vTexCoord);
+		vec3 V  = normalize(uCameraPosition - vPosition);
+		vec3 H  = normalize(V + -reflect(V, N));
+		float F = fresnelSchlickRoughness(max(dot(H, V), 0.0), F0, roughness);
 	
+		if (uIsSky > 0)
+			F = 0.0;
+	
+		MaterialsResult = vec4(roughness, metallic, F, 1.0);
+	
+		// Emissive
+		EmmisivesResult = vec4(packEmissive((emissive / 255.0) * baseColor.a), baseColor.a);
+	
+		// =====================
+		
+		// ====== DEPTH & NORMAL ======
+	
+	
+		// Depth
+		DepthResult = packDepth(vDepth);
+	
+		// Normal
+		NormalsResult = packNormal(getMappedNormal2(tex));
+	
+	//} // Glow Only End
+	
+	// =====================
 	// ======== GLINT ========
 	
-	if (uGlintEnabled > 0 && baseColor.a > 0.0)
+	if (uGlintEnabled > 0)
 		baseColor.rgb = pow(texture2D(uGlintTexture, (tex * ((uTextureSize / uGlintSize))) + uGlintOffset).rgb * baseColor.a * uGlintStrength, vec3(uGamma));
 	else
 		baseColor.rgb = vec3(0.0);
 	
 	Glintresult = vec4(baseColor.rgb, 1.0);
 	
-	gl_FragData[0] = DiffuseResult;
+	// =====================
+	// ====== GLOW SURFACE ====== (REUSING BASE COLOR WITH GLINT)
+	/*
+	// Glow using glint for addition and color settings
+	if (uGlow > 0)
+	{
+		// Remove invinsible since from the start it was ignored
+		baseColor = vColor * texture2D(uTexture, tex);
+				
+		if (uGlowTexture > 0)
+		{
+			if (uColorsExt > 0)
+			{
+				float baseAlpha = baseColor.a;
+				baseColor = clamp(baseColor + uRGBAdd - uRGBSub, 0.0, 1.0); // Transform RGB
+				baseColor = hsbtorgb(clamp(rgbtohsb(baseColor) + uHSBAdd - uHSBSub, 0.0, 1.0) * uHSBMul); // Transform HSB
+				baseColor = mix(baseColor, uMixColor, uMixColor.a); // Mix
+				baseColor.a = baseAlpha; // Correct alpha
+			}
+		
+			baseColor.rgb *= uGlowColor.rgb;
+		}
+		else
+			baseColor.rgb = uGlowColor.rgb;
+	
+		baseColor.rgb += Glintresult.rgb;
+		baseColor.rgb *= vec3(1.0 - getFog());
+	
+		Glowsurfaceresult = baseColor;
+	} else {
+		Glowsurfaceresult = vec4(0.0, 0.0, 0.0, 1.0);
+	} */
+	
+	gl_FragData[0] = Scenetestresult;
 	gl_FragData[1] = MaterialsResult;
 	gl_FragData[2] = EmmisivesResult;
 	gl_FragData[3] = DepthResult;

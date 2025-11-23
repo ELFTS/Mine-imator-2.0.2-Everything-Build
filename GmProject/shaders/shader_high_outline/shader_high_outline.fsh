@@ -21,6 +21,7 @@ uniform float uThresholdNormalFade;
 uniform bool uOutlineNormal;
 uniform vec4 uColor;
 uniform vec2 uScreenSize;
+uniform int uBlendMode;
 
 // Helper functions from SSAO
 float unpackValue(vec4 c) {
@@ -47,8 +48,8 @@ void main()
 	float edge;
 	
     // Skip background
-    //if (texture2D(uDepthBuffer, vTexCoord).a == 1.0)
-	//{
+    if (texture2D(uDepthBuffer, vTexCoord).a == 1.0)
+	{
 	    // Base data
 	    float centerDepth = unpackValue(texture2D(uDepthBuffer, vTexCoord));
 	    vec3 centerNormal = unpackNormal(texture2D(uNormalBuffer, vTexCoord));
@@ -112,10 +113,44 @@ void main()
 		float linearDepth = transformDepth(centerDepth * 0.225);
 		float fadeNear = smoothstep(0.5, 1.0, linearDepth);
 		edge *= fadeNear;
-	//} else {
-	//	edge = 0.0;
-	//}
+	} else {
+		edge = 0.0;
+	}
+	vec3 screenColor;
+	vec3 blend = uColor.rgb;
+
+	// NORMAL
+	if (uBlendMode == 0) {
+	    screenColor = blend;
+	}
+
+	// ADDITION
+	if (uBlendMode == 1) {
+	    screenColor = baseColor.rgb + mix(vec3(0.0), blend, edge);
+	}
+
+	// SCREEN
+	if (uBlendMode == 2) {
+	    screenColor = 1.0 - (1.0 - baseColor.rgb) * (1.0 - blend);
+	}
+
+	// MULTIPLY
+	if (uBlendMode == 3) {
+	    screenColor = baseColor.rgb * blend;
+	}
+
+	// OVERLAY
+	if (uBlendMode == 4) {
+	    screenColor = mix(
+	        2.0 * baseColor.rgb * blend,
+	        1.0 - 2.0 * (1.0 - baseColor.rgb) * (1.0 - blend),
+	        step(0.5, baseColor.rgb)
+	    );
+	}
+
+	// FINAL MIX WITH EDGE
+	vec3 finalColor = mix(baseColor.rgb, screenColor, edge);
 
     // Final toon outline color
-    gl_FragColor = mix(baseColor, vec4(uColor.rgb, 1.0), edge);
+    gl_FragColor = vec4(finalColor, baseColor.a);
 }

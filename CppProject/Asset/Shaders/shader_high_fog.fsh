@@ -19,25 +19,30 @@ varying vec4 vColor;
 varying vec2 vTexCoord;
 varying float vDepth;
 
-float getFog()
+float getFog(int check)
 {
 	float fog, fog2;
+	fog = 0.0;
+	fog2 = 0.0;
+	
 	if (uFogShow > 0)
 	{
 		float fogDepth = distance(vPosition, uCameraPosition);
 		
-		fog = clamp(1.0 - (uFogDistance - fogDepth) / uFogSize, 0.0, 1.0);
-		fog *= clamp(1.0 - (vPosition.z - uFogHeight) / uFogSize, 0.0, 1.0);
-		
-		if (uFogHeightShow > 0) {
-			fog2 = clamp(1.0 - (0.0 - fogDepth) / uFogHeightSize, 0.0, 1.0);
-			fog2 *= clamp(1.0 - (vPosition.z - uFogHeightOffset) / uFogHeightSize, 0.0, 1.0);
-			fog += fog2;
+		if (check < 1)
+		{
+			fog = clamp(1.0 - (uFogDistance - fogDepth) / uFogSize, 0.0, 1.0);
+			fog *= clamp(1.0 - (vPosition.z - uFogHeight) / uFogSize, 0.0, 1.0);
+		} else
+		{
+			if (uFogHeightShow > 0)
+			{
+				fog2 = clamp(1.0 - (0.0 - fogDepth) / uFogHeightSize, 0.0, 1.0);
+				fog2 *= clamp(1.0 - (vPosition.z - uFogHeightOffset) / uFogHeightSize, 0.0, 1.0);
+				fog += fog2;
+			} 
 		}
-		
 	}
-	else
-		fog = 0.0;
 	
 	return fog;
 }
@@ -53,8 +58,10 @@ void main()
 	vec2 tex = vTexCoord;
 	vec4 baseColor = vColor * texture2D(uTexture, tex);
 	
-	if (baseColor.a > 0.0)
-		gl_FragColor = vec4(vec3(getFog()), 1.0);
+	if (baseColor.a > 0.0) {
+		gl_FragData[0] = vec4(vec3(getFog(0)), 1.0);
+		gl_FragData[1] = vec4(vec3(getFog(1)), 1.0);
+	}
 	else
 		discard;
 	

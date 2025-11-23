@@ -39,7 +39,7 @@ function tl_update_values()
 	
 	//if(app.setting_viewport_optimization && app.window_state != "export_movie" && !selected && !value_inherit[e_value.VISIBLE])
 	//{
-	//	return 0
+	//	return 1
 	//}
 	
 	// Transition
@@ -124,6 +124,9 @@ function tl_update_values()
 		tl_update_values_ease(e_value.MODIFIER_SHAKE_ROTATION)
 		tl_update_values_ease(e_value.MODIFIER_SHAKE_BEND)
 		tl_update_values_ease(e_value.MODIFIER_SHAKE_SPEED)
+		tl_update_values_ease(e_value.MODIFIER_SHAKE_POSITION_POWER)
+		tl_update_values_ease(e_value.MODIFIER_SHAKE_ROTATION_POWER)
+		tl_update_values_ease(e_value.MODIFIER_SHAKE_BEND_POWER)
 		tl_update_values_ease(e_value.MODIFIER_SHAKE_INTENSITY)
 		tl_update_values_ease(e_value.MODIFIER_SHAKE_OFFSET)
 		tl_update_values_ease(e_value.MODIFIER_SHAKE_OFFSET_AUTOMATIC)
@@ -255,6 +258,8 @@ function tl_update_values()
 		tl_update_values_ease(e_value.CAM_BRIGHTNESS)
 		tl_update_values_ease(e_value.CAM_SATURATION)
 		tl_update_values_ease(e_value.CAM_VIBRANCE)
+		tl_update_values_ease(e_value.CAM_COLOR_INVERT)
+		tl_update_values_ease(e_value.CAM_COLOR_INVERT_INTENSITY)
 		tl_update_values_ease(e_value.CAM_COLOR_BURN)
 		
 		tl_update_values_ease(e_value.CAM_GRAIN)
@@ -308,6 +313,7 @@ function tl_update_values()
 		tl_update_values_ease(e_value.CAM_OUTLINE_NORMAL)
 		tl_update_values_ease(e_value.CAM_OUTLINE_NORMAL_THRESHOLD)
 		tl_update_values_ease(e_value.CAM_OUTLINE_NORMAL_THRESHOLD_FADE)
+		tl_update_values_ease(e_value.CAM_OUTLINE_BLEND_MODE)
 	}
 	
 	// Background
@@ -351,6 +357,7 @@ function tl_update_values()
 		tl_update_values_ease(e_value.BG_LEAVES_DARK_OAK_COLOR)
 		tl_update_values_ease(e_value.BG_LEAVES_MANGROVE_COLOR)
 		tl_update_values_ease(e_value.BG_FOG_SHOW)
+		tl_update_values_ease(e_value.BG_FOG_HEIGHT_SHOW)
 		tl_update_values_ease(e_value.BG_FOG_SKY)
 		tl_update_values_ease(e_value.BG_FOG_CUSTOM_COLOR)
 		tl_update_values_ease(e_value.BG_FOG_COLOR)
@@ -359,6 +366,10 @@ function tl_update_values()
 		tl_update_values_ease(e_value.BG_FOG_DISTANCE)
 		tl_update_values_ease(e_value.BG_FOG_SIZE)
 		tl_update_values_ease(e_value.BG_FOG_HEIGHT)
+		tl_update_values_ease(e_value.BG_FOG_HEIGHT_SIZE)
+		tl_update_values_ease(e_value.BG_FOG_HEIGHT_OFFSET)
+		tl_update_values_ease(e_value.BG_FOG_HEIGHT_CUSTOM_COLOR)
+		tl_update_values_ease(e_value.BG_FOG_HEIGHT_COLOR)
 		tl_update_values_ease(e_value.BG_WIND)
 		tl_update_values_ease(e_value.BG_WIND_STRENGTH)
 		tl_update_values_ease(e_value.BG_WIND_SPEED)

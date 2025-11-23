@@ -151,6 +151,18 @@ function tab_timeline_editor_appearance()
 		draw_checkbox("timelineeditorlqhiding", dx, dy, tl_edit.lq_hiding, action_tl_lq_hiding)
 		tab_next()
 		
+		// Low quality hiding
+		tab_control_checkbox()
+		draw_checkbox("timelineeditordepthignore", dx, dy, tl_edit.depth_ignore, action_tl_depth_ignore)
+		tab_next()
+		
+		/*
+		// Volume Mode
+		tab_control_checkbox()
+		draw_checkbox("timelineeditorvolumemode", dx, dy, tl_edit.volume_mode, action_tl_volume_mode)
+		tab_next()
+		*/
+		
 		tab_set_collumns(false)
 	}
 	else

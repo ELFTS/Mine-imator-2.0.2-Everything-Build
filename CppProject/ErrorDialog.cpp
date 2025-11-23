@@ -55,8 +55,8 @@ namespace CppProject
 
 		// Close
 		QPushButton* button4 = new QPushButton("Restart");
-		QPushButton* button5 = new QPushButton("Abort");
-		button4->connect(button4, &QPushButton::released, [&]() { QDesktopServices::openUrl(QUrl("Mine-imator.exe")); QDialog::close(); });
+		QPushButton* button5 = new QPushButton("Bruh");
+		button4->connect(button4, &QPushButton::released, [&]() { QDesktopServices::openUrl(QUrl("Mine-imator SU.exe")); QDialog::close(); });
 		button5->connect(button5, &QPushButton::released, [&]() { QDialog::close(); });
 		button4->setFixedSize(88, 28);
 		button5->setFixedSize(88, 28);

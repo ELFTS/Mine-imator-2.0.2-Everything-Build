@@ -503,6 +503,8 @@ function shader_startup()
 		new_shader_uniform("uBrightness")
 		new_shader_uniform("uSaturation")
 		new_shader_uniform("uVibrance")
+		new_shader_uniform("uInvert")
+		new_shader_uniform("uInvertBlend")
 		new_shader_uniform("uColorBurn")
 	}
 	
@@ -793,6 +795,7 @@ function shader_startup()
 		new_shader_uniform("uThresholdNormal")
 		new_shader_uniform("uThresholdNormalFade")
 		new_shader_uniform("uOutlineNormal")
+		new_shader_uniform("uBlendMode")
 	}
 	
 	with (shader_map[?shader_high_wolviza])
@@ -824,6 +827,12 @@ function shader_startup()
 		new_shader_uniform("uHSBMul")
 		new_shader_uniform("uMixColor")
 		new_shader_uniform("uIsSky")
+		new_shader_uniform("uReplaceColor")
+		/*
+		new_shader_uniform("uGlow")
+		new_shader_uniform("uGlowTexture")
+		new_shader_uniform("uGlowColor")
+		new_shader_uniform("uGlowOnly") */
 	}
 	
 	with (shader_map[?shader_high_wolviza_gm])

@@ -579,6 +579,12 @@ function app_startup_interface_tabs()
 			tbx_ik_angle_offset.suffix = "°"
 			
 			// Modifier
+			tbx_modifier_shake_position_power = new_textbox_decimals()
+			tbx_modifier_shake_position_power.suffix = "x"
+			tbx_modifier_shake_rotation_power = new_textbox_decimals()
+			tbx_modifier_shake_rotation_power.suffix = "x"
+			tbx_modifier_shake_bend_power = new_textbox_decimals()
+			tbx_modifier_shake_bend_power.suffix = "x"
 			tbx_modifier_shake_intensity = new_textbox_decimals()
 			tbx_modifier_shake_intensity.suffix = "%"
 			tbx_modifier_shake_speed = new_textbox_decimals()
@@ -735,6 +741,8 @@ function app_startup_interface_tabs()
 			tbx_saturation.suffix = "%"
 			tbx_vibrance = new_textbox_integer()
 			tbx_vibrance.suffix = "%"
+			tbx_invert_strength = new_textbox_integer()
+			tbx_invert_strength.suffix = "%"
 			
 			tbx_grain_strength = new_textbox_ninteger()
 			tbx_grain_strength.suffix = "%"

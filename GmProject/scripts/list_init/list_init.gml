@@ -1421,6 +1421,15 @@ function list_init(name)
 			break
 		}
 		
+		// Outline Camera Blend mode
+		case "frameeditorcameraoutlineblendmode":
+		{
+			for (var i = 0; i < ds_list_size(outline_blend_mode_list); i++)
+				menu_add_item(outline_blend_mode_list[|i], text_get("frameeditorcameraoutlineblendmode" + outline_blend_mode_list[|i]))
+			
+			break
+		}
+		
 		case "armoreditorpatternhelmet":
 		case "armoreditorpatternchestplate":
 		case "armoreditorpatternleggings":

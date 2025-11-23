@@ -12,6 +12,9 @@ function tl_value_is_bool(vid)
 			vid = e_value.BG_GROUND_SHOW ||
 			vid = e_value.BG_FOG_SHOW ||
 			vid = e_value.BG_FOG_HEIGHT_SHOW ||
+			vid = e_value.BG_FOG_CUSTOM_COLOR ||
+			vid = e_value.BG_FOG_CUSTOM_OBJECT_COLOR ||
+			vid = e_value.BG_FOG_HEIGHT_CUSTOM_COLOR ||
 			vid = e_value.BG_WIND ||
 			vid = e_value.CAM_LIGHT_MANAGEMENT ||
 			vid = e_value.CAM_ROTATE ||
@@ -23,6 +26,7 @@ function tl_value_is_bool(vid)
 			vid = e_value.CAM_LENS_DIRT_BLOOM ||
 			vid = e_value.CAM_LENS_DIRT_GLOW ||
 			vid = e_value.CAM_COLOR_CORRECTION ||
+			vid = e_value.CAM_COLOR_INVERT ||
 			vid = e_value.CAM_GRAIN ||
 			vid = e_value.CAM_VIGNETTE ||
 			vid = e_value.CAM_CA ||

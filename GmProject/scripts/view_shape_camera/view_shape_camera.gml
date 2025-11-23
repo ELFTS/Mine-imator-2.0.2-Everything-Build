@@ -61,7 +61,7 @@ function view_shape_camera_frustum(tl)
 		point3D(((far) * ratio), (cam_far / 2), far) //ftl
 	)
 	
-	
+	/*
 	var viewfrustum = array(
 		view_shape_project(point3D_mul_matrix(viewfrustumpoints[0], tl.matrix)),
 		view_shape_project(point3D_mul_matrix(viewfrustumpoints[1], tl.matrix)),
@@ -72,6 +72,7 @@ function view_shape_camera_frustum(tl)
 		view_shape_project(point3D_mul_matrix(viewfrustumpoints[6], tl.matrix)),
 		view_shape_project(point3D_mul_matrix(viewfrustumpoints[7], tl.matrix))
 	)
+	*/
 	
 	/*
 	// Frustum edge triangles

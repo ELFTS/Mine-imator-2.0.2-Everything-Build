@@ -63,7 +63,7 @@ float getFog()
 		if (uFogHeightShow > 0) {
 			fog2 = clamp(1.0 - (0.0 - fogDepth) / uFogHeightSize, 0.0, 1.0);
 			fog2 *= clamp(1.0 - (vPosition.z - uFogHeightOffset) / uFogHeightSize, 0.0, 1.0);
-			fog += fog2;
+			fog = 1.0 - (1.0 - fog) * (1.0 - fog2);
 		}
 	}
 	else

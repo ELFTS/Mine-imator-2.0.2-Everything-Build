@@ -278,6 +278,8 @@ namespace CppProject
 			win->ShowNormal();
 		}
 
+		win->show();
+
 		win->UpdateSize();
 		return win;
 	}
@@ -336,6 +338,7 @@ namespace CppProject
 				{
 					new app;
 					app_event_create(global::_app->id);
+					win->setWindowFlags(Qt::FramelessWindowHint);
 				}
 
 				app_event_step(global::_app->id);
@@ -369,6 +372,7 @@ namespace CppProject
 				win->mouseLocked = win->mouseUnlock = false;
 
 			win->Present();
+
 			win->UpdateSize();
 		}
 

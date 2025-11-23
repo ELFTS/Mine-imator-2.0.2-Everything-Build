@@ -481,6 +481,19 @@ function tab_properties_background()
 		
 		if (background_fog_height_show) {
 			tab_collapse_start()
+		
+			// Custom height color
+			tab_control_switch()
+			draw_switch("backgroundfogheightcolorcustom", dx, dy, background_fog_height_color_custom, action_background_fog_height_color_custom)
+			tab_next()
+		
+			// Fog height color
+			if (background_fog_height_color_custom)
+			{
+				tab_control_color()
+				draw_button_color("backgroundfogheightcolor", dx, dy, dw, background_fog_height_color, c_sky, false, action_background_fog_height_color)
+				tab_next()
+			}
 			
 			// Height Fog size
 			tab_control_dragger()

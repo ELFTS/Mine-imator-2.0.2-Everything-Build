@@ -19,6 +19,7 @@ uniform float uFogSize; // static
 uniform float uFogHeight; // static
 uniform float uFogHeightSize; // static
 uniform float uFogHeightOffset; // static
+uniform vec4 uFogHeightColor; // static
 
 uniform vec3 uCameraPosition; // static
 
@@ -45,26 +46,28 @@ vec4 hsbtorgb(vec4 c)
 	return vec4(c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y), c.a);
 }
 
-float getFog()
+vec2 getFog()
 {
-	float fog, fog2;
-	if (uFogShow > 0)
-	{
-		float fogDepth = distance(vPosition, uCameraPosition);
-		
-		fog = clamp(1.0 - (uFogDistance - fogDepth) / uFogSize, 0.0, 1.0);
-		fog *= clamp(1.0 - (vPosition.z - uFogHeight) / uFogSize, 0.0, 1.0);
-		
-		if (uFogHeightShow > 0) {
-			fog2 = clamp(1.0 - (0.0 - fogDepth) / uFogHeightSize, 0.0, 1.0);
-			fog2 *= clamp(1.0 - (vPosition.z - uFogHeightOffset) / uFogHeightSize, 0.0, 1.0);
-			fog += fog2;
-		}
-	}
-	else
-		fog = 0.0;
-	
-	return fog;
+    float fog1 = 0.0;
+    float fog2 = 0.0;
+
+    if (uFogShow > 0)
+    {
+        float fogDepth = distance(vPosition, uCameraPosition);
+
+        // Main fog
+        fog1 = clamp(1.0 - (uFogDistance - fogDepth) / uFogSize, 0.0, 1.0);
+        fog1 *= clamp(1.0 - (vPosition.z - uFogHeight) / uFogSize, 0.0, 1.0);
+
+        // Height fog
+        if (uFogHeightShow > 0)
+        {
+            fog2 = clamp(1.0 - (0.0 - fogDepth) / uFogHeightSize, 0.0, 1.0);
+            fog2 *= clamp(1.0 - (vPosition.z - uFogHeightOffset) / uFogHeightSize, 0.0, 1.0);
+        }
+    }
+
+    return vec2(fog1, fog2);
 }
 
 float hash(vec2 c)
@@ -83,12 +86,23 @@ void main()
 		gl_FragColor = clamp(baseColor + uRGBAdd - uRGBSub, 0.0, 1.0); // Transform RGB
 		gl_FragColor = hsbtorgb(clamp(rgbtohsb(gl_FragColor) + uHSBAdd - uHSBSub, 0.0, 1.0) * uHSBMul); // Transform HSB
 		gl_FragColor = mix(gl_FragColor, uMixColor, uMixColor.a); // Mix
-		gl_FragColor = mix(gl_FragColor, uFogColor, getFog()); // Mix fog
+		
+		vec2 fog = getFog();
+
+		gl_FragColor = mix(gl_FragColor, uFogHeightColor, fog.y);
+		gl_FragColor = mix(gl_FragColor, uFogColor, fog.x);
+
 		gl_FragColor.a = baseColor.a; // Correct alpha
 	}
 	else 
 	{
-		gl_FragColor = mix(baseColor, uFogColor, getFog()); // Mix fog
+		gl_FragColor = baseColor;
+		
+		vec2 fog = getFog();
+
+		gl_FragColor = mix(gl_FragColor, uFogHeightColor, fog.y);
+		gl_FragColor = mix(gl_FragColor, uFogColor, fog.x);
+
 		gl_FragColor.a = baseColor.a; // Correct alpha
 	}
 	

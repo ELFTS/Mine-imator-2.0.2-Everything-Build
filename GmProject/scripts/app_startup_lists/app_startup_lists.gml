@@ -12,7 +12,7 @@ function app_startup_lists()
 	globalvar minecraft_armor_trim_pattern_list, minecraft_armor_trim_material_list;
 	globalvar minecraft_map_color_array, minecraft_swatch_array, minecraft_swatch_color_map, minecraft_swatch_dyes;
 	globalvar biome_list, particle_template_list, particle_template_map;
-	globalvar blend_mode_list, blend_mode_map;
+	globalvar blend_mode_list, blend_mode_map, outline_blend_mode_list;
 	globalvar timeline_icon_list, timeline_icon_list_dark;
 	globalvar render_pass_list;
 	
@@ -123,6 +123,8 @@ function app_startup_lists()
 		"CAM_BRIGHTNESS",
 		"CAM_SATURATION",
 		"CAM_VIBRANCE",
+		"CAM_COLOR_INVERT",
+		"CAM_COLOR_INVERT_INTENSITY",
 		"CAM_COLOR_BURN",
 		"CAM_GRAIN",
 		"CAM_GRAIN_STRENGTH",
@@ -167,6 +169,7 @@ function app_startup_lists()
 		"CAM_OUTLINE_NORMAL",
 		"CAM_OUTLINE_NORMAL_THRESHOLD",
 		"CAM_OUTLINE_NORMAL_THRESHOLD_FADE",
+		"CAM_OUTLINE_BLEND_MODE",
 		"BG_IMAGE_SHOW",
 		"BG_IMAGE_ROTATION",
 		"BG_SKY_MOON_PHASE",
@@ -216,6 +219,8 @@ function app_startup_lists()
 		"BG_FOG_HEIGHT",
 		"BG_FOG_HEIGHT_SIZE",
 		"BG_FOG_HEIGHT_OFFSET",
+		"BG_FOG_HEIGHT_CUSTOM_COLOR",
+		"BG_FOG_HEIGHT_COLOR",
 		"BG_WIND",
 		"BG_WIND_SPEED",
 		"BG_WIND_STRENGTH",
@@ -255,6 +260,9 @@ function app_startup_lists()
 		"MODIFIER_SHAKE_ROTATION",
 		"MODIFIER_SHAKE_BEND",
 		"MODIFIER_SHAKE_SPEED",
+		"MODIFIER_SHAKE_POSITION_POWER",
+		"MODIFIER_SHAKE_ROTATION_POWER",
+		"MODIFIER_SHAKE_BEND_POWER",
 		"MODIFIER_SHAKE_INTENSITY",
 		"MODIFIER_SHAKE_OFFSET",
 		"MODIFIER_SHAKE_OFFSET_AUTOMATIC",
@@ -494,12 +502,22 @@ function app_startup_lists()
 		"screen"
 	)
 	
+	outline_blend_mode_list = ds_list_create()
+	ds_list_add(outline_blend_mode_list,
+		"normal",
+		"add",
+		"screen",
+		"multiply",
+		"overlay"
+	)
+	
 	blend_mode_map = ds_map_create()
 	ds_map_add(blend_mode_map, "normal", bm_normal)
 	ds_map_add(blend_mode_map, "add", bm_add)
 	ds_map_add(blend_mode_map, "subtract", bm_subtract)
 	ds_map_add(blend_mode_map, "multiply", array(bm_zero, bm_src_color))
 	ds_map_add(blend_mode_map, "screen", array(bm_one, bm_inv_src_color))
+	
 	
 	// List of icons in sync with e_tl_type
 	/*

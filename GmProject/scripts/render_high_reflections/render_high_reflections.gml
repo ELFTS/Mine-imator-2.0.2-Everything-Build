@@ -12,9 +12,9 @@ function render_high_reflections(surf)
 		draw_clear_alpha(c_black, 1)
 		
 		if (project_render_engine){
-		render_shader_obj = shader_map[?shader_high_raytrace_EX]
+			render_shader_obj = shader_map[?shader_high_raytrace_EX]
 		}else{
-		render_shader_obj = shader_map[?shader_high_raytrace]
+			render_shader_obj = shader_map[?shader_high_raytrace]
 		}
 		
 		with (render_shader_obj)
@@ -37,9 +37,9 @@ function render_high_reflections(surf)
 	{
 		draw_clear_alpha(c_black, 0)
 		if (project_render_engine){
-		render_shader_obj = shader_map[?shader_high_raytrace_resolve_EX]
+			render_shader_obj = shader_map[?shader_high_raytrace_resolve_EX]
 		}else{
-		render_shader_obj = shader_map[?shader_high_raytrace_resolve]
+			render_shader_obj = shader_map[?shader_high_raytrace_resolve]
 		}
 		with (render_shader_obj)
 		{
@@ -51,6 +51,30 @@ function render_high_reflections(surf)
 		
 		with (render_shader_obj)
 			shader_clear()
+		
+		// Bilateral Blur
+		/*
+		if (app.project_render_engine)
+		{
+			render_surface_hdr[1] = surface_require(render_surface_hdr[1], render_width, render_height, true)
+			surface_copy(render_surface_hdr[1], 0, 0, render_surface_hdr[0])
+			
+			draw_clear_alpha(c_black, 0)
+			
+			render_shader_obj = shader_map[?shader_bilateral_blur]
+
+			with (render_shader_obj)
+			{
+				shader_set(shader)
+				shader_bilateral_blur_set(render_surface_hdr[1])
+			}
+
+			draw_surface(render_surface_hdr[1], 0, 0)
+
+			with (render_shader_obj)
+				shader_clear()
+		}
+		*/
 	}
 	surface_reset_target()
 	

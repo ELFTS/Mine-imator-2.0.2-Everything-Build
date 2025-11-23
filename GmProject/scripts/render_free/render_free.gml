@@ -18,10 +18,14 @@ function render_free()
 	surface_free(render_surface_emissive)
 	surface_free(render_surface_diffuse)
 	surface_free(render_surface_glint)
+	surface_free(render_surface_scene_test)
+	surface_free(render_surface_alpha_fix)
+	surface_free(render_surface_glow_cache)
 	
 	// Rendering
 	surface_free(render_surface_shadows)
 	surface_free(render_surface_specular)
+	surface_free(render_surface_volumetric)
 	
 	// Camera effects
 	surface_free(render_surface_lens)
@@ -38,5 +42,4 @@ function render_free()
 	surface_free(render_surface_spot_buffer)
 	surface_free(render_surface_point_buffer)
 	surface_free(render_surface_point_atlas_buffer)
-	surface_free(render_surface_glow_cache)
 }

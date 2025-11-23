@@ -109,7 +109,8 @@ function render_startup()
 	globalvar render_target, render_surface, render_surface_hdr, render_surface_depth, render_surface_normal, render_surface_emissive, 
 			  render_surface_diffuse, render_surface_material, render_surface_shadows, render_surface_specular, render_surface_lens, 
 			  render_surface_sample_expo, render_surface_sample_dec, render_surface_sample_alpha, depth_near, depth_far, render_post_index,
-			  render_surface_glow_cache, render_surface_glint;
+			  render_surface_glow_cache, render_surface_glint, render_surface_scene_test, render_surface_alpha_fix,
+			  render_surface_volumetric;
 			
 	render_target = null
 	render_surface[0] = null
@@ -126,6 +127,9 @@ function render_startup()
 	render_surface_emissive = null
 	render_surface_diffuse = null
 	render_surface_glint = null
+	render_surface_scene_test = null
+	render_surface_alpha_fix = null
+	render_surface_volumetric = null
 	
 	render_surface_shadows = null
 	render_surface_specular = null

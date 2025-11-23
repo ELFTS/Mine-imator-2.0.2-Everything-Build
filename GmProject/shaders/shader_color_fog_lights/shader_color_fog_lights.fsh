@@ -20,10 +20,14 @@ uniform vec4 uHSBMul;
 uniform vec4 uMixColor;
 
 uniform int uFogShow;
+uniform int uFogHeightShow;
 uniform vec4 uFogColor; // static
 uniform float uFogDistance; // static
 uniform float uFogSize; // static
 uniform float uFogHeight; // static
+uniform float uFogHeightSize; // static
+uniform float uFogHeightOffset; // static
+uniform vec4 uFogHeightColor; // static
 
 uniform float uDefaultEmissive;
 uniform float uDefaultSubsurface;
@@ -67,20 +71,28 @@ vec4 hsbtorgb(vec4 c)
 	return vec4(c.z * mix(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y), c.a);
 }
 
-float getFog()
+vec2 getFog()
 {
-	float fog;
-	if (uFogShow > 0)
-	{
-		float fogDepth = distance(vPosition, uCameraPosition);
-		
-		fog = clamp(1.0 - (uFogDistance - fogDepth) / uFogSize, 0.0, 1.0);
-		fog *= clamp(1.0 - (vPosition.z - uFogHeight) / uFogSize, 0.0, 1.0);
-	}
-	else
-		fog = 0.0;
-	
-	return fog;
+    float fog1 = 0.0;
+    float fog2 = 0.0;
+
+    if (uFogShow > 0)
+    {
+        float fogDepth = distance(vPosition, uCameraPosition);
+
+        // Main fog
+        fog1 = clamp(1.0 - (uFogDistance - fogDepth) / uFogSize, 0.0, 1.0);
+        fog1 *= clamp(1.0 - (vPosition.z - uFogHeight) / uFogSize, 0.0, 1.0);
+
+        // Height fog
+        if (uFogHeightShow > 0)
+        {
+            fog2 = clamp(1.0 - (0.0 - fogDepth) / uFogHeightSize, 0.0, 1.0);
+            fog2 *= clamp(1.0 - (vPosition.z - uFogHeightOffset) / uFogHeightSize, 0.0, 1.0);
+        }
+    }
+
+    return vec2(fog1, fog2);
 }
 
 // Fresnel Schlick approximation
@@ -284,7 +296,11 @@ void main()
 		col.rgb = pow(col.rgb, vec3(1.0/uGamma));
 	}
 	
-	col = mix(col, uFogColor, getFog()); // Mix fog
+	vec2 fog = getFog();
+
+	col = mix(col, uFogHeightColor, fog.y);
+	col = mix(col, uFogColor, fog.x);
+		
 	col.a = mix(baseColor.a, 1.0, F); // Correct alpha
 	
 	if (uAlphaHash > 0)

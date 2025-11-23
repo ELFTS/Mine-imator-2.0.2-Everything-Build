@@ -45,13 +45,18 @@ function render_high_scene()
 		render_pass_surf = surface_duplicate(masksurf)
 	
 	// Render lighting mask for background
-	if (!project_render_performance_mode_skipsky || !project_render_performance_mode) {
+	if ((!project_render_performance_mode_skipsky || !project_render_performance_mode) || !project_render_legacy_rendering) {
 		surface_set_target(masksurf)
 		{
 			draw_clear(c_black)
-			render_world_start()
-			render_world(e_render_mode.SCENE_TEST)
-			render_world_done()
+			if (project_render_legacy_rendering)
+			{
+				render_world_start()
+				render_world(e_render_mode.SCENE_TEST)
+				render_world_done()
+			} else {
+				draw_surface(render_surface_scene_test, 0, 0)
+			}
 		
 			// 2D mode
 			render_set_projection_ortho(0, 0, render_width, render_height, 0)

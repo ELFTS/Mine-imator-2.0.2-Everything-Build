@@ -126,7 +126,7 @@ function settings_startup()
 	setting_export_image_include_hidden = false
 	setting_export_image_high_quality = true
 	setting_export_image_watermark = trial_version
-	setting_export_optimization = false
+	setting_export_optimization = true
 	
 	project_render_pass = e_render_pass.COMBINED
 	

@@ -35,5 +35,6 @@ function tl_value_is_color(vid)
 			vid = e_value.BG_LEAVES_DARK_OAK_COLOR ||
 			vid = e_value.BG_LEAVES_MANGROVE_COLOR ||
 			vid = e_value.BG_FOG_COLOR ||
+			vid = e_value.BG_FOG_HEIGHT_COLOR ||
 			vid = e_value.TEXT_OUTLINE_COLOR)
 }

@@ -6,7 +6,7 @@ function render_world_sky_clouds()
 	if (!background_sky_clouds_show || !render_background || render_mode = e_render_mode.DEPTH_NO_SKY)
 		return 0
 	
-	if (render_mode = e_render_mode.SCENE_TEST || render_mode = e_render_mode.AO_MASK)
+	if (render_mode = e_render_mode.SCENE_TEST || render_mode = e_render_mode.AO_MASK || render_mode = e_render_mode.WOLVIZA)
 		render_set_uniform_color("uReplaceColor", c_black, 1)
 	
 	var res = background_sky_clouds_tex;

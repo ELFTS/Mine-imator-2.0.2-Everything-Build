@@ -4,6 +4,8 @@ uniform float uContrast;
 uniform float uBrightness;
 uniform float uSaturation;
 uniform float uVibrance;
+uniform bool uInvert;
+uniform float uInvertBlend;
 uniform vec4 uColorBurn;
 
 vec4 rgbtohsb(vec4 c)
@@ -38,6 +40,12 @@ void main()
 	float vibrance = 1.0 - pow(pow(sat, 8.0), .15);
 	baseColor.rgb = mix(satIntensity, baseColor.rgb, 1.0 + (vibrance * uVibrance));
 	baseColor.rgb = clamp(baseColor.rgb, vec3(0.0), vec3(1.0));
+	
+	if (uInvert)
+	{
+		vec4 InvertedBase = vec4(1.0 - baseColor.rgb, baseColor.a);
+		baseColor = mix(baseColor, InvertedBase, uInvertBlend);
+	}
 	
 	// Color burn
 	baseColor.rgb = 1.0 - (1.0 - baseColor.rgb) / uColorBurn.rgb; 

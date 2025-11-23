@@ -1,6 +1,6 @@
 #define AppName "Mine-imator"
 #define AppVersion ""
-#define AppYear "2023"
+#define AppYear "2025"
 #define AppURL "https://www.mineimator.com"
 #define AppPublisher "David Andrei"
 #define AppPublisherURL "https://www.stuffbydavid.com"

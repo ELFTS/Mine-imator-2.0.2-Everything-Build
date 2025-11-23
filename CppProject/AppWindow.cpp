@@ -96,9 +96,11 @@ namespace CppProject
 	{
 	#if API_OPENGL
 		glWidget->hide(); // Mac OS fix
+		QMainWindow::setWindowFlags(!Qt::FramelessWindowHint);
 		QMainWindow::showMaximized();
 		glWidget->show();
 	#else
+		QMainWindow::setWindowFlags(!Qt::FramelessWindowHint);
 		QMainWindow::showMaximized();
 	#endif
 	}

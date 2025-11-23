@@ -48,6 +48,7 @@ function shader_use()
 		render_set_uniform("uFogHeight", app.background_fog_height)
 		render_set_uniform("uFogHeightSize", app.background_fog_height_size)	
 		render_set_uniform("uFogHeightOffset", app.background_fog_height_offset)
+		render_set_uniform_color("uFogHeightColor", app.background_fog_height_color_final, 1)
 	}
 	
 	// Set camera position

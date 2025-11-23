@@ -37,32 +37,6 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
 		if (curtl.modifier_shake) {
 			curtl.update_matrix = true
 		}
-	
-		// Frame Skip modifier check
-		if (((curtl.value[e_value.MODIFIER_FRAMESKIP]) || curtl.value_inherit[e_value.MODIFIER_FRAMESKIP]) && (!curtl.selected && !curtl.parent_is_selected)) {
-			//Inherit Frame Skip
-			if (curtl.value_inherit[e_value.MODIFIER_FRAMESKIP] && curtl.inherit_modifier_frameskip) {
-				if (curtl.value_inherit[e_value.MODIFIER_FRAMESKIP_VALUE] > 0) {
-					curtl.frameskip_before = round(curtl.frameskip_before / curtl.value_inherit[e_value.MODIFIER_FRAMESKIP_VALUE])
-				
-					if (round(app.timeline_marker / curtl.value_inherit[e_value.MODIFIER_FRAMESKIP_VALUE]) == curtl.frameskip_before)
-						curtl.update_matrix = false
-					
-					curtl.frameskip_before = app.timeline_marker
-				}
-			}
-			else
-			{
-				if (curtl.value[e_value.MODIFIER_FRAMESKIP_VALUE] > 0) {
-					curtl.frameskip_before = round(curtl.frameskip_before / curtl.value[e_value.MODIFIER_FRAMESKIP_VALUE])
-				
-					if (round(app.timeline_marker / curtl.value[e_value.MODIFIER_FRAMESKIP_VALUE]) == curtl.frameskip_before)
-						curtl.update_matrix = false
-					
-					curtl.frameskip_before = app.timeline_marker
-				}
-			}
-		}
 		
 		if (!curtl.update_matrix)
 			continue
@@ -84,6 +58,34 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
 			curtl.update_matrix = false
 			continue
 		}
+		
+		// Frame Skip modifier check
+		curtl.modifier_frameskipped = false
+		if (((curtl.value[e_value.MODIFIER_FRAMESKIP]) || curtl.value_inherit[e_value.MODIFIER_FRAMESKIP]) && (!curtl.selected && !curtl.parent_is_selected)) {
+			//Inherit Frame Skip
+			if (curtl.value_inherit[e_value.MODIFIER_FRAMESKIP] && curtl.inherit_modifier_frameskip) {
+				if (curtl.value_inherit[e_value.MODIFIER_FRAMESKIP_VALUE] > 0) {
+					curtl.frameskip_before = round(curtl.frameskip_before / curtl.value_inherit[e_value.MODIFIER_FRAMESKIP_VALUE])
+				
+					if (round(app.timeline_marker / curtl.value_inherit[e_value.MODIFIER_FRAMESKIP_VALUE]) == curtl.frameskip_before)
+						curtl.modifier_frameskipped = true
+					
+					curtl.frameskip_before = app.timeline_marker
+				}
+			}
+			else
+			{
+				if (curtl.value[e_value.MODIFIER_FRAMESKIP_VALUE] > 0) {
+					curtl.frameskip_before = round(curtl.frameskip_before / curtl.value[e_value.MODIFIER_FRAMESKIP_VALUE])
+				
+					if (round(app.timeline_marker / curtl.value[e_value.MODIFIER_FRAMESKIP_VALUE]) == curtl.frameskip_before)
+						curtl.modifier_frameskipped = true
+					
+					curtl.frameskip_before = app.timeline_marker
+				}
+			}
+		}
+		
 		
 		with (curtl)
 		{
@@ -153,9 +155,18 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
 			}
 			
 			// Create main matrix
-			pos = point3D(value[e_value.POS_X] + shakepos[0], value[e_value.POS_Y] + shakepos[1], value[e_value.POS_Z] + shakepos[2])
-			rot = vec3(value[e_value.ROT_X] + shakerot[0], value[e_value.ROT_Y] + shakerot[1], value[e_value.ROT_Z] + shakerot[2])
-			sca = vec3(value[e_value.SCA_X], value[e_value.SCA_Y], value[e_value.SCA_Z])
+			if (!modifier_frameskipped) {
+				pos = point3D(value[e_value.POS_X] + shakepos[0], value[e_value.POS_Y] + shakepos[1], value[e_value.POS_Z] + shakepos[2])
+				rot = vec3(value[e_value.ROT_X] + shakerot[0], value[e_value.ROT_Y] + shakerot[1], value[e_value.ROT_Z] + shakerot[2])
+				sca = vec3(value[e_value.SCA_X], value[e_value.SCA_Y], value[e_value.SCA_Z])
+				pos_prev = pos
+				rot_prev = rot
+				sca_prev = sca
+			} else {
+				pos = pos_prev
+				rot = rot_prev
+				sca = sca_prev
+			}
 			
 			matrix_local = matrix_create(pos, rot, sca)
 			matrix = matrix_multiply(matrix_local, matrix_parent)
@@ -284,6 +295,9 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
 					break
 				tl = par
 			}
+			
+			if (modifier_frameskipped)
+				continue
 			
 			// Inherit
 			lasttex = value_inherit[e_value.TEXTURE_OBJ]

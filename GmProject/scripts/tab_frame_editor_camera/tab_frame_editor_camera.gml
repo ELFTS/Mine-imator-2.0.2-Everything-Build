@@ -350,7 +350,12 @@ function tab_frame_editor_camera()
 		tab_control_dragger()
 		draw_dragger("frameeditorcameraoutlinenormalthresholdfade", dx, dy, dragger_width, tl_edit.value[e_value.CAM_OUTLINE_NORMAL_THRESHOLD_FADE] * 100, 1, snap_min, no_limit, 100, 1, tab.camera.tbx_outline_normal_threshold_fade, action_tl_frame_cam_outline_normal_threshold_fade, null, true, !tl_edit.value[e_value.CAM_OUTLINE_NORMAL])
 		tab_next()
-			
+		
+		// Outline Blend mode
+		tab_control_menu()
+		draw_button_menu("frameeditorcameraoutlineblendmode", e_menu.LIST, dx, dy, dw, 24, tl_edit.value[e_value.CAM_OUTLINE_BLEND_MODE], text_get("frameeditorcameraoutlineblendmode" + string(tl_edit.value[e_value.CAM_OUTLINE_BLEND_MODE])), action_tl_frame_cam_outline_blend_mode)
+		tab_next()
+		
 		tab_collapse_end(false)
 	}
 	
@@ -475,6 +480,15 @@ function tab_frame_editor_camera()
 		
 		tab_control_dragger()
 		draw_dragger("frameeditorcameracolorcorrectionvibrance", dx, dy, dragger_width, round(tl_edit.value[e_value.CAM_VIBRANCE] * 100), .1, 0, no_limit * 100, 0, 1, tab.camera.tbx_vibrance, action_tl_frame_cam_clrcor_vibrance)
+		tab_next()
+		
+		// Invert Color
+		tab_control_switch()
+		draw_switch("frameeditorcameracolorcorrectioninvert", dx, dy, tl_edit.value[e_value.CAM_COLOR_INVERT], action_tl_frame_cam_clrcor_invert)
+		tab_next()
+		
+		tab_control_dragger()
+		draw_dragger("frameeditorcameracolorcorrectioninvertstrength", dx, dy, dragger_width, round(tl_edit.value[e_value.CAM_COLOR_INVERT_INTENSITY] * 100), .1, 0, 100, 0, 1, tab.camera.tbx_invert_strength, action_tl_frame_cam_clrcor_invert_strength, null, true, !tl_edit.value[e_value.CAM_COLOR_INVERT])
 		tab_next()
 		
 		tab_control_color()

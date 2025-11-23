@@ -61,12 +61,17 @@ function tl_event_create()
 	
 	frameskip_before = -1
 	
+	modifier_frameskipped = false
 	modifier_step = 0
 	modifier_shake_pos = vec3(0)
 	modifier_shake_rot = vec3(0)
 	modifier_shake_bend = vec3(0)
 	modifier_shake = false
 	modifier_shake_auto_offset = random_range(-1000.0, 1000.0)
+	
+	pos_prev = vec3(0)
+	rot_prev = vec3(0)
+	sca_prev = vec3(0)
 	
 	world_pos = point3D(0, 0, 0)
 	world_pos_rotate = point3D(0, 0, 0)
@@ -123,6 +128,8 @@ function tl_event_create()
 	blend_mode = "normal"
 	alpha_mode = e_alpha_mode.DEFAULT
 	object_tag = "Main"
+	depth_ignore = false
+	volume_mode = false
 	
 	glint_mode = e_glint.NONE
 	glint_scale = 1

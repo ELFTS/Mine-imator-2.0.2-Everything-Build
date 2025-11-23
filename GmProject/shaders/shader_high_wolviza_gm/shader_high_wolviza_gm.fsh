@@ -34,6 +34,7 @@ uniform int uIsSky;
 
 // Materials
 uniform int uMaterialFormat;
+uniform int uBlendMode;
 uniform float uDefaultEmissive;
 uniform float uDefaultSubsurface;
 

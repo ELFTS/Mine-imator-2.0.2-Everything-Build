@@ -32,6 +32,11 @@ function background_sky_update()
 	else
 		background_fog_object_color_final = background_fog_color_final
 	
+	if (background_fog_height_color_custom)
+		background_fog_height_color_final = background_fog_height_color
+	else
+		background_fog_height_color_final = background_fog_object_color_final
+		
 	// Clouds
 	var alphay;
 	if (background_sky_clouds_mode = "faded")

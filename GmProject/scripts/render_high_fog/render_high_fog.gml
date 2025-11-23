@@ -3,16 +3,19 @@
 
 function render_high_fog(basesurf)
 {
-	var fogsurf, prevsurf;
+	var fogsurf, prevsurf, fogheightsurf;
+	render_surface[0] = surface_require(render_surface[0], render_width, render_height)
 	render_surface[1] = surface_require(render_surface[1], render_width, render_height)
 	render_surface[2] = surface_require(render_surface[2], render_width, render_height)
-	fogsurf = render_surface[1]
+	fogsurf = render_surface[0]
+	fogheightsurf = render_surface[1]
 	prevsurf = render_surface[2]
 	
 	// Get fog strength
 	if (!project_render_performance_mode || !project_render_performance_mode_skipfog)
 	{
-		surface_set_target(fogsurf)
+		surface_set_target_ext(0, fogsurf)
+		surface_set_target_ext(1, fogheightsurf)
 		{
 			draw_clear(c_black)
 			render_world_start()
@@ -41,11 +44,26 @@ function render_high_fog(basesurf)
 		// Draw fog
 		if (background_fog_show)
 		{
+			// Draw height fog
+			if (background_fog_height_show)
+			{
+				render_shader_obj = shader_map[?shader_high_fog_apply]
+				with (render_shader_obj)
+				{
+					shader_set(shader)
+					shader_high_fog_apply_set(fogheightsurf, app.background_fog_height_color_final)
+				}
+				draw_blank(0, 0, render_width, render_height)
+				with (render_shader_obj)
+					shader_clear()
+			}
+			
+			// Draw fog
 			render_shader_obj = shader_map[?shader_high_fog_apply]
 			with (render_shader_obj)
 			{
 				shader_set(shader)
-				shader_high_fog_apply_set(fogsurf)
+				shader_high_fog_apply_set(fogsurf, app.background_fog_object_color_final)
 			}
 			draw_blank(0, 0, render_width, render_height)
 			with (render_shader_obj)

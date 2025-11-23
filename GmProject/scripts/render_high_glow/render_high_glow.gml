@@ -14,7 +14,6 @@ function render_high_glow(prevsurf, glowfalloff = false)
 	if (!glowfalloff)
 	{
 		// Draw Glow Colors and Cache it
-		
 		surface_set_target(glowcolorsurf)
 		{
 			draw_clear_alpha(c_black, 1)
@@ -27,9 +26,36 @@ function render_high_glow(prevsurf, glowfalloff = false)
 		
 			gpu_set_blendmode_ext(bm_src_color, bm_one) 
 			draw_box(0, 0, render_width, render_height, false, c_black, 1)
+			
 			gpu_set_blendmode(bm_normal)
 		}
 		surface_reset_target()
+		
+		/*
+		// Add glint to the glow surface
+		if (!project_render_legacy_rendering)
+		{
+			surface_copy(glowsurftemp, 0, 0, glowcolorsurf)
+			
+			// Glint * Glow Surf
+			surface_set_target(glowsurftemp)
+			{
+				gpu_set_blendmode_ext(bm_dest_color, bm_src_color)
+				draw_surface(render_surface_glint, 0, 0)
+				gpu_set_blendmode(bm_normal)
+			}
+			surface_reset_target()
+			
+			// Glint + (Glint * Glow Surf)
+			surface_set_target(glowcolorsurf)
+			{
+				gpu_set_blendmode(bm_add)
+				draw_surface(glowsurftemp, 0, 0)
+				gpu_set_blendmode(bm_normal)
+			}
+			surface_reset_target()
+		}
+		*/ // USELESS
 		
 		surface_copy(render_surface_glow_cache, 0, 0, glowcolorsurf)
 	} else {

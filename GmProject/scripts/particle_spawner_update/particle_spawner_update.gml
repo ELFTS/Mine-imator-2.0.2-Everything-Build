@@ -5,10 +5,17 @@ function particle_spawner_update(spawner)
 {
 	if (app.window_state = "export_movie" || !app.popup || !app.popup.block)
 	{
-		var temp, realtime;
+		var temp, realtime, motionblurrendering;
 		temp = (is_timeline ? id.temp : select)
 		realtime = (!is_timeline || (is_timeline && app.template_editor.show && temp_edit = temp)) && (app.window_state != "export_movie" && app.window_state != "export_image")
-		spawn_currentstep = (realtime ? current_step : floor(app.background_time))
+		//motionblurrendering = (app.window_state = "export_movie" && app.project_render_motionblur)
+		motionblurrendering = false;
+		
+		if (!motionblurrendering)
+			spawn_currentstep = (realtime ? current_step : floor(app.background_time))
+		else
+			spawn_currentstep = app.background_time
+		
 		
 		// Reset, switch to realtime
 		if (is_timeline && realtime && (spawn_laststep = floor(app.background_time)))

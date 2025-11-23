@@ -5,6 +5,7 @@ function render_world_tl_reset()
 {
 	matrix_world_reset()
 	render_set_culling(true)
+	gpu_set_blendmode(bm_normal)
 	shader_texture_filter_linear = false
 	shader_texture_filter_mipmap = false
 	
