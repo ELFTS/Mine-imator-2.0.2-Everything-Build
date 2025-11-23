@@ -1,4 +1,4 @@
-# Mine-imator
+# Mine-imator Simply Upscaled Build
 
 <p align="center">
   <img src="https://u.cubeupload.com/YogaindoCR/Simply.png" width=800/>
