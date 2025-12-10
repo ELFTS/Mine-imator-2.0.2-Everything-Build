@@ -9,6 +9,27 @@ function shader_high_raytrace_set(mode, surf = null)
 	texture_set_stage(sampler_map[?"uNoiseBuffer"], surface_get_texture(render_sample_noise_texture))
 	texture_set_stage(sampler_map[?"uMaterialBuffer"], surface_get_texture(render_surface_material))
 	
+	if (app.project_render_engine) {
+		if (app.background_image_show && app.background_image != null && app.background_image_type != "image") {
+			texture_set_stage(sampler_map[?"uReflectionProbeBuffer"], sprite_get_texture(app.background_image.texture, 0))
+		
+		gpu_set_texrepeat_ext(sampler_map[?"uReflectionProbeBuffer"], true)
+		gpu_set_tex_filter_ext(sampler_map[?"uReflectionProbeBuffer"], true)
+		
+		render_set_uniform("uReflectionProbeRot", app.background_image_rotation + 90)
+		/*
+		if (app.background_reflection_probe_show && app.background_reflection_probe_image != null) {
+		texture_set_stage(sampler_map[?"uReflectionProbeBuffer"], sprite_get_texture(app.background_reflection_probe_image, 0))
+		
+		gpu_set_texrepeat_ext(sampler_map[?"uReflectionProbeBuffer"], true)
+		
+		render_set_uniform_int("uReflectionProbe", (app.background_reflection_probe_show && app.background_reflection_probe_image != null) ? 1 : 0)
+		render_set_uniform("uReflectionProbeRot", app.background_reflection_probe_rot)
+		*/
+		}
+	}
+	render_set_uniform_int("uReflectionProbe", (app.background_image_show && app.background_image != null) ? 1 : 0)
+	
 	texture_set_stage(sampler_map[?"uDiffuseBuffer"], surface_get_texture(render_surface_diffuse))
 	gpu_set_texrepeat_ext(sampler_map[?"uNoiseBuffer"], true)
 	

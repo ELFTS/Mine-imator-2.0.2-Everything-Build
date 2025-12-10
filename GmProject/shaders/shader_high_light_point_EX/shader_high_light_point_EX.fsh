@@ -63,8 +63,8 @@ varying vec4 vColor;
 // Improved noise functions
 float hash(vec2 c)
 {
-    return fract(10000.0 * sin(17.0 * c.x + 0.1 * c.y) *
-        (0.1 + abs(sin(13.0 * c.y + c.x))));
+	return fract(10000.0 * sin(17.0 * c.x + 0.1 * c.y) *
+	(0.1 + abs(sin(13.0 * c.y + c.x))));
 }
 
 float noise(vec2 p)

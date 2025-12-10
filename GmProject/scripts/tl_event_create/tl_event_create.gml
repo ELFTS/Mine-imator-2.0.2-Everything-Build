@@ -49,6 +49,8 @@ function tl_event_create()
 	
 	keyframe_list = ds_list_create()
 	keyframe_prev = null
+	keyframe_list_index_prev = 0
+	keyframe_list_index_prev_position = 0
 	keyframe_current = null
 	keyframe_next = null
 	keyframe_select = null
@@ -68,6 +70,7 @@ function tl_event_create()
 	modifier_shake_bend = vec3(0)
 	modifier_shake = false
 	modifier_shake_auto_offset = random_range(-1000.0, 1000.0)
+	modifier_physc_pos = vec3(0)
 	
 	pos_prev = vec3(0)
 	rot_prev = vec3(0)

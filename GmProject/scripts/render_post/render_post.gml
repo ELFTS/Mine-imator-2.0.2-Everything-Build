@@ -99,7 +99,7 @@ function render_post(finalsurf, sceneeffects = true, posteffects = true)
 	render_update_effects()
 	
 	// SMAA
-	if (app.project_render_aa && render_smaa && posteffects && render_quality = 2) {
+	if (app.project_render_aa && render_smaa && posteffects) {
 		finalsurf = render_high_smaa(finalsurf)
 	}
 	

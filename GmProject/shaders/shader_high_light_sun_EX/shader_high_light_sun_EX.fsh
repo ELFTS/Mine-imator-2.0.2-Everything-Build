@@ -121,7 +121,8 @@ vec3 getMappedNormal(vec2 uv)
 
 float hash(vec2 c)
 {
-    return fract(10000.0 * sin(17.0 * c.x + 0.1 * c.y) * (0.1 + abs(sin(13.0 * c.y + c.x))));
+	return fract(10000.0 * sin(17.0 * c.x + 0.1 * c.y) *
+	(0.1 + abs(sin(13.0 * c.y + c.x))));
 }
 
 void getMaterial(out float roughness, out float metallic, out float emissive, out float F0, out float sss)
@@ -169,12 +170,16 @@ void main()
     vec4 baseColor = texture2D(uTexture, tex) * vColor;
     
     // Early alpha test
-    if (uAlphaHash > 0 && baseColor.a < hash(vec2(hash(vPosition.xy + (uSampleIndex * (1.0/255.0))), vPosition.z + (uSampleIndex * (1.0/255.0)))))
+    if (uAlphaHash > 0) {
+        float h = hash(vec2(hash(vPosition.xy + (uSampleIndex / 255.0)), vPosition.z + (uSampleIndex / 255.0)));
+        if (baseColor.a < h) discard;
+        baseColor.a = 1.0;
+    }
+
+    // Fully transparent pixels are discarded
+    if (baseColor.a == 0.0)
         discard;
-    
-    if (baseColor.a == 0.0) 
-        discard;
-    
+		
     vec3 light = vec3(0.0);
     vec3 spec = vec3(0.0);
     float shadow = 1.0;

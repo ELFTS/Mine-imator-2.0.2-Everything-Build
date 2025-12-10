@@ -25,10 +25,12 @@ function render_world_tl()
 	// Only render glow effect?
 	if ((glow && only_render_glow) && render_mode != e_render_mode.COLOR_GLOW)
 		return 0
-	
+		
+	/*
 	var shadowdepthpass = (render_mode = e_render_mode.HIGH_LIGHT_SUN_DEPTH ||
 		 render_mode = e_render_mode.HIGH_LIGHT_SPOT_DEPTH ||
 		 render_mode = e_render_mode.HIGH_LIGHT_POINT_DEPTH)
+	*/
 	
 	// Not registered on shadow depth testing?
 	if (!shadows && (render_mode = e_render_mode.HIGH_LIGHT_SUN_DEPTH ||
@@ -79,7 +81,10 @@ function render_world_tl()
 	
 	if (depth_ignore && render_mode != e_render_mode.COLOR &&
 		 render_mode != e_render_mode.COLOR_FOG &&
-		 render_mode != e_render_mode.COLOR_FOG_LIGHTS)
+		 render_mode != e_render_mode.COLOR_FOG_LIGHTS &&
+		 render_mode != e_render_mode.CLICK &&
+		 render_mode != e_render_mode.COLOR_GLOW &&
+		 render_mode != e_render_mode.SELECT)
 		return 0
 	
 	var shadowpass = (render_mode = e_render_mode.HIGH_LIGHT_SPOT ||
@@ -320,6 +325,8 @@ function render_world_tl()
 					render_world_scenery(temp.scenery, [render_res_diffuse, render_res_material, render_res_normal], temp.block_repeat_enable, temp.block_repeat)
 				break
 			}
+			
+			// case e_tl_type.OBJ:
 			
 			case e_tl_type.ITEM:
 			{

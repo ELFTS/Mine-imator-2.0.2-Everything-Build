@@ -151,6 +151,8 @@ function app_startup_interface_tabs()
 			tbx_shape_detail = new_textbox_integer()
 			tbx_shape_subdivision = new_textbox_integer()
 			tbx_shape_morph = new_textbox_decimals()
+			tbx_shape_major_size = new_textbox_decimals()
+			tbx_shape_minor_size = new_textbox_decimals()
 			tbx_shape_tex_hoffset = new_textbox_ndecimals()
 			tbx_shape_tex_voffset = new_textbox_ndecimals()
 			tbx_shape_tex_hrepeat = new_textbox_decimals()
@@ -662,7 +664,7 @@ function app_startup_interface_tabs()
 			tbx_fov.suffix = "°"
 			
 			tbx_blade_amount = new_textbox_integer()
-			tbx_blade_angle = new_textbox_integer()
+			tbx_blade_angle = new_textbox_ndecimals()
 			tbx_blade_angle.suffix = "°"
 			
 			tbx_exposure = new_textbox_decimals()

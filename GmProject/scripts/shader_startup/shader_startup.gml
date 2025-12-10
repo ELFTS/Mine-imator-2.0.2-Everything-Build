@@ -660,6 +660,7 @@ function shader_startup()
 		new_shader_sampler("uMaterialBuffer")
 		new_shader_sampler("uDiffuseBuffer")
 		new_shader_sampler("uDataBuffer")
+		new_shader_sampler("uReflectionProbeBuffer")
 		
 		new_shader_uniform("uNormalBufferScale")
 		new_shader_uniform("uNoiseSize")
@@ -675,11 +676,13 @@ function shader_startup()
 		new_shader_uniform("uRayType")
 		new_shader_uniform("uRayDirection")
 		new_shader_uniform("uRayDistance")
+		new_shader_uniform("uReflectionProbeRot")
 		
 		// Specular
 		new_shader_uniform("uFadeAmount")
 		new_shader_uniform("uGamma")
 		new_shader_uniform("uSkyColor")
+		new_shader_uniform("uReflectionProbe")
 		new_shader_uniform("uFogColor")
 		
 		// Diffuse

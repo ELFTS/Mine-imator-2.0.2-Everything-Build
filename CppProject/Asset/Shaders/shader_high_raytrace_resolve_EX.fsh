@@ -53,25 +53,8 @@ void main()
         vec4 sampleColor = vec4(0.0);
         vec3 originNormal = unpackNormal(texture2D(uNormalBuffer, vTexCoord));
         float originDepth = unpackDepth(texture2D(uDepthBuffer, vTexCoord));
-
-        vec2 texelSize = 0.2 / uScreenSize;
-
-        vec2 directions[9];
-	    directions[0] = vec2(1, 0);
-	    directions[1] = vec2(-1, 0);
-	    directions[2] = vec2(0, 1);
-	    directions[3] = vec2(0, -1);
-	    directions[4] = vec2(1, 1);
-	    directions[5] = vec2(-1, 1);
-	    directions[6] = vec2(1, -1);
-	    directions[7] = vec2(-1, -1);
-	    directions[8] = vec2(0, 0);
 		
-
-		for (int i = 0; i < 9; ++i) {
-		    vec2 offset = directions[i] * ((texelSize * (originMat.r * originMat.r * 8.0)) + texelSize);
-		    sampleColor += sampleNeighbor(vTexCoord + offset, originNormal, originDepth, originMat);
-		}
+		sampleColor += sampleNeighbor(vTexCoord, originNormal, originDepth, originMat);
 
         // Only update color if the sample has significant weight
         if (sampleColor.a > MIN_WEIGHT_THRESHOLD)

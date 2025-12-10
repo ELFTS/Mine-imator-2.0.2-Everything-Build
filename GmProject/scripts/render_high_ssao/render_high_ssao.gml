@@ -42,7 +42,10 @@ function render_high_ssao()
 		with (render_shader_obj)
 		{
 			shader_set(shader)
-			shader_high_ssao_EX_set(render_surface[2])
+			if (app.project_render_engine)
+				shader_high_ssao_EX_set(render_surface[2])
+			else
+				shader_high_ssao_set(render_surface[2])
 		}
 		
 		draw_blank(0, 0, render_width, render_height) // Blank quad

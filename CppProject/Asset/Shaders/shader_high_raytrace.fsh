@@ -274,7 +274,7 @@ void main()
 		// Specular (GGX)
 		if (uRayType == RAY_SPECULAR)
 		{
-			for (int i = 0; i < 3; i++)
+			for (int i = 0; i < 1; i++)
 			{
 				vec2 Xi = Hammersley(int(256.0 + ((noise.r - .5) * 256.0)), 512);
 				vec3 H  = normalize(mat * sampleGGX(Xi, materialData.r));

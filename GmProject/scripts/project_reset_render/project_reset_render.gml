@@ -4,7 +4,7 @@ function project_reset_render()
 {
 	project_render_engine = false
 	project_render_samples = 24
-	project_render_distance = 30000
+	project_render_distance = 15000
 	
 	project_render_legacy_rendering = false
 	

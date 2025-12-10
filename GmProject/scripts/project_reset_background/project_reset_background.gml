@@ -8,7 +8,11 @@ function project_reset_background()
 	background_image_stretch = true
 	background_image_box_mapped = false
 	background_image_rotation = 0
-	
+	/*
+	background_reflection_probe_show = false
+	background_reflection_probe_image = null
+	background_reflection_probe_rot = 0
+	*/
 	background_sky_sun_tex = mc_res
 	background_sky_sun_tex.count++
 	background_sky_sun_angle = 0
@@ -82,6 +86,9 @@ function project_reset_background()
 	background_sky_clouds_color = c_clouds
 	background_sunlight_color = c_sunlight
 	background_ambient_color = c_ambient
+	background_night_sky_color = c_night_sky
+	background_night_sky_clouds_color = c_night_clouds
+	background_night_sky_stars_color = c_stars
 	background_night_color = c_night
 	
 	background_fog_show = true
@@ -94,8 +101,8 @@ function project_reset_background()
 	background_fog_distance = 10000
 	background_fog_size = 2000
 	background_fog_height = 1250
-	background_fog_height_size = 40
-	background_fog_height_offset = -24
+	background_fog_height_size = 4000
+	background_fog_height_offset = -3850
 	background_fog_height_color_custom = false
 	background_fog_height_color = c_sky
 	

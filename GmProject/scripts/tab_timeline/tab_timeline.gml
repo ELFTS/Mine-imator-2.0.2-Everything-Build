@@ -190,9 +190,9 @@ function tab_timeline()
 	buttonsx += 4 + 6
 	
 	// Transition quick buttons (only show when keyframes are selected)
-	if (setting_advanced_mode && timeline_settings_keyframes)
+	if (setting_advanced_mode)
 	{
-		var transition_disabled = !timeline_settings_keyframes;
+		var transition_disabled = !timeline_settings_keyframes && !timeline_settings;
 		var current_transition = (tl_edit != null ? tl_edit.value[e_value.TRANSITION] : "linear");
 		var button_mouseon;
 		
@@ -521,6 +521,12 @@ function tab_timeline()
 		{
 			for (var k = 0; k < ds_list_size(tl.keyframe_list); k++)
 			{
+				if (dx > (tlx + tlw + 32))
+					break
+				
+				if (dx < (tlx - 32))
+					continue
+					
 				var kf, sound;
 				kf = tl.keyframe_list[|k]
 				
@@ -544,11 +550,7 @@ function tab_timeline()
 				}
 				else
 				{
-					if (dx < (tlx - 32))
-						continue
-					
 					draw_image(spr_icons, icons.KEYFRAME_FILLED_SMALL, dx + 1, dy + itemhalf, 1, 1, c_level_top, 1)
-					draw_image(spr_icons, icons.KEYFRAME_FILLED_SMALL, dx + 1, dy + itemhalf, 1, 1, c_text_tertiary, a_text_tertiary)
 				}
 			}
 		}
@@ -639,6 +641,12 @@ function tab_timeline()
 			}
 			else
 			{
+				if (dx > (tlx + tlw + 32))
+					break
+				
+				if (dx < (tlx - 32))
+					continue
+					
 				// Invisible
 				if ((!kf.value[e_value.VISIBLE] || !kf.value[e_value.SPAWN]) && !tl.hide && tl.type != e_tl_type.AUDIO)
 				{
@@ -652,12 +660,6 @@ function tab_timeline()
 					if (curdx < nextdx && nextdx >= 0)
 						draw_box(curdx, dy, nextdx - curdx, itemh - 1, false, c_black, .25)
 				}
-				
-				if (dx > (tlx + tlw + 32))
-					break
-				
-				if (dx < (tlx - 32))
-					continue
 				
 				mouse = (((mouse_x >= dx - 8 && mouse_x < dx + 8) || timeline_mouse_pos = kf.position) && tl = mousetl)
 				

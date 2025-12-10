@@ -8,5 +8,6 @@ function type_is_shape(type)
 			type = e_temp_type.ICOSPHERE || 
 			type = e_temp_type.CONE || 
 			type = e_temp_type.CYLINDER || 
+			type = e_temp_type.TORUS || 
 			type = e_temp_type.SURFACE)
 }

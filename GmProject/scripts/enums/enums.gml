@@ -303,6 +303,9 @@ function enums()
 		BG_SKY_CLOUDS_COLOR,
 		BG_SUNLIGHT_COLOR,
 		BG_AMBIENT_COLOR,
+		BG_NIGHT_SKY_COLOR,
+		BG_NIGHT_SKY_CLOUDS_COLOR,
+		BG_NIGHT_SKY_STARS_COLOR,
 		BG_NIGHT_COLOR,
 		BG_GRASS_COLOR,
 		BG_FOLIAGE_COLOR,
@@ -402,6 +405,7 @@ function enums()
 		CYLINDER,
 		SPHERE,
 		ICOSPHERE,
+		TORUS,
 		SURFACE,
 		MODEL
 	} // Update app_startup_lists() when adding types
@@ -422,6 +426,7 @@ function enums()
 		CYLINDER,
 		SPHERE,
 		ICOSPHERE,
+		TORUS,
 		SURFACE,
 		MODEL,
 		CAMERA,
@@ -465,6 +470,7 @@ function enums()
 		CYLINDER,
 		SPHERE,
 		ICOSPHERE,
+		TORUS,
 		SURFACE,
 		amount
 	}
@@ -1187,4 +1193,20 @@ function enums()
 		VIEW_SECOND,
 		TIMELINE
 	}
+	
+	// Composition Guide
+	enum e_composition_guide
+	{
+		RULE_OF_THIRDS,
+		//GOLDEN_SECTION,
+		//GOLDEN_TRIANGLES,
+		//GOLDEN_SPIRAL,
+		//GOLDEN_RATIO,
+		//HARMONIOUS_TRIANGLES,
+		//CROSS,
+		//DIAGONAL,
+		RADIAL,
+		//PYRAMID,
+		//CIRCULAR
+	}	// Update app_startup_lists() when adding types
 }

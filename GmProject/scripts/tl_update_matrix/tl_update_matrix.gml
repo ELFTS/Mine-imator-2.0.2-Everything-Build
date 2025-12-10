@@ -168,6 +168,36 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
 				sca = sca_prev
 			}
 			
+			/*
+			else
+			{
+			    pos = point3D(pos_prev[0], pos_prev[1], pos_prev[2]);
+			    rot = rot_prev;
+			    sca = sca_prev;
+			}
+			
+			// ----------------------------------------
+			// PHYSICS
+			// ----------------------------------------
+			var physc = vec2(0);
+
+			for (var i = 0; i <= 2; i++)
+			{
+			    // Reset temporary pos vector
+			    pos = vec3(0);
+
+			    physc = physics_value_generate(
+			        pos_prev[i],
+			        modifier_physc_pos[i],
+			        value[e_value.POS_X + i], 2, 0.6);
+
+			    pos_prev[i]           = physc[0];
+			    modifier_physc_pos[i] = physc[1];
+			}
+
+			pos = point3D(pos_prev[0], pos_prev[1], pos_prev[2]);
+			*/
+			
 			matrix_local = matrix_create(pos, rot, sca)
 			matrix = matrix_multiply(matrix_local, matrix_parent)
 			

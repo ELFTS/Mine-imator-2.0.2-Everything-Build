@@ -16,7 +16,11 @@ function project_load_background(map)
 	background_image_stretch = value_get_real(map[?"image_stretch"], background_image_stretch)
 	background_image_box_mapped = value_get_real(map[?"image_box_mapped"], background_image_box_mapped)
 	background_image_rotation = value_get_real(map[?"image_rotation"], background_image_rotation)
-	
+	/*
+	background_reflection_probe_show = value_get_real(map[?"reflection_probe_show"], background_reflection_probe_show)
+	background_reflection_probe_image = value_get_save_id(map[?"reflection_probe_image"], background_reflection_probe_image)
+	background_reflection_probe_rot = value_get_real(map[?"reflection_probe_rot"], background_reflection_probe_rot)
+	*/
 	background_sky_sun_tex.count--
 	background_sky_sun_tex = value_get_save_id(map[?"sky_sun_tex"], background_sky_sun_tex)
 	background_sky_sun_angle = value_get_real(map[?"sky_sun_angle"], background_sky_sun_angle)
@@ -119,6 +123,9 @@ function project_load_background(map)
 	background_sky_clouds_color = value_get_color(map[?"sky_clouds_color"], background_sky_clouds_color)
 	background_sunlight_color = value_get_color(map[?"sunlight_color"], background_sunlight_color)
 	background_ambient_color = value_get_color(map[?"ambient_color"], background_ambient_color)
+	background_night_sky_color = value_get_color(map[?"night_sky_color"], background_night_sky_color)
+	background_night_sky_clouds_color = value_get_color(map[?"night_sky_clouds_color"], background_night_sky_clouds_color)
+	background_night_sky_stars_color = value_get_color(map[?"night_sky_stars_color"], background_night_sky_stars_color)
 	background_night_color = value_get_color(map[?"night_color"], background_night_color)
 	
 	background_water_color = value_get_color(map[?"water_color"], background_water_color)

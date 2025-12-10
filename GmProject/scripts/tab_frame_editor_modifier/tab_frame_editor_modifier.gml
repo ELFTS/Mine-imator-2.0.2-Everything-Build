@@ -91,5 +91,30 @@ function tab_frame_editor_modifier()
 			tab_collapse_end()
 		}
 		tab_collapse_end()
+		
+		/*
+		//Modifier Copy Transform
+		tab_control_switch()
+		draw_button_collapse("modifierframeskip", collapse_map[?"modifierframeskip"], action_tl_frame_modifier_frameskip, tl_edit.value[e_value.MODIFIER_FRAMESKIP], "frameeditormodifierframeskip")
+		tab_next()
+		
+		if (collapse_map[?"modifierframeskip"] && tl_edit.value[e_value.MODIFIER_FRAMESKIP])
+		{
+			//Modifier Copy Position
+			tab_control_switch()
+			draw_button_collapse("modifierframeskip", collapse_map[?"modifierframeskip"], action_tl_frame_modifier_frameskip, tl_edit.value[e_value.MODIFIER_FRAMESKIP], "frameeditormodifierframeskip")
+			tab_next()
+		
+			//Modifier Copy Rotatuon
+			tab_control_switch()
+			draw_button_collapse("modifierframeskip", collapse_map[?"modifierframeskip"], action_tl_frame_modifier_frameskip, tl_edit.value[e_value.MODIFIER_FRAMESKIP], "frameeditormodifierframeskip")
+			tab_next()
+		
+			//Modifier Copy Scale
+			tab_control_switch()
+			draw_button_collapse("modifierframeskip", collapse_map[?"modifierframeskip"], action_tl_frame_modifier_frameskip, tl_edit.value[e_value.MODIFIER_FRAMESKIP], "frameeditormodifierframeskip")
+			tab_next()
+		}
+		*/
 	}
 }

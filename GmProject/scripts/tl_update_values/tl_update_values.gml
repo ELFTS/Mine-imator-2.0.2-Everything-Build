@@ -4,23 +4,33 @@
 function tl_update_values()
 {
 	keyframe_prev = keyframe_current
-	keyframe_current = null
 	keyframe_next = null
 	keyframe_current_values = null
 	keyframe_next_values = null
+	keyframe_current = null
 	
+	if (!app.setting_viewport_optimization || (keyframe_list_index_prev_position >= app.timeline_marker))
+		keyframe_list_index_prev = 0
+		
 	// Find keyframes
-	for (var k = 0; k < ds_list_size(keyframe_list); k++)
+	for (var k = keyframe_list_index_prev; k < ds_list_size(keyframe_list); k++)
 	{
 		keyframe_next = keyframe_list[|k]
 		if (keyframe_next.position > app.timeline_marker)
 			break
 		
 		keyframe_current = keyframe_next
+		keyframe_list_index_prev = k
+		keyframe_list_index_prev_position = keyframe_next.position
 	}
 	
 	keyframe_progress = tl_update_values_progress(app.timeline_marker)
 	keyframe_animate = (keyframe_current && keyframe_next && keyframe_current != keyframe_next)
+	
+	/*
+	if (app.setting_viewport_optimization && !keyframe_animate)
+		return 0
+	*/
 	
 	// Save 'value' arrays from keyframes to speed up easing
 	if (keyframe_current != null)
@@ -33,14 +43,6 @@ function tl_update_values()
 	
 	// Modifier step
 	modifier_step += (app.timeline_marker - app.timeline_marker_previous) * value[e_value.MODIFIER_SHAKE_SPEED] / 25
-	
-	// Visible
-	tl_update_values_ease(e_value.VISIBLE)
-	
-	//if(app.setting_viewport_optimization && app.window_state != "export_movie" && !selected && !value_inherit[e_value.VISIBLE])
-	//{
-	//	return 1
-	//}
 	
 	// Transition
 	tl_update_values_ease(e_value.TRANSITION)
@@ -55,6 +57,14 @@ function tl_update_values()
 		keyframe_progress_ease = ease_bezier_curve([0, 0], [value[e_value.EASE_IN_X], value[e_value.EASE_IN_Y]], [value[e_value.EASE_OUT_X], value[e_value.EASE_OUT_Y]], [1, 1], keyframe_progress)
 	else
 		keyframe_progress_ease = ease(keyframe_transition, keyframe_progress)
+	
+	// Visible
+	tl_update_values_ease(e_value.VISIBLE)
+	
+	/*
+	if (app.setting_viewport_optimization && !selected && !value_inherit[e_value.VISIBLE])
+		return 0
+	*/
 	
 	// Position
 	if (value_type[e_value_type.TRANSFORM_POS])
@@ -344,6 +354,9 @@ function tl_update_values()
 		tl_update_values_ease(e_value.BG_SKY_CLOUDS_COLOR)
 		tl_update_values_ease(e_value.BG_SUNLIGHT_COLOR)
 		tl_update_values_ease(e_value.BG_AMBIENT_COLOR)
+		tl_update_values_ease(e_value.BG_NIGHT_SKY_COLOR)
+		tl_update_values_ease(e_value.BG_NIGHT_SKY_CLOUDS_COLOR)
+		tl_update_values_ease(e_value.BG_NIGHT_SKY_STARS_COLOR)
 		tl_update_values_ease(e_value.BG_NIGHT_COLOR)
 		tl_update_values_ease(e_value.BG_GRASS_COLOR)
 		tl_update_values_ease(e_value.BG_FOLIAGE_COLOR)

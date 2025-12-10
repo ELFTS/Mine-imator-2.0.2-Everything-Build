@@ -171,8 +171,8 @@ function list_init(name)
 			menu_add_item(e_option.BROWSE, text_get("listbrowse"), null, icons.FOLDER)
 			
 			// Download from user
-			if (temp.model_file != null && temp.model_file.player_skin)
-				menu_add_item(e_option.DOWNLOAD_SKIN, text_get("libraryskindownload"), null, icons.DOWNLOAD)
+			//if (temp.model_file != null && temp.model_file.player_skin)
+			//	menu_add_item(e_option.DOWNLOAD_SKIN, text_get("libraryskindownload"), null, icons.DOWNLOAD)
 			
 			// Default
 			var texobj = temp.model;
@@ -232,8 +232,8 @@ function list_init(name)
 			menu_add_item(e_option.BROWSE, text_get("listbrowse"), null, icons.FOLDER)
 			
 			// Download from user
-			if (temp.model_file != null && temp.model_file.player_skin)
-				menu_add_item(e_option.DOWNLOAD_SKIN, text_get("libraryskindownload"), null, icons.DOWNLOAD)
+			//if (temp.model_file != null && temp.model_file.player_skin)
+			//	menu_add_item(e_option.DOWNLOAD_SKIN, text_get("libraryskindownload"), null, icons.DOWNLOAD)
 			
 			// Default
 			var texobj = temp.model
@@ -641,7 +641,7 @@ function list_init(name)
 			menu_add_item(e_option.BROWSE, text_get("listbrowse"), null, icons.FOLDER)
 			
 			// Default
-			menu_add_item(mc_res, mc_res.display_name, mc_res.moon_texture[background_sky_moon_phase])
+			menu_add_item(mc_res, mc_res.display_name, mc_res.moon_textures[background_sky_moon_phase])
 			
 			// Add existing resources
 			for (var i = 0; i < ds_list_size(res_list.display_list); i++)
@@ -649,8 +649,8 @@ function list_init(name)
 				var res = res_list.display_list[|i];
 				if (res = mc_res)
 					continue
-				if (res.moon_texture[0])
-					menu_add_item(res, res.display_name, res.moon_texture[background_sky_moon_phase])
+				if (res.moon_textures[0])
+					menu_add_item(res, res.display_name, res.moon_textures[background_sky_moon_phase])
 				else if (res.texture)
 					menu_add_item(res, res.display_name, res.texture)
 			}
@@ -662,7 +662,7 @@ function list_init(name)
 		case "backgroundskymoonphase":
 		{
 			for (var p = 0; p < 8; p++)
-				menu_add_item(p, text_get("backgroundskymoonphase" + string(p + 1)), background_sky_moon_tex.moon_texture[p])
+				menu_add_item(p, text_get("backgroundskymoonphase" + string(p + 1)), background_sky_moon_tex.moon_textures[p])
 			
 			break
 		}
@@ -767,6 +767,15 @@ function list_init(name)
 		{
 			for (var p = 0; p < res_edit.scenery_palette_size; p++)
 				menu_add_item(p, text_get("resourcesscenerystructurepalettenumber", p + 1))
+			
+			break
+		}
+		
+		// Resource pack moon phase
+		case "resourcespackmoonphase":
+		{
+			for (var p = 0; p < 8; p++)
+				menu_add_item(p, text_get("resourcespackmoonphase" + string(p + 1)))
 			
 			break
 		}
@@ -1417,6 +1426,23 @@ function list_init(name)
 			menu_add_item(e_tonemapper.ACES, text_get("rendertonemapperaces"))
 			menu_add_item(e_tonemapper.FILMIC, text_get("rendertonemapperfilmic"))
 			menu_add_item(e_tonemapper.ACES_APPROX, text_get("rendertonemapperacesapprox"))
+			
+			break
+		}
+		
+		case "viewcompositionguide":
+		{
+			menu_add_item(e_composition_guide.RULE_OF_THIRDS, text_get("viewcompositionguidetyperuleofthirds"))
+			//menu_add_item(e_composition_guide.GOLDEN_SECTION, text_get("viewcompositionguidetypegoldensection"))
+			//menu_add_item(e_composition_guide.GOLDEN_TRIANGLES, text_get("viewcompositionguidetypegoldentriangles"))
+			//menu_add_item(e_composition_guide.GOLDEN_SPIRAL, text_get("viewcompositionguidetypegoldenspiral"))
+			//menu_add_item(e_composition_guide.GOLDEN_RATIO, text_get("viewcompositionguidetypegoldenratio"))
+			//menu_add_item(e_composition_guide.HARMONIOUS_TRIANGLES, text_get("viewcompositionguidetypeharmonioustriangles"))
+			//menu_add_item(e_composition_guide.CROSS, text_get("viewcompositionguidetypecross"))
+			//menu_add_item(e_composition_guide.DIAGONAL, text_get("viewcompositionguidetypediagonal"))
+			menu_add_item(e_composition_guide.RADIAL, text_get("viewcompositionguidetyperadial"))
+			//menu_add_item(e_composition_guide.PYRAMID, text_get("viewcompositionguidetypepyramid"))
+			//menu_add_item(e_composition_guide.CIRCULAR, text_get("viewcompositionguidetypecircular"))
 			
 			break
 		}

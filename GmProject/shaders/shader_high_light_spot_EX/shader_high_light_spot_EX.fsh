@@ -120,7 +120,8 @@ float unpackDepth(vec4 c)
 // Better hash function with less artifacts
 float hash(vec2 c)
 {
-    return fract(sin(dot(c, vec2(12.9898, 78.233))) * 43758.5453);
+	return fract(10000.0 * sin(17.0 * c.x + 0.1 * c.y) *
+	(0.1 + abs(sin(13.0 * c.y + c.x))));
 }
 
 void getMaterial(out float roughness, out float metallic, out float emissive, out float F0, out float sss)

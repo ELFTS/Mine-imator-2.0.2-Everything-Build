@@ -14,6 +14,7 @@ function app_startup_lists()
 	globalvar biome_list, particle_template_list, particle_template_map;
 	globalvar blend_mode_list, blend_mode_map, outline_blend_mode_list;
 	globalvar timeline_icon_list, timeline_icon_list_dark;
+	globalvar composition_guide_list;
 	globalvar render_pass_list;
 	
 	
@@ -195,6 +196,9 @@ function app_startup_lists()
 		"BG_SKY_CLOUDS_COLOR",
 		"BG_SUNLIGHT_COLOR",
 		"BG_AMBIENT_COLOR",
+		"BG_NIGHT_SKY_COLOR",
+		"BG_NIGHT_SKY_CLOUDS_COLOR",
+		"BG_NIGHT_SKY_STARS_COLOR",
 		"BG_NIGHT_COLOR",
 		"BG_GRASS_COLOR",
 		"BG_FOLIAGE_COLOR",
@@ -317,6 +321,7 @@ function app_startup_lists()
 		"cylinder",
 		"sphere",
 		"icosphere",
+		"torus",
 		"surface",
 		"model"
 	)
@@ -337,6 +342,7 @@ function app_startup_lists()
 		"cylinder",
 		"sphere",
 		"icosphere",
+		"torus",
 		"surface",
 		"model",
 		"camera",
@@ -558,6 +564,7 @@ function app_startup_lists()
 		icons.CYLINDER,
 		icons.SPHERE,
 		icons.SPHERE,
+		icons.SPHERE,
 		icons.PLANE,
 		icons.MODEL,
 		icons.CAMERA,
@@ -585,6 +592,7 @@ function app_startup_lists()
 		icons.CYLINDER__DARK,
 		icons.SPHERE__DARK,
 		icons.SPHERE__DARK,
+		icons.SPHERE__DARK,
 		icons.PLANE,
 		icons.MODEL,
 		icons.CAMERA,
@@ -610,5 +618,20 @@ function app_startup_lists()
 		"depth",
 		"normal",
 		"material"
+	)
+	
+	composition_guide_list = ds_list_create()
+	ds_list_add(composition_guide_list,
+			"ruleofthirds",
+			//"goldensection",
+			//"goldentriangles",
+			//"goldenspiral",
+			//"goldenratio",
+			//"harmonioustriangles",
+			//"cross",
+			//"diagonal",
+			"radial",
+			//"pyramid",
+			//"circular"
 	)
 }

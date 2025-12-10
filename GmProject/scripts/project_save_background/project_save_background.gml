@@ -10,7 +10,11 @@ function project_save_background()
 		json_save_var_bool("image_stretch", background_image_stretch)
 		json_save_var_bool("image_box_mapped", background_image_box_mapped)
 		json_save_var("image_rotation", background_image_rotation)
-		
+		/*
+		json_save_var_bool("reflection_probe_show", background_reflection_probe_show)
+		json_save_var_save_id("reflection_probe_image", background_reflection_probe_image)
+		json_save_var("reflection_probe_rot", background_reflection_probe_rot)
+		*/
 		json_save_var_save_id("sky_sun_tex", background_sky_sun_tex)
 		json_save_var("sky_sun_angle", background_sky_sun_angle)
 		json_save_var("sky_sun_scale", background_sky_sun_scale)
@@ -49,6 +53,9 @@ function project_save_background()
 		json_save_var_color("sky_clouds_color", background_sky_clouds_color)
 		json_save_var_color("sunlight_color", background_sunlight_color)
 		json_save_var_color("ambient_color", background_ambient_color)
+		json_save_var_color("night_sky_color", background_night_sky_color)
+		json_save_var_color("night_sky_clouds_color", background_night_sky_clouds_color)
+		json_save_var_color("night_sky_stars_color", background_night_sky_stars_color)
 		json_save_var_color("night_color", background_night_color)
 		
 		json_save_var_color("grass_color", background_grass_color)

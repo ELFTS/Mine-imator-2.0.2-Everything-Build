@@ -94,13 +94,21 @@ namespace CppProject
 
 	void AppWindow::Maximize()
 	{
+		// Get the current window flags
+		Qt::WindowFlags currentFlags = windowFlags();
+
+		// Remove the FramelessWindowHint flag
+		currentFlags &= ~Qt::FramelessWindowHint;
+
+		// Set the modified flags
+		setWindowFlags(currentFlags);
+
 	#if API_OPENGL
 		glWidget->hide(); // Mac OS fix
 		QMainWindow::setWindowFlags(!Qt::FramelessWindowHint);
 		QMainWindow::showMaximized();
 		glWidget->show();
 	#else
-		QMainWindow::setWindowFlags(!Qt::FramelessWindowHint);
 		QMainWindow::showMaximized();
 	#endif
 	}

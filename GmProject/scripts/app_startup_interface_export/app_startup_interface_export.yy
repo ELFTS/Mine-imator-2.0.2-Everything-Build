@@ -6,6 +6,6 @@
   "isCompatibility": false,
   "parent": {
     "name": "Startup",
-    "path": "folders/Scripts/App/Interface/Startup.yy",
+    "path": "folders/Scripts/App/Interface/Components/Startup.yy",
   },
 }

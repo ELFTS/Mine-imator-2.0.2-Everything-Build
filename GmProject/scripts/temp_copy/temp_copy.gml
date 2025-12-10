@@ -78,6 +78,8 @@ function temp_copy(to)
 	to.shape_subdivision = shape_subdivision
 	to.shape_morph = shape_morph
 	to.shape_face_camera = shape_face_camera
+	to.shape_major_size = shape_major_size
+	to.shape_minor_size = shape_minor_size
 	
 	to.text_font = text_font
 	to.text_3d = text_3d

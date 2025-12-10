@@ -19,6 +19,9 @@ uniform sampler2D uDiffuseBuffer;
 // Scene color for reflections, shadows for indirect
 uniform sampler2D uDataBuffer;
 
+// Reflection Probe Texture 2D
+uniform sampler2D uReflectionProbeBuffer;
+
 uniform float uNormalBufferScale;
 
 // Scene data
@@ -39,7 +42,9 @@ uniform float uThickness;
 uniform float uNoiseSize;
 
 uniform int uRayType;
+uniform int uReflectionProbe;
 uniform float uRayDistance;
+uniform float uReflectionProbeRot;
 
 // Reflections
 uniform float uFadeAmount;
@@ -101,23 +106,25 @@ vec3 unpackNormalBlueNoise(vec4 c)
 // GGX importance sampling (https://learnopengl.com/PBR/IBL/Specular-IBL)
 float VanDerCorput(int n, int base)
 {
-	float invBase = 1.0 / float(base);
-	float denom   = 1.0;
-	float result  = 0.0;
-	
-	for (int i = 0; i < 16; i++)
-	{
-		if (n > 0)
-		{
-			denom = mod(float(n), 2.0);
-			result += denom * invBase;
-			invBase = invBase / 2.0;
-			n = int(float(n) / 2.0);
-		}
-	}
-	
-	return result;
+    float invBase = 1.0 / float(base);
+    float factor  = invBase;
+    float result  = 0.0;
+
+    for (int i = 0; i < 16; i++)
+    {
+        if (n <= 0) break;
+
+        int digit = int(mod(float(n), float(base)));
+        result += float(digit) * factor;
+
+        n = int(float(n) / float(base));
+        factor /= float(base);
+    }
+
+    return result;
 }
+
+
 
 vec2 Hammersley(int i, int N)
 {
@@ -138,6 +145,30 @@ float percent(float xx, float start, float end)
 {
 	return clamp((xx - start) / (end - start), 0.0, 1.0);
 }
+
+
+vec3 sampleReflectionProbe(vec3 dir)
+{
+    // Convert view-space direction to world-space direction (vec4 with w=0)
+    vec3 worldDir = normalize((uViewMatrixInv * vec4(normalize(dir), 0.0)).xyz);
+	vec3 d = worldDir;
+
+	// rotate 90 degrees around X-axis
+	float t = d.y;
+	d.y = d.z;
+	d.z =  -t;
+
+	// now use rotated direction
+	float u = 0.5 + atan(d.z, d.x) / (2.0 * PI)
+	        + (radians(-uReflectionProbeRot) / (2.0 * PI));
+	u = 1.0 - u; // flip x
+	
+	float v = 0.5 - asin(clamp(d.y, -1.0, 1.0)) / PI;
+
+    // sample the 2D probe (wrap/edge handling depends on texture sampler settings)
+    return texture2D(uReflectionProbeBuffer, vec2(u, v)).rgb;
+}
+
 
 vec3 rayTrace(vec3 rayStart, vec3 rayDir, float rayThickness, vec3 noise)
 {
@@ -177,10 +208,10 @@ vec3 rayTrace(vec3 rayStart, vec3 rayDir, float rayThickness, vec3 noise)
 	p = progress;
 	
 	float i = 0.0;
-	float steps = 312.0 * (uScreenSize[1] / 544.0 + uPrecision); // Gradually increase max steps
+	float steps = 256.0 * (uScreenSize[1] / 460.0 + uPrecision); // Gradually increase max steps
 	float stepscount = 0.0;
 	float precisionJitter = (uRayType == RAY_SPECULAR ? 1.0 : noise.g);
-	float ScreenScale = 1.0 + uScreenSize[1] / 510.0;
+	float ScreenScale = 0.5 + uScreenSize[1] / 720.0;
 	for (; i < steps; i += 1.0)
 	{
 		// Get previous progress for refining later
@@ -273,9 +304,9 @@ void main()
 		// Specular (GGX)
 		if (uRayType == RAY_SPECULAR)
 		{
-			for (int i = 0; i < 2; i++)
+			for (int i = 0; i < 4; i++)
 			{
-				vec2 Xi = Hammersley(int(256.0 + ((noise.r - .5) * 256.0)), 512);
+				vec2 Xi = Hammersley(int(256.0 + ((noise.r - .5) * 256.0)) + i, 512);
 				vec3 H  = normalize(mat * sampleGGX(Xi, materialData.r));
 				rayDir = reflect(normalize(rayPos), H);
 			
@@ -320,13 +351,26 @@ void main()
 			
 			// Fade if roughness is too high
 			vis *= 1.0 - percent(materialData.r, .85, .97);
-			vis = clamp(vis, 0.0, 1.0);
+			vis = clamp(vis * 1.5, 0.0, 1.0);
 			
 			rayColor = texture2D(uDataBuffer, rayCoord.xy).rgb;
 		}
 		
 		// Get color
-		rayColor = mix(pow(uSkyColor.rgb, vec3(uGamma)), rayColor, (vis * 1.5));
+        // If the ray missed (vis==0) then choose between sky or reflection probe
+		vec3 envColor = pow(uSkyColor.rgb, vec3(uGamma)); // default env color
+		
+		// if reflection probe is enabled (>1) sample spherical map using rayDir
+		if (vis <= 0.0 && uReflectionProbe > 0)
+		{
+			// sample probe using the outgoing reflection direction (rayDir)
+			vec3 probeCol = sampleReflectionProbe(rayDir);
+			// apply gamma to probe to match how sky was handled (keeps appearance consistent)
+			envColor = pow(probeCol, vec3(uGamma));
+		}
+		
+		// Mix env (sky or probe) with hit color based on visibility
+		rayColor = mix(envColor, rayColor, vis);
 		
 		// Specular tint from mettalic
 		if (materialData.g > 0.0)
