@@ -24,6 +24,7 @@ function window_draw_load_assets()
 		
 		// Deactivate instances for better performance
 		instance_deactivate_object(obj_deactivate)
+		play_audio_from_files(audio_directory + "startup.ogg")
 		
 		return 0
 	}

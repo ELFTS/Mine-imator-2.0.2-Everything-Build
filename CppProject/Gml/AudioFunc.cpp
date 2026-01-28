@@ -163,4 +163,25 @@ namespace CppProject
 		tl_update_length();
 		load_next(ScopeAny(global::_app->id));
 	}
+
+	IntType audio_play_sound_from_file(StringType filepath, BoolType loop, RealType volume, RealType pitch)
+	{
+		if (!App->audioSupported || !file_exists_lib(filepath))
+			return -1;
+
+		// Decode audio file
+		Sound* snd = new Sound(filepath);
+
+		if (!snd->buffer.size())
+		{
+			delete snd;
+			return -1;
+		}
+
+		// Play immediately
+		SoundInstance* inst = new SoundInstance(snd, loop);
+		// alSourcef(inst->alSource, AL_GAIN, volume);
+		// alSourcef(inst->alSource, AL_PITCH, pitch);
+		return inst->id;
+	}
 }

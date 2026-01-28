@@ -4,12 +4,12 @@
 function render_high_fog(basesurf)
 {
 	var fogsurf, prevsurf, fogheightsurf;
-	render_surface[0] = surface_require(render_surface[0], render_width, render_height)
 	render_surface[1] = surface_require(render_surface[1], render_width, render_height)
 	render_surface[2] = surface_require(render_surface[2], render_width, render_height)
-	fogsurf = render_surface[0]
-	fogheightsurf = render_surface[1]
-	prevsurf = render_surface[2]
+	render_surface[3] = surface_require(render_surface[3], render_width, render_height)
+	fogsurf = render_surface[1]
+	fogheightsurf = render_surface[2]
+	prevsurf = render_surface[3]
 	
 	// Get fog strength
 	if (!project_render_performance_mode || !project_render_performance_mode_skipfog)
@@ -24,7 +24,7 @@ function render_high_fog(basesurf)
 		}
 		surface_reset_target()
 	} else {
-		fogsurf = render_surface_depth
+		surface_copy(fogsurf, 0, 0, render_surface_depth)
 	}
 	
 	// Copy into separate surface
@@ -71,16 +71,26 @@ function render_high_fog(basesurf)
 		}
 		
 		// Alpha fix
-		gpu_set_blendmode_ext(bm_src_color, bm_one) 
-		if (render_background)
-			draw_box(0, 0, render_width, render_height, false, c_black, 1)
-		else
+		render_set_projection_ortho(0, 0, render_width, render_height, 0)
+		gpu_set_blendmode_ext(bm_src_color, bm_one)
+		draw_box(0, 0, render_width, render_height, false, c_black, 1)
+		gpu_set_blendmode(bm_normal)
+		/*
+		if (app.project_render_legacy_rendering)
 		{
-			render_world_start()
-			render_world(e_render_mode.ALPHA_FIX)
-			render_world_done()
+			if (render_background)
+				draw_box(0, 0, render_width, render_height, false, c_black, 1)
+			else
+			{
+				render_world_start()
+				render_world(e_render_mode.ALPHA_FIX)
+				render_world_done()
+			}
+		} else {
+			draw_surface(render_surface_alpha_fix, 0, 0)
 		}
 		gpu_set_blendmode(bm_normal)
+		*/
 	}
 	surface_reset_target()
 }

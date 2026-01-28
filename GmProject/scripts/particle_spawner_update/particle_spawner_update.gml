@@ -37,9 +37,16 @@ function particle_spawner_update(spawner)
 				particle_spawner_clear()
 		}
 		
+		var i = 0;
+		
 		// Iterate through missed steps
 		for (var s = spawn_laststep; s < spawn_currentstep; s++)
 		{
+			// Maximum iteration
+			i++
+			if (i > 100)
+				continue
+			
 			if (temp.pc_spawn_constant)
 			{
 				var spawn;

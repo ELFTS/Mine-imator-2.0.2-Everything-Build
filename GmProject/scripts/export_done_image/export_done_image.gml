@@ -17,5 +17,6 @@ function export_done_image()
 	toast_new(e_toast.POSITIVE, text_get("alertexportimage"))
 	toast_add_action("alertexportimageview", popup_open_url, export_filename)
 	toast_add_action("alertexportimagefolder", popup_open_url, export_folder)
+	play_audio_from_files(audio_directory + "done.ogg")
 	toast_last.dismiss_time = 10
 }

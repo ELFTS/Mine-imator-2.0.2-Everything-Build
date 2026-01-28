@@ -71,6 +71,7 @@ function shader_startup()
 		new_shader("shader_noise")
 		new_shader("shader_ca")
 		new_shader("shader_distort")
+		new_shader("shader_vhs")
 		new_shader("shader_high_heat_distortion")
 		new_shader("shader_high_lighting_apply")
 		new_shader("shader_high_samples_add")
@@ -89,6 +90,7 @@ function shader_startup()
 		new_shader("shader_SMAA_Antialiasing")
 		new_shader("shader_tonemap")
 		new_shader("shader_clip")
+		new_shader("shader_remove_background")
 		new_shader("shader_high_glint")
 		new_shader("shader_high_outline")
 		if (is_cpp())
@@ -256,6 +258,7 @@ function shader_startup()
 		new_shader_uniform("uGhostingFix")
 		new_shader_uniform("uGhostingFixThreshold")
 		new_shader_uniform("uDesaturation")
+		new_shader_uniform("uBokehStrength")
 	}
 	
 	with (shader_map[?shader_high_dof_coc])
@@ -486,6 +489,7 @@ function shader_startup()
 		new_shader_sampler("uAddTexture")
 		new_shader_uniform("uAmount")
 		new_shader_uniform("uPower")
+		new_shader_uniform("uBlendMode")
 	}
 	
 	with (shader_map[?shader_blur])
@@ -505,6 +509,7 @@ function shader_startup()
 		new_shader_uniform("uVibrance")
 		new_shader_uniform("uInvert")
 		new_shader_uniform("uInvertBlend")
+		new_shader_uniform("uHue")
 		new_shader_uniform("uColorBurn")
 	}
 	
@@ -547,6 +552,16 @@ function shader_startup()
 		new_shader_uniform("uStrength")
 		new_shader_uniform("uScale")
 		new_shader_uniform("uResolution")
+	}
+	
+	with (shader_map[?shader_vhs])
+	{
+		new_shader_uniform("uScreenSize")
+		new_shader_uniform("uTime")
+		new_shader_uniform("uDistortion")
+		new_shader_uniform("uNoise")
+		new_shader_uniform("uScanlines")
+		new_shader_uniform("uChromaShift")
 	}
 	
 	with (shader_map[?shader_high_lighting_apply])
@@ -677,6 +692,7 @@ function shader_startup()
 		new_shader_uniform("uRayDirection")
 		new_shader_uniform("uRayDistance")
 		new_shader_uniform("uReflectionProbeRot")
+		new_shader_uniform("uReflectionProbeStrength")
 		
 		// Specular
 		new_shader_uniform("uFadeAmount")
@@ -765,6 +781,12 @@ function shader_startup()
 	{
 		new_shader_uniform("uBox")
 		new_shader_uniform("uScreenSize")
+	}
+	
+	with (shader_map[?shader_remove_background])
+	{
+		new_shader_sampler("uPrevSurface")
+		new_shader_sampler("uAlphaSurface")
 	}
 	
 	with (shader_map[?shader_high_glint])

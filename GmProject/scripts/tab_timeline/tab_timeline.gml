@@ -192,7 +192,7 @@ function tab_timeline()
 	// Transition quick buttons (only show when keyframes are selected)
 	if (setting_advanced_mode)
 	{
-		var transition_disabled = !timeline_settings_keyframes && !timeline_settings;
+		var transition_disabled = !timeline_settings_keyframes && tl_edit == null;
 		var current_transition = (tl_edit != null ? tl_edit.value[e_value.TRANSITION] : "linear");
 		var button_mouseon;
 		
@@ -641,12 +641,6 @@ function tab_timeline()
 			}
 			else
 			{
-				if (dx > (tlx + tlw + 32))
-					break
-				
-				if (dx < (tlx - 32))
-					continue
-					
 				// Invisible
 				if ((!kf.value[e_value.VISIBLE] || !kf.value[e_value.SPAWN]) && !tl.hide && tl.type != e_tl_type.AUDIO)
 				{
@@ -661,6 +655,12 @@ function tab_timeline()
 						draw_box(curdx, dy, nextdx - curdx, itemh - 1, false, c_black, .25)
 				}
 				
+				if (dx > (tlx + tlw + 32))
+					break
+				
+				if (dx < (tlx - 32))
+					continue
+					
 				mouse = (((mouse_x >= dx - 8 && mouse_x < dx + 8) || timeline_mouse_pos = kf.position) && tl = mousetl)
 				
 				// Sprite
@@ -1021,14 +1021,22 @@ function tab_timeline()
 			if (tl.type != e_tl_type.AUDIO)
 			{
 				// Hide
-				if (draw_button_icon("timelinehide" + string(tl), xx, itemy + buttonpad, buttonsize, buttonsize, tl.hide, tl.hide ? icons.HIDDEN_SMALL : icons.VISIBLE_SMALL, null, false, tl.hide ? "tooltiptlshow" : "tooltiptlhide"))
-					action_tl_hide(tl)
+				if (draw_button_icon("timelinehide" + string(tl), xx, itemy + buttonpad, buttonsize, buttonsize, tl.hide, tl.hide ? icons.HIDDEN_SMALL : icons.VISIBLE_SMALL, null, false, tl.hide ? "tooltiptlshow" : "tooltiptlhide")) {
+					if (!tl.selected)
+						action_tl_hide(tl)
+					else // Hide Selected
+						action_tl_hide_select(!tl.hide)
+				}
 			}
 			else
 			{
 				// Mute
-				if (draw_button_icon("timelinehide" + string(tl), xx, itemy + buttonpad, buttonsize, buttonsize, tl.hide, tl.hide ? icons.MUTE_SMALL : icons.VOLUME_SMALL, null, false, tl.hide ? "tooltiptlunmute" : "tooltiptlmute"))
-					action_tl_hide(tl)
+				if (draw_button_icon("timelinehide" + string(tl), xx, itemy + buttonpad, buttonsize, buttonsize, tl.hide, tl.hide ? icons.MUTE_SMALL : icons.VOLUME_SMALL, null, false, tl.hide ? "tooltiptlunmute" : "tooltiptlmute")) {
+					if (!tl.selected)
+						action_tl_hide(tl)
+					else // Hide Selected
+						action_tl_hide_select(!tl.hide)
+				}
 			}
 			
 			buttonhover = buttonhover || app_mouse_box(xx, itemy + buttonpad, buttonsize, buttonsize, "place")
@@ -1039,9 +1047,12 @@ function tab_timeline()
 		// Lock
 		if (itemhover || tl.lock)
 		{
-			if (draw_button_icon("timelinelock" + string(tl), xx, itemy + buttonpad, buttonsize, buttonsize, tl.lock, tl.lock ? icons.LOCK_SMALL : icons.UNLOCK_SMALL, null, false, (tl.lock ? "tooltiptlunlock" : "tooltiptllock")))
-				action_tl_lock(tl)
-			
+			if (draw_button_icon("timelinelock" + string(tl), xx, itemy + buttonpad, buttonsize, buttonsize, tl.lock, tl.lock ? icons.LOCK_SMALL : icons.UNLOCK_SMALL, null, false, (tl.lock ? "tooltiptlunlock" : "tooltiptllock"))) {
+				if (!tl.selected)
+					action_tl_lock(tl)
+				else
+					action_tl_lock_select(!tl.lock)
+			}
 			buttonhover = buttonhover || app_mouse_box(xx, itemy + buttonpad, buttonsize, buttonsize, "place")
 		}
 		itemmaxw += buttonsize + buttonpad
@@ -1053,9 +1064,12 @@ function tab_timeline()
 			
 			if (itemhover || tl.ghost)
 			{
-				if (draw_button_icon("timelineghosttl" + string(tl), xx, itemy + buttonpad, buttonsize, buttonsize, tl.ghost, icons.GHOST_SMALL, null, false, (tl.ghost ? "tooltiptlunghost" : "tooltiptlghost")))
-					action_tl_ghost(tl)
-				
+				if (draw_button_icon("timelineghosttl" + string(tl), xx, itemy + buttonpad, buttonsize, buttonsize, tl.ghost, icons.GHOST_SMALL, null, false, (tl.ghost ? "tooltiptlunghost" : "tooltiptlghost"))) {
+					if (!tl.selected)
+						action_tl_ghost(tl)
+					else
+						action_tl_ghost_select(!tl.ghost)
+				}
 				buttonhover = buttonhover || app_mouse_box(xx, itemy + buttonpad, buttonsize, buttonsize, "place")
 			}
 		}

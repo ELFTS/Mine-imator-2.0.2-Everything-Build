@@ -15,7 +15,11 @@ function view_control_move(view)
 	with (tl_edit)
 	{
 		// Start from the parent matrix (body part transforms included), restore the position and remove all scaling
-		mat = array_copy_1d(matrix_parent)
+		if (tl_edit.value[e_value.POS_TARGET] != null && tl_edit.value[e_value.COPY_POS_CHILD])
+			mat = array_copy_1d(tl_edit.value[e_value.POS_TARGET].matrix) // Copy Rotation Matrix
+		else
+			mat = array_copy_1d(matrix_parent) // Object Rotation
+		
 		mat[MAT_X] = matrix[MAT_X]
 		mat[MAT_Y] = matrix[MAT_Y]
 		mat[MAT_Z] = matrix[MAT_Z]

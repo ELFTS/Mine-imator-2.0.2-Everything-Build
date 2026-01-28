@@ -63,6 +63,7 @@ function project_save_render()
 		json_save_var_bool("render_glow_falloff", project_render_glow_falloff)
 		json_save_var("render_glow_falloff_radius", project_render_glow_falloff_radius)
 		json_save_var("render_glow_falloff_intensity", project_render_glow_falloff_intensity)
+		json_save_var("render_glow_blend_mode", project_render_glow_blend_mode)
 		
 		json_save_var_bool("render_aa", project_render_aa)
 		json_save_var("render_aa_power", project_render_aa_power)

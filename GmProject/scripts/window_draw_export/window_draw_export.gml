@@ -48,7 +48,12 @@ function window_draw_export()
 	framey = floor(window_height/2 - frameh/2)
 	
 	gpu_set_tex_filter(true)
-	draw_surface_box_center(export_surface, framex, framey, framew, frameh)
+	
+	if (!setting_export_hide_preview)
+		draw_surface_box_center(export_surface, framex, framey, framew, frameh)
+	else
+		draw_label(text_get("exporthiddenpreview"), framex + framew / 2, framey + frameh / 2, fa_center, fa_center, c_text_secondary, a_text_main, font_heading)
+	
 	gpu_set_tex_filter(false)
 	
 	content_width = window_width
@@ -95,6 +100,11 @@ function window_draw_export()
 		text = samplecount
 	
 	draw_loading_bar((framex + framew/2) - loadw/2, framey + frameh + 40, loadw, 8, perc, text, "")
+	
+	window_busy = ""
+	tab_control_switch()
+	draw_switch("exporthidepreview", framex + framew / 2 - dw / 2, framey + frameh + 80, setting_export_hide_preview, action_toolbar_export_hide_preview)
+	tab_next()
 	
 	window_set_caption(loadtext + " - Mine-imator")
 	

@@ -66,6 +66,10 @@ function render_high()
 		if (background_fog_show)
 			render_high_fog(finalsurf)
 		
+		// Remove Background
+		if (!render_background)
+			finalsurf = render_high_remove_background(finalsurf)
+		
 		// Apply post scene effects (Glow, DoF, etc.)
 		render_refresh_effects(true, false)
 		finalsurf = render_post(finalsurf, true, false)

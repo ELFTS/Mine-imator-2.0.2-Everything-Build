@@ -125,6 +125,14 @@ function tab_properties_background()
 						tab_next()
 					}
 				}
+				
+				// Reflection Probe Brightness
+				if (background_image_type != "image" && project_render_engine)
+				{
+					tab_control_dragger()
+					draw_dragger("backgroundimagerpobestrength", dx, dy, dragger_width, round(background_image_probe_strength * 100), 1, 0, 300, 0, 1, tab.background.tbx_background_probe_strength, action_background_image_probe_strength)
+					tab_next()
+				}
 			}
 		}
 		else
@@ -527,7 +535,7 @@ function tab_properties_background()
 		
 			// Height Fog offset
 			tab_control_dragger()
-			draw_dragger("backgroundfogheightoffset", dx, dy, dragger_width, background_fog_height_offset, 0.1, -no_limit, no_limit, 0, 0.1, tab.background.tbx_fog_height_offset, action_background_fog_height_offset)
+			draw_dragger("backgroundfogheightoffset", dx, dy, dragger_width, background_fog_height_offset, background_fog_height_offset / 1000, -no_limit, no_limit, 0, 0.1, tab.background.tbx_fog_height_offset, action_background_fog_height_offset)
 			tab_next()
 		
 			tab_collapse_end()

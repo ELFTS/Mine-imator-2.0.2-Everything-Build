@@ -16,6 +16,7 @@ function project_load_background(map)
 	background_image_stretch = value_get_real(map[?"image_stretch"], background_image_stretch)
 	background_image_box_mapped = value_get_real(map[?"image_box_mapped"], background_image_box_mapped)
 	background_image_rotation = value_get_real(map[?"image_rotation"], background_image_rotation)
+	background_image_probe_strength = value_get_real(map[?"image_probe_strength"], background_image_probe_strength)
 	/*
 	background_reflection_probe_show = value_get_real(map[?"reflection_probe_show"], background_reflection_probe_show)
 	background_reflection_probe_image = value_get_save_id(map[?"reflection_probe_image"], background_reflection_probe_image)

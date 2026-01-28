@@ -10,11 +10,10 @@ function render_high_scene()
 	resultsurf = render_surface_hdr[1] // Render directly to target?
 	
 	// Glint effect
-	
 	surface_set_target(masksurf)
 	{
 		draw_clear(c_black)
-		if (project_render_legacy_rendering)
+		if (app.project_render_legacy_rendering)
 		{
 			render_world_start()
 			render_world(e_render_mode.GLINT)
@@ -45,11 +44,11 @@ function render_high_scene()
 		render_pass_surf = surface_duplicate(masksurf)
 	
 	// Render lighting mask for background
-	if ((!project_render_performance_mode_skipsky || !project_render_performance_mode) || !project_render_legacy_rendering) {
+	if ((!app.project_render_performance_mode_skipsky || !app.project_render_performance_mode) || !app.project_render_legacy_rendering) {
 		surface_set_target(masksurf)
 		{
 			draw_clear(c_black)
-			if (project_render_legacy_rendering)
+			if (app.project_render_legacy_rendering)
 			{
 				render_world_start()
 				render_world(e_render_mode.SCENE_TEST)

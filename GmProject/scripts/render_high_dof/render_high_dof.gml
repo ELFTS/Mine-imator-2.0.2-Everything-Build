@@ -22,7 +22,7 @@ function render_high_dof(prevsurf)
 		}
 		surface_reset_target()
 	} else {
-		depthsurf = render_surface_depth
+		depthsurf = surface_duplicate(render_surface_depth)
 	}
 
 	// Create CoC buffer from depth

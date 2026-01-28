@@ -59,6 +59,7 @@ function tl_value_default(valueid)
 		case e_value.CAM_DOF_THRESHOLD:
 		case e_value.CAM_DOF_DESATURATION:
 		case e_value.CAM_DOF_GAIN: return 0
+		case e_value.CAM_DOF_BOKEH_STRENGTH: return 0.7
 		case e_value.CAM_DOF_FRINGE_RED:
 		case e_value.CAM_DOF_FRINGE_GREEN:
 		case e_value.CAM_DOF_FRINGE_BLUE: return 1
@@ -70,6 +71,7 @@ function tl_value_default(valueid)
 		case e_value.CAM_BLOOM_RADIUS: return 1
 		case e_value.CAM_BLOOM_RATIO: return 0
 		case e_value.CAM_BLOOM_BLEND: return c_white
+		case e_value.CAM_BLOOM_BLEND_MODE: return "add"
 		case e_value.CAM_LENS_DIRT_BLOOM:
 		case e_value.CAM_LENS_DIRT_GLOW: return true
 		case e_value.CAM_LENS_DIRT_RADIUS: return .5
@@ -79,6 +81,7 @@ function tl_value_default(valueid)
 		case e_value.CAM_CONTRAST:
 		case e_value.CAM_BRIGHTNESS: return 0
 		case e_value.CAM_SATURATION: return 1
+		case e_value.CAM_COLOR_HUE:
 		case e_value.CAM_VIBRANCE: return 0
 		case e_value.CAM_COLOR_INVERT: return false
 		case e_value.CAM_COLOR_INVERT_INTENSITY: return 1
@@ -101,6 +104,11 @@ function tl_value_default(valueid)
 		case e_value.CAM_DISTORT_AMOUNT: return .05
 		case e_value.CAM_VERTEX_SNAP_AMOUNT: return 4
 		case e_value.CAM_BLACK_LINES_SIZE: return 0.7
+		case e_value.CAM_VHS: return false
+		case e_value.CAM_VHS_CHROMA_SHIFT:
+		case e_value.CAM_VHS_DISTORTION:
+		case e_value.CAM_VHS_NOISE:
+		case e_value.CAM_VHS_SCANLINES: return 0.5
 		case e_value.CAM_WIDTH: return 1280
 		case e_value.CAM_HEIGHT: return 720
 		case e_value.CAM_SIZE_USE_PROJECT:
@@ -117,6 +125,7 @@ function tl_value_default(valueid)
 		case e_value.CAM_OUTLINE_BLEND_MODE: return "normal"
 		case e_value.BG_IMAGE_SHOW: return app.background_image_show
 		case e_value.BG_IMAGE_ROTATION: return app.background_image_rotation
+		case e_value.BG_IMAGE_PROBE_STRENGTH: return app.background_image_probe_strength
 		case e_value.BG_SKY_SUN_ANGLE: return app.background_sky_sun_angle
 		case e_value.BG_SKY_MOON_ANGLE: return app.background_sky_moon_angle
 		case e_value.BG_SKY_SUN_SCALE: return app.background_sky_sun_scale
@@ -179,6 +188,28 @@ function tl_value_default(valueid)
 		case e_value.PATH_OBJ:
 		case e_value.IK_TARGET:
 		case e_value.IK_TARGET_ANGLE:
+		case e_value.ROT_TARGET:
+		case e_value.LOOK_AT_TARGET:
+		case e_value.POS_TARGET:
+		case e_value.SCALE_TARGET: return null
+		case e_value.COPY_POS_OFFSET_X:
+		case e_value.COPY_POS_OFFSET_Y:
+		case e_value.COPY_POS_OFFSET_Z:
+		case e_value.COPY_ROT_OFFSET_X:
+		case e_value.COPY_ROT_OFFSET_Y:
+		case e_value.COPY_ROT_OFFSET_Z: return 0
+		case e_value.COPY_POS_CHILD:
+		case e_value.COPY_POS_BEND:
+		case e_value.COPY_ROT_BEND:
+		case e_value.COPY_POS_X:
+		case e_value.COPY_POS_Y:
+		case e_value.COPY_POS_Z:
+		case e_value.COPY_ROT_X:
+		case e_value.COPY_ROT_Y:
+		case e_value.COPY_ROT_Z:
+		case e_value.COPY_SCALE_X:
+		case e_value.COPY_SCALE_Y:
+		case e_value.COPY_SCALE_Z: return true
 		case e_value.ATTRACTOR:
 		case e_value.TEXTURE_OBJ:
 		case e_value.TEXTURE_MATERIAL_OBJ:
@@ -186,6 +217,10 @@ function tl_value_default(valueid)
 		case e_value.SOUND_OBJ:
 		case e_value.TEXT_FONT: return null
 		case e_value.IK_BLEND:
+		case e_value.COPY_POS_BLEND:
+		case e_value.COPY_ROT_BLEND:
+		case e_value.COPY_SCALE_BLEND:
+		case e_value.LOOK_AT_BLEND:
 		case e_value.SOUND_VOLUME:
 		case e_value.SOUND_PITCH: return 1
 		case e_value.VISIBLE: return true

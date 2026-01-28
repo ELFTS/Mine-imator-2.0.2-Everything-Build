@@ -28,9 +28,58 @@ function tl_update_path()
 	for (var i = 0; i < ds_list_size(tree_list); i++)
 	{
 		var tl = tree_list[|i];
-		
+
 		if (tl.type = e_tl_type.PATH_POINT)
-			ds_list_add(path_points_list, [tl.value[e_value.POS_X], tl.value[e_value.POS_Y], tl.value[e_value.POS_Z], tl.value[e_value.PATH_POINT_ANGLE], tl.value[e_value.PATH_POINT_SCALE], 0, 0, 0, 0, 0, 0])
+		{
+			var pos = [tl.value[e_value.POS_X], tl.value[e_value.POS_Y], tl.value[e_value.POS_Z]]
+			if (tl.value[e_value.POS_TARGET] != null)
+			{
+				
+					if (tl.value[e_value.COPY_POS_CHILD])
+					{
+						
+						pos[X] = tl.value[e_value.POS_X] + tl.value[e_value.COPY_POS_OFFSET_X]
+						pos[Y] = tl.value[e_value.POS_Y] + tl.value[e_value.COPY_POS_OFFSET_Y]
+						pos[Z] = tl.value[e_value.POS_Z] + tl.value[e_value.COPY_POS_OFFSET_Z] 
+						
+						var par = tl.value[e_value.POS_TARGET];
+						var mat = array_copy_1d(par.matrix);
+						
+						//BENT Half
+						if (par.type = e_tl_type.BODYPART && tl.value[e_value.COPY_POS_BEND] && par.model_part != null && par.model_part.bend_part != null)
+						{
+							var bendangle = vec3(par.value_inherit[e_value.BEND_ANGLE_X], par.value_inherit[e_value.BEND_ANGLE_Y], par.value_inherit[e_value.BEND_ANGLE_Z]);
+							mat = matrix_multiply(model_part_get_bend_matrix(par.model_part, bendangle, point3D(0, 0, 0), vec3(1), par.id), mat)
+						}
+						
+						mat = matrix_multiply(matrix_create(pos, vec3(0), vec3(1)), mat);
+						
+						mat = matrix_multiply(mat, matrix_inverse(matrix))
+				    	pos = vec3((mat[MAT_X]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_X] +tl.value[e_value.POS_X]* (1 - tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_X])
+						,(mat[MAT_Y]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Y] + tl.value[e_value.POS_Y]* (1 - tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Y])
+						, (mat[MAT_Z]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Z] + tl.value[e_value.POS_Z]* (1 - tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Z]));
+					
+					}
+					else
+					{
+						// NOT IS CHILD
+						matrix_remove_rotation(matrix)
+				        pos = point3D_add(vec3(tl.value[e_value.COPY_POS_OFFSET_X],tl.value[e_value.COPY_POS_OFFSET_Y],tl.value[e_value.COPY_POS_OFFSET_Z]), pos);
+				        var target = tl.value[e_value.POS_TARGET];
+				        var targmat = array_copy_1d(target.matrix);
+				        targmat = matrix_multiply(matrix_create(pos, vec3(0), vec3(1)), targmat);
+				        var mat = matrix_multiply(targmat, matrix_inverse(matrix))
+					
+	                    pos = vec3((mat[MAT_X]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_X] +tl.value[e_value.POS_X]* (1 - tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_X])
+						,(mat[MAT_Y]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Y] + tl.value[e_value.POS_Y]* (1 - tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Y])
+						, (mat[MAT_Z]) * tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Z] + tl.value[e_value.POS_Z]* (1 - tl.value[e_value.COPY_POS_BLEND] * tl.value[e_value.COPY_POS_Z]));
+					}
+				
+			
+			}
+			
+			ds_list_add(path_points_list, [pos[X], pos[Y], pos[Z], tl.value[e_value.PATH_POINT_ANGLE], tl.value[e_value.PATH_POINT_SCALE], 0, 0, 0, 0, 0, 0])
+		}
 	}
 	
 	// Update timelines
@@ -118,6 +167,7 @@ function tl_update_path()
 		for (var j = 0; j < array_length(path_table); j++)
 		{
 			var pos = point3D_mul_matrix(path_table[j], matrix);
+			
 			path_table_matrix[j] = array_copy_1d(path_table[j])
 			path_table_matrix[j][X] = pos[X]
 			path_table_matrix[j][Y] = pos[Y]

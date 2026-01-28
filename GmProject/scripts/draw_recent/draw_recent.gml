@@ -235,7 +235,7 @@ function draw_recent()
 				draw_outline(cardx, cardy, 240, 240, 1, item.pinned ? c_accent : c_border, item.pinned ? 1 : a_border)
 				draw_divide(cardx, cardy + 181, 240)
 				
-				if (item.thumbnail != null)
+				if (item.thumbnail != null && item.thumbnail != undefined)
 				{
 					// Scale down to fit
 					var thumbwid, thumbhei, thumbsca;

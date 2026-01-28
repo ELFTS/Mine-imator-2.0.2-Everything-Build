@@ -19,6 +19,9 @@ uniform float uDefaultEmissive;
 uniform float uLightSpecular;
 uniform bool uIgnore;
 
+uniform float uSampleIndex;
+uniform int uAlphaHash;
+
 varying vec3 vPosition;
 varying vec3 vNormal;
 varying vec3 vTangent;
@@ -26,6 +29,13 @@ varying mat3 vTBN;
 varying vec4 vColor;
 varying vec2 vTexCoord;
 varying vec4 vCustom;
+
+// Improved noise functions
+float hash(vec2 c)
+{
+	return fract(10000.0 * sin(17.0 * c.x + 0.1 * c.y) *
+	(0.1 + abs(sin(13.0 * c.y + c.x))));
+}
 
 // Fresnel Schlick approximation
 float fresnelSchlickRoughness(float cosTheta, float F0, float roughness)
@@ -117,6 +127,14 @@ void main()
 	vec3 lightResult = vec3(0.0);
 	vec3 specResult = vec3(0.0);
 	
+    // Alpha hashing
+    if (uAlphaHash > 0)
+        if (baseColor.a < hash(vec2(hash(vPosition.xy + (uSampleIndex / 255.0)), vPosition.z + (uSampleIndex / 255.0))))
+            discard;
+	
+	if (baseColor.a == 0.0)
+		discard;
+	
 	if (uIsSky > 0 || uIgnore)
 	{
 		if (uIgnore) {
@@ -184,8 +202,5 @@ void main()
 	
 	gl_FragData[0] = vec4(lightResult, baseColor.a);
 	gl_FragData[1] = vec4(specResult, baseColor.a);
-	
-	if (baseColor.a == 0.0)
-		discard;
 }
 

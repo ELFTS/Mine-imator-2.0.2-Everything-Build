@@ -43,7 +43,7 @@ function tab_properties_render()
 	}
 		
 	tab_control_switch()
-	draw_switch("renderlegacyrendering", dx, dy, project_render_legacy_rendering, action_project_render_legacy_rendering)
+	draw_switch("renderlegacyrendering", dx, dy, project_render_legacy_rendering, action_project_render_legacy_rendering, "renderlegacyrenderingtip")
 	tab_next()
 		
 	tab_control_switch()
@@ -361,6 +361,11 @@ function tab_properties_render()
 			
 			tab_collapse_end(false)
 		}
+		
+		// Blend mode
+		tab_control_menu()
+		draw_button_menu("renderglowblendmode", e_menu.LIST, dx, dy, dw, 24, app.project_render_glow_blend_mode, text_get("frameeditorcameraoutlineblendmode" + string(project_render_glow_blend_mode)), action_project_render_glow_blend_mode)
+		tab_next()
 		
 		tab_collapse_end()
 	}

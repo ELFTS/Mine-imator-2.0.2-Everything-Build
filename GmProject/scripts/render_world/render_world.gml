@@ -14,18 +14,41 @@ function render_world(mode)
 	var i, renderlistsize, tl;
 	renderlistsize = ds_list_size(render_list)
 	
+	var shadowdepthmode = ( !app.project_render_legacy_rendering && (render_mode = e_render_mode.HIGH_LIGHT_SUN_DEPTH ||
+		 render_mode = e_render_mode.HIGH_LIGHT_SPOT_DEPTH ||
+		 render_mode = e_render_mode.HIGH_LIGHT_POINT_DEPTH ||
+		 render_mode = e_render_mode.HIGH_LIGHT_POINT ||
+		 render_mode = e_render_mode.HIGH_LIGHT_POINT_EX ||
+		 render_mode = e_render_mode.HIGH_LIGHT_SPOT ||
+		 render_mode = e_render_mode.HIGH_LIGHT_SPOT_EX ||
+		 render_mode = e_render_mode.HIGH_LIGHT_SUN ||
+		 render_mode = e_render_mode.HIGH_LIGHT_SUN_EX))
+		 
 	render_world_tl_reset()
 	
 	// Render negative depth
-	for (i = 0; i < renderlistsize; i++)
-	{
-		tl = render_list[|i]
+	if (!shadowdepthmode) {
+		for (i = 0; i < renderlistsize; i++)
+		{
+			tl = render_list[|i]
 		
-		if (tl.depth >= 0)
-			break
+			if (tl.depth >= 0)
+				break
 		
-		with (tl)
-			render_world_tl()
+			with (tl)
+				render_world_tl()
+		}
+	} else {
+		for (i = 0; i < renderlistsize; i++)
+		{
+			tl = render_list[|i]
+		
+			if (tl.depth >= 0)
+				break
+		
+			with (tl)
+				render_world_tl_shadow()
+		}
 	}
 	
 	// Neutral depth (0)
@@ -43,9 +66,15 @@ function render_world(mode)
 	}
 	
 	// Positive depth
-	for (; i < renderlistsize; i++)
-		with (render_list[|i])
-			render_world_tl()
+	if (!shadowdepthmode) {
+		for (; i < renderlistsize; i++)
+			with (render_list[|i])
+				render_world_tl()
+	} else {
+		for (; i < renderlistsize; i++)
+			with (render_list[|i])
+				render_world_tl_shadow()
+	}
 	
 	render_world_tl_reset()
 	

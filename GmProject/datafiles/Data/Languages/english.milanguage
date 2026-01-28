@@ -148,7 +148,8 @@
 			"copy": "Copy all values",
 			"paste": "Paste all values",
 			"reset": "Reset all values",
-			"copyglobalposition": "Copy global position"
+			"copyglobalposition": "Copy global position",
+			"inverse": "Set inverse"
 		},
 		"tl/": {
 			"addfolder": "Add folder",
@@ -165,6 +166,9 @@
 				"cut": "Cut keyframes",
 				"copy": "Copy keyframes",
 				"paste": "Paste keyframes",
+				"actions": "Keyframe actions...",
+				"randomize": "Randomize",
+				"reverse": "Reverse keyframes",
 				"delete": "Delete keyframes",
 				"export": "Export keyframes",
 				"select": "Select keyframes...",
@@ -636,6 +640,8 @@
 		},
 		"stop": "Hold Escape to cancel",
 		"loading": "%1% done",
+		"hidepreview": "Hide Preview",
+		"hiddenpreview": "Preview is Hidden",
 		"movie/": {
 			"title": "Exporting your movie...",
 			"caption": "Export movie",
@@ -2726,6 +2732,7 @@
 			"ex": "AVE-X"
 		},
 		"legacyrendering": "Legacy Rendering",
+		"legacyrenderingtip": "Uses old slow rendering method, use this in case something wrong happened",
 		"performancemode": "Performance Mode",
 		"performancemode/": {
 		"tip": "Disable some rendering features for faster render times. Check Appearance on objects Properties",
@@ -2825,7 +2832,8 @@
 			"intensity": "Intensity",
 			"falloff": "Secondary glow",
 			"falloffradius": "Radius",
-			"falloffintensity": "Intensity"
+			"falloffintensity": "Intensity",
+			"blendmode": "Blend mode"
 		},
 		"texturefiltering": "Texture filtering",
 		"texturefilteringtip": "Smoothen textures on objects from a distance.",
@@ -3234,7 +3242,8 @@
 			"stretch": "Stretch to fit",
 			"boxmapped": "Mapped texture",
 			"savemap": "Export map",
-			"rotation": "Rotation"
+			"rotation": "Rotation",
+			"rpobestrength": "Probe Strength"
 		},
 		"skybackground": "Sky background",
 		"sky/": {
@@ -3712,6 +3721,59 @@
 			"angletarget": "Angle target",
 			"angleoffset": "Angle offset"
 		},
+		
+		"lookat": "Look at",
+		"lookat/": {
+			"target": "Target",
+			"blend": "Blend",
+			"axis": "Look at axis",
+			"xoffset": "X",
+			"yoffset": "Y",
+			"zoffset": "Z",
+			"offset": "Offset"
+		},
+		"copyconstraint": "Copy Transform",
+        "copypos": "Copy position",
+		"copypos/": {
+			"tip": "Allows the object to inherit position from a separate object.",
+			"target": "Target",
+			"copyaxis": "Axis",
+			"x": "X",
+			"y": "Y",
+			"z": "Z",
+			"child": "Rotate",
+			"bend": "Bent half",
+			"offset": "Offset",
+			"xoffset": "X",
+			"yoffset": "Y",
+			"zoffset": "Z",
+			"blend": "Blend"
+		},
+        "copyrot": "Copy rotation",
+		"copyrot/": {
+			"tip": "Allows the object to inherit rotation from a separate object.",
+			"target": "Target",
+			"copyaxis": "Axis",
+			"x": "X",
+			"y": "Y",
+			"z": "Z",
+			"xoffset": "X",
+			"yoffset": "Y",
+			"zoffset": "Z",
+			"bend": "Bent half",
+			"offset": "Offset",
+			"blend": "Blend"
+		},
+        "copyscale": "Copy scale",
+		"copyscale/": {
+			"tip": "Allows the object to inherit scale from a separate object.",
+			"target": "Target",
+			"copyaxis": "Axis",
+			"x": "X",
+			"y": "Y",
+			"z": "Z",
+			"blend": "Blend"
+		},
 		"modifier" : "Modifiers",
 		"modifier/": {
 			"shake": "Shake",
@@ -3863,6 +3925,7 @@
 				"fadesize": "Fade size",
 				"blursize": "Blur size",
 				"blurratio": "Anamorphic ratio",
+				"bokeh": "Bokeh Strength",
 				"bias": "Edge highlight",
 				"gain": "Highlight boost",
 				"threshold": "Boost threshold",
@@ -3884,7 +3947,8 @@
 				"intensity": "Intensity",
 				"radius": "Radius",
 				"ratio": "Anamorphic ratio",
-				"blend": "Blend color"
+				"blend": "Blend color",
+				"blendmode": "Blend mode"
 			},
 			"lensdirt": "Lens dirt",
 			"lensdirt/": {
@@ -3903,6 +3967,7 @@
 				"vibrance": "Vibrance",
 				"invert": "Invert",
 				"invertstrength": "Invert Strength",
+				"hue": "Hue",
 				"colorburn": "Color burn"
 			},
 			"grain": "Film grain",
@@ -3950,6 +4015,13 @@
 				"strength": "Strength",
 				"speed": "Speed",
 				"scale": "Scale"
+			},
+			"vhs": "VHS",
+			"vhs/": {
+				"distortion": "Distortion",
+				"noise": "Noise",
+				"scanlines": "Scanlines",
+				"chromashift": "Chroma shift"
 			},
 			"outline": "Outline",
 			"outline/": {

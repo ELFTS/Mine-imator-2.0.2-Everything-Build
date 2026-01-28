@@ -120,6 +120,42 @@ function history_restore_tl(save, tl = null)
 			}
 		}
 		
+		for (var s = 0; s < save.usage_tl_copy_rot_target_amount; s++)
+		{
+			with (save_id_find(save.usage_tl_copy_rot_target_save_id[s]))
+			{
+				value[e_value.ROT_TARGET] = tl
+				update_matrix = true
+			}
+		}
+		
+		for (var s = 0; s < save.usage_tl_look_at_target_amount; s++)
+		{
+			with (save_id_find(save.usage_tl_look_at_target_save_id[s]))
+			{
+				value[e_value.LOOK_AT_TARGET] = tl
+				update_matrix = true
+			}
+		}
+		
+		for (var s = 0; s < save.usage_tl_copy_pos_target_amount; s++)
+		{
+			with (save_id_find(save.usage_tl_copy_pos_target_save_id[s]))
+			{
+				value[e_value.POS_TARGET] = tl
+				update_matrix = true
+			}
+		}
+		
+		for (var s = 0; s < save.usage_tl_copy_scale_target_amount; s++)
+		{
+			with (save_id_find(save.usage_tl_copy_scale_target_save_id[s]))
+			{
+				value[e_value.SCALE_TARGET] = tl
+				update_matrix = true
+			}
+		}
+		
 		for (var s = 0; s < save.usage_kf_texture_amount; s++)
 			with (save_id_find(save.usage_kf_texture_tl_save_id[s]))
 				keyframe_list[|save.usage_kf_texture_index[s]].value[e_value.TEXTURE_OBJ] = tl
@@ -139,6 +175,18 @@ function history_restore_tl(save, tl = null)
 		for (var s = 0; s < save.usage_kf_ik_target_angle_amount; s++)
 			with (save_id_find(save.usage_kf_ik_target_angle_tl_save_id[s]))
 				keyframe_list[|save.usage_kf_ik_target_angle_index[s]].value[e_value.IK_TARGET_ANGLE] = tl
+		
+		for (var s = 0; s < save.usage_kf_copy_rot_target_amount; s++)
+			with (save_id_find(save.usage_kf_copy_rot_target_tl_save_id[s]))
+				keyframe_list[|save.usage_kf_copy_rot_target_index[s]].value[e_value.ROT_TARGET] = tl
+		
+		for (var s = 0; s < save.usage_kf_copy_pos_target_amount; s++)
+			with (save_id_find(save.usage_kf_copy_pos_target_tl_save_id[s]))
+				keyframe_list[|save.usage_kf_copy_pos_target_index[s]].value[e_value.POS_TARGET] = tl
+		
+		for (var s = 0; s < save.usage_kf_copy_scale_target_amount; s++)
+			with (save_id_find(save.usage_kf_copy_scale_target_tl_save_id[s]))
+				keyframe_list[|save.usage_kf_copy_scale_target_index[s]].value[e_value.SCALE_TARGET] = tl
 	}
 	
 	return tl

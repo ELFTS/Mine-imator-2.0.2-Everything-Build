@@ -8,6 +8,7 @@ function project_reset_background()
 	background_image_stretch = true
 	background_image_box_mapped = false
 	background_image_rotation = 0
+	background_image_probe_strength = 1
 	/*
 	background_reflection_probe_show = false
 	background_reflection_probe_image = null
@@ -35,7 +36,7 @@ function project_reset_background()
 	background_sky_clouds_tex.count++
 	background_sky_clouds_mode = "normal"
 	background_sky_clouds_speed = 1
-	background_sky_clouds_height = 1024
+	background_sky_clouds_height = 2294
 	background_sky_clouds_size = 1536
 	background_sky_clouds_thickness = 64
 	background_sky_clouds_offset = 0

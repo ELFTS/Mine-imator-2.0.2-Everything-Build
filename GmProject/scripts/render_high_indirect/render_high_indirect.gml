@@ -82,14 +82,10 @@ function render_high_indirect()
 		surface_reset_target()
 	}
 	
-	var indirectsurf = (app.project_render_indirect_blur_radius > 0 ? render_surface_hdr[0] : render_surface_hdr[1]);
-	
 	// Apply Bilateral Denoiser (optional final pass)
 	if (app.project_render_indirect_denoiser)
 	{
 		// Denoise from whatever is currently in indirectsurf to the other buffer
-		render_surface_hdr[1] = surface_require(render_surface_hdr[1], render_width, render_height, true, true)
-
 		surface_set_target(render_surface_hdr[1])
 		{
 			draw_clear_alpha(c_black, 0)
@@ -108,22 +104,19 @@ function render_high_indirect()
 				shader_clear()
 		}
 		surface_reset_target()
-
-		// Final indirect output is now hdr[1]
-		indirectsurf = render_surface_hdr[1];
 	}
 	
 	// Add
 	surface_set_target(render_surface_shadows)
 	{
 		gpu_set_blendmode(bm_add)
-		draw_surface_exists(indirectsurf, 0, 0)
+		draw_surface_exists(app.project_render_indirect_denoiser ? render_surface_hdr[1] : render_surface_hdr[0], 0, 0)
 		gpu_set_blendmode(bm_normal)
 	}
 	surface_reset_target()
 	
 	if (render_pass = e_render_pass.INDIRECT)
-		render_pass_surf = surface_duplicate(indirectsurf)
+		render_pass_surf = surface_duplicate(app.project_render_indirect_denoiser ? render_surface_hdr[1] : render_surface_hdr[0])
 	
 	if (render_pass = e_render_pass.INDIRECT_SHADOWS)
 		render_pass_surf = surface_duplicate(render_surface_shadows)

@@ -69,6 +69,7 @@ function tl_event_create()
 	modifier_shake_rot = vec3(0)
 	modifier_shake_bend = vec3(0)
 	modifier_shake = false
+	modifier_shake_update = false
 	modifier_shake_auto_offset = random_range(-1000.0, 1000.0)
 	modifier_physc_pos = vec3(0)
 	
@@ -147,6 +148,7 @@ function tl_event_create()
 	cam_surf = null
 	cam_surf_tmp = null
 	cam_goalzoom = null
+	cam_shake_prev = vec3(0)
 	
 	matrix = MAT_IDENTITY
 	matrix_render = MAT_IDENTITY

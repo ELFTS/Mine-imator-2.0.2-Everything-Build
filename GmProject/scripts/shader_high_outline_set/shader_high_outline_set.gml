@@ -23,19 +23,7 @@ function shader_high_outline_set()
 	render_set_uniform("uThresholdNormal", render_camera.value[e_value.CAM_OUTLINE_NORMAL_THRESHOLD])
 	render_set_uniform("uThresholdNormalFade", render_camera.value[e_value.CAM_OUTLINE_NORMAL_THRESHOLD_FADE])
 	render_set_uniform("uOutlineNormal", render_camera.value[e_value.CAM_OUTLINE_NORMAL])
-	
-	var blendmode;
-	
-	switch (render_camera.value[e_value.CAM_OUTLINE_BLEND_MODE])
-	{
-		case "normal": blendmode = 0; break;
-		case "add": blendmode = 1; break;
-		case "screen": blendmode = 2; break;
-		case "multiply": blendmode = 3; break;
-		case "overlay": blendmode = 4; break;
-	}
-	
-	render_set_uniform_int("uBlendMode", blendmode)
+	render_set_uniform_int("uBlendMode", ds_list_find_index(blend_mode_list_ex, render_camera.value[e_value.CAM_OUTLINE_BLEND_MODE]))
 	
 	render_set_uniform_color("uColor", render_camera.value[e_value.CAM_OUTLINE_COLOR], 1)
 }

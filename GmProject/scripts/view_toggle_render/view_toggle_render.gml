@@ -15,8 +15,11 @@ function view_toggle_render()
 			view_second.before = view_second.quality
 			view_second.quality = e_view_mode.RENDER
 		
-		if (view_main.quality = e_view_mode.RENDER)
+		if (view_main.quality = e_view_mode.RENDER) {
 			view_main.quality = view_main.before
+			render_free()
+		}
+		
 	}
 	else
 	{

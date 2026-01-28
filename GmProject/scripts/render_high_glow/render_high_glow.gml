@@ -125,7 +125,7 @@ function render_high_glow(prevsurf, glowfalloff = false)
 		with (render_shader_obj)
 		{
 			shader_set(shader)
-			shader_add_set(glowsurf, glowfalloff ? app.project_render_glow_falloff_intensity : app.project_render_glow_intensity, c_white)
+			shader_add_set(glowsurf, glowfalloff ? app.project_render_glow_falloff_intensity : app.project_render_glow_intensity, c_white, 1, app.project_render_glow_blend_mode)
 		}
 		draw_surface_exists(prevsurf, 0, 0)
 		with (render_shader_obj)

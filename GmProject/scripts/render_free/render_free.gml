@@ -6,6 +6,7 @@ function render_free()
 	surface_free(render_surface[0])
 	surface_free(render_surface[1])
 	surface_free(render_surface[2])
+	surface_free(render_surface[3])
 	
 	surface_free(render_surface_hdr[0])
 	surface_free(render_surface_hdr[1])
@@ -19,7 +20,7 @@ function render_free()
 	surface_free(render_surface_diffuse)
 	surface_free(render_surface_glint)
 	surface_free(render_surface_scene_test)
-	surface_free(render_surface_alpha_fix)
+	// surface_free(render_surface_alpha_fix)
 	surface_free(render_surface_glow_cache)
 	
 	// Rendering

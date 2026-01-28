@@ -121,10 +121,11 @@ function tl_update_value_types()
 		type = e_tl_type.SPOT_LIGHT)
 		value_type[e_value_type.ROT_POINT] = false
 	
+	// Copy Constraints
+	value_type[e_value_type.COPY_CONSTRAINTS] = true
+	
 	// Modifier
 	value_type[e_value_type.MODIFIER] = true
-	//if (false)
-	//	value_type[e_value_type.MODIFIER] = false
 	
 	// Enable material tab
 	value_type[e_value_type.MATERIAL] = (value_type[e_value_type.MATERIAL_TEXTURE] || value_type[e_value_type.MATERIAL_COLOR] ||

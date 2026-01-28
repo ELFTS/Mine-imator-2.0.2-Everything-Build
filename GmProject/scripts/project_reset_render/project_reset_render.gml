@@ -11,7 +11,7 @@ function project_reset_render()
 	project_render_performance_mode = false
 	project_render_performance_mode_skipfog = false
 	project_render_performance_mode_skipsky = false
-	project_render_performance_mode_light_occlusion_distance = 32
+	project_render_performance_mode_light_occlusion_distance = 8
 	
 	project_render_ssao = true
 	project_render_ssao_samples = 24
@@ -62,6 +62,7 @@ function project_reset_render()
 	project_render_glow_falloff = false
 	project_render_glow_falloff_radius = 2
 	project_render_glow_falloff_intensity = 1
+	project_render_glow_blend_mode = "add"
 	
 	project_render_aa = true
 	project_render_aa_power = 1

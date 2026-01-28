@@ -11,7 +11,7 @@ function render_high_passes()
 	if (!app.project_render_legacy_rendering) {
 		render_surface_glint = surface_require(render_surface_glint, render_width, render_height)
 		render_surface_scene_test = surface_require(render_surface_scene_test, render_width, render_height)
-		render_surface_alpha_fix = surface_require(render_surface_alpha_fix, render_width, render_height)
+		// render_surface_alpha_fix = surface_require(render_surface_alpha_fix, render_width, render_height)
 	}
 	
 	if (render_depth_normals)
@@ -45,7 +45,11 @@ function render_high_passes()
 		
 			// 2D mode
 			render_set_projection_ortho(0, 0, render_width, render_height, 0)
-		
+			gpu_set_blendmode_ext(bm_src_color, bm_one)
+			if (render_background)
+				draw_box(0, 0, render_width, render_height, false, c_black, 1)
+			gpu_set_blendmode(bm_normal)
+			/*
 			// Alpha fix
 			gpu_set_blendmode_ext(bm_src_color, bm_one) 
 			if (render_background)
@@ -57,6 +61,7 @@ function render_high_passes()
 				render_world_done()
 			}
 			gpu_set_blendmode(bm_normal)
+			*/
 		}
 		surface_reset_target()
 	
@@ -96,6 +101,7 @@ function render_high_passes()
 		if (!is_cpp())
 		{
 			// Alpha Fix (Render Image Without Background)
+			/*
 			surface_set_target(render_surface_alpha_fix)
 			{
 				if (render_background)
@@ -108,6 +114,7 @@ function render_high_passes()
 				}
 			}
 			surface_reset_target()
+			*/
 			
 			// Diffuse data
 			surface_set_target(render_surface_diffuse)
@@ -126,9 +133,15 @@ function render_high_passes()
 				render_set_projection_ortho(0, 0, render_width, render_height, 0)
 		
 				// Alpha fix
+				gpu_set_blendmode_ext(bm_src_color, bm_one)
+				if (render_background)
+					draw_box(0, 0, render_width, render_height, false, c_black, 1)
+				gpu_set_blendmode(bm_normal)
+				/*
 				gpu_set_blendmode_ext(bm_src_color, bm_one) 
 				draw_surface(render_surface_alpha_fix, 0, 0)
 				gpu_set_blendmode(bm_normal)
+				*/
 			}
 			surface_reset_target()
 		
@@ -158,26 +171,6 @@ function render_high_passes()
 				render_world_done()
 			}
 			surface_reset_target()
-			
-			// Draw Glow Colors and Cache it
-			if (app.project_render_glow)
-			{
-				surface_set_target(render_surface_glow_cache)
-				{
-					draw_clear_alpha(c_black, 1)
-		
-					render_world_start()
-					render_world(e_render_mode.COLOR_GLOW)
-					render_world_done()
-		
-					render_set_projection_ortho(0, 0, render_width, render_height, 0)
-		
-					gpu_set_blendmode_ext(bm_src_color, bm_one) 
-					draw_box(0, 0, render_width, render_height, false, c_black, 1)
-					gpu_set_blendmode(bm_normal)
-				}
-				surface_reset_target()
-			}
 	
 			// Glint rendered manually
 			surface_set_target(render_surface_glint)
@@ -195,6 +188,7 @@ function render_high_passes()
 			// ========================================
 			
 			// Alpha Fix (Render Image Without Background)
+			/*
 			surface_set_target(render_surface_alpha_fix)
 			{
 				if (render_background)
@@ -207,6 +201,7 @@ function render_high_passes()
 				}
 			}
 			surface_reset_target()
+			*/
 			
 			// Render Diffuse with background first
 			// Diffuse data
@@ -224,11 +219,17 @@ function render_high_passes()
 		
 				// 2D mode
 				render_set_projection_ortho(0, 0, render_width, render_height, 0)
-		
+				gpu_set_blendmode_ext(bm_src_color, bm_one)
+				if (render_background)
+					draw_box(0, 0, render_width, render_height, false, c_black, 1)
+				gpu_set_blendmode(bm_normal)
+				
+				/*
 				// Alpha fix
 				gpu_set_blendmode_ext(bm_src_color, bm_one) 
 				draw_surface(render_surface_alpha_fix, 0, 0)
 				gpu_set_blendmode(bm_normal)
+				*/
 			}
 			surface_reset_target()
 			
@@ -250,11 +251,16 @@ function render_high_passes()
 		
 				// 2D mode
 				render_set_projection_ortho(0, 0, render_width, render_height, 0)
-		
+				gpu_set_blendmode_ext(bm_src_color, bm_one)
+				if (render_background)
+					draw_box(0, 0, render_width, render_height, false, c_black, 1)
+				gpu_set_blendmode(bm_normal)
 				// Alpha fix
+				/*
 				gpu_set_blendmode_ext(bm_src_color, bm_one) 
 				draw_surface(render_surface_alpha_fix, 0, 0)
 				gpu_set_blendmode(bm_normal)
+				*/
 			}
 			surface_reset_target()
 		}

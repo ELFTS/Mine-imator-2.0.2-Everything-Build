@@ -46,6 +46,5 @@ function app_startup()
 	
 	startup_error = false
 	
-	
 	return true
 }

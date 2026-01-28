@@ -74,5 +74,26 @@ function action_group_reset()
 			action_tl_frame_ease_set_all([1, 0, 0, 1], false)
 			return;
 		}
+		
+		case e_context_group.COPYROT:
+		{
+			def = [0, 0, 0]
+			action_tl_frame_copy_rot_xyz(def)
+			return;
+		}
+		
+		case e_context_group.COPYPOS:
+		{
+			def = [0, 0, 0]
+			action_tl_frame_copy_pos_xyz(def)
+			return;
+		}
+		
+		case e_context_group.LOOKAT:
+		{
+			def = [0, 0, 0]
+			action_tl_frame_look_at_xyz(def)
+			return;
+		}
 	}
 }

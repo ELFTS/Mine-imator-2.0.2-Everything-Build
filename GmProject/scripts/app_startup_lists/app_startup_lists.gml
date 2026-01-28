@@ -12,7 +12,7 @@ function app_startup_lists()
 	globalvar minecraft_armor_trim_pattern_list, minecraft_armor_trim_material_list;
 	globalvar minecraft_map_color_array, minecraft_swatch_array, minecraft_swatch_color_map, minecraft_swatch_dyes;
 	globalvar biome_list, particle_template_list, particle_template_map;
-	globalvar blend_mode_list, blend_mode_map, outline_blend_mode_list;
+	globalvar blend_mode_list, blend_mode_map, blend_mode_list_ex;
 	globalvar timeline_icon_list, timeline_icon_list_dark;
 	globalvar composition_guide_list;
 	globalvar render_pass_list;
@@ -96,6 +96,7 @@ function app_startup_lists()
 		"CAM_DOF_FADE_SIZE",
 		"CAM_DOF_BLUR_SIZE",
 		"CAM_DOF_BLUR_RATIO",
+		"CAM_DOF_BOKEH_STRENGTH",
 		"CAM_DOF_BIAS",
 		"CAM_DOF_THRESHOLD",
 		"CAM_DOF_GAIN",
@@ -113,6 +114,7 @@ function app_startup_lists()
 		"CAM_BLOOM_RADIUS",
 		"CAM_BLOOM_RATIO",
 		"CAM_BLOOM_BLEND",
+		"CAM_BLOOM_BLEND_MODE",
 		"CAM_LENS_DIRT",
 		"CAM_LENS_DIRT_BLOOM",
 		"CAM_LENS_DIRT_GLOW",
@@ -126,6 +128,7 @@ function app_startup_lists()
 		"CAM_VIBRANCE",
 		"CAM_COLOR_INVERT",
 		"CAM_COLOR_INVERT_INTENSITY",
+		"CAM_COLOR_HUE",
 		"CAM_COLOR_BURN",
 		"CAM_GRAIN",
 		"CAM_GRAIN_STRENGTH",
@@ -157,6 +160,11 @@ function app_startup_lists()
 		"CAM_HEAT_DISTORTION_STRENGTH",
 		"CAM_HEAT_DISTORTION_SPEED",
 		"CAM_HEAT_DISTORTION_SCALE",
+		"CAM_VHS",
+		"CAM_VHS_DISTORTION",
+		"CAM_VHS_NOISE",
+		"CAM_VHS_SCANLINES",
+		"CAM_VHS_CHROMA_SHIFT",
 		"CAM_SIZE_USE_PROJECT",
 		"CAM_SIZE_KEEP_ASPECT_RATIO",
 		"CAM_WIDTH",
@@ -173,6 +181,7 @@ function app_startup_lists()
 		"CAM_OUTLINE_BLEND_MODE",
 		"BG_IMAGE_SHOW",
 		"BG_IMAGE_ROTATION",
+		"BG_IMAGE_PROBE_STRENGTH",
 		"BG_SKY_MOON_PHASE",
 		"BG_SKY_TIME",
 		"BG_SKY_ROTATION",
@@ -259,6 +268,35 @@ function app_startup_lists()
 		"IK_BLEND",
 		"IK_TARGET_ANGLE",
 		"IK_ANGLE_OFFSET",
+		"LOOK_AT_TARGET",
+		"LOOK_AT_OFFSET_X",
+		"LOOK_AT_OFFSET_Y",
+		"LOOK_AT_OFFSET_Z",
+		"ROT_TARGET",
+		"POS_TARGET",
+		"COPY_POS_BLEND",
+		"COPY_ROT_BLEND",
+		"COPY_SCALE_BLEND",
+		"LOOK_AT_BLEND",
+		"SCALE_TARGET",
+		"COPY_POS_CHILD",
+		"COPY_POS_BEND",
+		"COPY_ROT_BEND",
+		"COPY_ROT_X",
+		"COPY_ROT_Y",
+		"COPY_ROT_Z",
+		"COPY_POS_X",
+		"COPY_POS_Y",
+		"COPY_POS_Z",
+		"COPY_SCALE_X",
+		"COPY_SCALE_Y",
+		"COPY_SCALE_Z",
+		"COPY_POS_OFFSET_X",
+		"COPY_POS_OFFSET_Y",
+		"COPY_POS_OFFSET_Z",
+		"COPY_ROT_OFFSET_X",
+		"COPY_ROT_OFFSET_Y",
+		"COPY_ROT_OFFSET_Z",
 		"MODIFIER_SHAKE",
 		"MODIFIER_SHAKE_POSITION",
 		"MODIFIER_SHAKE_ROTATION",
@@ -508,8 +546,8 @@ function app_startup_lists()
 		"screen"
 	)
 	
-	outline_blend_mode_list = ds_list_create()
-	ds_list_add(outline_blend_mode_list,
+	blend_mode_list_ex = ds_list_create()
+	ds_list_add(blend_mode_list_ex,
 		"normal",
 		"add",
 		"screen",

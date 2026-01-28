@@ -32,5 +32,6 @@ function export_done_movie()
 	toast_new(e_toast.POSITIVE, text_get("alertexportmovie"))
 	toast_add_action("alertexportmovieview", popup_open_url, fn)
 	toast_add_action("alertexportmoviefolder", popup_open_url, export_folder)
+	play_audio_from_files(audio_directory + "done.ogg")
 	toast_last.dismiss_time = 10
 }

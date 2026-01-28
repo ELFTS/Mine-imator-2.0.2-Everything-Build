@@ -36,6 +36,7 @@ function tl_value_is_bool(vid)
 			vid = e_value.CAM_BLACK_LINES ||
 			vid = e_value.CAM_VERTEX_SNAP ||
 			vid = e_value.CAM_HEAT_DISTORTION ||
+			vid = e_value.CAM_VHS ||
 			vid = e_value.CAM_SIZE_USE_PROJECT ||
 			vid = e_value.CAM_SIZE_KEEP_ASPECT_RATIO ||
 			vid = e_value.CAM_OUTLINE ||

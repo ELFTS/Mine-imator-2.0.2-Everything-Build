@@ -106,6 +106,7 @@ function tl_value_clamp(vid, val)
 		case e_value.TEXT_HALIGN:
 		case e_value.TEXT_VALIGN:
 		case e_value.CAM_OUTLINE_BLEND_MODE:
+		case e_value.CAM_BLOOM_BLEND_MODE:
 		case e_value.BG_BIOME:
 		case e_value.TRANSITION: return val
 	}

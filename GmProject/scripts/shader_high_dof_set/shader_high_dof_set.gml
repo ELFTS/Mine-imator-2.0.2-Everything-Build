@@ -17,6 +17,7 @@ function shader_high_dof_set(blurbuffer)
 	
 	render_set_uniform("uGhostingFix", app.project_render_dof_ghostingfix)
 	render_set_uniform("uGhostingFixThreshold", app.project_render_dof_ghostingfix_threshold)
+	render_set_uniform("uBokehStrength", (1 - render_camera.value[e_value.CAM_DOF_BOKEH_STRENGTH]) * 5)
 	
 	render_set_uniform_int("uFringe", bool_to_float(render_camera.value[e_value.CAM_DOF_FRINGE]))
 	render_set_uniform_vec3("uFringeAngle", -degtorad(render_camera.value[e_value.CAM_DOF_FRINGE_ANGLE_RED] + 180), -degtorad(render_camera.value[e_value.CAM_DOF_FRINGE_ANGLE_GREEN] + 180), -degtorad(render_camera.value[e_value.CAM_DOF_FRINGE_ANGLE_BLUE] + 180))

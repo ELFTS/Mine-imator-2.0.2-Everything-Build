@@ -119,12 +119,16 @@
 		<file>Shaders/Compiled/shader_outline.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_palette.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_palette.vsh.d3d</file>
+		<file>Shaders/Compiled/shader_remove_background.fsh.d3d</file>
+		<file>Shaders/Compiled/shader_remove_background.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_replace.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_replace.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_replace_alpha.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_replace_alpha.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_tonemap.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_tonemap.vsh.d3d</file>
+		<file>Shaders/Compiled/shader_vhs.fsh.d3d</file>
+		<file>Shaders/Compiled/shader_vhs.vsh.d3d</file>
 		<file>Shaders/Compiled/shader_vignette.fsh.d3d</file>
 		<file>Shaders/Compiled/shader_vignette.vsh.d3d</file>
 		<file>Shaders/Compiled/world_box.fsh.d3d</file>
@@ -255,12 +259,16 @@
 		<file>Shaders/shader_outline.vsh</file>
 		<file>Shaders/shader_palette.fsh</file>
 		<file>Shaders/shader_palette.vsh</file>
+		<file>Shaders/shader_remove_background.fsh</file>
+		<file>Shaders/shader_remove_background.vsh</file>
 		<file>Shaders/shader_replace.fsh</file>
 		<file>Shaders/shader_replace.vsh</file>
 		<file>Shaders/shader_replace_alpha.fsh</file>
 		<file>Shaders/shader_replace_alpha.vsh</file>
 		<file>Shaders/shader_tonemap.fsh</file>
 		<file>Shaders/shader_tonemap.vsh</file>
+		<file>Shaders/shader_vhs.fsh</file>
+		<file>Shaders/shader_vhs.vsh</file>
 		<file>Shaders/shader_vignette.fsh</file>
 		<file>Shaders/shader_vignette.vsh</file>
 		<file>Shaders/world_box.fsh</file>

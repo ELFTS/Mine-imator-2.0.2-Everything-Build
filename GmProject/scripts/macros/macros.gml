@@ -4,7 +4,7 @@
 function macros()
 {
 	// Debug
-	#macro dev_mode						false
+	#macro dev_mode						true
 	#macro dev_mode_skip_blocks			dev_mode && true
 	#macro dev_mode_debug_schematics	dev_mode && true
 	#macro dev_mode_debug_names			dev_mode && true
@@ -21,10 +21,10 @@ function macros()
 	// Versions
 	#macro mineimator_version			"2.0.2"							// Base Mine-imator version
 	#macro mineimator_version_sub		"Simply Upscaled Build 1.0.12"	// Mod name and version (e.g. "Community Build 1.0.0")
-	#macro mineimator_version_extra		"Build 0"						// Additional suffix (e.g. "Alpha 1" or "Pre-Release 2")
+	#macro mineimator_version_extra		"Build 1"						// Additional suffix (e.g. "Alpha 1" or "Pre-Release 2")
 	#macro mineimator_version_full		(mineimator_version + ((mineimator_version_sub != "") ? " " + mineimator_version_sub : "") + ((mineimator_version_extra != "") ? " (" + mineimator_version_extra + ")" : ""))
-	#macro mineimator_version_date		"2025.12.10"
-	#macro minecraft_version			"1.21.11-rc2" // 1.21.11-rc2
+	#macro mineimator_version_date		"2025.1.19"
+	#macro minecraft_version			"1.21.5" // 1.21.11-rc2
 	#macro gm_runtime					GM_runtime_version
 	 
 	// File formats
@@ -43,6 +43,7 @@ function macros()
 	#macro minecraft_directory			data_directory + "Minecraft/"
 	#macro render_directory				data_directory + "Render/"
 	#macro splash_directory				data_directory + "Splashes/"
+	#macro audio_directory				data_directory + "Audio/"
 	
 	// Files
 	#macro language_file				languages_directory + "english.milanguage"
@@ -184,6 +185,22 @@ function macros()
 	#macro MAT_X						12
 	#macro MAT_Y						13
 	#macro MAT_Z						14
+	#macro MAT_00						0
+	#macro MAT_01						1
+	#macro MAT_02						2
+	#macro MAT_03						3
+	#macro MAT_10						4
+	#macro MAT_11						5
+	#macro MAT_12						6
+	#macro MAT_13						7
+	#macro MAT_20						8
+	#macro MAT_21						9
+	#macro MAT_22						10
+	#macro MAT_23						11
+	#macro MAT_30						12
+	#macro MAT_31						13
+	#macro MAT_32						14
+	#macro MAT_33						15
 	#macro PATH_SCALE					4
 	#macro PATH_TANGENT_X				5
 	#macro PATH_TANGENT_Y				6

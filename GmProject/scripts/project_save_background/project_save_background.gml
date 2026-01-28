@@ -10,6 +10,7 @@ function project_save_background()
 		json_save_var_bool("image_stretch", background_image_stretch)
 		json_save_var_bool("image_box_mapped", background_image_box_mapped)
 		json_save_var("image_rotation", background_image_rotation)
+		json_save_var("image_probe_strength", background_image_probe_strength)
 		/*
 		json_save_var_bool("reflection_probe_show", background_reflection_probe_show)
 		json_save_var_save_id("reflection_probe_image", background_reflection_probe_image)

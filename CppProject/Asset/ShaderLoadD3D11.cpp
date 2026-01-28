@@ -368,7 +368,7 @@ namespace CppProject
                     flags |= D3DCOMPILE_OPTIMIZATION_LEVEL3;
 #endif
                     std::string codeStd = code.toStdString();
-                    std::string target = isVertex ? "vs_5_0" : "ps_5_0";
+                    std::string target = isVertex ? "vs_4_0" : "ps_4_0";
                     if (FAILED(D3DCompile(codeStd.c_str(), code.length(), nullptr, nullptr, nullptr, "main", target.c_str(), flags, 0, &data, &errMsgs)))
                     {
                         std::string errMsg((const char*)errMsgs->GetBufferPointer(), errMsgs->GetBufferSize());

@@ -45,6 +45,7 @@ uniform int uRayType;
 uniform int uReflectionProbe;
 uniform float uRayDistance;
 uniform float uReflectionProbeRot;
+uniform float uReflectionProbeStrength;
 
 // Reflections
 uniform float uFadeAmount;
@@ -364,7 +365,7 @@ void main()
 		if (vis <= 0.0 && uReflectionProbe > 0)
 		{
 			// sample probe using the outgoing reflection direction (rayDir)
-			vec3 probeCol = sampleReflectionProbe(rayDir);
+			vec3 probeCol = sampleReflectionProbe(rayDir) * uReflectionProbeStrength;
 			// apply gamma to probe to match how sky was handled (keeps appearance consistent)
 			envColor = pow(probeCol, vec3(uGamma));
 		}

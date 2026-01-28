@@ -28,6 +28,10 @@ function app_startup_interface_context_menu()
 		COLOR,
 		CAMERA,
 		EASE,
+		COPYPOS,
+		COPYROT,
+		LOOKAT,
+		COPYSCA,
 		amount
 	}
 	

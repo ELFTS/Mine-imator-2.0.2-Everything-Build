@@ -11,6 +11,9 @@ function action_group_paste()
 		case e_context_group.ROT_POINT: action_tl_rotpoint_all(copy); return 0;
 		case e_context_group.POSITION: action_tl_frame_pos_xyz(copy); return 0;
 		case e_context_group.ROTATION: action_tl_frame_rot_xyz(copy); return 0;
+		case e_context_group.COPYPOS: action_tl_frame_copy_pos_xyz(copy); return 0;
+		case e_context_group.COPYROT: action_tl_frame_copy_rot_xyz(copy); return 0;
+		case e_context_group.LOOKAT: action_tl_frame_look_at_xyz(copy); return 0;
 		case e_context_group.SCALE: action_tl_frame_scale_xyz(copy); return 0;
 		case e_context_group.BEND: action_tl_frame_bend_angle_xyz(copy); return 0;
 		case e_context_group.LIGHT: action_tl_frame_set_light(copy[0], copy[1], copy[2], copy[3], copy[4], copy[5], copy[6], copy[7]); return 0;

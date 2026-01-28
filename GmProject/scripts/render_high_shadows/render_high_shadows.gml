@@ -8,6 +8,7 @@ function render_high_shadows()
 	samplestart = 0
 	sampleend = 0
 	lightlist = array()
+	render_light_tl = null
 	
 	// Get visible lights
 	with (obj_timeline)
@@ -361,7 +362,6 @@ function render_high_shadows_shadowless()
 				render_shadowless_point_data[render_shadowless_point_amount * 12 + 10] = 1
 				render_shadowless_point_data[render_shadowless_point_amount * 12 + 11] = 1
 				render_shadowless_point_amount++
-				render_light_tl = light
 				lights--
 			}
 			

@@ -1450,8 +1450,26 @@ function list_init(name)
 		// Outline Camera Blend mode
 		case "frameeditorcameraoutlineblendmode":
 		{
-			for (var i = 0; i < ds_list_size(outline_blend_mode_list); i++)
-				menu_add_item(outline_blend_mode_list[|i], text_get("frameeditorcameraoutlineblendmode" + outline_blend_mode_list[|i]))
+			for (var i = 0; i < ds_list_size(blend_mode_list_ex); i++)
+				menu_add_item(blend_mode_list_ex[|i], text_get("frameeditorcameraoutlineblendmode" + blend_mode_list_ex[|i]))
+			
+			break
+		}
+		
+		// Bloom Camera Blend mode
+		case "frameeditorcamerabloomblendmode":
+		{
+			for (var i = 0; i < ds_list_size(blend_mode_list_ex); i++)
+				menu_add_item(blend_mode_list_ex[|i], text_get("frameeditorcameraoutlineblendmode" + blend_mode_list_ex[|i]))
+			
+			break
+		}
+		
+		// Bloom Camera Blend mode
+		case "renderglowblendmode":
+		{
+			for (var i = 0; i < ds_list_size(blend_mode_list_ex); i++)
+				menu_add_item(blend_mode_list_ex[|i], text_get("frameeditorcameraoutlineblendmode" + blend_mode_list_ex[|i]))
 			
 			break
 		}

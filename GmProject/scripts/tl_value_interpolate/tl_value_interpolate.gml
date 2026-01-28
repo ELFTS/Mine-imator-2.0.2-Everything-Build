@@ -58,6 +58,22 @@ function tl_value_interpolate(vid, p, val1, val2)
 		case e_value.PATH_OBJ:
 		case e_value.IK_TARGET:
 		case e_value.IK_TARGET_ANGLE:
+		case e_value.ROT_TARGET:
+		case e_value.LOOK_AT_TARGET:
+		case e_value.POS_TARGET:
+		case e_value.SCALE_TARGET:
+		case e_value.COPY_POS_CHILD:
+		case e_value.COPY_POS_BEND:
+		case e_value.COPY_ROT_BEND:
+		case e_value.COPY_POS_X:
+		case e_value.COPY_POS_Y:
+		case e_value.COPY_POS_Z:
+		case e_value.COPY_ROT_X:
+		case e_value.COPY_ROT_Y:
+		case e_value.COPY_ROT_Z:
+		case e_value.COPY_SCALE_X:
+		case e_value.COPY_SCALE_Y:
+		case e_value.COPY_SCALE_Z:
 		case e_value.MODIFIER_SHAKE:
 		case e_value.MODIFIER_SHAKE_POSITION:
 		case e_value.MODIFIER_SHAKE_ROTATION:
@@ -73,6 +89,7 @@ function tl_value_interpolate(vid, p, val1, val2)
 		case e_value.CAM_DOF:
 		case e_value.CAM_DOF_FRINGE:
 		case e_value.CAM_BLOOM:
+		case e_value.CAM_BLOOM_BLEND_MODE:
 		case e_value.CAM_LENS_DIRT:
 		case e_value.CAM_LENS_DIRT_BLOOM:
 		case e_value.CAM_LENS_DIRT_GLOW:
@@ -92,6 +109,7 @@ function tl_value_interpolate(vid, p, val1, val2)
 		case e_value.CAM_HEAT_DISTORTION:
 		case e_value.CAM_VERTEX_SNAP:
 		case e_value.CAM_BLACK_LINES:
+		case e_value.CAM_VHS:
 		case e_value.BG_IMAGE_SHOW:
 		case e_value.BG_SKY_MOON_PHASE:
 		case e_value.BG_TWILIGHT:

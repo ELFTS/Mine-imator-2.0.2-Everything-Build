@@ -191,7 +191,7 @@ function render_high_bloom(prevsurf)
 			with (render_shader_obj)
 			{
 				shader_set(shader)
-				shader_add_set(bloomsurf, bloomstrength, render_camera.value[e_value.CAM_BLOOM_BLEND])
+				shader_add_set(bloomsurf, bloomstrength, render_camera.value[e_value.CAM_BLOOM_BLEND], 1, render_camera.value[e_value.CAM_BLOOM_BLEND_MODE])
 			}
 			draw_surface_exists(bloomsurftemp, 0, 0)
 			with (render_shader_obj)

@@ -230,6 +230,12 @@ function project_load_find_save_ids(isproject = false)
 		value[e_value.IK_TARGET] = save_id_find(save_id_map[?value[e_value.IK_TARGET]])
 		value[e_value.IK_TARGET_ANGLE] = save_id_find(save_id_map[?value[e_value.IK_TARGET_ANGLE]])
 		
+		// Follow targets
+		value[e_value.ROT_TARGET] = save_id_find(save_id_map[?value[e_value.ROT_TARGET]])
+		value[e_value.LOOK_AT_TARGET] = save_id_find(save_id_map[?value[e_value.LOOK_AT_TARGET]])
+		value[e_value.POS_TARGET] = save_id_find(save_id_map[?value[e_value.POS_TARGET]])
+		value[e_value.SCALE_TARGET] = save_id_find(save_id_map[?value[e_value.SCALE_TARGET]])
+		
 		if (value[e_value.TEXTURE_OBJ] = "none")
 			value[e_value.TEXTURE_OBJ] = 0
 		else

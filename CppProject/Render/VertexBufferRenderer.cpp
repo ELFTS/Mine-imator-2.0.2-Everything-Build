@@ -159,23 +159,29 @@ namespace CppProject
 		mesh.indexData.Alloc(mesh.numIndices);
 
 		IntType vertexOffset = 0, indexOffset = 0;
-		for (IntType objIndex = 0; objIndex < numObjects; objIndex++)
+		#pragma omp parallel num_threads(2) 
 		{
-			Mesh<>* objMesh = FindVertexBuffer(objects[objIndex])->meshes[0];
-			if (!objMesh->vertexData.Size())
-				continue;
+			if (omp_get_thread_num() == 1)
+			{
+				for (IntType objIndex = 0; objIndex < numObjects; objIndex++)
+				{
+					Mesh<>* objMesh = FindVertexBuffer(objects[objIndex])->meshes[0];
+					if (!objMesh->vertexData.Size())
+						continue;
 
-			// Copy vertices and assign object index
-			memcpy(&mesh.vertexData[vertexOffset], objMesh->vertexData.Data(), objMesh->numVertices * sizeof(Vertex));
-			for (IntType v = 0; v < objMesh->numVertices; v++)
-				mesh.vertexData[vertexOffset + v].SetIndex(objIndex);
+					// Copy vertices and assign object index
+					memcpy(&mesh.vertexData[vertexOffset], objMesh->vertexData.Data(), objMesh->numVertices * sizeof(Vertex));
+					for (IntType v = 0; v < objMesh->numVertices; v++)
+						mesh.vertexData[vertexOffset + v].SetIndex(objIndex);
 
-			// Copy indices and apply vertex offset
-			for (IntType i = 0; i < objMesh->numIndices; i++)
-				mesh.indexData[indexOffset + i] = objMesh->indexData.Value(i) + vertexOffset;
+					// Copy indices and apply vertex offset
+					for (IntType i = 0; i < objMesh->numIndices; i++)
+						mesh.indexData[indexOffset + i] = objMesh->indexData.Value(i) + vertexOffset;
 
-			vertexOffset += objMesh->numVertices;
-			indexOffset += objMesh->numIndices;
+					vertexOffset += objMesh->numVertices;
+					indexOffset += objMesh->numIndices;
+				}
+			}
 		}
 
 		mesh.CreateBuffers();

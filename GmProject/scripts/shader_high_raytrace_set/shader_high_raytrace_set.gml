@@ -17,6 +17,7 @@ function shader_high_raytrace_set(mode, surf = null)
 		gpu_set_tex_filter_ext(sampler_map[?"uReflectionProbeBuffer"], true)
 		
 		render_set_uniform("uReflectionProbeRot", app.background_image_rotation + 90)
+		render_set_uniform("uReflectionProbeStrength", app.background_image_probe_strength)
 		/*
 		if (app.background_reflection_probe_show && app.background_reflection_probe_image != null) {
 		texture_set_stage(sampler_map[?"uReflectionProbeBuffer"], sprite_get_texture(app.background_reflection_probe_image, 0))

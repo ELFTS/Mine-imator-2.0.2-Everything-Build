@@ -4,6 +4,7 @@
 function error(name)
 {
 	window_set_caption(text_get(name + "caption"))
+	play_audio_from_files(audio_directory + "error.ogg")
 	show_message(text_get(name))
 	window_set_caption("")
 	

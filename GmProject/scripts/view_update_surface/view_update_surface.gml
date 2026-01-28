@@ -7,8 +7,10 @@ function view_update_surface(view, cam)
 	//check to render
 	check_to_render(view)
 	
-	if (!(window_scroll_focus_prev = "" || render_low_drawing < 3 + (string(view) != string(view_main)) || view.quality = e_view_mode.RENDER))
+	if (!(window_scroll_focus_prev = "" || render_low_drawing < 3 + (string(view) != string(view_main)) || view.quality = e_view_mode.RENDER)) {
+		render_world_count = 0
 		return 1
+	}
 	
 	render_view_current = view
 	

@@ -244,6 +244,12 @@ function tab_frame_editor_camera()
 			draw_meter("frameeditorcameradofblurratio", dx, dy, dw, round(tl_edit.value[e_value.CAM_DOF_BLUR_RATIO] * 100), 0, 100, 0, 1, tab.camera.tbx_dof_blur_ratio, action_tl_frame_cam_dof_blur_ratio)
 			tab_next()
 			
+			if (app.project_render_engine) {
+				tab_control_meter()
+				draw_meter("frameeditorcameradofbokeh", dx, dy, dw, round(tl_edit.value[e_value.CAM_DOF_BOKEH_STRENGTH] * 100), 0, 100, 0, 1, tab.camera.tbx_dof_bokeh_strength, action_tl_frame_cam_dof_bokeh_strength)
+				tab_next()
+			}
+			
 			tab_control_meter()
 			draw_meter("frameeditorcameradofbias", dx, dy, dw, round(tl_edit.value[e_value.CAM_DOF_BIAS] * 10), 0, 100, 0, 1, tab.camera.tbx_dof_bias, action_tl_frame_cam_dof_bias)
 			tab_next()
@@ -390,6 +396,11 @@ function tab_frame_editor_camera()
 			tab_control_color()
 			draw_button_color("frameeditorcamerabloomblend", dx, dy, dw, tl_edit.value[e_value.CAM_BLOOM_BLEND], c_white, false, action_tl_frame_cam_bloom_blend)
 			tab_next()
+		
+			// Blend mode
+			tab_control_menu()
+			draw_button_menu("frameeditorcamerabloomblendmode", e_menu.LIST, dx, dy, dw, 24, tl_edit.value[e_value.CAM_BLOOM_BLEND_MODE], text_get("frameeditorcameraoutlineblendmode" + string(tl_edit.value[e_value.CAM_BLOOM_BLEND_MODE])), action_tl_frame_cam_bloom_blend_mode)
+			tab_next()
 		}
 		
 		tab_collapse_end()
@@ -480,6 +491,10 @@ function tab_frame_editor_camera()
 		
 		tab_control_dragger()
 		draw_dragger("frameeditorcameracolorcorrectionvibrance", dx, dy, dragger_width, round(tl_edit.value[e_value.CAM_VIBRANCE] * 100), .1, 0, no_limit * 100, 0, 1, tab.camera.tbx_vibrance, action_tl_frame_cam_clrcor_vibrance)
+		tab_next()
+		
+		tab_control_dragger()
+		draw_dragger("frameeditorcameracolorcorrectionhue", dx, dy, dragger_width, round(tl_edit.value[e_value.CAM_COLOR_HUE] * 100), .1, 0, 360, 0, 1, tab.camera.tbx_hue, action_tl_frame_cam_clrcor_hue)
 		tab_next()
 		
 		// Invert Color
@@ -680,6 +695,34 @@ function tab_frame_editor_camera()
 		// Color
 		tab_control_color()
 		draw_button_color("frameeditorcamerablacklinescolor", dx, dy, dw, tl_edit.value[e_value.CAM_BLACK_LINES_COLOR], c_black, false, action_tl_frame_cam_black_lines_color)
+		tab_next()
+		
+		tab_collapse_end()
+	}
+	
+	// VHS
+	tab_control_switch()
+	draw_button_collapse("vhs", collapse_map[?"vhs"], action_tl_frame_cam_vhs, tl_edit.value[e_value.CAM_VHS], "frameeditorcameravhs")
+	tab_next()
+	
+	if (tl_edit.value[e_value.CAM_VHS] && collapse_map[?"vhs"])
+	{
+		tab_collapse_start()
+		
+		tab_control_meter()
+		draw_meter("frameeditorcameravhsdistortion", dx, dy, dw, round(tl_edit.value[e_value.CAM_VHS_DISTORTION] * 100), -100, 100, 50, 1, tab.camera.tbx_vhs_distortion, action_tl_frame_cam_vhs_distortion)
+		tab_next()
+		/*
+		tab_control_meter()
+		draw_meter("frameeditorcameravhsnoise", dx, dy, dw, round(tl_edit.value[e_value.CAM_VHS_NOISE] * 100), -100, 100, 50, 1, tab.camera.tbx_vhs_noise, action_tl_frame_cam_vhs_noise)
+		tab_next()
+		*/
+		tab_control_meter()
+		draw_meter("frameeditorcameravhsscanlines", dx, dy, dw, round(tl_edit.value[e_value.CAM_VHS_SCANLINES] * 100), -100, 100, 50, 1, tab.camera.tbx_vhs_scanlines, action_tl_frame_cam_vhs_scanlines)
+		tab_next()
+		
+		tab_control_meter()
+		draw_meter("frameeditorcameravhschromashift", dx, dy, dw, round(tl_edit.value[e_value.CAM_VHS_CHROMA_SHIFT] * 100), -300, 300, 50, 1, tab.camera.tbx_vhs_chroma_shift, action_tl_frame_cam_vhs_chroma_shift)
 		tab_next()
 		
 		tab_collapse_end()

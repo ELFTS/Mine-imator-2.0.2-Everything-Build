@@ -24,17 +24,11 @@ function render_low()
             render_world_done();
             
             // Alpha fix
-            render_set_projection_ortho(0, 0, render_width, render_height, 0);
-            gpu_set_blendmode_ext(bm_src_color, bm_one);
-            if (render_background)
-                draw_box(0, 0, render_width, render_height, false, c_black, 1);
-            else
-            {
-                render_world_start();
-                render_world(e_render_mode.ALPHA_FIX);
-                render_world_done();
-            }
-            gpu_set_blendmode(bm_normal);
+            render_set_projection_ortho(0, 0, render_width, render_height, 0)
+			gpu_set_blendmode_ext(bm_src_color, bm_one)
+			if (render_background)
+				draw_box(0, 0, render_width, render_height, false, c_black, 1)
+			gpu_set_blendmode(bm_normal)
         }
         surface_reset_target();
         

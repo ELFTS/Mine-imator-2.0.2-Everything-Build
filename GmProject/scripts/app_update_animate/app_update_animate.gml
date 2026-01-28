@@ -2,7 +2,7 @@
 /// @arg force
 /// @desc Handles the playing of various animations. Runs once per step.
 
-function app_update_animate(force)
+function app_update_animate(force = false)
 {
 	// Go through timelines
 	var bgobject, updatevalues, cameraarr, spawnerarr;
@@ -18,6 +18,7 @@ function app_update_animate(force)
 	project_use_path_tl_array = []
 	project_ik_part_array = [] // If null, will generate in tl_update_matrix
 	project_inherit_pose_array = []
+	project_copy_obj_array = []
 	
 	// Update background time
 	background_time_prev = background_time
@@ -36,7 +37,7 @@ function app_update_animate(force)
 		
 		// Update values
 		if (updatevalues)
-			tl_update_values()
+			tl_update_values(false)
 			
 		//check if not updated or visible
 		if (app.setting_viewport_optimization && (app.window_state != "export_movie" || app.popup_exportmovie.optimization) && (!value_inherit[e_value.VISIBLE] || hide) && type != e_tl_type.CAMERA)
@@ -114,31 +115,42 @@ function app_update_animate(force)
 			app.background_light_amount++
 		}
 			
+		// Modifier Check
+		if (!updatevalues)
+			continue;
+		
 		// Shake Modifier
-		modifier_shake_pos = vec3(0)
-		modifier_shake_rot = vec3(0)
-		modifier_shake_bend = vec3(0)
 		modifier_shake = (value[e_value.MODIFIER_SHAKE] && value[e_value.MODIFIER_SHAKE_INTENSITY] != 0)
+		if (!modifier_shake)
+		{
+			modifier_shake_pos = vec3(0)
+			modifier_shake_rot = vec3(0)
+			modifier_shake_bend = vec3(0)
+		}
+		
 		if (modifier_shake)
 		{
 			var shakeoffset, shakestrength;
 			shakeoffset =  value[e_value.MODIFIER_SHAKE_OFFSET] + (value[e_value.MODIFIER_SHAKE_OFFSET_AUTOMATIC]) ? modifier_shake_auto_offset : 0
 			
 			if (value[e_value.MODIFIER_SHAKE_KEYFRAME_INFLUENCE] > 0.0) 
-			{
 				shakestrength = value[e_value.MODIFIER_SHAKE_INTENSITY] * blend_value(1, dsin(keyframe_progress_ease * 180), value[e_value.MODIFIER_SHAKE_KEYFRAME_INFLUENCE])
-			} else {
+			else
 				shakestrength = value[e_value.MODIFIER_SHAKE_INTENSITY] * blend_value(1, 1 - dsin(keyframe_progress_ease * 180), abs(value[e_value.MODIFIER_SHAKE_KEYFRAME_INFLUENCE]))
-			}
 			
-			if (value[e_value.MODIFIER_SHAKE_POSITION])
-				modifier_shake_pos = generate_shake_value(modifier_step, shakestrength * value[e_value.MODIFIER_SHAKE_POSITION_POWER], shakeoffset, false)
+			if (shakestrength != 0)
+			{
+				if (value[e_value.MODIFIER_SHAKE_POSITION])
+					modifier_shake_pos = generate_shake_value(modifier_step, shakestrength * value[e_value.MODIFIER_SHAKE_POSITION_POWER], shakeoffset, false)
 				
-			if (value[e_value.MODIFIER_SHAKE_ROTATION])
-				modifier_shake_rot = generate_shake_value(modifier_step, shakestrength * value[e_value.MODIFIER_SHAKE_ROTATION_POWER], shakeoffset + 100, false)
+				if (value[e_value.MODIFIER_SHAKE_ROTATION])
+					modifier_shake_rot = generate_shake_value(modifier_step, shakestrength * value[e_value.MODIFIER_SHAKE_ROTATION_POWER], shakeoffset + 100, false)
 				
-			if (value[e_value.MODIFIER_SHAKE_BEND])
-				modifier_shake_bend = generate_shake_value(modifier_step, shakestrength * value[e_value.MODIFIER_SHAKE_BEND_POWER], shakeoffset + 200, false)
+				if (value[e_value.MODIFIER_SHAKE_BEND])
+					modifier_shake_bend = generate_shake_value(modifier_step, shakestrength * value[e_value.MODIFIER_SHAKE_BEND_POWER], shakeoffset + 200, false)
+			
+				modifier_shake_update = true
+			}
 		}
 	}
 	
@@ -195,6 +207,7 @@ function app_update_animate(force)
 	{
 		background_image_show					= bgobject.value[e_value.BG_IMAGE_SHOW]
 		background_image_rotation				= bgobject.value[e_value.BG_IMAGE_ROTATION]
+		background_image_probe_strength			= bgobject.value[e_value.BG_IMAGE_PROBE_STRENGTH]
 		/*
 		background_reflection_probe_show		= bgobject.value[e_value.BG_REFLECTION_PROBE_SHOW]
 		background_reflection_probe_rot			= bgobject.value[e_value.BG_REFLECTION_PROBE_ROT]

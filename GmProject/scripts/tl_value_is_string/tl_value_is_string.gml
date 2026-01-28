@@ -8,5 +8,6 @@ function tl_value_is_string(vid)
 			vid = e_value.TEXT_VALIGN ||
 			vid = e_value.TRANSITION ||
 			vid = e_value.CAM_OUTLINE_BLEND_MODE ||
+			vid = e_value.CAM_BLOOM_BLEND_MODE ||
 			vid = e_value.BG_BIOME)
 }

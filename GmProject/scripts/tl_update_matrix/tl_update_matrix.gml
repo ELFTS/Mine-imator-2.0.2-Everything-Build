@@ -4,7 +4,7 @@
 /// @arg updatepose]
 /// @desc Updates matrixes and positions.
 
-function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
+function tl_update_matrix(usepaths = false, updateik = true, updatepose = false, updatecopy = false)
 {
 	var start, curtl, tlamount, bend, pos, rot, sca, par, matrixnoscale, hasik, lasttex, ikblend, posebend;
 	var inhalpha, inhcolor, inhglowcolor, inhvis, inhbend, inhtex, inhsurf, inhsubsurf, inhmodifierframeskip;
@@ -32,11 +32,23 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
 			for (var t = 0; t < ds_list_size(curtl.tree_list); t++)
 				if (curtl.tree_list[|t].inherit_pose)
 					array_add(app.project_inherit_pose_array, curtl.tree_list[|t])
+					
+		if (curtl.value[e_value.ROT_TARGET] != null|| curtl.value[e_value.LOOK_AT_TARGET] != null || curtl.value[e_value.POS_TARGET] != null || curtl.value[e_value.SCALE_TARGET] != null)
+		{	
+			if (updateik && !updatecopy)
+			{
+				array_add(app.project_copy_obj_array, curtl)
+				for (var t = 0; t < ds_list_size(curtl.tree_list); t++)
+					array_add(app.project_copy_obj_array, curtl.tree_list[|t])
+			}
+		}
 			
 		// Force update for shake modifier check
-		if (curtl.modifier_shake) {
+		if (curtl.modifier_shake && curtl.modifier_shake_update) {
 			curtl.update_matrix = true
+			curtl.modifier_shake_update = false // Updated in app_update_animate
 		}
+		
 		
 		if (!curtl.update_matrix)
 			continue
@@ -288,6 +300,112 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
 				matrix[MAT_X] = value[e_value.POS_X]
 				matrix[MAT_Y] = value[e_value.POS_Y]
 				matrix[MAT_Z] = value[e_value.POS_Z]
+			}
+			
+			if (updatecopy)
+			{
+				if (value[e_value.ROT_TARGET] != null)
+				{
+					var target_rot_mat = array_copy_1d(value[e_value.ROT_TARGET].matrix)
+					var par = value[e_value.ROT_TARGET];
+					var mat = array_copy_1d(matrix)
+					matrix_remove_scale(target_rot_mat)
+					matrix_remove_scale(mat)
+					//BENT Half
+					if (par.type = e_tl_type.BODYPART && value[e_value.COPY_ROT_BEND] && par.model_part != null && par.model_part.bend_part != null)
+					{
+						var bendangle = vec3(par.value_inherit[e_value.BEND_ANGLE_X], par.value_inherit[e_value.BEND_ANGLE_Y], par.value_inherit[e_value.BEND_ANGLE_Z]);
+						target_rot_mat = matrix_multiply(model_part_get_bend_matrix(par.model_part, bendangle, point3D(0, 0, 0), vec3(1), par.id), target_rot_mat)
+					}
+					
+					target_rot_mat = matrix_multiply(matrix_create(vec3(0), vec3(value[e_value.COPY_ROT_OFFSET_X], value[e_value.COPY_ROT_OFFSET_Y], value[e_value.COPY_ROT_OFFSET_Z]), vec3(1)), target_rot_mat);
+					var prevmatrix = matrix_rotation(matrix)
+					matrix_remove_rotation(matrix)
+					
+					var target_rotation = matrix_rotation(target_rot_mat);
+					//var target_rotation = to_euler(value[e_value.ROT_TARGET].world_rot);
+					
+					target_rotation[X] = (value[e_value.COPY_ROT_X] ? target_rotation[X] : prevmatrix[X])
+					target_rotation[Y] = (value[e_value.COPY_ROT_Y] ? target_rotation[Y] : prevmatrix[Y])
+					target_rotation[Z] = (value[e_value.COPY_ROT_Z] ? target_rotation[Z] : prevmatrix[Z])
+					
+		
+					matrix = matrix_multiply(matrix_create(vec3(0), point_lerp(matrix_rotation(mat),target_rotation, value[e_value.COPY_ROT_BLEND]), vec3(1)),matrix);
+
+				}
+				
+				if (value[e_value.POS_TARGET] != null)
+				{
+					if (value[e_value.COPY_POS_CHILD])
+					{
+						var pos = vec3(0);
+						
+						pos[X] = value[e_value.POS_X] + value[e_value.COPY_POS_OFFSET_X]
+						pos[Y] = value[e_value.POS_Y] + value[e_value.COPY_POS_OFFSET_Y]
+						pos[Z] = value[e_value.POS_Z] + value[e_value.COPY_POS_OFFSET_Z] 
+						
+						var par = value[e_value.POS_TARGET];
+						var mat = array_copy_1d(par.matrix);
+						
+						//BENT Half
+						if (par.type = e_tl_type.BODYPART && value[e_value.COPY_POS_BEND] && par.model_part != null && par.model_part.bend_part != null)
+						{
+							var bendangle = vec3(par.value_inherit[e_value.BEND_ANGLE_X], par.value_inherit[e_value.BEND_ANGLE_Y], par.value_inherit[e_value.BEND_ANGLE_Z]);
+							mat = matrix_multiply(model_part_get_bend_matrix(par.model_part, bendangle, point3D(0, 0, 0), vec3(1), par.id), mat)
+						}
+						
+						mat = matrix_multiply(matrix_create(pos, vec3(0), vec3(1)), mat);
+						
+						if (value[e_value.COPY_POS_X])
+							matrix[MAT_X] = lerp(matrix[MAT_X], mat[MAT_X], value[e_value.COPY_POS_BLEND])
+						
+						if (value[e_value.COPY_POS_Y])
+							matrix[MAT_Y] = lerp(matrix[MAT_Y], mat[MAT_Y], value[e_value.COPY_POS_BLEND])
+						
+						if (value[e_value.COPY_POS_Z])
+							matrix[MAT_Z] = lerp(matrix[MAT_Z], mat[MAT_Z], value[e_value.COPY_POS_BLEND])
+					}
+					else
+					{
+						// NOT IS CHILD
+						matrix_remove_rotation(matrix_parent)
+						
+						matrix[MAT_X] = lerp(matrix[MAT_X], value[e_value.POS_X] + value[e_value.POS_TARGET].matrix[MAT_X] + value[e_value.COPY_POS_OFFSET_X], value[e_value.COPY_POS_BLEND] * value[e_value.COPY_POS_X]);
+						matrix[MAT_Y] = lerp(matrix[MAT_Y], value[e_value.POS_Y] + value[e_value.POS_TARGET].matrix[MAT_Y] + value[e_value.COPY_POS_OFFSET_Y], value[e_value.COPY_POS_BLEND] * value[e_value.COPY_POS_Y]);
+						matrix[MAT_Z] = lerp(matrix[MAT_Z], value[e_value.POS_Z] + value[e_value.POS_TARGET].matrix[MAT_Z] + value[e_value.COPY_POS_OFFSET_Z], value[e_value.COPY_POS_BLEND] * value[e_value.COPY_POS_Z]);
+					}
+				}
+				
+				// THIS IS AS CLEAN AS AN UNWIPE BUTT CRACK!!!
+				if (value[e_value.LOOK_AT_TARGET] != null)
+				{
+ 					var mat = array_copy_1d(matrix);
+					var mat2 = matrix_create(vec3(0), vec3(0), vec3(1));
+					matrix_remove_scale(mat)
+					matrix_remove_scale(mat2)
+	
+					var lookat_position = vec3(value[e_value.LOOK_AT_TARGET].matrix[MAT_X],value[e_value.LOOK_AT_TARGET].matrix[MAT_Y],value[e_value.LOOK_AT_TARGET].matrix[MAT_Z]);
+					
+					var angle = point_direction_3d(vec3(matrix[MAT_X], matrix[MAT_Y], matrix[MAT_Z]), lookat_position);
+					var angle2 = vec3(value[e_value.LOOK_AT_OFFSET_X], value[e_value.LOOK_AT_OFFSET_Y], value[e_value.LOOK_AT_OFFSET_Z])
+					
+					mat2 = matrix_multiply(matrix_create(vec3(0),angle, vec3(1)), mat2);
+					mat2 = matrix_multiply(matrix_create(vec3(0),angle2, vec3(1)), mat2);
+					
+					matrix_remove_rotation(matrix);
+					matrix = matrix_multiply(matrix_create(vec3(0), point_lerp(matrix_rotation(mat), matrix_rotation(mat2), value[e_value.LOOK_AT_BLEND]), vec3(1)), matrix)
+					
+				}
+			
+				if (value[e_value.SCALE_TARGET] != null)
+				{
+					matrix_remove_scale(matrix_parent)
+					var scale = vec3(1);
+					scale[X] = lerp(value[e_value.SCA_X], value[e_value.SCALE_TARGET].value[e_value.SCA_X], value[e_value.COPY_SCALE_BLEND] *value[e_value.COPY_SCALE_X]);
+					scale[Y] = lerp(value[e_value.SCA_Y], value[e_value.SCALE_TARGET].value[e_value.SCA_Y], value[e_value.COPY_SCALE_BLEND] *value[e_value.COPY_SCALE_Y]);
+					scale[Z] = lerp(value[e_value.SCA_Z], value[e_value.SCALE_TARGET].value[e_value.SCA_Z], value[e_value.COPY_SCALE_BLEND] *value[e_value.COPY_SCALE_Z]);
+					matrix = matrix_multiply(matrix_create(vec3(0), vec3(0), scale), matrix);
+				}
 			}
 			
 			// Create rotation point
@@ -561,5 +679,17 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false)
 			tl_update_matrix(false, false, true)
 		
 		app.project_inherit_pose_array = []
+	}
+	
+	// Update models with copy position
+	if (updateik && !updatecopy && array_length(app.project_copy_obj_array) > 0)
+	{
+		for (var i = 0; i < array_length(app.project_copy_obj_array); i++)
+			app.project_copy_obj_array[i].update_matrix = true
+		
+		with (app)
+			tl_update_matrix(false, true, false, true)
+		
+		app.project_copy_obj_array = []
 	}
 }

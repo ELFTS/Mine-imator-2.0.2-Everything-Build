@@ -1,7 +1,8 @@
 /// tl_update_values()
+/// @arg force
 /// @desc Updates the values.
 
-function tl_update_values()
+function tl_update_values(force = true)
 {
 	keyframe_prev = keyframe_current
 	keyframe_next = null
@@ -9,7 +10,7 @@ function tl_update_values()
 	keyframe_next_values = null
 	keyframe_current = null
 	
-	if (!app.setting_viewport_optimization || (keyframe_list_index_prev_position >= app.timeline_marker))
+	if (!app.setting_viewport_optimization || (keyframe_list_index_prev_position >= app.timeline_marker) || force)
 		keyframe_list_index_prev = 0
 		
 	// Find keyframes
@@ -114,9 +115,11 @@ function tl_update_values()
 		tl_update_values_ease(e_value.BEND_ANGLE_Z)
 		
 		tl_update_values_ease(e_value.IK_TARGET)
-		tl_update_values_ease(e_value.IK_BLEND)
-		tl_update_values_ease(e_value.IK_TARGET_ANGLE)
-		tl_update_values_ease(e_value.IK_ANGLE_OFFSET)
+		if (value[e_value.IK_TARGET] != null) {
+			tl_update_values_ease(e_value.IK_BLEND)
+			tl_update_values_ease(e_value.IK_TARGET_ANGLE)
+			tl_update_values_ease(e_value.IK_ANGLE_OFFSET)
+		}
 	}
 	
 	// Path point
@@ -126,23 +129,71 @@ function tl_update_values()
 		tl_update_values_ease(e_value.PATH_POINT_SCALE)
 	}
 	
+	// Copy Constraints
+	if (value_type[e_value_type.COPY_CONSTRAINTS])
+	{
+		tl_update_values_ease(e_value.ROT_TARGET)
+		tl_update_values_ease(e_value.POS_TARGET)
+		tl_update_values_ease(e_value.SCALE_TARGET)
+		tl_update_values_ease(e_value.LOOK_AT_TARGET)
+		
+		if (value[e_value.LOOK_AT_TARGET] != null) {
+			tl_update_values_ease(e_value.LOOK_AT_OFFSET_X)
+			tl_update_values_ease(e_value.LOOK_AT_OFFSET_Y)
+			tl_update_values_ease(e_value.LOOK_AT_OFFSET_Z)
+			tl_update_values_ease(e_value.LOOK_AT_BLEND)
+		}
+		
+		if (value[e_value.SCALE_TARGET] != null) {
+			tl_update_values_ease(e_value.COPY_SCALE_X)
+			tl_update_values_ease(e_value.COPY_SCALE_Y)
+			tl_update_values_ease(e_value.COPY_SCALE_Z)
+			tl_update_values_ease(e_value.COPY_SCALE_BLEND)
+		}
+		
+		if (value[e_value.POS_TARGET] != null) {
+			tl_update_values_ease(e_value.COPY_POS_OFFSET_X)
+			tl_update_values_ease(e_value.COPY_POS_OFFSET_Y)
+			tl_update_values_ease(e_value.COPY_POS_OFFSET_Z)
+			tl_update_values_ease(e_value.COPY_POS_BEND)
+			tl_update_values_ease(e_value.COPY_POS_CHILD)
+			tl_update_values_ease(e_value.COPY_POS_BLEND)
+			tl_update_values_ease(e_value.COPY_POS_X)
+			tl_update_values_ease(e_value.COPY_POS_Y)
+			tl_update_values_ease(e_value.COPY_POS_Z)
+		}
+		
+		if (value[e_value.ROT_TARGET] != null) {
+			tl_update_values_ease(e_value.COPY_ROT_OFFSET_X)
+			tl_update_values_ease(e_value.COPY_ROT_OFFSET_Y)
+			tl_update_values_ease(e_value.COPY_ROT_OFFSET_Z)
+			tl_update_values_ease(e_value.COPY_ROT_BLEND)
+			tl_update_values_ease(e_value.COPY_ROT_BEND)
+			tl_update_values_ease(e_value.COPY_ROT_X)
+			tl_update_values_ease(e_value.COPY_ROT_Y)
+			tl_update_values_ease(e_value.COPY_ROT_Z)
+		}
+	}
+	
 	// Modifier
 	if (value_type[e_value_type.MODIFIER])
 	{
 		tl_update_values_ease(e_value.MODIFIER_SHAKE)
-		tl_update_values_ease(e_value.MODIFIER_SHAKE_POSITION)
-		tl_update_values_ease(e_value.MODIFIER_SHAKE_ROTATION)
-		tl_update_values_ease(e_value.MODIFIER_SHAKE_BEND)
-		tl_update_values_ease(e_value.MODIFIER_SHAKE_SPEED)
-		tl_update_values_ease(e_value.MODIFIER_SHAKE_POSITION_POWER)
-		tl_update_values_ease(e_value.MODIFIER_SHAKE_ROTATION_POWER)
-		tl_update_values_ease(e_value.MODIFIER_SHAKE_BEND_POWER)
-		tl_update_values_ease(e_value.MODIFIER_SHAKE_INTENSITY)
-		tl_update_values_ease(e_value.MODIFIER_SHAKE_OFFSET)
-		tl_update_values_ease(e_value.MODIFIER_SHAKE_OFFSET_AUTOMATIC)
-		tl_update_values_ease(e_value.MODIFIER_SHAKE_KEYFRAME_INFLUENCE)
-		tl_update_values_ease(e_value.MODIFIER_FRAMESKIP)
-		tl_update_values_ease(e_value.MODIFIER_FRAMESKIP_VALUE)
+		if (value[e_value.MODIFIER_SHAKE]) {
+			tl_update_values_ease(e_value.MODIFIER_SHAKE_POSITION)
+			tl_update_values_ease(e_value.MODIFIER_SHAKE_ROTATION)
+			tl_update_values_ease(e_value.MODIFIER_SHAKE_BEND)
+			tl_update_values_ease(e_value.MODIFIER_SHAKE_SPEED)
+			tl_update_values_ease(e_value.MODIFIER_SHAKE_POSITION_POWER)
+			tl_update_values_ease(e_value.MODIFIER_SHAKE_ROTATION_POWER)
+			tl_update_values_ease(e_value.MODIFIER_SHAKE_BEND_POWER)
+			tl_update_values_ease(e_value.MODIFIER_SHAKE_INTENSITY)
+			tl_update_values_ease(e_value.MODIFIER_SHAKE_OFFSET)
+			tl_update_values_ease(e_value.MODIFIER_SHAKE_OFFSET_AUTOMATIC)
+			tl_update_values_ease(e_value.MODIFIER_SHAKE_KEYFRAME_INFLUENCE)
+			tl_update_values_ease(e_value.MODIFIER_FRAMESKIP)
+			tl_update_values_ease(e_value.MODIFIER_FRAMESKIP_VALUE)
+		}
 	}
 	
 	// Color
@@ -216,98 +267,133 @@ function tl_update_values()
 		tl_update_values_ease(e_value.CAM_BLADE_ANGLE)
 		
 		tl_update_values_ease(e_value.CAM_ROTATE)
-		tl_update_values_ease(e_value.CAM_ROTATE_DISTANCE)
-		tl_update_values_ease(e_value.CAM_ROTATE_ANGLE_XY)
-		tl_update_values_ease(e_value.CAM_ROTATE_ANGLE_Z)
+		if (value[e_value.CAM_ROTATE]) {
+			tl_update_values_ease(e_value.CAM_ROTATE_DISTANCE)
+			tl_update_values_ease(e_value.CAM_ROTATE_ANGLE_XY)
+			tl_update_values_ease(e_value.CAM_ROTATE_ANGLE_Z)
+		}
 		
 		tl_update_values_ease(e_value.CAM_SHAKE)
-		tl_update_values_ease(e_value.CAM_SHAKE_MODE)
-		tl_update_values_ease(e_value.CAM_SHAKE_OFFSET)
-		tl_update_values_ease(e_value.CAM_SHAKE_STRENGTH_X)
-		tl_update_values_ease(e_value.CAM_SHAKE_STRENGTH_Y)
-		tl_update_values_ease(e_value.CAM_SHAKE_STRENGTH_Z)
-		tl_update_values_ease(e_value.CAM_SHAKE_SPEED_X)
-		tl_update_values_ease(e_value.CAM_SHAKE_SPEED_Y)
-		tl_update_values_ease(e_value.CAM_SHAKE_SPEED_Z)
+		if (value[e_value.CAM_SHAKE]) {
+			tl_update_values_ease(e_value.CAM_SHAKE_MODE)
+			tl_update_values_ease(e_value.CAM_SHAKE_OFFSET)
+			tl_update_values_ease(e_value.CAM_SHAKE_STRENGTH_X)
+			tl_update_values_ease(e_value.CAM_SHAKE_STRENGTH_Y)
+			tl_update_values_ease(e_value.CAM_SHAKE_STRENGTH_Z)
+			tl_update_values_ease(e_value.CAM_SHAKE_SPEED_X)
+			tl_update_values_ease(e_value.CAM_SHAKE_SPEED_Y)
+			tl_update_values_ease(e_value.CAM_SHAKE_SPEED_Z)
+		}
 		
 		tl_update_values_ease(e_value.CAM_DOF)
-		tl_update_values_ease(e_value.CAM_DOF_DEPTH)
-		tl_update_values_ease(e_value.CAM_DOF_RANGE)
-		tl_update_values_ease(e_value.CAM_DOF_FADE_SIZE)
-		tl_update_values_ease(e_value.CAM_DOF_BLUR_SIZE)
-		tl_update_values_ease(e_value.CAM_DOF_BLUR_RATIO)
-		tl_update_values_ease(e_value.CAM_DOF_BIAS)
-		tl_update_values_ease(e_value.CAM_DOF_THRESHOLD)
-		tl_update_values_ease(e_value.CAM_DOF_GAIN)
-		tl_update_values_ease(e_value.CAM_DOF_DESATURATION)
-		tl_update_values_ease(e_value.CAM_DOF_FRINGE)
-		tl_update_values_ease(e_value.CAM_DOF_FRINGE_ANGLE_RED)
-		tl_update_values_ease(e_value.CAM_DOF_FRINGE_ANGLE_GREEN)
-		tl_update_values_ease(e_value.CAM_DOF_FRINGE_ANGLE_BLUE)
-		tl_update_values_ease(e_value.CAM_DOF_FRINGE_RED)
-		tl_update_values_ease(e_value.CAM_DOF_FRINGE_GREEN)
-		tl_update_values_ease(e_value.CAM_DOF_FRINGE_BLUE)
+		if (value[e_value.CAM_DOF]) {
+			tl_update_values_ease(e_value.CAM_DOF_DEPTH)
+			tl_update_values_ease(e_value.CAM_DOF_RANGE)
+			tl_update_values_ease(e_value.CAM_DOF_FADE_SIZE)
+			tl_update_values_ease(e_value.CAM_DOF_BLUR_SIZE)
+			tl_update_values_ease(e_value.CAM_DOF_BLUR_RATIO)
+			tl_update_values_ease(e_value.CAM_DOF_BOKEH_STRENGTH)
+			tl_update_values_ease(e_value.CAM_DOF_BIAS)
+			tl_update_values_ease(e_value.CAM_DOF_THRESHOLD)
+			tl_update_values_ease(e_value.CAM_DOF_GAIN)
+			tl_update_values_ease(e_value.CAM_DOF_DESATURATION)
+			tl_update_values_ease(e_value.CAM_DOF_FRINGE)
+			tl_update_values_ease(e_value.CAM_DOF_FRINGE_ANGLE_RED)
+			tl_update_values_ease(e_value.CAM_DOF_FRINGE_ANGLE_GREEN)
+			tl_update_values_ease(e_value.CAM_DOF_FRINGE_ANGLE_BLUE)
+			tl_update_values_ease(e_value.CAM_DOF_FRINGE_RED)
+			tl_update_values_ease(e_value.CAM_DOF_FRINGE_GREEN)
+			tl_update_values_ease(e_value.CAM_DOF_FRINGE_BLUE)
+		}
 		
 		tl_update_values_ease(e_value.CAM_BLOOM)
-		tl_update_values_ease(e_value.CAM_BLOOM_THRESHOLD)
-		tl_update_values_ease(e_value.CAM_BLOOM_INTENSITY)
-		tl_update_values_ease(e_value.CAM_BLOOM_RADIUS)
-		tl_update_values_ease(e_value.CAM_BLOOM_RATIO)
-		tl_update_values_ease(e_value.CAM_BLOOM_BLEND)
+		if (value[e_value.CAM_BLOOM]) {
+			tl_update_values_ease(e_value.CAM_BLOOM_THRESHOLD)
+			tl_update_values_ease(e_value.CAM_BLOOM_INTENSITY)
+			tl_update_values_ease(e_value.CAM_BLOOM_RADIUS)
+			tl_update_values_ease(e_value.CAM_BLOOM_RATIO)
+			tl_update_values_ease(e_value.CAM_BLOOM_BLEND)
+			tl_update_values_ease(e_value.CAM_BLOOM_BLEND_MODE)
+		}
 		
 		tl_update_values_ease(e_value.CAM_LENS_DIRT)
-		tl_update_values_ease(e_value.TEXTURE_OBJ)
-		tl_update_values_ease(e_value.CAM_LENS_DIRT_BLOOM)
-		tl_update_values_ease(e_value.CAM_LENS_DIRT_GLOW)
-		tl_update_values_ease(e_value.CAM_LENS_DIRT_RADIUS)
-		tl_update_values_ease(e_value.CAM_LENS_DIRT_INTENSITY)
-		tl_update_values_ease(e_value.CAM_LENS_DIRT_POWER)
+		if (value[e_value.CAM_LENS_DIRT]) {
+			tl_update_values_ease(e_value.TEXTURE_OBJ)
+			tl_update_values_ease(e_value.CAM_LENS_DIRT_BLOOM)
+			tl_update_values_ease(e_value.CAM_LENS_DIRT_GLOW)
+			tl_update_values_ease(e_value.CAM_LENS_DIRT_RADIUS)
+			tl_update_values_ease(e_value.CAM_LENS_DIRT_INTENSITY)
+			tl_update_values_ease(e_value.CAM_LENS_DIRT_POWER)
+		}
 		
 		tl_update_values_ease(e_value.CAM_COLOR_CORRECTION)
-		tl_update_values_ease(e_value.CAM_CONTRAST)
-		tl_update_values_ease(e_value.CAM_BRIGHTNESS)
-		tl_update_values_ease(e_value.CAM_SATURATION)
-		tl_update_values_ease(e_value.CAM_VIBRANCE)
-		tl_update_values_ease(e_value.CAM_COLOR_INVERT)
-		tl_update_values_ease(e_value.CAM_COLOR_INVERT_INTENSITY)
-		tl_update_values_ease(e_value.CAM_COLOR_BURN)
+		if (value[e_value.CAM_COLOR_CORRECTION]) {
+			tl_update_values_ease(e_value.CAM_CONTRAST)
+			tl_update_values_ease(e_value.CAM_BRIGHTNESS)
+			tl_update_values_ease(e_value.CAM_SATURATION)
+			tl_update_values_ease(e_value.CAM_VIBRANCE)
+			tl_update_values_ease(e_value.CAM_COLOR_INVERT)
+			tl_update_values_ease(e_value.CAM_COLOR_INVERT_INTENSITY)
+			tl_update_values_ease(e_value.CAM_COLOR_HUE)
+			tl_update_values_ease(e_value.CAM_COLOR_BURN)
+		}
 		
 		tl_update_values_ease(e_value.CAM_GRAIN)
-		tl_update_values_ease(e_value.CAM_GRAIN_STRENGTH)
-		tl_update_values_ease(e_value.CAM_GRAIN_SATURATION)
-		tl_update_values_ease(e_value.CAM_GRAIN_SIZE)
+		if (value[e_value.CAM_GRAIN]) {
+			tl_update_values_ease(e_value.CAM_GRAIN_STRENGTH)
+			tl_update_values_ease(e_value.CAM_GRAIN_SATURATION)
+			tl_update_values_ease(e_value.CAM_GRAIN_SIZE)
+		}
 		
 		tl_update_values_ease(e_value.CAM_VIGNETTE)
-		tl_update_values_ease(e_value.CAM_VIGNETTE_RADIUS)
-		tl_update_values_ease(e_value.CAM_VIGNETTE_SOFTNESS)
-		tl_update_values_ease(e_value.CAM_VIGNETTE_STRENGTH)
-		tl_update_values_ease(e_value.CAM_VIGNETTE_COLOR)
+		if (value[e_value.CAM_VIGNETTE]) {
+			tl_update_values_ease(e_value.CAM_VIGNETTE_RADIUS)
+			tl_update_values_ease(e_value.CAM_VIGNETTE_SOFTNESS)
+			tl_update_values_ease(e_value.CAM_VIGNETTE_STRENGTH)
+			tl_update_values_ease(e_value.CAM_VIGNETTE_COLOR)
+		}
 		
 		tl_update_values_ease(e_value.CAM_CA)
-		tl_update_values_ease(e_value.CAM_CA_BLUR_AMOUNT)
-		tl_update_values_ease(e_value.CAM_CA_DISTORT_CHANNELS)
-		tl_update_values_ease(e_value.CAM_CA_RED_OFFSET)
-		tl_update_values_ease(e_value.CAM_CA_GREEN_OFFSET)
-		tl_update_values_ease(e_value.CAM_CA_BLUE_OFFSET)
+		if (value[e_value.CAM_CA]) {
+			tl_update_values_ease(e_value.CAM_CA_BLUR_AMOUNT)
+			tl_update_values_ease(e_value.CAM_CA_DISTORT_CHANNELS)
+			tl_update_values_ease(e_value.CAM_CA_RED_OFFSET)
+			tl_update_values_ease(e_value.CAM_CA_GREEN_OFFSET)
+			tl_update_values_ease(e_value.CAM_CA_BLUE_OFFSET)
+		}
 		
 		tl_update_values_ease(e_value.CAM_DISTORT)
-		tl_update_values_ease(e_value.CAM_DISTORT_REPEAT)
-		tl_update_values_ease(e_value.CAM_DISTORT_ZOOM_AMOUNT)
-		tl_update_values_ease(e_value.CAM_DISTORT_AMOUNT)
+		if (value[e_value.CAM_DISTORT]) {
+			tl_update_values_ease(e_value.CAM_DISTORT_REPEAT)
+			tl_update_values_ease(e_value.CAM_DISTORT_ZOOM_AMOUNT)
+			tl_update_values_ease(e_value.CAM_DISTORT_AMOUNT)
+		}
 		
 		tl_update_values_ease(e_value.CAM_BLACK_LINES)
-		tl_update_values_ease(e_value.CAM_BLACK_LINES_SIZE)
-		tl_update_values_ease(e_value.CAM_BLACK_LINES_ROTATION)
-		tl_update_values_ease(e_value.CAM_BLACK_LINES_OFFSET_Y)
-		tl_update_values_ease(e_value.CAM_BLACK_LINES_COLOR)
+		if (value[e_value.CAM_BLACK_LINES]) {
+			tl_update_values_ease(e_value.CAM_BLACK_LINES_SIZE)
+			tl_update_values_ease(e_value.CAM_BLACK_LINES_ROTATION)
+			tl_update_values_ease(e_value.CAM_BLACK_LINES_OFFSET_Y)
+			tl_update_values_ease(e_value.CAM_BLACK_LINES_COLOR)
+		}
 		
 		tl_update_values_ease(e_value.CAM_VERTEX_SNAP)
 		tl_update_values_ease(e_value.CAM_VERTEX_SNAP_AMOUNT)
 		
 		tl_update_values_ease(e_value.CAM_HEAT_DISTORTION)
-		tl_update_values_ease(e_value.CAM_HEAT_DISTORTION_STRENGTH)
-		tl_update_values_ease(e_value.CAM_HEAT_DISTORTION_SPEED)
-		tl_update_values_ease(e_value.CAM_HEAT_DISTORTION_SCALE)
+		if (value[e_value.CAM_HEAT_DISTORTION]) {
+			tl_update_values_ease(e_value.CAM_HEAT_DISTORTION_STRENGTH)
+			tl_update_values_ease(e_value.CAM_HEAT_DISTORTION_SPEED)
+			tl_update_values_ease(e_value.CAM_HEAT_DISTORTION_SCALE)
+		}
+		
+		tl_update_values_ease(e_value.CAM_VHS)
+		if (value[e_value.CAM_VHS]) {
+			tl_update_values_ease(e_value.CAM_VHS_DISTORTION)
+			tl_update_values_ease(e_value.CAM_VHS_CHROMA_SHIFT)
+			tl_update_values_ease(e_value.CAM_VHS_NOISE)
+			tl_update_values_ease(e_value.CAM_VHS_SCANLINES)
+		}
 		
 		tl_update_values_ease(e_value.CAM_WIDTH)
 		tl_update_values_ease(e_value.CAM_HEIGHT)
@@ -315,15 +401,17 @@ function tl_update_values()
 		tl_update_values_ease(e_value.CAM_SIZE_KEEP_ASPECT_RATIO)
 		
 		tl_update_values_ease(e_value.CAM_OUTLINE)
-		tl_update_values_ease(e_value.CAM_OUTLINE_COLOR)
-		tl_update_values_ease(e_value.CAM_OUTLINE_RADIUS)
-		tl_update_values_ease(e_value.CAM_OUTLINE_STRENGTH)
-		tl_update_values_ease(e_value.CAM_OUTLINE_DEPTH_THRESHOLD)
-		tl_update_values_ease(e_value.CAM_OUTLINE_DEPTH_THRESHOLD_FADE)
-		tl_update_values_ease(e_value.CAM_OUTLINE_NORMAL)
-		tl_update_values_ease(e_value.CAM_OUTLINE_NORMAL_THRESHOLD)
-		tl_update_values_ease(e_value.CAM_OUTLINE_NORMAL_THRESHOLD_FADE)
-		tl_update_values_ease(e_value.CAM_OUTLINE_BLEND_MODE)
+		if (value[e_value.CAM_OUTLINE]) {
+			tl_update_values_ease(e_value.CAM_OUTLINE_COLOR)
+			tl_update_values_ease(e_value.CAM_OUTLINE_RADIUS)
+			tl_update_values_ease(e_value.CAM_OUTLINE_STRENGTH)
+			tl_update_values_ease(e_value.CAM_OUTLINE_DEPTH_THRESHOLD)
+			tl_update_values_ease(e_value.CAM_OUTLINE_DEPTH_THRESHOLD_FADE)
+			tl_update_values_ease(e_value.CAM_OUTLINE_NORMAL)
+			tl_update_values_ease(e_value.CAM_OUTLINE_NORMAL_THRESHOLD)
+			tl_update_values_ease(e_value.CAM_OUTLINE_NORMAL_THRESHOLD_FADE)
+			tl_update_values_ease(e_value.CAM_OUTLINE_BLEND_MODE)
+		}
 	}
 	
 	// Background
@@ -331,6 +419,7 @@ function tl_update_values()
 	{
 		tl_update_values_ease(e_value.BG_IMAGE_SHOW)
 		tl_update_values_ease(e_value.BG_IMAGE_ROTATION)
+		tl_update_values_ease(e_value.BG_IMAGE_PROBE_STRENGTH)
 		tl_update_values_ease(e_value.BG_SKY_SUN_ANGLE)
 		tl_update_values_ease(e_value.BG_SKY_SUN_SCALE)
 		tl_update_values_ease(e_value.BG_SKY_MOON_PHASE)
@@ -432,7 +521,6 @@ function tl_update_values()
 		tl_update_values_ease(e_value.TEXTURE_MATERIAL_OBJ)
 		tl_update_values_ease(e_value.TEXTURE_NORMAL_OBJ)
 	}
-	
 	// Play sounds
 	if (type = e_tl_type.AUDIO && !hide && app.timeline_marker > app.timeline_marker_previous && app.timeline_playing)
 	{

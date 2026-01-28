@@ -165,6 +165,8 @@ function app_startup_interface_tabs()
 		{
 			tbx_background_rotation = new_textbox_decimals()
 			tbx_background_rotation.suffix = "°"
+			tbx_background_probe_strength = new_textbox_decimals()
+			tbx_background_probe_strength.suffix = "%"
 			tbx_sky_time = new_textbox(true, 10, "-:0123456789")
 			tbx_sky_rotation = new_textbox_ndecimals()
 			tbx_sky_rotation.suffix = "°"
@@ -580,6 +582,37 @@ function app_startup_interface_tabs()
 			tbx_ik_angle_offset = new_textbox_ndecimals()
 			tbx_ik_angle_offset.suffix = "°"
 			
+			// Copy position
+			tbx_copy_pos_offset_x = new_textbox_ndecimals()
+			tbx_copy_pos_offset_y = new_textbox_ndecimals()
+			tbx_copy_pos_offset_z = new_textbox_ndecimals()
+			tbx_copy_pos_blend = new_textbox_integer()
+			tbx_copy_pos_blend.suffix = "%"
+			
+			// Copy rotation
+			tbx_copy_rot_offset_x = new_textbox_ndecimals()
+			tbx_copy_rot_offset_x.suffix = "°"
+			tbx_copy_rot_offset_y = new_textbox_ndecimals()
+			tbx_copy_rot_offset_y.suffix = "°"
+			tbx_copy_rot_offset_z = new_textbox_ndecimals()
+			tbx_copy_rot_offset_z.suffix = "°"
+			tbx_copy_rot_blend = new_textbox_integer()
+			tbx_copy_rot_blend.suffix = "%"
+			
+			// Copy scale
+			tbx_copy_scale_blend = new_textbox_integer()
+			tbx_copy_scale_blend.suffix = "%"
+			
+			// Look at
+			tbx_look_at_offset_x = new_textbox_ndecimals()
+			tbx_look_at_offset_x.suffix = "°"
+			tbx_look_at_offset_y = new_textbox_ndecimals()
+			tbx_look_at_offset_y.suffix = "°"
+			tbx_look_at_offset_z = new_textbox_ndecimals()
+			tbx_look_at_offset_z.suffix = "°"
+			tbx_look_at_blend = new_textbox_integer()
+			tbx_look_at_blend.suffix = "%"
+			
 			// Modifier
 			tbx_modifier_shake_position_power = new_textbox_decimals()
 			tbx_modifier_shake_position_power.suffix = "x"
@@ -698,6 +731,8 @@ function app_startup_interface_tabs()
 			tbx_dof_blur_size.suffix = "%"
 			tbx_dof_blur_ratio = new_textbox_integer()
 			tbx_dof_blur_ratio.suffix = "%"
+			tbx_dof_bokeh_strength = new_textbox_decimals()
+			tbx_dof_bokeh_strength.suffix = "%"
 			tbx_dof_bias = new_textbox_integer()
 			tbx_dof_bias.suffix = "%"
 			tbx_dof_threshold = new_textbox_integer()
@@ -743,6 +778,7 @@ function app_startup_interface_tabs()
 			tbx_saturation.suffix = "%"
 			tbx_vibrance = new_textbox_integer()
 			tbx_vibrance.suffix = "%"
+			tbx_hue = new_textbox_integer()
 			tbx_invert_strength = new_textbox_integer()
 			tbx_invert_strength.suffix = "%"
 			
@@ -788,6 +824,15 @@ function app_startup_interface_tabs()
 			tbx_heat_distortion_speed.suffix = "%"
 			tbx_heat_distortion_scale = new_textbox_integer()
 			tbx_heat_distortion_scale.suffix = "%"
+			
+			tbx_vhs_distortion = new_textbox_integer()
+			tbx_vhs_distortion.suffix = "%"
+			tbx_vhs_noise = new_textbox_integer()
+			tbx_vhs_noise.suffix = "%"
+			tbx_vhs_scanlines = new_textbox_integer()
+			tbx_vhs_scanlines.suffix = "%"
+			tbx_vhs_chroma_shift = new_textbox_integer()
+			tbx_vhs_chroma_shift.suffix = "%"
 			
 			tbx_outline_radius = new_textbox_decimals()
 			tbx_outline_radius.suffix = "px"

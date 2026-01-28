@@ -5,6 +5,8 @@ function history_copy_render_settings(obj)
 	project_render_samples = obj.project_render_samples
 	project_render_engine = obj.project_render_engine
 	
+	project_render_legacy_rendering = obj.project_render_legacy_rendering
+	
 	project_render_performance_mode = obj.project_render_performance_mode
 	project_render_performance_mode_skipfog = obj.project_render_performance_mode_skipfog
 	project_render_performance_mode_skipsky = obj.project_render_performance_mode_skipsky

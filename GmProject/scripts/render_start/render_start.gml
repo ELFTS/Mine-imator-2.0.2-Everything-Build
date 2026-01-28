@@ -66,6 +66,7 @@ function render_start()
 		render_camera_vertex_snap = (render_effects && render_camera.value[e_value.CAM_VERTEX_SNAP]) && !render_pass
 		render_camera_heat_distortion = (render_effects && render_camera.value[e_value.CAM_HEAT_DISTORTION]) && !render_pass
 		render_camera_outline = (render_effects && render_camera.value[e_value.CAM_OUTLINE]) && !render_pass
+		render_camera_vhs = (render_effects && render_camera.value[e_value.CAM_VHS]) && !render_pass
 		
 		render_camera_lens_dirt = render_camera_lens_dirt && ((render_camera_bloom && render_camera.value[e_value.CAM_LENS_DIRT_BLOOM]) || (render_glow && render_camera.value[e_value.CAM_LENS_DIRT_GLOW])) && !render_pass
 		render_camera_lens_dirt_bloom = render_camera_lens_dirt && render_camera.value[e_value.CAM_LENS_DIRT_BLOOM] && !render_pass
@@ -98,6 +99,7 @@ function render_start()
 		render_camera_black_lines = false
 		render_camera_vertex_snap = false
 		render_camera_heat_distortion = false
+		render_camera_vhs = false
 		
 		render_camera_colors = false
 		

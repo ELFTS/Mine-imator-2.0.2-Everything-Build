@@ -5,15 +5,19 @@
 function check_to_render(view){
 		if (setting_viewport_optimization){
 			if (string(view) == string(view_main)) {
+				
+				var window_busy_check = (window_busy != "contextmenu" 
+						&& window_busy != "tabmove" && window_busy != "menu" 
+						&& window_busy != "settingsmenu" && window_busy != "timelineselect"
+						&& window_busy != "timelineselectkeyframes" && window_busy != "timelinedrag"
+						&& !string_contains(window_busy, "popupexport") && window_busy != "timelineclickkeyframes");
+				
 			    // Check if camera matrix has changed
 			    if (render_low_Before == 0)
 			    {
 					render_low_drawing = 0
 			    }
-			    else if (window_busy != "" && window_busy != "contextmenu" 
-						&& window_busy != "tabmove" && window_busy != "menu" 
-						&& window_busy != "settingsmenu" && window_busy != "timelineselect"
-						&& window_busy != "timelineselectkeyframes" && window_busy != "timelinedrag"){
+			    else if (window_busy != "" && window_busy_check){
 					render_low_drawing = 0
 				}
 			    else if (timeline_playing || history_resource_update || recent_add_wait > 0){
@@ -46,7 +50,8 @@ function check_to_render(view){
 					render_low_drawing = 0
 				}
 				else if (mouse_left && window_busy != "timelineselect"
-						&& window_busy != "timelineselectkeyframes" && window_busy != "timelinedrag")
+						&& window_busy != "timelineselectkeyframes" && window_busy != "timelinedrag"
+						&& window_busy != "timelineclickkeyframes")
 			    {
 					render_low_drawing = 0
 				}

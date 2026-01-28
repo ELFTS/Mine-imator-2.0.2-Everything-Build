@@ -5,6 +5,7 @@ function recent_add()
 {
 	// Find project in list
 	var obj = null;
+	render_low_drawing = -2
 	for (var i = 0; i < ds_list_size(recent_list); i++)
 	{
 		with (recent_list[|i])
@@ -38,7 +39,6 @@ function recent_add()
 			// Create thumbnail from work camera
 			var surf = null;
 			render_start(surf, null, recent_thumbnail_width, recent_thumbnail_height)
-			render_low_drawing = -1
 			render_low()
 			surf = render_done()
 			surface_save_lib(surf, thumbnailfn)

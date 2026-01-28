@@ -9,6 +9,7 @@ uniform float uDesaturation;
 
 uniform bool uGhostingFix;
 uniform float uGhostingFixThreshold;
+uniform float uBokehStrength;
 
 uniform int uFringe;
 uniform vec3 uFringeAngle;
@@ -117,7 +118,7 @@ void main()
 			}
 			
 	        float bias = mix(1.0, smoothstep(0.0, 1.0, uWeightSamples[i]), uBias * 0.2);
-	        float falloff = exp(-dist * dist * 1.5); // optional soft edge
+	        float falloff = exp(-dist * dist * uBokehStrength); // optional soft edge
 
 	        float baseWeight = (1.0 - (1.0 - sampleBlur) * myBlur) * bias * falloff;
 
@@ -125,7 +126,7 @@ void main()
 	        float brightness = dot(sampleColor.rgb, vec3(0.299, 0.587, 0.114));
 	        float brightnessBias = smoothstep(0.0, 1.0, brightness);
 
-	        float weight = baseWeight * mix(0.2, 1.0, brightnessBias); // reduce dark bleed
+	        float weight = baseWeight * mix(uBokehStrength / 5.0, 1.0, brightnessBias); // reduce dark bleed
 
 	        if (weight > 0.0)
 	        {

@@ -8,7 +8,9 @@ function render_post(finalsurf, sceneeffects = true, posteffects = true)
 	// Start post processing
 	finalsurf = render_high_post_start(finalsurf)
 	render_post_kernel = (render_samples < 2 || render_quality != 2) ? 1 : random_range(0.85, 1.15)
-	render_surface_glow_cache = surface_require(render_surface_glow_cache, render_width, render_height)
+	
+	if (render_glow && sceneeffects)
+		render_surface_glow_cache = surface_require(render_surface_glow_cache, render_width, render_height)
 	
 	// Outline
 	if (render_camera_outline && sceneeffects && render_quality = 2)
@@ -98,10 +100,16 @@ function render_post(finalsurf, sceneeffects = true, posteffects = true)
 		finalsurf = render_high_black_lines(finalsurf)
 	render_update_effects()
 	
+	// VHS
+	if (render_camera_vhs && posteffects)
+		finalsurf = render_high_vhs(finalsurf)
+	render_update_effects()
+	
 	// SMAA
 	if (app.project_render_aa && render_smaa && posteffects) {
 		finalsurf = render_high_smaa(finalsurf)
 	}
+	render_update_effects()
 	
 	// 2D overlay (camera colors/watermark)
 	if (render_overlay && posteffects)

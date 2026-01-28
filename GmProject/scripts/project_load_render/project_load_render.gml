@@ -65,6 +65,7 @@ function project_load_render(map)
 	project_render_glow_falloff = value_get_real(map[?"render_glow_falloff"], project_render_glow_falloff)
 	project_render_glow_falloff_radius = value_get_real(map[?"render_glow_falloff_radius"], project_render_glow_falloff_radius)
 	project_render_glow_falloff_intensity = value_get_real(map[?"render_glow_falloff_intensity"], project_render_glow_falloff_intensity)
+	project_render_glow_blend_mode = value_get_real(map[?"render_glow_blend_mode"], project_render_glow_blend_mode)
 	
 	project_render_aa = value_get_real(map[?"render_aa"], project_render_aa)
 	project_render_aa_power = value_get_real(map[?"render_aa_power"], project_render_aa_power)

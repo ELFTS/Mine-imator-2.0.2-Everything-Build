@@ -158,6 +158,10 @@ function list_init_context_menu(name)
 			list_item_add(text_get("contextmenutlkeyframespaste"), timeline_insert_pos, text_control_name(keybinds[e_keybind.KEYFRAMES_PASTE].keybind), null, icons.PASTE_KEYFRAME, null, action_tl_keyframes_paste)
 			list_item_last.disabled = (copy_kf_amount = 0)
 			
+			list_item_add(text_get("contextmenutlkeyframesactions"), null, "", null, icons.WAND, icons.CHEVRON_RIGHT_TINY, null)
+			list_item_last.context_menu_name = "timelinelkeyframesactions"
+			list_item_last.disabled = !timeline_settings_keyframes
+			
 			list_item_add(text_get("contextmenutlkeyframesdelete"), null, text_control_name(keybinds[e_keybind.KEYFRAMES_DELETE].keybind), null, icons.DELETE_KEYFRAME, null, action_tl_keyframes_remove)
 			list_item_last.disabled = !timeline_settings_keyframes
 			
@@ -205,6 +209,14 @@ function list_init_context_menu(name)
 			
 			list_item_add(text_get("contextmenutlkeyframesselectregion"), null, "", null, null, null, action_tl_select_keyframes_region)
 			list_item_last.disabled = (timeline_region_start = null)
+			break
+		}
+		
+		// Keyframe actions
+		case "timelinelkeyframesactions":
+		{
+			list_item_add(text_get("contextmenutlkeyframesreverse"), null, "", null, icons.MIRROR_HORIZONTALLY, null, action_tl_keyframes_reverse)
+			list_item_add(text_get("contextmenutlkeyframesrandomize"), null, "", null, icons.RANDOMIZE, null, action_tl_keyframes_randomize)
 			break
 		}
 		
