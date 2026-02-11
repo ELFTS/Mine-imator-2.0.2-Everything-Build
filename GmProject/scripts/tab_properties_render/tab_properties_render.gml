@@ -258,10 +258,7 @@ function tab_properties_render()
 		tab_next()
 		
 		tab_control_meter()
-		if (!project_render_engine)
-			draw_meter("renderindirectblurradius", dx, dy, dw, round(project_render_indirect_blur_radius * 100), 0, 500, 100, 1, tab.render.tbx_indirect_blur_radius, action_project_render_indirect_blur_radius)
-		else
-			draw_meter("renderindirectblurradius", dx, dy, dw, round(project_render_indirect_blur_radius_gi * 100), 0, 500, 100, 1, tab.render.tbx_indirect_blur_radius_gi, action_project_render_indirect_blur_radius_gi)
+		draw_meter("renderindirectblurradius", dx, dy, dw, round(project_render_indirect_blur_radius * 100), 0, 500, 100, 1, tab.render.tbx_indirect_blur_radius, action_project_render_indirect_blur_radius)
 		tab_next()
 		
 		tab_control_dragger()
@@ -270,8 +267,8 @@ function tab_properties_render()
 		
 		if (project_render_engine)
 		{
-			tab_control_dragger()
-			draw_dragger("renderindirectraystep", dx, dy, dragger_width, project_render_indirect_raystep, 0.3, 1, 80, 18, 1, tab.render.tbx_indirect_raystep, action_project_render_indirect_raystep, null, true, false, "renderindirectraysteptip")
+			tab_control_meter()
+			draw_meter("renderindirectraystep", dx, dy, dw, project_render_indirect_raystep, 1, 8, 1, 1, tab.render.tbx_indirect_raystep, action_project_render_indirect_raystep, "renderindirectraysteptip")
 			tab_next()
 		}
 		
@@ -287,8 +284,8 @@ function tab_properties_render()
 		
 			dy -= 4
 			
-			tab_control_dragger()
-			draw_dragger("renderindirectdenoiserstrength", dx, dy, dragger_width, project_render_indirect_denoiser_strength, project_render_indirect_denoiser_strength / 400, 1, 300, 100, 1, tab.render.tbx_indirect_denoiser_strength, action_project_render_indirect_denoiser_strength, null, true, false)
+			tab_control_meter()
+			draw_meter("renderindirectdenoiserstrength", dx, dy, dw, project_render_indirect_denoiser_strength, 0, 300, 100, 1, tab.render.tbx_indirect_denoiser_strength, action_project_render_indirect_denoiser_strength)
 			tab_next()
 			
 			tab_collapse_end()

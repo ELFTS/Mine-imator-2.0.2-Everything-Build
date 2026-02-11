@@ -44,6 +44,7 @@ function render_world_ground()
 		 render_mode = e_render_mode.HIGH_LIGHT_SPOT_EX ||
 	     render_mode = e_render_mode.HIGH_LIGHT_POINT_EX||
 	     render_mode = e_render_mode.HIGH_LIGHT_POINT_SHADOWLESS) && 
+		 render_light_tl != null && 
 		 string(render_light_tl.object_tag) != "Main" && 
 		 "Main" != string(render_light_tl.object_tag))
 		render_set_uniform("uIgnore", true)

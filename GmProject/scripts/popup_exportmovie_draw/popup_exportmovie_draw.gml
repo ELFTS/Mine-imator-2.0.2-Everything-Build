@@ -49,6 +49,11 @@ function popup_exportmovie_draw()
 	
 	if (popup.format != "png")
 	{
+		// Legacy Format
+		tab_control_checkbox()
+		draw_checkbox("exportmovielegacyformat", dx, dy, popup.legacy_format, action_toolbar_exportmovie_legacy_format, "exportmovielegacyformattip")
+		tab_next()
+		
 		// Quality
 		if (popup.video_quality = 0)
 			text = text_get("exportmovievideoqualitycustom")
@@ -57,8 +62,8 @@ function popup_exportmovie_draw()
 		
 		tab_control_menu()
 		draw_button_menu("exportmovievideoquality", e_menu.LIST, dx, dy, dw, 24, popup.video_quality, text, action_toolbar_exportmovie_video_quality)
-		draw_label(string(round(popup.bit_rate / 1000) / 100) + " - Mbps", dx + 306, dy + 20, fa_right, fa_bottom, c_text_secondary, 0.5)
 		tab_next()
+		draw_label(string(round(popup.bit_rate / 1000) / 100) + " - Mbps", dx + 306, dy - 20, fa_right, fa_middle, c_text_secondary, 0.5)
 		
 		// Custom quality
 		if (popup.video_quality = 0)
@@ -101,9 +106,11 @@ function popup_exportmovie_draw()
 	else
 	{
 		// Color type
-		tab_control_checkbox()
-		draw_checkbox("exportmoviefullcolor", dx, dy, popup.colortype, action_toolbar_exportmovie_fullcolor, "exportmoviefullcolortip")
-		tab_next()
+		if (!popup.legacy_format) {
+			tab_control_checkbox()
+			draw_checkbox("exportmoviefullcolor", dx, dy, popup.colortype, action_toolbar_exportmovie_fullcolor, "exportmoviefullcolortip")
+			tab_next()
+		}
 		
 		// Include audio
 		tab_control_checkbox()

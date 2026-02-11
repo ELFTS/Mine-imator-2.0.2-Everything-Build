@@ -8,7 +8,6 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 {
 	var start, curtl, tlamount, bend, pos, rot, sca, par, matrixnoscale, hasik, lasttex, ikblend, posebend;
 	var inhalpha, inhcolor, inhglowcolor, inhvis, inhbend, inhtex, inhsurf, inhsubsurf, inhmodifierframeskip;
-	var shakepos, shakerot, shakebend;
 	tlamount = ds_list_size(app.project_timeline_list)
 	posebend = [0, 0, 0]
 	
@@ -52,11 +51,6 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 		
 		if (!curtl.update_matrix)
 			continue
-		
-		// Create shake modifier value
-		shakepos = curtl.modifier_shake_pos
-		shakerot = curtl.modifier_shake_rot
-		shakebend = curtl.modifier_shake_bend
 		
 		// Delay timeline update if we inherit pose
 		if (updateik && !updatepose && (array_length(app.project_inherit_pose_array) > 0) && array_contains(app.project_inherit_pose_array, curtl))
@@ -165,11 +159,15 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 				else
 					matrix_parent = matrix_multiply(matrix_create(point3D(0, 0, 0), model_part.rotation, vec3(1)), matrix_parent)
 			}
+		
+			// Create modifier value
+			if (!updatepose && !updatecopy) // Avoid creating multiple value
+				tl_update_modifier()
 			
 			// Create main matrix
 			if (!modifier_frameskipped) {
-				pos = point3D(value[e_value.POS_X] + shakepos[0], value[e_value.POS_Y] + shakepos[1], value[e_value.POS_Z] + shakepos[2])
-				rot = vec3(value[e_value.ROT_X] + shakerot[0], value[e_value.ROT_Y] + shakerot[1], value[e_value.ROT_Z] + shakerot[2])
+				pos = point3D(value[e_value.POS_X] + modifier_shake_pos[0], value[e_value.POS_Y] + modifier_shake_pos[1], value[e_value.POS_Z] + modifier_shake_pos[2])
+				rot = vec3(value[e_value.ROT_X] + modifier_shake_rot[0], value[e_value.ROT_Y] + modifier_shake_rot[1], value[e_value.ROT_Z] + modifier_shake_rot[2])
 				sca = vec3(value[e_value.SCA_X], value[e_value.SCA_Y], value[e_value.SCA_Z])
 				pos_prev = pos
 				rot_prev = rot
@@ -492,7 +490,7 @@ function tl_update_matrix(usepaths = false, updateik = true, updatepose = false,
 			tl = id
 			
 			for (var j = X; j <= Z; j++)
-				value_inherit[e_value.BEND_ANGLE_X + j] += posebend[j] + shakebend[j]
+				value_inherit[e_value.BEND_ANGLE_X + j] += posebend[j] + modifier_shake_bend[j]
 			
 			while (true)
 			{

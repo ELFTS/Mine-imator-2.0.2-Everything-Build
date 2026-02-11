@@ -179,6 +179,10 @@ function render_startup()
 	globalvar render_ssao_kernel;
 	render_ssao_kernel = render_generate_sample_kernel(12)
 	
+	// INDIRECT
+	globalvar render_indirect_kernel;
+	render_indirect_kernel = render_generate_sample_kernel_2D(27)
+	
 	// DOF
 	globalvar render_dof_samples, render_dof_weight_samples, render_dof_sample_amount;
 	

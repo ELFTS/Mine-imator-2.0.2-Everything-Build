@@ -25,7 +25,7 @@ function settings_save()
 		}
 	
 	json_save_object_done()
-	
+	/*
 	json_save_array_start("recent_files")
 		
 		for (var i = 0; i < ds_list_size(recent_list); i++)
@@ -42,7 +42,7 @@ function settings_save()
 		}
 	
 	json_save_array_done()
-	
+	*/
 	json_save_array_start("closed_toasts")
 	
 		for (var i = 0; i < ds_list_size(closed_toast_list); i++)
@@ -196,10 +196,11 @@ function settings_save()
 	json_save_object_start("export")
 		
 		json_save_var("exportmovie_format", popup_exportmovie.format)
+		json_save_var_bool("exportmovie_legacy_format", popup_exportmovie.legacy_format)
 		json_save_var("exportmovie_frame_rate", popup_exportmovie.frame_rate)
 		json_save_var("exportmovie_framespersecond", popup_exportmovie.framespersecond)
 		json_save_var("exportmovie_bit_rate", popup_exportmovie.bit_rate)
-		json_save_var("exportmovie_colortype", popup_exportmovie.colortype)
+		json_save_var_bool("exportmovie_colortype", popup_exportmovie.colortype)
 		json_save_var_bool("exportmovie_include_audio", popup_exportmovie.include_audio)
 		json_save_var_bool("exportmovie_remove_background", popup_exportmovie.remove_background)
 		json_save_var_bool("exportmovie_include_hidden", popup_exportmovie.include_hidden)

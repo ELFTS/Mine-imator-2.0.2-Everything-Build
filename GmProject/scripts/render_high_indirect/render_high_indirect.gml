@@ -54,15 +54,15 @@ function render_high_indirect()
 			shader_clear()
 	}
 	surface_reset_target()
-		
+	
 	// Blur result
-	if (app.project_render_indirect_blur_radius > 0)
+	if (project_render_indirect_blur_radius > 0)
 	{
 		surface_set_target(render_surface_hdr[0])
 		{
 			draw_clear_alpha(c_black, 0)
 			
-			if (project_render_engine) {
+			if (app.project_render_engine) {
 				render_shader_obj = shader_map[?shader_high_indirect_blur_EX]
 			} else {
 				render_shader_obj = shader_map[?shader_high_indirect_blur]
@@ -71,7 +71,10 @@ function render_high_indirect()
 			with (render_shader_obj)
 			{
 				shader_set(shader)
-				shader_high_indirect_blur_set()
+				if (app.project_render_engine)
+					shader_high_indirect_blur_EX_set()
+				else
+					shader_high_indirect_blur_set()
 			}
 			
 			draw_surface_exists(render_surface_hdr[1], 0, 0)

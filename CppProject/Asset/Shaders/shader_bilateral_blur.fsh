@@ -31,8 +31,8 @@ void main()
     vec3 finalColor = vec3(0.0);
     float totalWeight = 0.0;
 
-    for (int y = -5; y <= 5; y++) {
-        for (int x = -5; x <= 5; x++) {
+    for (int y = -4; y <= 4; y++) {
+        for (int x = -4; x <= 4; x++) {
             vec2 offset = vec2(float(x), float(y)) * texelSize;
             vec2 sampleCoord = vTexCoord + offset;
 
@@ -40,11 +40,11 @@ void main()
                 continue;
 				
             vec3 sampleColor = texture2D(uIndirectTex, sampleCoord).rgb;
-			
+			/*
 			// Black Color artifact fix
 			if (length(sampleColor) <= 0.0)
 				continue;
-			
+			*/
             float sampleDepth = unpackDepth(texture2D(uDepthBuffer, sampleCoord));
 			
 			// Invalid depth fix

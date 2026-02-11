@@ -80,8 +80,6 @@ function app_startup_interface_tabs()
 			tbx_indirect_precision.suffix = "%"
 			tbx_indirect_blur_radius = new_textbox_decimals()
 			tbx_indirect_blur_radius.suffix = "%"
-			tbx_indirect_blur_radius_gi = new_textbox_decimals()
-			tbx_indirect_blur_radius_gi.suffix = "%"
 			tbx_indirect_strength = new_textbox_integer()
 			tbx_indirect_strength.suffix = "%"
 			tbx_indirect_raystep = new_textbox_integer()

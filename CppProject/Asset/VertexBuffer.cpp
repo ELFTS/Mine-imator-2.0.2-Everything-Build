@@ -80,7 +80,7 @@ namespace CppProject
 			AddVertex(thread.currentVertex, threadId);
 			thread.currentVertex = Vertex();
 		}
-		
+
 		thread.elemAdded[elementIndex] = true;
 		return thread.currentVertex;
 	}
@@ -256,35 +256,35 @@ namespace CppProject
 		}
 
 		auto processThread = [&](IntType t)
-		{
-			ThreadData& thread = threads[t];
-			for (ThreadData::MeshData* threadMesh : thread.meshes)
 			{
-				Mesh<>* mesh = threadMesh->targetMesh;
+				ThreadData& thread = threads[t];
+				for (ThreadData::MeshData* threadMesh : thread.meshes)
+				{
+					Mesh<>* mesh = threadMesh->targetMesh;
 
-				// Copy vertices
-				memcpy(mesh->vertexData.data + threadMesh->targetVertexOffset,
-					threadMesh->vertices.Data(),
-					threadMesh->vertices.SizeInBytes());
+					// Copy vertices
+					memcpy(mesh->vertexData.data + threadMesh->targetVertexOffset,
+						threadMesh->vertices.Data(),
+						threadMesh->vertices.SizeInBytes());
 
-				// Copy indices
-				if (threadMesh->targetVertexOffset == 0)
-					memcpy(mesh->indexData.data + threadMesh->targetIndexOffset,
-						threadMesh->indices.Data(),
-						threadMesh->indices.SizeInBytes());
-				
-				else
-					for (IntType i = 0; i < threadMesh->indices.Size(); i++)
-						mesh->indexData[threadMesh->targetIndexOffset + i] = threadMesh->indices.Value(i) + threadMesh->targetVertexOffset;
+					// Copy indices
+					if (threadMesh->targetVertexOffset == 0)
+						memcpy(mesh->indexData.data + threadMesh->targetIndexOffset,
+							threadMesh->indices.Data(),
+							threadMesh->indices.SizeInBytes());
 
-				// Explicitly free memory (also done on Heap<> destruction)
-				threadMesh->vertices.Clear();
-				threadMesh->indices.Clear();
+					else
+						for (IntType i = 0; i < threadMesh->indices.Size(); i++)
+							mesh->indexData[threadMesh->targetIndexOffset + i] = threadMesh->indices.Value(i) + threadMesh->targetVertexOffset;
 
-				delete threadMesh;
-			}
-			thread.meshes.clear();
-		};
+					// Explicitly free memory (also done on Heap<> destruction)
+					threadMesh->vertices.Clear();
+					threadMesh->indices.Clear();
+
+					delete threadMesh;
+				}
+				thread.meshes.clear();
+			};
 
 		// Copy mesh data from thread(s)
 		if (numThreads > 1)
@@ -349,9 +349,9 @@ namespace CppProject
 		IntType bytes = 8; // 64 bits numMeshes
 		for (Mesh<>* mesh : meshes)
 			bytes +=
-				8 + 8 + // 64 bits numVertices + 64 bit numIndices
-				mesh->numVertices * sizeof(Vertex) +
-				mesh->numIndices * sizeof(uint32_t);
+			8 + 8 + // 64 bits numVertices + 64 bit numIndices
+			mesh->numVertices * sizeof(Vertex) +
+			mesh->numIndices * sizeof(uint32_t);
 
 		return bytes;
 	}

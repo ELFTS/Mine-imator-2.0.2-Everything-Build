@@ -39,14 +39,17 @@ function tab_frame_editor_modifier()
 				tab_control_switch()
 				draw_switch("frameeditormodifiershakeposition", dx, dy, tl_edit.value[e_value.MODIFIER_SHAKE_POSITION], action_tl_frame_modifier_shake_position)
 				tab_next()
+				
+				if (tl_edit.type != e_tl_type.PATH_POINT)
+				{
+					tab_control_switch()
+					draw_switch("frameeditormodifiershakerotation", dx, dy, tl_edit.value[e_value.MODIFIER_SHAKE_ROTATION], action_tl_frame_modifier_shake_rotation)
+					tab_next()
 		
-				tab_control_switch()
-				draw_switch("frameeditormodifiershakerotation", dx, dy, tl_edit.value[e_value.MODIFIER_SHAKE_ROTATION], action_tl_frame_modifier_shake_rotation)
-				tab_next()
-		
-				tab_control_switch()
-				draw_switch("frameeditormodifiershakebend", dx, dy, tl_edit.value[e_value.MODIFIER_SHAKE_BEND], action_tl_frame_modifier_shake_bend)
-				tab_next()
+					tab_control_switch()
+					draw_switch("frameeditormodifiershakebend", dx, dy, tl_edit.value[e_value.MODIFIER_SHAKE_BEND], action_tl_frame_modifier_shake_bend)
+					tab_next()
+				}
 				
 				// Shake Power
 				dy += small_spacing
@@ -55,13 +58,16 @@ function tab_frame_editor_modifier()
 				draw_dragger("frameeditormodifiershakepositionpower", dx, dy, dragger_width, round(tl_edit.value[e_value.MODIFIER_SHAKE_POSITION_POWER] * 100) / 100, 0.01, 0, 5, 1, 0.01, tab.constraints.tbx_modifier_shake_position_power, action_tl_frame_modifier_shake_position_power)
 				tab_next()
 				
-				tab_control_dragger()
-				draw_dragger("frameeditormodifiershakerotationpower", dx, dy, dragger_width, round(tl_edit.value[e_value.MODIFIER_SHAKE_ROTATION_POWER] * 100) / 100, 0.01, 0, 5, 1, 0.01, tab.constraints.tbx_modifier_shake_rotation_power, action_tl_frame_modifier_shake_rotation_power)
-				tab_next()
+				if (tl_edit.type != e_tl_type.PATH_POINT)
+				{
+					tab_control_dragger()
+					draw_dragger("frameeditormodifiershakerotationpower", dx, dy, dragger_width, round(tl_edit.value[e_value.MODIFIER_SHAKE_ROTATION_POWER] * 100) / 100, 0.01, 0, 5, 1, 0.01, tab.constraints.tbx_modifier_shake_rotation_power, action_tl_frame_modifier_shake_rotation_power)
+					tab_next()
 				
-				tab_control_dragger()
-				draw_dragger("frameeditormodifiershakebendpower", dx, dy, dragger_width, round(tl_edit.value[e_value.MODIFIER_SHAKE_BEND_POWER] * 100) / 100, 0.01, 0, 5, 1, 0.01, tab.constraints.tbx_modifier_shake_bend_power, action_tl_frame_modifier_shake_bend_power)
-				tab_next()
+					tab_control_dragger()
+					draw_dragger("frameeditormodifiershakebendpower", dx, dy, dragger_width, round(tl_edit.value[e_value.MODIFIER_SHAKE_BEND_POWER] * 100) / 100, 0.01, 0, 5, 1, 0.01, tab.constraints.tbx_modifier_shake_bend_power, action_tl_frame_modifier_shake_bend_power)
+					tab_next()
+				}
 				
 				dy += small_spacing
 				

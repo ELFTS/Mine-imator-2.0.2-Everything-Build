@@ -1,6 +1,6 @@
 /// recent_load()
 
-function recent_load()
+function recent_load(minimal = false)
 {
 	if (!file_exists_lib(recent_file))
 		return 0
@@ -10,14 +10,12 @@ function recent_load()
 	if (recentmap = undefined)
 		return 0
 	
-	with (obj_recent)
-		instance_destroy()
+	recent_destroy()
 	
 	ds_list_clear(recent_list)
-	
 	var recentlist = recentmap[?"list"];
 	
-	for (var i = 0; i < ds_list_size(recentlist); i++)
+	for (var i = 0; i < min(ds_list_size(recentlist), 108); i++)
 	{
 		var projectmap = recentlist[|i];
 		
@@ -33,11 +31,15 @@ function recent_load()
 			recentobj.last_opened = value_get_real(projectmap[?"last_opened"], -1)
 			recentobj.pinned = value_get_real(projectmap[?"pinned"], false)
 			
-			var thumbnailfn = filename_path(recentobj.filename) + "thumbnail.png";
-			if (file_exists_lib(thumbnailfn))
-				recentobj.thumbnail = texture_create(thumbnailfn)
-			else
+			if (!minimal) {
+				var thumbnailfn = filename_path(recentobj.filename) + "thumbnail.png";
+				if (file_exists_lib(thumbnailfn))
+					recentobj.thumbnail = texture_create(thumbnailfn)
+				else
+					recentobj.thumbnail = null
+			} else {
 				recentobj.thumbnail = null
+			}
 			
 			ds_list_add(recent_list, recentobj)
 		}

@@ -48,7 +48,7 @@ function action_toolbar_exportmovie_save()
 		log("Size", project_video_width, project_video_height)
 		log("Color type", (popup_exportmovie.colortype) ? "Full Color" : "Limited")
 		
-		movie_set(project_video_width, project_video_height, popup_exportmovie.bit_rate, exportmovie_framespersecond, popup_exportmovie.include_audio, popup_exportmovie.colortype)
+		movie_set(project_video_width, project_video_height, popup_exportmovie.bit_rate, exportmovie_framespersecond, popup_exportmovie.include_audio, popup_exportmovie.colortype, popup_exportmovie.legacy_format)
 		var err = movie_start(fn, fmt);
 		if (err < 0)
 		{

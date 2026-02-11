@@ -8,6 +8,7 @@ uniform sampler2D uDepthBuffer;
 uniform sampler2D uNormalBuffer;
 uniform sampler2D uNoiseBuffer;
 uniform vec2 uScreenSize;
+uniform vec2 uPixelCheck;
 
 uniform float uNormalBufferScale;
 uniform float uNoiseSize;
@@ -17,7 +18,7 @@ uniform float uBlurSize;
 // Get Depth Value
 float unpackDepth(vec4 c)
 {
-    return dot(c.rgb, vec3(1.0, 0.003921569, 0.00001538));
+	return c.r + c.g / 255.0 + c.b / (255.0 * 255.0);
 }
 
 // Get Normal Value
@@ -72,11 +73,9 @@ void main()
 	
 	for (int i = 0; i < SAMPLES; i++)
 	{
-		vec2 dir = normalize(taps[i]);
-		vec2 samplePos = vec2(
-		    dir.x * cosTheta - dir.y * sinTheta,
-		    dir.x * sinTheta + dir.y * cosTheta
-		);
+		vec2 samplePos = normalize(taps[i]);
+		samplePos.x = samplePos.x * cosTheta - samplePos.y * sinTheta;
+		samplePos.y = samplePos.x * sinTheta + samplePos.y * cosTheta;
 		
 		samplePos = vTexCoord + (samplePos * texelSize * 12.0 * (1.0 / (1.0 + min((uSamples / 8.0), 12.0))) * uBlurSize);
 		
@@ -86,8 +85,7 @@ void main()
 		vec3 sampleNormal = unpackNormal(texture2D(uNormalBuffer, samplePos));
 		float sampleDepth = unpackDepth(texture2D(uDepthBuffer, samplePos));
 		
-		float sampleWeight = (max(0.0, dot(centerNormal, sampleNormal))) * (exp(-abs(sampleDepth - centerDepth) * DEPTH_SENSITIVITY));
-		
+		float sampleWeight = max(0.0, dot(centerNormal, sampleNormal) - abs(sampleDepth - centerDepth) * DEPTH_SENSITIVITY);
 		color += texture2D(gm_BaseTexture, samplePos).rgb * sampleWeight;
 		weight += sampleWeight;
 	}
@@ -97,4 +95,3 @@ void main()
 	
 	gl_FragColor = vec4(color, 1.0);
 }
-

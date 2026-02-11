@@ -651,6 +651,8 @@
 			"videosizecustomkeepaspectratio": "Keep aspect ratio",
 			"videosizecustomerror": "MP4 and MOV formats don't support odd-numbered video sizes.",
 			"format": "Format",
+			"legacyformat": "Legacy Format",
+			"legacyformattip": "Uses old worst quality of video encoders incase your CPU doesn't support it and have WAY BETTER PERFORMANCE",
 			"format/": {
 				"mp4": "MP4",
 				"mov": "MOV",
@@ -2807,6 +2809,7 @@
 			"precision": "Precision",
 			"precisiontip": "The accuracy of raytracing for light bounces, higher precision is slower.",
 			"raysteptip": "The amount of Ray bounce before it stops, Higher more precise and smoother but SLOWER.",
+			"blursample": "Blur Sample",
 			"blurradius": "Denoise radius",
 			"strength": "Strength",
 			"raystep" : "Ray Step Blur",

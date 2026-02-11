@@ -19,6 +19,7 @@ function render_world(mode)
 		 render_mode = e_render_mode.HIGH_LIGHT_POINT_DEPTH ||
 		 render_mode = e_render_mode.HIGH_LIGHT_POINT ||
 		 render_mode = e_render_mode.HIGH_LIGHT_POINT_EX ||
+		 render_mode = e_render_mode.HIGH_LIGHT_POINT_SHADOWLESS ||
 		 render_mode = e_render_mode.HIGH_LIGHT_SPOT ||
 		 render_mode = e_render_mode.HIGH_LIGHT_SPOT_EX ||
 		 render_mode = e_render_mode.HIGH_LIGHT_SUN ||

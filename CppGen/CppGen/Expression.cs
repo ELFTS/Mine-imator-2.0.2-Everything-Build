@@ -402,8 +402,8 @@ namespace CppGen
 		public override string ToCpp(ResolveScope scope)
 		{
 			if (ValueType == Token.Type.String) // String
-				return "/*\"" + Value + "\"*/ STR(" + Program.Strings.IndexOf(Value) + ")";
-			else if (ResolvedType == null || ResolvedType.GetAssignments(DataType.Type.Real).Count == 0) // Integer
+                return "/*\"" + Value + "\"*/ STR(" + Program.Strings.IndexOf(Value) + ")";
+            else if (ResolvedType == null || ResolvedType.GetAssignments(DataType.Type.Real).Count == 0) // Integer
 				return "IntType(" + Value + ")";
 			else if (!Value.Contains(".")) // Convert to Real
 				return Value + ".0";

@@ -110,7 +110,8 @@ namespace CppProject
 			DEBUG("Minecraft saves: " + world_import_get_saves_dir());
 
 			// Set globals
-			gmlGlobal::room_speed = 60;
+			gmlGlobal::room_speed = GetHighestMonitorRefreshRate();
+			DEBUG("Highest Monitor Refresh rate : " + string(gmlGlobal::room_speed) + "Hz");
 			gmlGlobal::delta_time = 1.0;
 			gmlGlobal::GM_runtime_version = "NA";
 			gmlGlobal::async_load = ds_map_create();
@@ -428,14 +429,10 @@ namespace CppProject
 			switch (CleanHeap) {
 				case 1:
 					VecType::CleanHeapData();
-					break;
-				case 2:
 					Font::CleanUnused();
 					break;
-				case 3:
+				case 2:
 					Mesh<>::CleanBuffers();
-					break;
-				case 4:
 					StringType::GetCurrentQThreadData()->mainTable.Clean();
 					CleanHeap = 0;
 					break;
@@ -622,5 +619,33 @@ namespace CppProject
 		}
 
 		app_event_http(ScopeAny(global::_app->id));
+	}
+
+	IntType AppHandler::GetHighestMonitorRefreshRate()
+	{
+		int highestHz = 60; // safe fallback
+
+		DISPLAY_DEVICE display{};
+		display.cb = sizeof(DISPLAY_DEVICE);
+
+		for (DWORD i = 0; EnumDisplayDevices(nullptr, i, &display, 0); ++i)
+		{
+			if (!(display.StateFlags & DISPLAY_DEVICE_ACTIVE))
+				continue;
+
+			DEVMODE devMode{};
+			devMode.dmSize = sizeof(DEVMODE);
+
+			if (EnumDisplaySettings(display.DeviceName, ENUM_CURRENT_SETTINGS, &devMode))
+			{
+				if (devMode.dmDisplayFrequency > 1)
+				{
+					highestHz = std::max(highestHz,
+						static_cast<int>(devMode.dmDisplayFrequency));
+				}
+			}
+		}
+
+		return highestHz;
 	}
 }

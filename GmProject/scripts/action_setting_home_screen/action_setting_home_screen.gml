@@ -19,4 +19,5 @@ function action_setting_home_screen()
 	settings_menu_ani_type = ""
 	context_menu_close()
 	popup_close()
+	recent_load()
 }

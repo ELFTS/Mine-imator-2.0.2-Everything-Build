@@ -657,11 +657,11 @@ function tab_timeline()
 				
 				if (dx > (tlx + tlw + 32))
 					break
+					
+				mouse = (((mouse_x >= dx - 8 && mouse_x < dx + 8) || timeline_mouse_pos = kf.position) && tl = mousetl)
 				
 				if (dx < (tlx - 32))
 					continue
-					
-				mouse = (((mouse_x >= dx - 8 && mouse_x < dx + 8) || timeline_mouse_pos = kf.position) && tl = mousetl)
 				
 				// Sprite
 				var image = ((round(timeline_marker) = kf.position && tl.selected) || kf.selected);

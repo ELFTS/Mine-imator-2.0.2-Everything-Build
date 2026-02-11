@@ -53,7 +53,7 @@ function lib_startup()
 	// Movie library
 	log("External library", pathmovie)
 	lib_movie_init = external_define(pathmovie, "movie_init", dll_cdecl, ty_real, 0)
-	lib_movie_set = external_define(pathmovie, "movie_set", dll_cdecl, ty_real, 6, ty_real, ty_real, ty_real, ty_real, ty_real, ty_real)
+	lib_movie_set = external_define(pathmovie, "movie_set", dll_cdecl, ty_real, 7, ty_real, ty_real, ty_real, ty_real, ty_real, ty_real, ty_real)
 	lib_movie_start = external_define(pathmovie, "movie_start", dll_cdecl, ty_real, 2, ty_string, ty_string)
 	lib_movie_audio_file_decode = external_define(pathmovie, "movie_audio_file_decode", dll_cdecl, ty_real, 2, ty_string, ty_string)
 	lib_movie_audio_file_add = external_define(pathmovie, "movie_audio_file_add", dll_cdecl, ty_real, 1, ty_string)

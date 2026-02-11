@@ -32,15 +32,14 @@ function tl_update_path()
 		if (tl.type = e_tl_type.PATH_POINT)
 		{
 			var pos = [tl.value[e_value.POS_X], tl.value[e_value.POS_Y], tl.value[e_value.POS_Z]]
+			pos = vec3_add(pos, tl.modifier_shake_pos)
+			
 			if (tl.value[e_value.POS_TARGET] != null)
 			{
-				
 					if (tl.value[e_value.COPY_POS_CHILD])
 					{
-						
-						pos[X] = tl.value[e_value.POS_X] + tl.value[e_value.COPY_POS_OFFSET_X]
-						pos[Y] = tl.value[e_value.POS_Y] + tl.value[e_value.COPY_POS_OFFSET_Y]
-						pos[Z] = tl.value[e_value.POS_Z] + tl.value[e_value.COPY_POS_OFFSET_Z] 
+						var copyposoffset = vec3(tl.value[e_value.COPY_POS_OFFSET_X], tl.value[e_value.COPY_POS_OFFSET_Y], tl.value[e_value.COPY_POS_OFFSET_Z])
+						pos = vec3_add(pos, copyposoffset)
 						
 						var par = tl.value[e_value.POS_TARGET];
 						var mat = array_copy_1d(par.matrix);
@@ -77,8 +76,12 @@ function tl_update_path()
 				
 			
 			}
+			// Prevent tangent error
+			var pointscale = tl.value[e_value.PATH_POINT_SCALE]
+			if (tl.value[e_value.PATH_POINT_SCALE] == 0)
+				pointscale = 0.0001
 			
-			ds_list_add(path_points_list, [pos[X], pos[Y], pos[Z], tl.value[e_value.PATH_POINT_ANGLE], tl.value[e_value.PATH_POINT_SCALE], 0, 0, 0, 0, 0, 0])
+			ds_list_add(path_points_list, [pos[X], pos[Y], pos[Z], tl.value[e_value.PATH_POINT_ANGLE], pointscale, 0, 0, 0, 0, 0, 0])
 		}
 	}
 	

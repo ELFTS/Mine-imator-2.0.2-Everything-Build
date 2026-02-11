@@ -10,7 +10,6 @@ function render_world_tl_shadow()
 		type = e_tl_type.BACKGROUND ||
 		type = e_tl_type.AUDIO ||
 		type = e_tl_type.PATH_POINT ||
-		type = e_tl_type.PARTICLE_SPAWNER ||
 		type = e_tl_type.SPOT_LIGHT ||
 		type = e_tl_type.POINT_LIGHT ||
 		type = e_tl_type.CAMERA)
@@ -39,6 +38,10 @@ function render_world_tl_shadow()
 		return 0
 		
 	if (app.project_render_performance_mode && (render_mode = e_render_mode.HIGH_LIGHT_POINT_DEPTH || render_mode = e_render_mode.HIGH_LIGHT_SPOT_DEPTH) && point3D_distance(render_light_from, world_pos) > render_light_far + (16 * max(value[e_value.SCA_X], value[e_value.SCA_Y], value[e_value.SCA_Z])) + app.project_render_performance_mode_light_occlusion_distance && type != e_tl_type.SCENERY)
+		return 0
+	
+	// Only render glow effect?
+	if ((glow && only_render_glow))
 		return 0
 	
 	/*

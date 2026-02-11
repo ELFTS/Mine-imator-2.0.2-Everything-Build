@@ -26,7 +26,6 @@ function history_copy_render_settings(obj)
 	project_render_shadows_transparent = obj.project_render_shadows_transparent
 	project_render_shadows_blur = obj.project_render_shadows_blur
 	project_render_shadows_blur_sample = obj.project_render_shadows_blur_sample
-	project_render_shadows_blur_size = obj.project_render_shadows_blur_size
 	
 	project_render_subsurface_samples = obj.project_render_subsurface_samples
 	project_render_subsurface_strength = obj.project_render_subsurface_strength
@@ -58,6 +57,7 @@ function history_copy_render_settings(obj)
 	project_render_glow_falloff = obj.project_render_glow_falloff
 	project_render_glow_falloff_radius = obj.project_render_glow_falloff_radius
 	project_render_glow_falloff_intensity = obj.project_render_glow_falloff_intensity
+	project_render_glow_blend_mode = obj.project_render_glow_blend_mode
 	
 	project_render_aa = obj.project_render_aa
 	project_render_aa_power = obj.project_render_aa_power

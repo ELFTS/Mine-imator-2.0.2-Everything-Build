@@ -112,7 +112,7 @@ function list_init_context_menu(name)
 			{
 				list_item_add(text_get("contextmenutlcolortag"), null, "", null, icons.TAG, icons.CHEVRON_RIGHT_TINY, null)
 				list_item_last.context_menu_name = "colortag"
-				list_item_last.disabled = (context_menu_value = null || (!context_menu_value.selected && context_menu_value.part_of != null)) ? true : !timeline_settings
+				list_item_last.disabled = (context_menu_value = null && tl_edit = null)
 			}
 			
 			list_item_add(text_get("contextmenutlexpandchildren"), null, "", null, icons.MAXIMIZE, null, action_tl_extend_children)

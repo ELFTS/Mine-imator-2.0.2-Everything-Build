@@ -112,6 +112,7 @@ function settings_startup()
 	setting_scenery_remove_edges = true
 	
 	setting_export_movie_format = "mp4"
+	setting_export_movie_legacy_format = false
 	setting_export_movie_frame_rate = 30
 	setting_export_movie_framespersecond = 30
 	setting_export_movie_bit_rate = 2500000

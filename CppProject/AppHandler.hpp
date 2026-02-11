@@ -62,6 +62,8 @@ namespace CppProject
 
 		// Runs when a HTTP response is received.
 		void HttpResponse(const HttpRequest& request);
+		
+		IntType GetHighestMonitorRefreshRate();
 
 		PrimitiveRenderer* prRenderer = nullptr;
 		VertexBufferRenderer* vbRenderer = nullptr;

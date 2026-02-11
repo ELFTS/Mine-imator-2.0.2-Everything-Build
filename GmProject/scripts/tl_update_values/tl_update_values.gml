@@ -10,7 +10,9 @@ function tl_update_values(force = true)
 	keyframe_next_values = null
 	keyframe_current = null
 	
-	if (!app.setting_viewport_optimization || (keyframe_list_index_prev_position >= app.timeline_marker) || force)
+	var notoptimized = !app.setting_viewport_optimization || force
+	
+	if (notoptimized || (keyframe_list_index_prev_position >= app.timeline_marker))
 		keyframe_list_index_prev = 0
 		
 	// Find keyframes
@@ -41,9 +43,6 @@ function tl_update_values(force = true)
 		keyframe_next_values = keyframe_next.value
 	
 	keyframe_progress_ease = 0
-	
-	// Modifier step
-	modifier_step += (app.timeline_marker - app.timeline_marker_previous) * value[e_value.MODIFIER_SHAKE_SPEED] / 25
 	
 	// Transition
 	tl_update_values_ease(e_value.TRANSITION)
@@ -115,7 +114,7 @@ function tl_update_values(force = true)
 		tl_update_values_ease(e_value.BEND_ANGLE_Z)
 		
 		tl_update_values_ease(e_value.IK_TARGET)
-		if (value[e_value.IK_TARGET] != null) {
+		if (value[e_value.IK_TARGET] != null || notoptimized) {
 			tl_update_values_ease(e_value.IK_BLEND)
 			tl_update_values_ease(e_value.IK_TARGET_ANGLE)
 			tl_update_values_ease(e_value.IK_ANGLE_OFFSET)
@@ -137,21 +136,21 @@ function tl_update_values(force = true)
 		tl_update_values_ease(e_value.SCALE_TARGET)
 		tl_update_values_ease(e_value.LOOK_AT_TARGET)
 		
-		if (value[e_value.LOOK_AT_TARGET] != null) {
+		if (value[e_value.LOOK_AT_TARGET] != null || notoptimized) {
 			tl_update_values_ease(e_value.LOOK_AT_OFFSET_X)
 			tl_update_values_ease(e_value.LOOK_AT_OFFSET_Y)
 			tl_update_values_ease(e_value.LOOK_AT_OFFSET_Z)
 			tl_update_values_ease(e_value.LOOK_AT_BLEND)
 		}
 		
-		if (value[e_value.SCALE_TARGET] != null) {
+		if (value[e_value.SCALE_TARGET] != null || notoptimized) {
 			tl_update_values_ease(e_value.COPY_SCALE_X)
 			tl_update_values_ease(e_value.COPY_SCALE_Y)
 			tl_update_values_ease(e_value.COPY_SCALE_Z)
 			tl_update_values_ease(e_value.COPY_SCALE_BLEND)
 		}
 		
-		if (value[e_value.POS_TARGET] != null) {
+		if (value[e_value.POS_TARGET] != null || notoptimized) {
 			tl_update_values_ease(e_value.COPY_POS_OFFSET_X)
 			tl_update_values_ease(e_value.COPY_POS_OFFSET_Y)
 			tl_update_values_ease(e_value.COPY_POS_OFFSET_Z)
@@ -163,7 +162,7 @@ function tl_update_values(force = true)
 			tl_update_values_ease(e_value.COPY_POS_Z)
 		}
 		
-		if (value[e_value.ROT_TARGET] != null) {
+		if (value[e_value.ROT_TARGET] != null || notoptimized) {
 			tl_update_values_ease(e_value.COPY_ROT_OFFSET_X)
 			tl_update_values_ease(e_value.COPY_ROT_OFFSET_Y)
 			tl_update_values_ease(e_value.COPY_ROT_OFFSET_Z)
@@ -179,7 +178,7 @@ function tl_update_values(force = true)
 	if (value_type[e_value_type.MODIFIER])
 	{
 		tl_update_values_ease(e_value.MODIFIER_SHAKE)
-		if (value[e_value.MODIFIER_SHAKE]) {
+		if (value[e_value.MODIFIER_SHAKE] || notoptimized) {
 			tl_update_values_ease(e_value.MODIFIER_SHAKE_POSITION)
 			tl_update_values_ease(e_value.MODIFIER_SHAKE_ROTATION)
 			tl_update_values_ease(e_value.MODIFIER_SHAKE_BEND)
@@ -191,9 +190,11 @@ function tl_update_values(force = true)
 			tl_update_values_ease(e_value.MODIFIER_SHAKE_OFFSET)
 			tl_update_values_ease(e_value.MODIFIER_SHAKE_OFFSET_AUTOMATIC)
 			tl_update_values_ease(e_value.MODIFIER_SHAKE_KEYFRAME_INFLUENCE)
-			tl_update_values_ease(e_value.MODIFIER_FRAMESKIP)
-			tl_update_values_ease(e_value.MODIFIER_FRAMESKIP_VALUE)
 		}
+		
+		tl_update_values_ease(e_value.MODIFIER_FRAMESKIP)
+		if (value[e_value.MODIFIER_FRAMESKIP_VALUE] || notoptimized)
+			tl_update_values_ease(e_value.MODIFIER_FRAMESKIP_VALUE)
 	}
 	
 	// Color
@@ -213,10 +214,13 @@ function tl_update_values(force = true)
 		tl_update_values_ease(e_value.METALLIC)
 		tl_update_values_ease(e_value.ROUGHNESS)
 		tl_update_values_ease(e_value.SUBSURFACE)
-		tl_update_values_ease(e_value.SUBSURFACE_RADIUS_RED)
-		tl_update_values_ease(e_value.SUBSURFACE_RADIUS_GREEN)
-		tl_update_values_ease(e_value.SUBSURFACE_RADIUS_BLUE)
-		tl_update_values_ease(e_value.SUBSURFACE_COLOR)
+		if (value[e_value.SUBSURFACE] != 0 || notoptimized) {
+			tl_update_values_ease(e_value.SUBSURFACE_RADIUS_RED)
+			tl_update_values_ease(e_value.SUBSURFACE_RADIUS_GREEN)
+			tl_update_values_ease(e_value.SUBSURFACE_RADIUS_BLUE)
+			tl_update_values_ease(e_value.SUBSURFACE_COLOR)
+		}
+		
 		tl_update_values_ease(e_value.WIND_INFLUENCE)
 	}
 	
@@ -242,7 +246,6 @@ function tl_update_values(force = true)
 		tl_update_values_ease(e_value.LIGHT_SPECULAR_STRENGTH)
 		tl_update_values_ease(e_value.LIGHT_SIZE)
 		tl_update_values_ease(e_value.LIGHT_RANGE)
-		tl_update_values_ease(e_value.LIGHT_RANGE)
 		tl_update_values_ease(e_value.LIGHT_FADE_SIZE)
 		
 		// Spotlight
@@ -267,14 +270,14 @@ function tl_update_values(force = true)
 		tl_update_values_ease(e_value.CAM_BLADE_ANGLE)
 		
 		tl_update_values_ease(e_value.CAM_ROTATE)
-		if (value[e_value.CAM_ROTATE]) {
+		if (value[e_value.CAM_ROTATE] || notoptimized) {
 			tl_update_values_ease(e_value.CAM_ROTATE_DISTANCE)
 			tl_update_values_ease(e_value.CAM_ROTATE_ANGLE_XY)
 			tl_update_values_ease(e_value.CAM_ROTATE_ANGLE_Z)
 		}
 		
 		tl_update_values_ease(e_value.CAM_SHAKE)
-		if (value[e_value.CAM_SHAKE]) {
+		if (value[e_value.CAM_SHAKE] || notoptimized) {
 			tl_update_values_ease(e_value.CAM_SHAKE_MODE)
 			tl_update_values_ease(e_value.CAM_SHAKE_OFFSET)
 			tl_update_values_ease(e_value.CAM_SHAKE_STRENGTH_X)
@@ -286,7 +289,7 @@ function tl_update_values(force = true)
 		}
 		
 		tl_update_values_ease(e_value.CAM_DOF)
-		if (value[e_value.CAM_DOF]) {
+		if (value[e_value.CAM_DOF] || notoptimized) {
 			tl_update_values_ease(e_value.CAM_DOF_DEPTH)
 			tl_update_values_ease(e_value.CAM_DOF_RANGE)
 			tl_update_values_ease(e_value.CAM_DOF_FADE_SIZE)
@@ -307,7 +310,7 @@ function tl_update_values(force = true)
 		}
 		
 		tl_update_values_ease(e_value.CAM_BLOOM)
-		if (value[e_value.CAM_BLOOM]) {
+		if (value[e_value.CAM_BLOOM] || notoptimized) {
 			tl_update_values_ease(e_value.CAM_BLOOM_THRESHOLD)
 			tl_update_values_ease(e_value.CAM_BLOOM_INTENSITY)
 			tl_update_values_ease(e_value.CAM_BLOOM_RADIUS)
@@ -317,7 +320,7 @@ function tl_update_values(force = true)
 		}
 		
 		tl_update_values_ease(e_value.CAM_LENS_DIRT)
-		if (value[e_value.CAM_LENS_DIRT]) {
+		if (value[e_value.CAM_LENS_DIRT] || notoptimized) {
 			tl_update_values_ease(e_value.TEXTURE_OBJ)
 			tl_update_values_ease(e_value.CAM_LENS_DIRT_BLOOM)
 			tl_update_values_ease(e_value.CAM_LENS_DIRT_GLOW)
@@ -327,7 +330,7 @@ function tl_update_values(force = true)
 		}
 		
 		tl_update_values_ease(e_value.CAM_COLOR_CORRECTION)
-		if (value[e_value.CAM_COLOR_CORRECTION]) {
+		if (value[e_value.CAM_COLOR_CORRECTION] || notoptimized) {
 			tl_update_values_ease(e_value.CAM_CONTRAST)
 			tl_update_values_ease(e_value.CAM_BRIGHTNESS)
 			tl_update_values_ease(e_value.CAM_SATURATION)
@@ -339,14 +342,14 @@ function tl_update_values(force = true)
 		}
 		
 		tl_update_values_ease(e_value.CAM_GRAIN)
-		if (value[e_value.CAM_GRAIN]) {
+		if (value[e_value.CAM_GRAIN] || notoptimized) {
 			tl_update_values_ease(e_value.CAM_GRAIN_STRENGTH)
 			tl_update_values_ease(e_value.CAM_GRAIN_SATURATION)
 			tl_update_values_ease(e_value.CAM_GRAIN_SIZE)
 		}
 		
 		tl_update_values_ease(e_value.CAM_VIGNETTE)
-		if (value[e_value.CAM_VIGNETTE]) {
+		if (value[e_value.CAM_VIGNETTE] || notoptimized) {
 			tl_update_values_ease(e_value.CAM_VIGNETTE_RADIUS)
 			tl_update_values_ease(e_value.CAM_VIGNETTE_SOFTNESS)
 			tl_update_values_ease(e_value.CAM_VIGNETTE_STRENGTH)
@@ -354,7 +357,7 @@ function tl_update_values(force = true)
 		}
 		
 		tl_update_values_ease(e_value.CAM_CA)
-		if (value[e_value.CAM_CA]) {
+		if (value[e_value.CAM_CA] || notoptimized) {
 			tl_update_values_ease(e_value.CAM_CA_BLUR_AMOUNT)
 			tl_update_values_ease(e_value.CAM_CA_DISTORT_CHANNELS)
 			tl_update_values_ease(e_value.CAM_CA_RED_OFFSET)
@@ -363,14 +366,14 @@ function tl_update_values(force = true)
 		}
 		
 		tl_update_values_ease(e_value.CAM_DISTORT)
-		if (value[e_value.CAM_DISTORT]) {
+		if (value[e_value.CAM_DISTORT] || notoptimized) {
 			tl_update_values_ease(e_value.CAM_DISTORT_REPEAT)
 			tl_update_values_ease(e_value.CAM_DISTORT_ZOOM_AMOUNT)
 			tl_update_values_ease(e_value.CAM_DISTORT_AMOUNT)
 		}
 		
 		tl_update_values_ease(e_value.CAM_BLACK_LINES)
-		if (value[e_value.CAM_BLACK_LINES]) {
+		if (value[e_value.CAM_BLACK_LINES] || notoptimized) {
 			tl_update_values_ease(e_value.CAM_BLACK_LINES_SIZE)
 			tl_update_values_ease(e_value.CAM_BLACK_LINES_ROTATION)
 			tl_update_values_ease(e_value.CAM_BLACK_LINES_OFFSET_Y)
@@ -381,14 +384,14 @@ function tl_update_values(force = true)
 		tl_update_values_ease(e_value.CAM_VERTEX_SNAP_AMOUNT)
 		
 		tl_update_values_ease(e_value.CAM_HEAT_DISTORTION)
-		if (value[e_value.CAM_HEAT_DISTORTION]) {
+		if (value[e_value.CAM_HEAT_DISTORTION] || notoptimized) {
 			tl_update_values_ease(e_value.CAM_HEAT_DISTORTION_STRENGTH)
 			tl_update_values_ease(e_value.CAM_HEAT_DISTORTION_SPEED)
 			tl_update_values_ease(e_value.CAM_HEAT_DISTORTION_SCALE)
 		}
 		
 		tl_update_values_ease(e_value.CAM_VHS)
-		if (value[e_value.CAM_VHS]) {
+		if (value[e_value.CAM_VHS] || notoptimized) {
 			tl_update_values_ease(e_value.CAM_VHS_DISTORTION)
 			tl_update_values_ease(e_value.CAM_VHS_CHROMA_SHIFT)
 			tl_update_values_ease(e_value.CAM_VHS_NOISE)
@@ -401,7 +404,7 @@ function tl_update_values(force = true)
 		tl_update_values_ease(e_value.CAM_SIZE_KEEP_ASPECT_RATIO)
 		
 		tl_update_values_ease(e_value.CAM_OUTLINE)
-		if (value[e_value.CAM_OUTLINE]) {
+		if (value[e_value.CAM_OUTLINE] || notoptimized) {
 			tl_update_values_ease(e_value.CAM_OUTLINE_COLOR)
 			tl_update_values_ease(e_value.CAM_OUTLINE_RADIUS)
 			tl_update_values_ease(e_value.CAM_OUTLINE_STRENGTH)
@@ -482,12 +485,13 @@ function tl_update_values(force = true)
 	}
 	
 	// Texture
-	if (value_type[e_value_type.MATERIAL_TEXTURE])
+	if (value_type[e_value_type.MATERIAL_TEXTURE] || value_type[e_value_type.ITEM])
 	{
 		tl_update_values_ease(e_value.TEXTURE_OBJ)
 		tl_update_values_ease(e_value.TEXTURE_MATERIAL_OBJ)
-		tl_update_values_ease(e_value.TEXTURE_NORMAL_OBJ)
-		tl_update_values_ease(e_value.NORMAL_STRENGTH)
+		tl_update_values_ease(e_value.TEXTURE_NORMAL_OBJ)	
+		if (value[e_value.TEXTURE_NORMAL_OBJ] || notoptimized)
+			tl_update_values_ease(e_value.NORMAL_STRENGTH)
 	}
 	
 	// Sound
@@ -517,10 +521,8 @@ function tl_update_values(force = true)
 	{
 		tl_update_values_ease(e_value.CUSTOM_ITEM_SLOT)
 		tl_update_values_ease(e_value.ITEM_SLOT)
-		tl_update_values_ease(e_value.TEXTURE_OBJ)
-		tl_update_values_ease(e_value.TEXTURE_MATERIAL_OBJ)
-		tl_update_values_ease(e_value.TEXTURE_NORMAL_OBJ)
 	}
+		
 	// Play sounds
 	if (type = e_tl_type.AUDIO && !hide && app.timeline_marker > app.timeline_marker_previous && app.timeline_playing)
 	{

@@ -45,9 +45,8 @@ function project_reset_render()
 	project_render_indirect = true
 	project_render_indirect_precision = .3
 	project_render_indirect_blur_radius = 1
-	project_render_indirect_blur_radius_gi = .5
 	project_render_indirect_strength = 1
-	project_render_indirect_raystep = 8
+	project_render_indirect_raystep = 3
 	project_render_indirect_denoiser = true
 	project_render_indirect_denoiser_strength = 100
 	

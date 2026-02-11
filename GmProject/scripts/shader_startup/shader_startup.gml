@@ -737,8 +737,8 @@ function shader_startup()
 		new_shader_uniform("uNormalBufferScale")
 		new_shader_uniform("uScreenSize")
 		new_shader_uniform("uNoiseSize")
+		new_shader_uniform("uSamples")
 		new_shader_uniform("uBlurSize")
-		new_shader_uniform("uBlurSize2")
 		new_shader_uniform("uRayStep")
 	}
 	

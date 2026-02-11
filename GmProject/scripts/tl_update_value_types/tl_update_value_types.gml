@@ -30,6 +30,8 @@ function tl_update_value_types()
 		value_type[e_value_type.TRANSFORM_POS] = true
 		value_type[e_value_type.TRANSFORM_PATH_POINT] = true
 		value_type[e_value_type.HIERARCHY] = true
+		value_type[e_value_type.MODIFIER] = true
+		value_type[e_value_type.COPY_CONSTRAINTS] = true
 		return 0
 	}
 	

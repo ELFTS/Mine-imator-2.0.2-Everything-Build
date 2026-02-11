@@ -77,6 +77,7 @@ function app_startup_interface_popups()
 	with (popup_exportmovie)
 	{
 		format = app.setting_export_movie_format
+		legacy_format = app.setting_export_movie_legacy_format
 		frame_rate = app.setting_export_movie_frame_rate
 		framespersecond = app.setting_export_movie_framespersecond
 		bit_rate = app.setting_export_movie_bit_rate

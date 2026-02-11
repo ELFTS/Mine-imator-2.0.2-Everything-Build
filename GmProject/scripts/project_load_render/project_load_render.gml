@@ -47,7 +47,6 @@ function project_load_render(map)
 	
 	project_render_indirect = value_get_real(map[?"render_indirect"], project_render_indirect)
 	project_render_indirect_blur_radius = value_get_real(map[?"render_indirect_blur_radius"], project_render_indirect_blur_radius)
-	project_render_indirect_blur_radius_gi = value_get_real(map[?"render_indirect_blur_radius_gi"], project_render_indirect_blur_radius_gi)
 	project_render_indirect_precision = value_get_real(map[?"render_indirect_precision"], project_render_indirect_precision)
 	project_render_indirect_strength = value_get_real(map[?"render_indirect_strength"], project_render_indirect_strength)
 	project_render_indirect_raystep = value_get_real(map[?"render_indirect_raystep"], project_render_indirect_raystep)

@@ -60,10 +60,10 @@ function settings_load()
 		if (ds_map_valid(programmap))
 		{
 			setting_advanced_mode = value_get_real(programmap[?"advanced_mode"], setting_advanced_mode)
-			
+			/*
 			// No interface setting, but custom fps can be loaded from file
 			room_speed = value_get_real(programmap[?"fps"], room_speed)
-			
+			*/
 			if (!dev_mode)
 				setting_project_folder = value_get_string(programmap[?"project_folder"], setting_project_folder)
 			if (!directory_exists_lib(setting_project_folder))
@@ -236,6 +236,7 @@ function settings_load()
 		if (ds_map_valid(exportmap))
 		{
 			setting_export_movie_format = value_get_string(map[?"exportmovie_format"], setting_export_movie_format)
+			setting_export_movie_legacy_format = value_get_real(map[?"exportmovie_legacy_format"], setting_export_movie_legacy_format)
 			setting_export_movie_frame_rate = value_get_real(map[?"exportmovie_frame_rate"], setting_export_movie_frame_rate)
 			setting_export_movie_framespersecond = value_get_real(map[?"exportmovie_framespersecond"], setting_export_movie_framespersecond)
 			setting_export_movie_bit_rate = value_get_real(map[?"exportmovie_bit_rate"], setting_export_movie_bit_rate)

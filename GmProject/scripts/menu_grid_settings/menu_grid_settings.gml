@@ -25,7 +25,7 @@ function menu_grid_settings()
         tab_next()
     }
 	
-    tab_control_dragger()
+    tab_control_meter()
     draw_meter("viewgridalpha", dx, dy, dw, round(project_grid_alpha * 100), 0, 100, 80, 1, tbx_grid_alpha, action_project_grid_alpha)
     tab_next()
     

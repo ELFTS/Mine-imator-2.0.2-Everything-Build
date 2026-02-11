@@ -322,6 +322,7 @@ function draw_recent()
 	if (recent_list_update)
 	{
 		recent_update()
+		recent_save()
 		recent_list_update = false
 	}
 }

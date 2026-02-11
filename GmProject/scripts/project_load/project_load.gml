@@ -120,7 +120,7 @@ function project_load()
 			file_rename_lib(fn, fn + ".old")
 		project_save()
 	}
-	
+		
 	recent_add_wait = 1
 	return true
 }

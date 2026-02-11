@@ -6,6 +6,8 @@ function recent_add()
 	// Find project in list
 	var obj = null;
 	render_low_drawing = -2
+	recent_load(true)
+	
 	for (var i = 0; i < ds_list_size(recent_list); i++)
 	{
 		with (recent_list[|i])
@@ -72,4 +74,5 @@ function recent_add()
 	
 	recent_update()
 	recent_save()
+	recent_destroy()
 }
